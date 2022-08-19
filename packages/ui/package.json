@@ -1,0 +1,72 @@
+{
+  "name": "@tager/admin-ui",
+  "version": "1.0.6",
+  "license": "MIT",
+  "main": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "types": "dist/main.d.ts",
+  "exports": {
+    "./css": "./dist/style.css",
+    ".": "./dist/index.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build:js": "vite build",
+    "build:package": "concurrently --success first \"yarn build:js\" \"yarn emit-declarations\"",
+    "emit-declarations": "vue-tsc --project tsconfig.json --emitDeclarationOnly",
+    "storybook": "start-storybook --port 3000",
+    "tager:update": "yarn upgrade --latest --scope @tager",
+    "yalc:clean": "yalc remove --all",
+    "prepare": "yarn build:package"
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-vue": "^4.0.0",
+    "@floating-ui/dom": "^0.4.5",
+    "@tager/admin-services": "*",
+    "@tager/admin-wysiwyg": "^1.0.0",
+    "autosize": "^5.0.1",
+    "leaflet": "^1.8.0",
+    "smoothscroll-polyfill": "^0.4.4",
+    "sortablejs": "^1.15.0",
+    "tinycolor2": "^1.4.2",
+    "vanilla-picker": "^2.12.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/addon-links": "^6.5.10",
+    "@storybook/builder-webpack5": "^6.5.10",
+    "@storybook/manager-webpack5": "^6.5.10",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/vue3": "^6.5.10",
+    "@types/autosize": "^4.0.1",
+    "@types/leaflet": "^1.7.9",
+    "@types/resize-observer-browser": "^0.1.7",
+    "@types/smoothscroll-polyfill": "^0.3.1",
+    "@types/sortablejs": "^1.10.7",
+    "@types/tinycolor2": "^1.4.3",
+    "@vitejs/plugin-vue": "^2.3.1",
+    "concurrently": "^7.1.0",
+    "core-js": "^3.22.3",
+    "css-loader": "^6.7.1",
+    "msw": "^0.39.2",
+    "msw-storybook-addon": "^1.6.3",
+    "sass": "^1.51.0",
+    "sass-loader": "^12.6.0",
+    "storybook-vue3-router": "^2.3.1",
+    "style-loader": "^3.3.1",
+    "vue-tsc": "^0.34.10",
+    "webpack": "^5.72.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.33",
+    "vue-router": "^4.0.14"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "msw": {
+    "workerDirectory": ".storybook/public"
+  }
+}

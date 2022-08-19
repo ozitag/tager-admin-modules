@@ -1,0 +1,36 @@
+{
+  "name": "@tager/admin-services",
+  "version": "1.1.1",
+  "description": "Tager admin services",
+  "repository": "git@github.com:ozitag/tager-admin-services.git",
+  "author": "Ivan Saranchonkau <ivan.saranchenkov@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "typings": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.mjs"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "build-js": "vite build",
+    "emit-declarations": "tsc --project ./tsconfig.json --emitDeclarationOnly --declarationDir ./dist",
+    "build": "concurrently --kill-others-on-fail true \"yarn emit-declarations\" \"yarn run build-js\"",
+    "prepare": "yarn build"
+  },
+  "dependencies": {
+    "i18next": "^21.6.16",
+    "nanoid": "^3.3.3",
+    "zod": "^3.14.4"
+  },
+  "peerDependencies": {
+    "pinia": "^2.0.18",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.3"
+  }
+}
