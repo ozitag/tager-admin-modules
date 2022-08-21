@@ -15,11 +15,10 @@
   "scripts": {
     "build:js": "vite build",
     "build:package": "concurrently --success first \"yarn build:js\" \"yarn emit-declarations\"",
-    "emit-declarations": "vue-tsc --project tsconfig.json --emitDeclarationOnly",
+    "emit-declarations": "vue-tsc --project tsconfig.json --emitDeclarationOnly --root src",
     "storybook": "start-storybook --port 3000",
     "tager:update": "yarn upgrade --latest --scope @tager",
-    "yalc:clean": "yalc remove --all",
-    "prepare": "yarn build:package"
+    "yalc:clean": "yalc remove --all"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-vue": "^4.0.0",

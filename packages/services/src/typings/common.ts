@@ -1,4 +1,5 @@
 import { TFunction } from "i18next";
+
 import { ResponseWithValidationErrorsType } from "../utils/type-guards";
 
 export type ConstantMap<C extends string> = Readonly<Record<C, C>>;
@@ -23,7 +24,7 @@ export type ParsedResponseBody = JsonParseResult | string | null;
 export type RequestOptions = {
   path?: string;
   body?: BodyParam;
-  params?: QueryParams;
+  params?: QueryParams | undefined;
   absoluteUrl?: string;
   fetchOptions?: RequestInit;
 };
@@ -84,4 +85,4 @@ export type AppConfigType = {
   };
 };
 
-export interface TranslateFunction extends TFunction {}
+export type TranslateFunction = TFunction;

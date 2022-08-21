@@ -26,7 +26,7 @@ export default defineComponent({
     },
   },
   emits: ["close"],
-  setup(props: Props, context: SetupContext) {
+  setup(_props: Props, context: SetupContext) {
     function handleCloseClick(event: Event) {
       context.emit("close", event);
     }

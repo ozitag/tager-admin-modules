@@ -20,9 +20,9 @@ export const Playground: StoryFn = (args) =>
     components: { Toast },
     setup() {
       const toast: ToastParams = {
-        variant: args.variant,
-        title: args.title,
-        body: args.body,
+        variant: args["variant"],
+        title: args["title"],
+        body: args["body"],
       };
 
       return {
@@ -52,9 +52,9 @@ export const Toaster: StoryFn = (args) =>
 
       function showNewToast() {
         toast.show({
-          variant: args.variant,
-          title: args.title,
-          body: args.body,
+          variant: args["variant"],
+          title: args["title"],
+          body: args["body"],
         });
       }
 

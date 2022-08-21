@@ -112,9 +112,9 @@ import {
   ref,
   watch,
 } from "vue";
-import debounce from "lodash.debounce";
+import debounce from "lodash-es/debounce";
 
-import { useI18n } from "@tager/admin-services";
+import { assert, useI18n } from "@tager/admin-services";
 
 import BaseInput from "../BaseInput";
 import { BaseButton } from "../BaseButton";
@@ -362,10 +362,12 @@ export default defineComponent({
         highlightedIndex.value >= 0 &&
         highlightedIndex.value < filteredOptions.value.length
       ) {
-        handleOptionSelect(
-          filteredOptions.value[highlightedIndex.value],
-          highlightedIndex.value
+        const highlightedOption = filteredOptions.value[highlightedIndex.value];
+        assert(
+          highlightedOption !== undefined,
+          "Highlighted option is not found"
         );
+        handleOptionSelect(highlightedOption, highlightedIndex.value);
       }
     }
 

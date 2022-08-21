@@ -33,14 +33,7 @@ import { type PropType } from "vue";
 
 import DoneIcon from "../../icons/DoneIcon.vue";
 
-interface Props {
-  steps: Array<StepType>;
-  current: number;
-}
-
-export interface StepType {
-  title: string;
-}
+import { StepType } from "./Steps.types";
 
 export default defineComponent({
   name: "BaseSteps",

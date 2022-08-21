@@ -90,7 +90,7 @@ export const Ajax = () =>
           });
       }
 
-      function handleChange(value: BaseOptionType) {
+      function handleChange(_value: BaseOptionType) {
         isLoading.value = false;
         // selected.value = value;
         options.value = [];
@@ -123,7 +123,9 @@ export const CommonSelect = () =>
     components: { ComboBox },
     setup() {
       const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
-      const selected = ref<BaseOptionType | null>(OPTIONS[OPTIONS.length - 10]);
+      const selected = ref<BaseOptionType | null>(
+        OPTIONS[OPTIONS.length - 10] ?? null
+      );
 
       return {
         options,

@@ -1,7 +1,8 @@
 import { ref } from "vue";
 import { StoryFn } from "@storybook/vue3";
 
-import TabList, { TabType } from "./TabList.vue";
+import TabList from "./TabList.vue";
+import type { TabType } from "./TabList.types";
 
 export default {
   title: "TabList",
@@ -33,7 +34,7 @@ export const Default = () => ({
   name: "TabListDefault",
   components: { TabList },
   setup() {
-    const selectedTabId = ref(TAB_LIST[0].id);
+    const selectedTabId = ref(TAB_LIST[0]?.id ?? null);
     return {
       selectedTabId,
       tabList: TAB_LIST,
@@ -51,7 +52,7 @@ export const Playground: StoryFn = (args) => ({
   name: "TabListDefault",
   components: { TabList },
   setup() {
-    const selectedTabId = ref(TAB_LIST[0].id);
+    const selectedTabId = ref(TAB_LIST[0]?.id ?? null);
     return {
       selectedTabId,
       tabList: TAB_LIST,
@@ -84,7 +85,7 @@ export const WithErrors = () => ({
         hasErrors: true,
       },
     ];
-    const selectedTabId = ref(customTabList[0].id);
+    const selectedTabId = ref(customTabList[0]?.id ?? null);
 
     return {
       selectedTabId,

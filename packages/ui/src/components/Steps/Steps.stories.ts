@@ -3,7 +3,8 @@ import { StoryFn } from "@storybook/vue3";
 
 import { BaseButton } from "../BaseButton";
 
-import Steps, { StepType } from "./Steps.vue";
+import Steps from "./Steps.vue";
+import { StepType } from "./Steps.types";
 
 export default { title: "Steps" };
 

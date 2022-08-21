@@ -61,10 +61,6 @@ import {
 import type { NavigationGridItem } from "./NavigationGrid.types";
 import GridItemWrapper from "./components/GridItemWrapper.vue";
 
-interface Props {
-  navItems: Array<NavigationGridItem>;
-}
-
 export default defineComponent({
   name: "NavigationGrid",
   components: { Spinner, GridItemWrapper },

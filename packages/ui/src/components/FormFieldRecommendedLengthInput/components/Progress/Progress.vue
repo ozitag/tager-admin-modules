@@ -10,11 +10,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-interface Props {
-  percent: number;
-  color: "success" | "orange" | "red" | "info";
-}
-
 export default defineComponent({
   name: "BaseProgress",
   props: {

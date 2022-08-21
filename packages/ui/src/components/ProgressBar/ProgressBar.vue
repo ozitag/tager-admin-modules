@@ -10,11 +10,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-interface Props {
-  percent: number;
-  color: string;
-}
-
 export default defineComponent({
   name: "ProgressBar",
   props: {

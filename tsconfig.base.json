@@ -18,15 +18,9 @@
     "baseUrl": "./",
     "module": "ESNext",
     "moduleResolution": "node",
-    "paths": {
-      "@tager/admin-services": ["packages/services/src"],
-      "@tager/admin-ui": ["packages/ui/src"]
-    },
 
     // Emit
     "composite": true,
-    "declaration": true,
-    "declarationMap": true,
     "importHelpers": true,
 
     // JavaScript Support

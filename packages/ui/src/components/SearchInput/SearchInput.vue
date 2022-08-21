@@ -30,7 +30,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, watch } from "vue";
-import debounce from "lodash.debounce";
+import debounce from "lodash-es/debounce";
 
 import { useI18n } from "@tager/admin-services";
 

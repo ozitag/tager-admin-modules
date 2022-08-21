@@ -47,7 +47,7 @@ const COLUMN_DEFS: Array<ColumnDefinition> = [
     field: "price",
     style: { minWidth: "75px" },
     headStyle: { minWidth: "75px" },
-    format: ({ row }) => `${row.price}$`,
+    format: ({ row }) => `${row["price"]}$`,
   },
   {
     id: 6,
@@ -66,9 +66,9 @@ const COLUMN_DEFS: Array<ColumnDefinition> = [
 ];
 
 function getProductList(params?: {
-  query?: string;
-  pageNumber?: number;
-  pageSize?: number;
+  query?: string | undefined;
+  pageNumber?: number | undefined;
+  pageSize?: number | undefined;
 }): Promise<ResponseBody<Array<{ [key: string]: unknown }>>> {
   return request.get({ path: "/admin/products", params });
 }
@@ -77,7 +77,7 @@ export const Default = () =>
   defineComponent({
     name: "DataTableDefault",
     components: { DataTable, AdvancedSearch },
-    setup(props) {
+    setup() {
       const {
         isLoading,
         rowData,

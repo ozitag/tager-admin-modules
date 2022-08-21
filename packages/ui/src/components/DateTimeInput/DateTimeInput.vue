@@ -38,7 +38,7 @@
 
 <script lang="ts">
 import { computed, defineComponent } from "vue";
-import kebabCase from "lodash.kebabcase";
+import kebabCase from "lodash-es/kebabcase";
 
 import { isNotFalsy, type Nullable } from "@tager/admin-services";
 
@@ -107,7 +107,10 @@ export default defineComponent({
       const isValid = !Number.isNaN(dateObject.valueOf());
 
       const [date, time] = currentValue.value.split("T");
-      return { date: isValid ? date : "", time: isValid ? time : "" };
+      return {
+        date: isValid && date ? date : "",
+        time: isValid && time ? time : "",
+      };
     });
 
     const date = computed<string>(() => parsedDateTime.value.date);

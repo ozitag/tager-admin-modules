@@ -10,27 +10,27 @@
       </a>
 
       <BaseButton
-          v-if="shouldUseCopyButton"
-          variant="icon"
-          title="Copy to clipboard"
-          @click="handleCopy(link.url)"
+        v-if="shouldUseCopyButton"
+        variant="icon"
+        title="Copy to clipboard"
+        @click="handleCopy(link.url)"
       >
-        <ContentCopyIcon v-if="!isCopied" class="icon-copy"/>
-        <DoneIcon v-else class="icon-copy"/>
+        <ContentCopyIcon v-if="!isCopied" class="icon-copy" />
+        <DoneIcon v-else class="icon-copy" />
       </BaseButton>
     </div>
   </td>
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, type PropType} from "vue";
-import get from "lodash.get";
+import { computed, defineComponent, type PropType } from "vue";
+import get from "lodash-es/get";
 
-import {isAbsoluteUrl} from "@tager/admin-services";
+import { isAbsoluteUrl } from "@tager/admin-services";
 
-import {LinkSchema} from "../../../constants/schema";
+import { LinkSchema } from "../../../constants/schema";
 import useCopyToClipboard from "../../../hooks/useCopyToClipboard";
-import {BaseButton} from "../../BaseButton";
+import { BaseButton } from "../../BaseButton";
 import type {
   ColumnDefinitionLink,
   LinkCellValue,
@@ -52,7 +52,7 @@ interface Props {
 
 export default defineComponent({
   name: "CellLink",
-  components: {ContentCopyIcon, DoneIcon, BaseButton},
+  components: { ContentCopyIcon, DoneIcon, BaseButton },
   props: {
     column: {
       type: Object as PropType<Props["column"]>,
@@ -72,20 +72,20 @@ export default defineComponent({
 
     const link = computed<LinkType | null>(() => {
       const value = (
-          props.column.format
-              ? props.column.format({
-                row: props.row,
-                column: props.column,
-                rowIndex: props.rowIndex,
-              })
-              : get(props.row, props.column.field, null)
+        props.column.format
+          ? props.column.format({
+              row: props.row,
+              column: props.column,
+              rowIndex: props.rowIndex,
+            })
+          : get(props.row, props.column.field, null)
       ) as LinkCellValue;
 
       return isLinkObject(value)
-          ? value
-          : typeof value === "string" && value.trim()
-              ? {url: value, text: value}
-              : null;
+        ? value
+        : typeof value === "string" && value.trim()
+        ? { url: value, text: value }
+        : null;
     });
 
     const isAbsoluteLink = computed(() => {
@@ -102,7 +102,7 @@ export default defineComponent({
 
     const linkAttrs = computed(() => {
       const shouldOpenNewTab =
-          props.column.options?.shouldOpenNewTab ?? !shouldUseRouter.value;
+        props.column.options?.shouldOpenNewTab ?? !shouldUseRouter.value;
 
       return {
         target: shouldOpenNewTab ? "_blank" : undefined,

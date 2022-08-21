@@ -43,15 +43,10 @@ export const Default = () =>
         openGraphImage: TEST_FILE,
       });
 
-      function handleSearchEngineOptimization({
-        title,
-        description,
-        keywords,
-        image,
-      }: SeoChangeEvent) {
-        // values.value.pageTitle = title;
-        // values.value.pageDescription = description;
-        // values.value.openGraphImage = image;
+      function handleSearchEngineOptimization(_event: SeoChangeEvent) {
+        // values.value.pageTitle = event.title;
+        // values.value.pageDescription = event.description;
+        // values.value.openGraphImage = event.image;
       }
 
       // or

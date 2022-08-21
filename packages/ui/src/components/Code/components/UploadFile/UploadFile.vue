@@ -35,7 +35,7 @@ export default defineComponent({
     },
   },
   emits: ["change"],
-  setup(props: Props, context: SetupContext) {
+  setup(_props: Props, context: SetupContext) {
     const inputRef = ref<HTMLInputElement>();
     const file = ref<Nullable<File>>();
 

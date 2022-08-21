@@ -20,13 +20,6 @@ import { defineComponent } from "vue";
 import ComboBox from "../ComboBox";
 import FormFieldWrapper from "../FormFieldWrapper.vue";
 
-interface Props {
-  searchable: boolean;
-  name: string;
-  label: string;
-  error: string;
-}
-
 export default defineComponent({
   name: "FormFieldSelect",
   components: {

@@ -1,0 +1,130 @@
+diff --git a/lib/tsc.js b/lib/tsc.js
+index 4964bb73e22c460a0fc5838633f3644fbddcdc54..5aca84135cdbee71f51d37fb9a5585d350656b0f 100644
+--- a/lib/tsc.js
++++ b/lib/tsc.js
+@@ -4456,10 +4456,11 @@ var ts;
+                 });
+             }
+             function fsWatchFileWorker(fileName, callback, pollingInterval) {
+-                _fs.watchFile(fileName, { persistent: true, interval: pollingInterval }, fileChanged);
++                var actualFilename = fileName.replace('.vue.ts', '.vue');
++                _fs.watchFile(actualFilename, { persistent: true, interval: pollingInterval }, fileChanged);
+                 var eventKind;
+                 return {
+-                    close: function () { return _fs.unwatchFile(fileName, fileChanged); }
++                    close: function () { return _fs.unwatchFile(actualFilename, fileChanged); }
+                 };
+                 function fileChanged(curr, prev) {
+                     var isPreviouslyDeleted = +prev.mtime === 0 || eventKind === FileWatcherEventKind.Deleted;
+@@ -4478,7 +4479,7 @@ var ts;
+                     else {
+                         eventKind = FileWatcherEventKind.Changed;
+                     }
+-                    callback(fileName, eventKind);
++                    callback(actualFilename, eventKind);
+                 }
+             }
+             function fsWatch(fileOrDirectory, entryKind, callback, recursive, fallbackPollingInterval, fallbackOptions) {
+@@ -4579,9 +4580,17 @@ var ts;
+                 return buffer.toString("utf8");
+             }
+             function readFile(fileName, _encoding) {
+-                ts.perfLogger.logStartReadFile(fileName);
+-                var file = readFileWorker(fileName, _encoding);
++                var isVue = fileName.endsWith('.vue.ts');
++                var actualFilename = fileName.replace('.vue.ts', '.vue');
++                ts.perfLogger.logStartReadFile(actualFilename);
++                var file = readFileWorker(actualFilename, _encoding);
+                 ts.perfLogger.logStopReadFile();
++
++                if (isVue && file) {
++                    var match = /<script.*>([\s\S]*)<\/script>/.exec(file);
++                    if (match) return match[1];
++                }
++
+                 return file;
+             }
+             function writeFile(fileName, data, writeByteOrderMark) {
+@@ -33604,6 +33613,14 @@ var ts;
+         if (existingOptions === void 0) { existingOptions = {}; }
+         if (resolutionStack === void 0) { resolutionStack = []; }
+         if (extraFileExtensions === void 0) { extraFileExtensions = []; }
++
++        extraFileExtensions.push({
++            extension: '.vue',
++            isMixedContent: true,
++            // will ensure this will always be included
++            scriptKind: 7,
++        });
++
+         ts.Debug.assert((json === undefined && sourceFile !== undefined) || (json !== undefined && sourceFile === undefined));
+         var errors = [];
+         var parsedConfig = parseConfig(json, sourceFile, host, basePath, configFileName, resolutionStack, errors, extendedConfigCache);
+@@ -33618,10 +33635,13 @@ var ts;
+             sourceFile.configFileSpecs = configFileSpecs;
+         setConfigFileInOptions(options, sourceFile);
+         var basePathForFileNames = ts.normalizePath(configFileName ? directoryOfCombinedPath(configFileName, basePath) : basePath);
++
++        const fileNames = getFileNames(basePathForFileNames).map((f) => f.replace(/\.vue$/, '.vue.ts'));
++
+         return {
+             options: options,
+             watchOptions: watchOptions,
+-            fileNames: getFileNames(basePathForFileNames),
++            fileNames: fileNames,
+             projectReferences: getProjectReferences(basePathForFileNames),
+             typeAcquisition: parsedConfig.typeAcquisition || getDefaultTypeAcquisition(),
+             raw: raw,
+@@ -33664,6 +33684,16 @@ var ts;
+                 includeSpecs = ["**/*"];
+             }
+             var validatedIncludeSpecs, validatedExcludeSpecs;
++
++            if (includeSpecs) {
++                for (var i = 0; i < includeSpecs.length; i++) {
++                    var spec = includeSpecs[i];
++                    if (/\.vue$/.test(spec)) {
++                        includeSpecs[i] = spec.replace(/\.vue$/, '.vue.ts');
++                    }
++                }
++            }
++
+             if (includeSpecs) {
+                 validatedIncludeSpecs = validateSpecs(includeSpecs, errors, true, sourceFile, "include");
+             }
+@@ -94885,10 +94915,11 @@ var ts;
+             return host.writeFile(fileName, data, writeByteOrderMark);
+         }
+         function fileExists(fileName) {
+-            var path = toPath(fileName);
++            var actualFilename = fileName.replace('.vue.ts', '.vue');
++            var path = toPath(actualFilename);
+             var result = getCachedFileSystemEntriesForBaseDir(path);
+-            return result && hasEntry(result.files, getBaseNameOfFileName(fileName)) ||
+-                host.fileExists(fileName);
++            return result && hasEntry(result.files, getBaseNameOfFileName(actualFilename)) ||
++                host.fileExists(actualFilename);
+         }
+         function directoryExists(dirPath) {
+             var path = toPath(dirPath);
+@@ -95605,6 +95636,20 @@ var ts;
+         if (color === void 0) { color = formatColorAndReset; }
+         var _a = ts.getLineAndCharacterOfPosition(file, start), firstLine = _a.line, firstLineChar = _a.character;
+         var relativeFileName = host ? ts.convertToRelativePath(file.fileName, host.getCurrentDirectory(), function (fileName) { return host.getCanonicalFileName(fileName); }) : file.fileName;
++
++        var isVue = relativeFileName.endsWith('.vue.ts');
++
++        if (isVue) {
++            relativeFileName = relativeFileName.replace('.vue.ts', '.vue');
++            var originalFile = ts.sys.readFile(file.fileName.replace('.vue.ts', '.vue'))
++            if (originalFile) {
++                var match = /^([\s\S]*)<script/.exec(originalFile)
++                if (match) {
++                    firstLine += match[1].split('\n').length - 1
++                }
++            }
++        }
++
+         var output = "";
+         output += color(relativeFileName, ForegroundColorEscapeSequences.Cyan);
+         output += ":";

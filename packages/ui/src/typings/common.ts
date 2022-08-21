@@ -1,4 +1,4 @@
-import type { FileType, Nullable } from "@tager/admin-services";
+import type { FileType, Nullable, Nullish } from "@tager/admin-services";
 
 export type ShortCodeParamType = {
   readonly name: string;
@@ -201,7 +201,7 @@ export type DropdownMenuItemType = {
 export type SingleFileInputValueType = {
   id: string;
   file: FileType;
-  caption?: Nullable<string>;
+  caption?: Nullish<string>;
 };
 
 export interface SeoChangeEvent {

@@ -15,13 +15,6 @@ import { defineComponent } from "vue";
 import BaseRichTextInput from "../BaseRichTextInput";
 import FormFieldWrapper from "../FormFieldWrapper.vue";
 
-interface Props {
-  name: string;
-  label: string;
-  value: string;
-  error: string;
-}
-
 export default defineComponent({
   name: "FormFieldRichTextInput",
   components: {

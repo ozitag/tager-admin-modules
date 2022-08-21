@@ -55,7 +55,7 @@ export const Default = () =>
   defineComponent({
     components: { FileInput },
     setup() {
-      const image = ref<SingleFileInputValueType | null>(TEST_FILES[2]);
+      const image = ref<SingleFileInputValueType | null>(TEST_FILES[2] ?? null);
 
       return {
         image,
@@ -85,7 +85,7 @@ export const Simple = () =>
   defineComponent({
     components: { FileInput },
     setup() {
-      const image = ref<SingleFileInputValueType | null>(TEST_FILES[2]);
+      const image = ref<SingleFileInputValueType | null>(TEST_FILES[2] ?? null);
 
       return {
         image,

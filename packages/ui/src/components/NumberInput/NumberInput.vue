@@ -84,7 +84,7 @@ export default defineComponent({
       }
 
       if (event.ctrlKey || event.metaKey) {
-        return true;
+        return;
       }
 
       if (!isKeyAllowed(event.key)) {

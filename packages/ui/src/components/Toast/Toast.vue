@@ -41,7 +41,7 @@ export default defineComponent({
     },
   },
   emits: ["hide:start", "hide:finish"],
-  setup(props: Props, context: SetupContext) {
+  setup(_props: Props, context: SetupContext) {
     function handleHideRequest() {
       context.emit("hide:start");
     }

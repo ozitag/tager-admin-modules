@@ -61,21 +61,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 
 import LoadableImage from "../LoadableImage";
-
-interface Props {
-  type: "text" | "link" | "video" | "image" | "list";
-  text: string | null;
-  shouldUseRouter: boolean;
-  items: Array<{ title: string }> | null;
-  src: string | null;
-  alt: string;
-  maxWidth: number;
-  maxHeight: number;
-  videoId: string | null;
-}
 
 export default defineComponent({
   name: "FieldValue",
@@ -86,7 +74,7 @@ export default defineComponent({
       default: "",
     },
     type: {
-      type: String,
+      type: String as PropType<"text" | "link" | "video" | "image" | "list">,
       default: "text",
       validator: (value: string) =>
         ["text", "link", "video", "image", "list"].includes(value),

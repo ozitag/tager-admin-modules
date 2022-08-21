@@ -21,15 +21,6 @@ import { defineComponent } from "vue";
 import NumberInput from "../NumberInput";
 import FormFieldWrapper from "../FormFieldWrapper.vue";
 
-interface Props {
-  name: string;
-  label: string;
-  value: string;
-  type: string;
-  error: string;
-  thousandsSeparator?: string;
-}
-
 export default defineComponent({
   name: "FormFieldNumberInput",
   components: {

@@ -38,7 +38,7 @@ export default defineComponent({
     },
   },
   emits: ["input", "change", "update:value"],
-  setup(props: Props, context) {
+  setup(_props: Props, context) {
     function getInputValueFromEvent(event: Event): string {
       return (event.target as HTMLInputElement).value;
     }

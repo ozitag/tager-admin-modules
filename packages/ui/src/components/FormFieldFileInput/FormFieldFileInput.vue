@@ -22,15 +22,6 @@ import FormFieldError from "../FormFieldError";
 import FileInput from "../FileInput";
 import type { FileInputValueType } from "../FileInput/FileInput.types";
 
-interface Props {
-  name: string;
-  label: string;
-  value: FileInputValueType;
-  error: string;
-  urlUploadEnabled: boolean | null;
-  scenario: string | null;
-}
-
 export default defineComponent({
   name: "FormFieldFileInput",
   components: {

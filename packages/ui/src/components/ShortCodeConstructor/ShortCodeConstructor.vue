@@ -123,7 +123,7 @@ export default defineComponent({
 
     watch([shortCodeOptionList, selectedShortCode], () => {
       if (shortCodeOptionList.value.length > 0 && !selectedShortCode.value) {
-        selectedShortCode.value = shortCodeOptionList.value[0];
+        selectedShortCode.value = shortCodeOptionList.value[0] ?? null;
       }
     });
 

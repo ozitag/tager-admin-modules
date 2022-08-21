@@ -15,12 +15,6 @@ import { defineComponent } from "vue";
 import ComboBox from "../ComboBox";
 import FormFieldWrapper from "../FormFieldWrapper.vue";
 
-interface Props {
-  name: string;
-  label: string;
-  error: string;
-}
-
 export default defineComponent({
   name: "FormFieldComboBox",
   components: {

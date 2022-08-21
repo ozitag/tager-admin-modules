@@ -59,7 +59,7 @@ export default defineComponent({
     },
   },
   emits: ["update:value"],
-  setup(props: Props, context: SetupContext) {
+  setup(_props: Props, context: SetupContext) {
     const handleFileChange = (file: Nullable<File>) => {
       if (!file) return;
 

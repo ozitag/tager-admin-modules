@@ -27,7 +27,7 @@ export default defineComponent({
     },
   },
   emits: ["dropdown-item:click"],
-  setup(props: Props, context: SetupContext) {
+  setup(_props: Props, context: SetupContext) {
     function handleItemClick(option: DropdownMenuItemType) {
       if (option.type === "divider") return;
       context.emit("dropdown-item:click");

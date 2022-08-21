@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, type PropType } from "vue";
-import get from "lodash.get";
+import get from "lodash-es/get";
 
 import type {
   ColumnDefinitionString,

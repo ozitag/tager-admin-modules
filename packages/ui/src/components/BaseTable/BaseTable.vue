@@ -67,7 +67,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, type PropType } from "vue";
-import kebabCase from "lodash.kebabcase";
+import kebabCase from "lodash-es/kebabcase";
 
 import { useI18n } from "@tager/admin-services";
 

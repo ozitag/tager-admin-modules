@@ -22,14 +22,6 @@ import FormGroup from "../FormGroup.vue";
 import InputLabel from "../InputLabel";
 import FormFieldError from "../FormFieldError";
 
-interface Props {
-  name: string;
-  label: string;
-  checked: boolean;
-  value: boolean;
-  error: string;
-}
-
 export default defineComponent({
   name: "FormFieldCheckbox",
   components: {

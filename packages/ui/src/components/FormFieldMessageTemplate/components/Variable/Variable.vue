@@ -18,10 +18,6 @@ import { defineComponent, type PropType } from "vue";
 import useCopyToClipboard from "../../../../hooks/useCopyToClipboard";
 import type { VariableType } from "../../../../typings/common";
 
-interface Props {
-  variable: VariableType;
-}
-
 export default defineComponent({
   name: "BaseVariable",
   props: {

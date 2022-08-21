@@ -46,7 +46,7 @@
 
 <script lang="ts">
 import { defineComponent, type PropType } from "vue";
-import kebabCase from "lodash.kebabcase";
+import kebabCase from "lodash-es/kebabcase";
 
 import { BaseButton } from "../BaseButton";
 import FormField from "../FormField";

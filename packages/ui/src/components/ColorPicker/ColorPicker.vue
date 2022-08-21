@@ -5,7 +5,7 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref, type Ref, watch } from "vue";
 import Picker from "vanilla-picker/csp";
-import debounce from "lodash.debounce";
+import debounce from "lodash-es/debounce";
 import "vanilla-picker/dist/vanilla-picker.csp.css";
 
 export default defineComponent({

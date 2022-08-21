@@ -63,6 +63,8 @@
 <script lang="ts">
 import { computed, defineComponent, type PropType } from "vue";
 
+import { assert } from "@tager/admin-services";
+
 import ChevronLeftIcon from "../../icons/ChevronLeftIcon.vue";
 import ChevronRightIcon from "../../icons/ChevronRightIcon.vue";
 import ComboBox from "../ComboBox";
@@ -186,8 +188,10 @@ export default defineComponent({
           type: "dots",
           selected: false,
         };
-        pages[pages.length - 1].value = String(props.pageCount);
-        pages[pages.length - 1].number = props.pageCount;
+        const lastPage = pages[pages.length - 1];
+        assert(lastPage !== undefined, "Last page not found");
+        lastPage.value = String(props.pageCount);
+        lastPage.number = props.pageCount;
       } else if (props.pageNumber >= thresholdRight) {
         for (
           let i = props.pageCount - props.pageItemCount + 1;
@@ -201,8 +205,12 @@ export default defineComponent({
             selected: props.pageNumber === i,
           });
         }
-        pages[0].value = "1";
-        pages[0].number = 1;
+
+        const firstPage = pages[0];
+        assert(firstPage !== undefined, "First page not found");
+
+        firstPage.value = "1";
+        firstPage.number = 1;
         pages[1] = {
           number: 2,
           value: "...",

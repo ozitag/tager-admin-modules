@@ -1,7 +1,8 @@
-import RequestError from "./request-error";
-import { getAccessToken, getApiUrl, getSearchString } from "./common";
 import { ParsedResponseBody, QueryParams } from "../typings/common";
 import configService from "../services/configuration";
+
+import RequestError from "./request-error";
+import { getAccessToken, getApiUrl, getSearchString } from "./common";
 
 function parseResponse(response: string): ParsedResponseBody {
   try {
@@ -13,7 +14,7 @@ function parseResponse(response: string): ParsedResponseBody {
 
 function upload<T>(options: {
   file: File;
-  params?: QueryParams;
+  params?: QueryParams | undefined;
   onProgress?: (progressData: {
     event: ProgressEvent;
     loaded: number;

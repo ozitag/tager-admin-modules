@@ -31,14 +31,6 @@ import FormFieldWrapper from "../FormFieldWrapper.vue";
 
 import Variable from "./components/Variable";
 
-interface Props {
-  value: string;
-  type: "text" | "textArea" | "richText";
-  label: string;
-  errorMessage: string;
-  variableList: Array<VariableType>;
-}
-
 export default defineComponent({
   name: "FormFieldMessageTemplate",
   components: {

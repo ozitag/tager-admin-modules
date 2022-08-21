@@ -1,6 +1,7 @@
 import { defineComponent, ref } from "vue";
 
-import FormFooter, { TagerFormSubmitEvent } from "./FormFooter.vue";
+import FormFooter from "./FormFooter.vue";
+import { TagerFormSubmitEvent } from "./FormFooter.types";
 
 export default { title: "FormFooter" };
 

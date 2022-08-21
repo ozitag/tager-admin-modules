@@ -9,17 +9,9 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import type { Nullable } from "@tager/admin-services";
-
 import FormGroup from "./FormGroup.vue";
 import FormFieldError from "./FormFieldError";
 import InputLabel from "./InputLabel";
-
-type Props = {
-  name: string;
-  label: string;
-  error: Nullable<string>;
-};
 
 export default defineComponent({
   name: "FormFieldWrapper",
