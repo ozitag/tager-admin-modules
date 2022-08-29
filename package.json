@@ -7,8 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "postinstall": "patch-package",
-    "patch-typescript": "rm -rf /private/var/folders/t3/bs3dlw0n1s9f2phdz6knp0yc0000gn/T/xfs-002ba626/user/.idea && yarn patch-commit -s /private/var/folders/t3/bs3dlw0n1s9f2phdz6knp0yc0000gn/T/xfs-002ba626/user && rm -rf node_modules/typescript && yarn"
+    "patch-typescript": "FOLDER=/private/var/folders/t3/bs3dlw0n1s9f2phdz6knp0yc0000gn/T/xfs-7da9884c/user && rm -rf $FOLDER/.idea && yarn patch-commit -s $FOLDER && rm -rf node_modules/typescript && yarn"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.3",
@@ -29,10 +28,9 @@
     "eslint-plugin-vue": "^8.7.1",
     "husky": "^7.0.4",
     "lint-staged": "^12.4.1",
-    "patch-package": "^6.4.7",
     "pinia": "^2.0.18",
     "prettier": "^2.6.2",
-    "typescript": "patch:typescript@npm:4.7.4#.yarn/patches/typescript-npm-4.7.4-65aa6ffb42.patch",
+    "typescript": "4.8.2",
     "vite": "^3.0.8",
     "vue": "^3.2.37",
     "vue-router": "^4.1.3"
@@ -46,6 +44,7 @@
     "lodash-es": "^4.17.21"
   },
   "resolutions": {
-    "typescript@4.7.4": "patch:typescript@npm:4.7.4#.yarn/patches/typescript-npm-4.7.4-65aa6ffb42.patch"
+    "typescript@4.7.4": "patch:typescript@npm:4.7.4#.yarn/patches/typescript-npm-4.7.4-65aa6ffb42.patch",
+    "typescript@4.8.2": "patch:typescript@npm:4.8.2#.yarn/patches/typescript-npm-4.8.2-a4828fa7ad.patch"
   }
 }

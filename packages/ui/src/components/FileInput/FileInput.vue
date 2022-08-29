@@ -1,6 +1,6 @@
 <template>
   <div
-      :class="[
+    :class="[
       'file-input-container',
       {
         'with-captions': withCaptions,
@@ -13,46 +13,46 @@
         {{ label }}
       </label>
       <TabList
-          v-if="urlUploadEnabled && fileList.length === 0"
-          v-model:tab-id="selectedTabId"
-          :aligned-right="true"
-          class="file-tab-list"
-          :tab-list="tabList"
+        v-if="urlUploadEnabled && fileList.length === 0"
+        v-model:tab-id="selectedTabId"
+        :aligned-right="true"
+        class="file-tab-list"
+        :tab-list="tabList"
       />
     </div>
 
     <div
-        v-if="uploadingFileList.length > 0"
-        :class="[
+      v-if="uploadingFileList.length > 0"
+      :class="[
         'file-grid',
         { 'is-multiple': multiple, 'is-top-divider': multiple },
       ]"
     >
       <div
-          v-for="entry of uploadingFileList"
-          :key="entry.id"
-          :class="[
+        v-for="entry of uploadingFileList"
+        :key="entry.id"
+        :class="[
           'file-wrapper',
           { single: !multiple },
           { uploading: entry.status === 'UPLOADING' },
           { error: entry.status === 'ERROR' },
         ]"
-          :title="getFileHtmlTitle(entry.file)"
+        :title="getFileHtmlTitle(entry.file)"
       >
         <div class="file-container">
           <BaseButton
-              class="clear-button"
-              variant="icon"
-              title="Clear"
-              @click="clearFile(entry)"
+            class="clear-button"
+            variant="icon"
+            title="Clear"
+            @click="clearFile(entry)"
           >
-            <CloseIcon/>
+            <CloseIcon />
           </BaseButton>
 
           <ProgressBar
-              v-if="entry.status === 'UPLOADING'"
-              :percent="entry.progress"
-              class="upload-progress"
+            v-if="entry.status === 'UPLOADING'"
+            :percent="entry.progress"
+            class="upload-progress"
           />
           <div v-else-if="entry.status === 'ERROR'" class="error-message">
             {{ entry.error }}
@@ -72,54 +72,54 @@
         {{ label }}
       </label>
       <TabList
-          v-if="urlUploadEnabled && savedFileList.length === 0"
-          v-model:tab-id="selectedTabId"
-          :aligned-right="true"
-          class="file-tab-list"
-          :tab-list="tabList"
+        v-if="urlUploadEnabled && savedFileList.length === 0"
+        v-model:tab-id="selectedTabId"
+        :aligned-right="true"
+        class="file-tab-list"
+        :tab-list="tabList"
       />
     </div>
 
     <div
-        v-if="savedFileList.length > 0"
-        ref="fileGridRef"
-        :class="['file-grid', { 'is-multiple': multiple }]"
+      v-if="savedFileList.length > 0"
+      ref="fileGridRef"
+      :class="['file-grid', { 'is-multiple': multiple }]"
     >
       <div
-          v-for="entry of savedFileList"
-          :key="entry.id"
-          :class="[
+        v-for="entry of savedFileList"
+        :key="entry.id"
+        :class="[
           'file-wrapper',
           { single: !multiple },
           { uploading: entry.status === 'UPLOADING' },
           { error: entry.status === 'ERROR' },
         ]"
-          :title="getFileHtmlTitle(entry.file)"
-          :data-draggable-id="entry.id"
+        :title="getFileHtmlTitle(entry.file)"
+        :data-draggable-id="entry.id"
       >
         <div class="file-container">
           <BaseButton
-              class="clear-button"
-              variant="icon"
-              title="Clear"
-              @click="clearFile(entry)"
+            class="clear-button"
+            variant="icon"
+            title="Clear"
+            @click="clearFile(entry)"
           >
-            <CloseIcon/>
+            <CloseIcon />
           </BaseButton>
 
           <div class="file-inner">
             <div class="file-inner-data">
               <a :href="entry.file.url" class="file-link" target="_blank">
                 <LoadableImage
-                    v-if="isImage(entry.file)"
-                    :src="entry.file.url"
-                    :alt="entry.file.name"
-                    class="file-image"
+                  v-if="isImage(entry.file)"
+                  :src="entry.file.url"
+                  :alt="entry.file.name"
+                  class="file-image"
                 />
                 <component
-                    :is="getFileIconVueComponent(entry.file)"
-                    v-else
-                    class="file-icon"
+                  :is="getFileIconVueComponent(entry.file)"
+                  v-else
+                  class="file-icon"
                 />
               </a>
 
@@ -133,11 +133,11 @@
 
             <div v-if="withCaptions" class="caption-text-wrapper">
               <BaseTextArea
-                  class="caption-text-area"
-                  :rows="2"
-                  placeholder="Caption"
-                  :value="entry.caption || ''"
-                  @update:value="handleCaptionChange(entry, $event)"
+                class="caption-text-area"
+                :rows="2"
+                placeholder="Caption"
+                :value="entry.caption || ''"
+                @update:value="handleCaptionChange(entry, $event)"
               />
             </div>
           </div>
@@ -150,18 +150,18 @@
         {{ label }}
       </label>
       <TabList
-          v-if="urlUploadEnabled"
-          v-model:tab-id="selectedTabId"
-          class="file-tab-list"
-          :aligned-right="true"
-          :tab-list="tabList"
+        v-if="urlUploadEnabled"
+        v-model:tab-id="selectedTabId"
+        class="file-tab-list"
+        :aligned-right="true"
+        :tab-list="tabList"
       />
     </div>
 
     <div
-        v-if="shouldDisplayDropbox"
-        ref="dropbox"
-        :class="[
+      v-if="shouldDisplayDropbox"
+      ref="dropbox"
+      :class="[
         'drop-zone',
         {
           highlight: isDragOver,
@@ -169,32 +169,32 @@
           'is-upload-file': selectedTabId === 'file',
         },
       ]"
-        @dragenter="handleDragEnter"
-        @dragover="handleDragOver"
-        @drop="handleDrop"
-        @dragleave="handleDragLeave"
+      @dragenter="handleDragEnter"
+      @dragover="handleDragOver"
+      @drop="handleDrop"
+      @dragleave="handleDragLeave"
     >
       <UploadFileFromUrlForm
-          v-if="selectedTabId === 'url'"
-          :disabled="disabled"
-          @change="handleUploadFromUrlChange"
+        v-if="selectedTabId === 'url'"
+        :disabled="disabled"
+        @change="handleUploadFromUrlChange"
       />
 
       <div v-else-if="selectedTabId === 'file'">
         <div class="upload-message-container">
-          <CloudUploadIcon/>
+          <CloudUploadIcon />
           <p>{{ computedPlaceholderMessage }}</p>
         </div>
 
         <label class="file-input-label">
           <input
-              ref="fileInputRef"
-              type="file"
-              class="visually-hidden"
-              :accept="acceptableMimeTypes"
-              :multiple="multiple"
-              :disabled="disabled"
-              @change="handleChange"
+            ref="fileInputRef"
+            type="file"
+            class="visually-hidden"
+            :accept="acceptableMimeTypes"
+            :multiple="multiple"
+            :disabled="disabled"
+            @change="handleChange"
           />
         </label>
       </div>
@@ -203,8 +203,8 @@
 </template>
 
 <script lang="ts">
-import {computed, defineComponent, type PropType, type Ref, ref} from "vue";
-import type {Component} from "@vue/runtime-core";
+import { computed, defineComponent, type PropType, type Ref, ref } from "vue";
+import type { Component } from "@vue/runtime-core";
 
 import {
   createId,
@@ -218,25 +218,25 @@ import {
   useI18n,
 } from "@tager/admin-services";
 
-import {ARCHIVE_ACCEPT} from "../../constants/common";
-import {BaseButton} from "../BaseButton";
+import { ARCHIVE_ACCEPT } from "../../constants/common";
+import { BaseButton } from "../BaseButton";
 import BaseTextArea from "../BaseTextArea";
 import ProgressBar from "../ProgressBar";
 import LoadableImage from "../LoadableImage";
-import TabList from "../TabList";
+import { TabList } from "../TabList";
 import UploadFileFromUrlForm from "../UploadFileFromUrlForm";
 import CloudUploadIcon from "../../icons/CloudUploadIcon.vue";
 import CloseIcon from "../../icons/CloseIcon.vue";
-import {useSortable} from "../../hooks/useSortable";
+import { useSortable } from "../../hooks/useSortable";
 
-import {getFileIconComponent} from "./FileInput.helpers";
+import { getFileIconComponent } from "./FileInput.helpers";
 import type {
   FileInputValueType,
   SingleFileInputValueType,
   TabListType,
   UploadingSingleFileInputValueType,
 } from "./FileInput.types";
-import {FileInputValueSchema} from "./FileInput.types";
+import { FileInputValueSchema } from "./FileInput.types";
 
 interface Props {
   required?: string;
@@ -303,7 +303,7 @@ export default defineComponent({
     fileType: {
       type: String as PropType<Props["fileType"]>,
       validator: (value: string) =>
-          !value || ["image", "archive"].includes(value),
+        !value || ["image", "archive"].includes(value),
       default: "",
     },
     scenario: {
@@ -323,7 +323,7 @@ export default defineComponent({
     const fileInputRef: Ref<HTMLInputElement | null> = ref(null);
     const isDragOver = ref<boolean>(false);
     const uploadingFileList: Ref<Array<UploadingSingleFileInputValueType>> =
-        ref([]);
+      ref([]);
     const selectedTabId = ref<string>("file");
     const tabList = ref<Array<TabListType>>([
       {
@@ -338,8 +338,8 @@ export default defineComponent({
 
     const savedFileList = computed<Array<SingleFileInputValueType>>(() => {
       return props.multiple
-          ? (props.value as Array<SingleFileInputValueType>)
-          : [props.value as SingleFileInputValueType | null].filter(isNotNullish);
+        ? (props.value as Array<SingleFileInputValueType>)
+        : [props.value as SingleFileInputValueType | null].filter(isNotNullish);
     });
 
     function emitChangeEvent(newFiles: Array<SingleFileInputValueType>) {
@@ -353,7 +353,9 @@ export default defineComponent({
       onChange: emitChangeEvent,
     });
 
-    const fileList = computed<Array<SingleFileInputValueType | UploadingSingleFileInputValueType>>(() => {
+    const fileList = computed<
+      Array<SingleFileInputValueType | UploadingSingleFileInputValueType>
+    >(() => {
       return [...savedFileList.value, ...uploadingFileList.value];
     });
 
@@ -363,8 +365,8 @@ export default defineComponent({
       }
       if (!props.multiple) {
         return (
-            savedFileList.value.length === 0 &&
-            uploadingFileList.value.length === 0
+          savedFileList.value.length === 0 &&
+          uploadingFileList.value.length === 0
         );
       }
       return true;
@@ -395,7 +397,7 @@ export default defineComponent({
     });
 
     function createUploadingFile(
-        nativeFile: File
+      nativeFile: File
     ): UploadingSingleFileInputValueType {
       return {
         id: createId(),
@@ -437,38 +439,38 @@ export default defineComponent({
       uploadingFileList.value.push(...fileArray.map(createUploadingFile));
 
       Promise.all(
-          uploadingFileList.value.map((uploadingValue) => {
-            return upload<FileType>({
-              file: uploadingValue.nativeFile,
-              params: props.scenario ? {scenario: props.scenario} : undefined,
-              onProgress: ({progress}) => {
-                uploadingValue.progress = progress * 100;
-              },
-              xhr: uploadingValue.xhr,
-            })
-                .then((savedFile) => {
-                  const newValue: SingleFileInputValueType = {
-                    id: createId(),
-                    file: savedFile,
-                    caption: removeFileExtension(savedFile.name),
-                  };
-
-                  const newValues: Array<SingleFileInputValueType> = [
-                    ...savedFileList.value,
-                    newValue,
-                  ].filter(notEmpty);
-
-                  emitChangeEvent(newValues);
-
-                  uploadingFileList.value = uploadingFileList.value.filter(
-                      (value) => value.id !== uploadingValue.id
-                  );
-                })
-                .catch((error) => {
-                  uploadingValue.status = "ERROR";
-                  uploadingValue.error = getUploadErrorMessage(error);
-                });
+        uploadingFileList.value.map((uploadingValue) => {
+          return upload<FileType>({
+            file: uploadingValue.nativeFile,
+            params: props.scenario ? { scenario: props.scenario } : undefined,
+            onProgress: ({ progress }) => {
+              uploadingValue.progress = progress * 100;
+            },
+            xhr: uploadingValue.xhr,
           })
+            .then((savedFile) => {
+              const newValue: SingleFileInputValueType = {
+                id: createId(),
+                file: savedFile,
+                caption: removeFileExtension(savedFile.name),
+              };
+
+              const newValues: Array<SingleFileInputValueType> = [
+                ...savedFileList.value,
+                newValue,
+              ].filter(notEmpty);
+
+              emitChangeEvent(newValues);
+
+              uploadingFileList.value = uploadingFileList.value.filter(
+                (value) => value.id !== uploadingValue.id
+              );
+            })
+            .catch((error) => {
+              uploadingValue.status = "ERROR";
+              uploadingValue.error = getUploadErrorMessage(error);
+            });
+        })
       ).finally(() => {
         /** Clear value of file input */
         if (fileInputRef.value) {
@@ -532,19 +534,19 @@ export default defineComponent({
       }
       if (valueToClear.status === "ERROR") {
         uploadingFileList.value = uploadingFileList.value.filter(
-            (value) => value.id !== valueToClear.id
+          (value) => value.id !== valueToClear.id
         );
       } else {
         const newFiles = savedFileList.value.filter(
-            (value) => value.id !== valueToClear.id
+          (value) => value.id !== valueToClear.id
         );
         emitChangeEvent(newFiles);
       }
     }
 
     function handleCaptionChange(
-        updatedValue: SingleFileInputValueType,
-        newCaption: string
+      updatedValue: SingleFileInputValueType,
+      newCaption: string
     ): void {
       updatedValue.caption = newCaption;
       emitChangeEvent(savedFileList.value);
@@ -563,7 +565,7 @@ export default defineComponent({
       const fractionDigitCount = fileSize < 10 ? 2 : fileSize < 100 ? 1 : 0;
 
       return [fileSize.toFixed(fractionDigitCount), unitList[unitIndex]].join(
-          " "
+        " "
       );
     }
 
@@ -751,8 +753,8 @@ export default defineComponent({
       color: var(--danger);
       border-color: rgba(220, 53, 69, 0.4);
       box-shadow: 0 3px 2px -1px rgba(220, 53, 69, 0.2),
-      0px 1px 5px 0px rgba(220, 53, 69, 0.14),
-      0px 1px 5px 0px rgba(220, 53, 69, 0.12);
+        0px 1px 5px 0px rgba(220, 53, 69, 0.14),
+        0px 1px 5px 0px rgba(220, 53, 69, 0.12);
     }
 
     .file-size {
@@ -785,7 +787,7 @@ export default defineComponent({
     &:hover {
       transform: scale(1.1);
       box-shadow: 0 3px 2px -1px rgba(0, 0, 0, 0.2),
-      0px 1px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+        0px 1px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
     }
   }
 

@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "composite": true,
     "rootDir": "./src",
     "outDir": "./dist",
     "declaration": true,
@@ -12,7 +13,7 @@
   },
   "references": [
     {
-      "path": "../services"
+      "path": "../services/tsconfig.json"
     }
   ],
   "include": ["src/**/*.ts", "src/**/*.vue", "custom-types"],

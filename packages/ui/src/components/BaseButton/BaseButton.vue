@@ -79,7 +79,6 @@ export default defineComponent({
   emits: ["click"],
   setup(props: Props, context) {
     const router = useRouter();
-
     const isLink = computed<boolean>(() => Boolean(props.href));
 
     const isDisabled = computed<boolean>(() =>

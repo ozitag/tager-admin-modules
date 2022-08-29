@@ -15,12 +15,10 @@
     "strict": true,
 
     // Modules
-    "baseUrl": "./",
     "module": "ESNext",
     "moduleResolution": "node",
 
     // Emit
-    "composite": true,
     "importHelpers": true,
 
     // JavaScript Support

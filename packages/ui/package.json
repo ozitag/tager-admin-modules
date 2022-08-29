@@ -15,7 +15,7 @@
   "scripts": {
     "build:js": "vite build",
     "build:package": "concurrently --success first \"yarn build:js\" \"yarn emit-declarations\"",
-    "emit-declarations": "vue-tsc --project tsconfig.json --emitDeclarationOnly --root src",
+    "emit-declarations": "tsc --project tsconfig.json --emitDeclarationOnly --root src",
     "storybook": "start-storybook --port 3000",
     "tager:update": "yarn upgrade --latest --scope @tager",
     "yalc:clean": "yalc remove --all"
@@ -55,7 +55,6 @@
     "sass-loader": "^12.6.0",
     "storybook-vue3-router": "^2.3.1",
     "style-loader": "^3.3.1",
-    "vue-tsc": "^0.34.10",
     "webpack": "^5.72.0"
   },
   "peerDependencies": {

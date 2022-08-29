@@ -1,0 +1,58 @@
+diff --git a/lib/tsc.js b/lib/tsc.js
+index 97db13aa62a50ab6d370755debe131b5ff07010f..8a7e8692dd24f4140dee88b2a3c839116e41ad36 100644
+--- a/lib/tsc.js
++++ b/lib/tsc.js
+@@ -4480,6 +4480,7 @@ var ts;
+                     return process.stdout.isTTY;
+                 },
+                 readFile: readFile,
++                readFileWorker: readFileWorker,
+                 writeFile: writeFile,
+                 watchFile: watchFile,
+                 watchDirectory: watchDirectory,
+@@ -4721,6 +4722,11 @@ var ts;
+                 ts.perfLogger.logStartReadFile(fileName);
+                 var file = readFileWorker(fileName, _encoding);
+                 ts.perfLogger.logStopReadFile();
++                var isVue = fileName.endsWith('.vue');
++                if (isVue && file) {
++                    var match = /<script.*>([\s\S]*)<\/script>/.exec(file);
++                    if (match) return match[1];
++                }
+                 return file;
+             }
+             function writeFile(fileName, data, writeByteOrderMark) {
+@@ -16574,13 +16580,13 @@ var ts;
+         }
+     }
+     ts.getScriptKindFromFileName = getScriptKindFromFileName;
+-    ts.supportedTSExtensions = [[".ts", ".tsx", ".d.ts"], [".cts", ".d.cts"], [".mts", ".d.mts"]];
++    ts.supportedTSExtensions = [[".ts", ".tsx", ".d.ts"], [".cts", ".d.cts"], [".mts", ".d.mts"], [".vue"]];
+     ts.supportedTSExtensionsFlat = ts.flatten(ts.supportedTSExtensions);
+     var supportedTSExtensionsWithJson = __spreadArray(__spreadArray([], ts.supportedTSExtensions, true), [[".json"]], false);
+     var supportedTSExtensionsForExtractExtension = [".d.ts", ".d.cts", ".d.mts", ".cts", ".mts", ".ts", ".tsx", ".cts", ".mts"];
+-    ts.supportedJSExtensions = [[".js", ".jsx"], [".mjs"], [".cjs"]];
++    ts.supportedJSExtensions = [[".js", ".jsx"], [".mjs"], [".cjs"], [".vue"]];
+     ts.supportedJSExtensionsFlat = ts.flatten(ts.supportedJSExtensions);
+-    var allSupportedExtensions = [[".ts", ".tsx", ".d.ts", ".js", ".jsx"], [".cts", ".d.cts", ".cjs"], [".mts", ".d.mts", ".mjs"]];
++    var allSupportedExtensions = [[".ts", ".tsx", ".d.ts", ".js", ".jsx"], [".cts", ".d.cts", ".cjs"], [".mts", ".d.mts", ".mjs"], [".vue"]];
+     var allSupportedExtensionsWithJson = __spreadArray(__spreadArray([], allSupportedExtensions, true), [[".json"]], false);
+     ts.supportedDeclarationExtensions = [".d.ts", ".d.cts", ".d.mts"];
+     function getSupportedExtensions(options, extraFileExtensions) {
+@@ -97089,6 +97095,16 @@ var ts;
+         if (color === void 0) { color = formatColorAndReset; }
+         var _a = ts.getLineAndCharacterOfPosition(file, start), firstLine = _a.line, firstLineChar = _a.character;
+         var relativeFileName = host ? ts.convertToRelativePath(file.fileName, host.getCurrentDirectory(), function (fileName) { return host.getCanonicalFileName(fileName); }) : file.fileName;
++        var isVue = relativeFileName.endsWith('.vue');
++        if (isVue) {
++            var originalFile = ts.sys.readFileWorker(file.fileName);
++            if (originalFile) {
++                var match = /^([\s\S]*)<script/.exec(originalFile);
++                if (match) {
++                    firstLine += match[1].split('\n').length - 1
++                }
++            }
++        }
+         var output = "";
+         output += color(relativeFileName, ForegroundColorEscapeSequences.Cyan);
+         output += ":";
