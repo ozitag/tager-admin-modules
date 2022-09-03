@@ -1,4 +1,5 @@
 import { inject } from "vue";
+
 import { i18nInjectionKey } from "../services/i18n.js";
 
 export function useI18n() {

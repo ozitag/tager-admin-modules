@@ -6,7 +6,6 @@
     "outDir": "./dist",
     "declaration": true,
     "declarationDir": "./dist",
-    "tsBuildInfoFile": "../../ts-build/ui.stories.tsbuildinfo"
   },
   "references": [
     {

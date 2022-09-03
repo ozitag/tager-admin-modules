@@ -30,7 +30,7 @@ export default defineConfig({
     lib: {
       entry: resolvePath("./src/index.ts"),
       formats: ["es"],
-      fileName: () => "index.mjs",
+      fileName: "index",
     },
     rollupOptions: {
       external: getExternalDependencies(),

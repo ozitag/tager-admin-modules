@@ -9,20 +9,21 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "typings": "dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.mjs"
+    ".": "./dist/index.js"
   },
   "engines": {
     "node": ">=16"
   },
   "scripts": {
-    "build-js": "vite build",
-    "emit-declarations": "tsc --project ./tsconfig.json --emitDeclarationOnly --declarationMap false",
-    "build-package": "concurrently --kill-others-on-fail true \"yarn emit-declarations\" \"yarn build-js\"",
-    "prepare": "yarn build"
+    "clean": "find . -name dist -o -name \"*.tsbuildinfo\" -maxdepth 1 | xargs rm -rf",
+    "emit-declarations": "tsc --project ./tsconfig.app.json --emitDeclarationOnly --declarationMap false",
+    "build:js": "vite build",
+    "build:package": "yarn run --top-level clean && yarn build:js && yarn emit-declarations",
+    "prepack": "yarn build:package"
   },
   "dependencies": {
     "i18next": "^21.9.1",
@@ -30,8 +31,8 @@
     "zod": "^3.18.0"
   },
   "peerDependencies": {
-    "pinia": "^2.0.18",
-    "vue": "^3.2.37",
-    "vue-router": "^4.1.3"
+    "pinia": "*",
+    "vue": "*",
+    "vue-router": "*"
   }
 }

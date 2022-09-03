@@ -6,7 +6,6 @@
     "outDir": "./dist",
     "declaration": true,
     "declarationDir": "./dist",
-    "tsBuildInfoFile": "../../ts-build/services.vite.tsbuildinfo",
     "resolveJsonModule": true
   },
   "files": ["vite.config.ts", "package.json"]

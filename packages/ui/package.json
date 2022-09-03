@@ -13,17 +13,17 @@
     "dist"
   ],
   "scripts": {
+    "clean": "find . -name dist -o -name \"*.tsbuildinfo\" -maxdepth 1 | xargs rm -rf",
     "build:js": "vite build",
     "build:package": "concurrently --success first \"yarn build:js\" \"yarn emit-declarations\"",
     "emit-declarations": "tsc --project tsconfig.json --emitDeclarationOnly --root src",
     "storybook": "start-storybook --port 3000",
-    "tager:update": "yarn upgrade --latest --scope @tager",
-    "yalc:clean": "yalc remove --all"
+    "tager:update": "yarn upgrade --latest --scope @tager"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-vue": "^4.0.1",
     "@floating-ui/dom": "^0.4.5",
-    "@tager/admin-services": "*",
+    "@tager/admin-services": "workspace:*",
     "@tager/admin-wysiwyg": "^1.0.0",
     "autosize": "^5.0.1",
     "leaflet": "^1.8.0",

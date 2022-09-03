@@ -9,7 +9,6 @@
     "paths": {
       "@tager/admin-services": ["../services"]
     },
-    "tsBuildInfoFile": "../../ts-build/ui.app.tsbuildinfo"
   },
   "references": [
     {
