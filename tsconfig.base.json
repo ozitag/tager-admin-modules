@@ -30,6 +30,9 @@
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "target": "ESNext",
 
+    // Output Formatting
+    "noErrorTruncation": true,
+
     // Interop Constraints
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

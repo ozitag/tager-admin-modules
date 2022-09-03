@@ -2,11 +2,12 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "composite": true,
-    "rootDir": "./",
+    "rootDir": "./src",
     "outDir": "./dist",
     "declaration": true,
     "declarationDir": "./dist",
-    "tsBuildInfoFile": "../../ts-build/ui.vite.tsbuildinfo"
+    "declarationMap": true,
+    "tsBuildInfoFile": "../../ts-build/services.app.tsbuildinfo"
   },
-  "files": ["vite.config.ts"]
+  "include": ["src/**/*.ts"]
 }

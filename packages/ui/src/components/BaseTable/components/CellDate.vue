@@ -6,7 +6,7 @@
 import get from "lodash-es/get";
 import { computed, defineComponent, type PropType } from "vue";
 
-import { formatDate, formatDateTime, testT } from "../../../utils/common";
+import { formatDate, formatDateTime } from "../../../utils/common";
 import type {
   ColumnDefinitionDate,
   ColumnDefinitionDateTime,
@@ -55,7 +55,6 @@ export default defineComponent({
       } else {
         const ignoreStartOfDayTime =
           props.column.options?.ignoreStartOfDayTime ?? true;
-        console.log(testT());
         return formatDateTime(new Date(date), ignoreStartOfDayTime);
       }
     });

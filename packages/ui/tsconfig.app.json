@@ -6,10 +6,10 @@
     "outDir": "./dist",
     "declaration": true,
     "declarationDir": "./dist",
-    "declarationMap": true,
     "paths": {
       "@tager/admin-services": ["../services"]
-    }
+    },
+    "tsBuildInfoFile": "../../ts-build/ui.app.tsbuildinfo"
   },
   "references": [
     {

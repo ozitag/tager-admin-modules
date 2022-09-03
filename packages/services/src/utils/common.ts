@@ -158,10 +158,6 @@ export function createId(size?: number): string {
   return nanoid(size);
 }
 
-export function checkTypes(): [number, string] {
-  return [3, "4"];
-}
-
 export function urlTranslit(phrase: string): string {
   return phrase
     .replace(/([а-яё])|([\s_-])|([^a-z\d])/gi, (_all, ch, space, words) => {

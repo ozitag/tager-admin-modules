@@ -1,7 +1,6 @@
 import type { LocationQuery, Router, LocationQueryValue } from "vue-router";
 
 import {
-  checkTypes,
   environment,
   isAbsoluteUrl,
   isNotNullish,
@@ -14,10 +13,6 @@ import {
  */
 export function formatDate(date: Date): string {
   return date.toLocaleDateString();
-}
-
-export function testT(): string {
-  return checkTypes();
 }
 
 /**

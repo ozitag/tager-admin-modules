@@ -1,9 +1,10 @@
 import { defineComponent } from "vue";
 import { StoryFn } from "@storybook/vue3";
 
-import BaseButton from "./BaseButton.vue";
 import DeleteIcon from "../../icons/DeleteIcon.vue";
 import EditIcon from "../../icons/EditIcon.vue";
+
+import BaseButton from "./BaseButton.vue";
 
 export default { title: "BaseButton" };
 
