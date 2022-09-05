@@ -1,4 +1,4 @@
 @import "./global.css";
 @import "./variables.css";
 
-@import "~leaflet/dist/leaflet.css";
+@import "leaflet/dist/leaflet.css";

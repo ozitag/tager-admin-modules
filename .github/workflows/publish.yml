@@ -37,7 +37,7 @@ jobs:
       - name: Health check
         run: |
           yarn run typecheck
-          yarn workspaces foreach -Ap run build:package
+          yarn workspaces foreach --all --parallel --verbose run build:package
 #      - name: Publish
 #        run: |
 #          yarn changeset status

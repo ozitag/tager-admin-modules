@@ -30,16 +30,4 @@ export default defineConfig({
     },
   },
   plugins: [vue()],
-  resolve: {
-    alias: [
-      /**
-       * Support importing css files from `node_modules` via `~`.
-       * e.g. `@import "~normalize.css";`
-       */
-      {
-        find: /^~(.+)/,
-        replacement: resolvePath("node_modules/$1"),
-      },
-    ],
-  },
 });
