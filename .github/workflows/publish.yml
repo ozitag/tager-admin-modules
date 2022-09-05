@@ -15,22 +15,38 @@ jobs:
           node-version: '16.17.0'
           registry-url: 'https://registry.npmjs.org'
           cache: 'yarn'
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
 #      - name: Setup .yarnrc.yml
 #        run: |
 #          yarn config set npmScopes.@tager.npmRegistryServer "http://npm.saranchonkau.com"
 #          yarn config set npmScopes.@tager.npmAlwaysAuth true
 #          yarn config set npmScopes.@tager.npmAuthToken $NPM_AUTH_TOKEN
-      - name: Install dependencies
+      - if: ${{ steps.yarn-cache.outputs.cache-hit != 'true' }}
+        name: Install dependencies
         run: yarn install --immutable
-      - name: Publish
+      - name: Health check
         run: |
-          yarn changeset status
-          echo "@tager:registry=https://npm.saranchonkau.com/" >> `npm config get userconfig`
-          echo "//npm.saranchonkau.com/:_authToken=$NPM_TOKEN" >> `npm config get userconfig`
-          yarn changeset version
-          . "./scripts/commit-ci-changes.sh"
-          yarn changeset publish
-          git push --follow-tags
-        env:
-          NPM_TOKEN: 'KRxbR+ltCDoGUmHF2WshP3PBALfGUvVlB4jBFmoJqW4='
-          npm_config_registry: 'http://npm.saranchonkau.com'
+          yarn run typecheck
+          yarn workspaces foreach -Ap run build:package
+#      - name: Publish
+#        run: |
+#          yarn changeset status
+#          echo "@tager:registry=https://npm.saranchonkau.com/" >> `npm config get userconfig`
+#          echo "//npm.saranchonkau.com/:_authToken=$NPM_TOKEN" >> `npm config get userconfig`
+#          yarn changeset version
+#          . "./scripts/commit-ci-changes.sh"
+#          yarn changeset publish
+#          git push --follow-tags
+#        env:
+#          NPM_TOKEN: 'KRxbR+ltCDoGUmHF2WshP3PBALfGUvVlB4jBFmoJqW4='
+#          npm_config_registry: 'http://npm.saranchonkau.com'
