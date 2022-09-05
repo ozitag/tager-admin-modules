@@ -27,6 +27,7 @@
     "@tager/admin-wysiwyg": "^1.0.0",
     "autosize": "^5.0.1",
     "leaflet": "^1.8.0",
+    "lodash-es": "*",
     "smoothscroll-polyfill": "^0.4.4",
     "sortablejs": "^1.15.0",
     "tinycolor2": "^1.4.2",
