@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "yarn workspaces foreach -Ap run clean",
     "patch-typescript": "FOLDER=/private/var/folders/t3/bs3dlw0n1s9f2phdz6knp0yc0000gn/T/xfs-7da9884c/user && rm -rf $FOLDER/.idea && yarn patch-commit -s $FOLDER && rm -rf node_modules/typescript && yarn",
-    "typecheck": "yarn clean && tsc -b",
+    "typecheck": "tsc -b",
     "dev": "yarn clean && tsc -b -w",
     "postinstall": "yarn typecheck"
   },
@@ -34,7 +34,7 @@
     "lodash-es": "^4.17.21",
     "pinia": "^2.0.21",
     "prettier": "^2.7.1",
-    "typescript": "4.8.2",
+    "typescript": "patch:typescript@4.8.2#.yarn/patches/typescript-npm-4.8.2-a4828fa7ad.patch",
     "vite": "^3.1.0",
     "vue": "^3.2.38",
     "vue-router": "^4.1.5"

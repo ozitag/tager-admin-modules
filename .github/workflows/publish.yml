@@ -36,8 +36,8 @@ jobs:
         run: yarn install --immutable
       - name: Health check
         run: |
-          yarn workspaces foreach --all --verbose run build:package
           yarn run typecheck
+          yarn workspaces foreach --verbose run build:package
 #      - name: Publish
 #        run: |
 #          yarn changeset status

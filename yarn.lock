@@ -15303,7 +15303,7 @@ __metadata:
     lodash-es: ^4.17.21
     pinia: ^2.0.21
     prettier: ^2.7.1
-    typescript: 4.8.2
+    typescript: "patch:typescript@4.8.2#.yarn/patches/typescript-npm-4.8.2-a4828fa7ad.patch"
     vite: ^3.1.0
     vue: ^3.2.38
     vue-router: ^4.1.5
@@ -15831,13 +15831,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.8.2#~builtin<compat/typescript>":
+"typescript@patch:typescript@4.8.2#.yarn/patches/typescript-npm-4.8.2-a4828fa7ad.patch::locator=tager-admin-modules%40workspace%3A.":
   version: 4.8.2
-  resolution: "typescript@patch:typescript@npm%3A4.8.2#~builtin<compat/typescript>::version=4.8.2&hash=f456af"
+  resolution: "typescript@patch:typescript@npm%3A4.8.2#.yarn/patches/typescript-npm-4.8.2-a4828fa7ad.patch::version=4.8.2&hash=28bf28&locator=tager-admin-modules%40workspace%3A."
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 6f49363af8af2fe480da1d5fa68712644438785208b06690a3cbe5e7365fd652c3a0f1e587bc8684d78fb69de3dde4de185c0bad7bb4f3664ddfc813ce8caad6
+  checksum: a94a3d954f61f01395e23e6040b558ac8f610365f91178b3350b4b58dfd491b7c924dc2c6d6dfede1ee21918c5b1985041fd2d1fc277786a05e2988559783d7d
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@patch%3Atypescript@4.8.2%23.yarn/patches/typescript-npm-4.8.2-a4828fa7ad.patch#~builtin<compat/typescript>":
+  version: 4.8.2
+  resolution: "typescript@patch:typescript@patch%3Atypescript@npm%253A4.8.2%23.yarn/patches/typescript-npm-4.8.2-a4828fa7ad.patch%3A%3Aversion=4.8.2&hash=28bf28&locator=tager-admin-modules%2540workspace%253A.#~builtin<compat/typescript>::version=4.8.2&hash=f456af"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: a94a3d954f61f01395e23e6040b558ac8f610365f91178b3350b4b58dfd491b7c924dc2c6d6dfede1ee21918c5b1985041fd2d1fc277786a05e2988559783d7d
   languageName: node
   linkType: hard
 
