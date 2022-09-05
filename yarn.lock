@@ -3415,6 +3415,7 @@ __metadata:
     "@tager/admin-wysiwyg": ^1.0.0
     "@types/autosize": ^4.0.1
     "@types/leaflet": ^1.7.11
+    "@types/lodash-es": ^4.17.6
     "@types/resize-observer-browser": ^0.1.7
     "@types/smoothscroll-polyfill": ^0.3.1
     "@types/sortablejs": ^1.13.0
