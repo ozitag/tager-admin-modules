@@ -1,0 +1,29 @@
+name: publish-package
+on:
+  push:
+    branches:
+      - master
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.17.0'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Publish
+        run: |
+          yarn changeset status
+          yarn changeset version
+          . "./scripts/commit-ci-changes.sh"
+          yarn changeset publish
+          git push --follow-tags
+        env:
+          NPM_AUTH_TOKEN: 'KRxbR+ltCDoGUmHF2WshP3PBALfGUvVlB4jBFmoJqW4='
+          npm_config_registry: 'http://npm.saranchonkau.com'
