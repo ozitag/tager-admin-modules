@@ -1,1 +1,1 @@
-export { default } from './BaseRichTextInput.vue';
+export { default } from "./BaseRichTextInput.vue";

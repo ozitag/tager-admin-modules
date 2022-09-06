@@ -1,1 +1,1 @@
-export { default } from './FormFieldFileInput.vue';
+export { default } from "./FormFieldFileInput.vue";

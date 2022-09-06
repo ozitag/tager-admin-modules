@@ -1,1 +1,1 @@
-export { default } from './SeoFieldGroup.vue';
+export { default } from "./SeoFieldGroup.vue";

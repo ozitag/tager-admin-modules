@@ -13,8 +13,9 @@ import {
   getSearchString,
   removeAuthTokensAndRedirectToAuthPage,
 } from "../utils/common";
-import configService from "./configuration";
 import { HTTP_METHODS, LOCAL_ENV } from "../constants/common";
+
+import configService from "./configuration";
 import { environment } from "./environment.js";
 
 function configureHeaders(body?: BodyParam): Headers {

@@ -1,6 +1,7 @@
 import { defineComponent } from "vue";
-import BaseSpinner from "./BaseSpinner.vue";
 import { StoryFn } from "@storybook/vue3";
+
+import BaseSpinner from "./BaseSpinner.vue";
 
 export default { title: "BaseSpinner" };
 

@@ -204,7 +204,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, type PropType, type Ref, ref } from "vue";
-import type { Component } from "@vue/runtime-core";
+import type { Component } from "vue";
 
 import {
   createId,

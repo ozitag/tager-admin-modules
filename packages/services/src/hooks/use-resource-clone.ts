@@ -1,6 +1,7 @@
 import { ref } from "vue";
-import { useToast } from "./use-toast";
 import { useRouter } from "vue-router";
+
+import { useToast } from "./use-toast";
 
 type ResourceId = string | number;
 

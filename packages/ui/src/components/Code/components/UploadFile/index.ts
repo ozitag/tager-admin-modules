@@ -1,1 +1,1 @@
-export { default } from './UploadFile.vue';
+export { default } from "./UploadFile.vue";

@@ -1,1 +1,1 @@
-export { default } from './FormFieldRichTextInput.vue';
+export { default } from "./FormFieldRichTextInput.vue";

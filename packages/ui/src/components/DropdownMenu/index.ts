@@ -1,1 +1,1 @@
-export { default } from './DropdownMenu.vue';
+export { default } from "./DropdownMenu.vue";

@@ -1,1 +1,1 @@
-export { default } from './FormFieldCheckbox.vue';
+export { default } from "./FormFieldCheckbox.vue";

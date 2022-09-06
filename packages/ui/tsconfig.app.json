@@ -8,7 +8,7 @@
     "declarationDir": "./dist",
     "paths": {
       "@tager/admin-services": ["../services"]
-    },
+    }
   },
   "references": [
     {

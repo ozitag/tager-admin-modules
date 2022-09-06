@@ -1,1 +1,1 @@
-export { default } from './BaseTable.vue';
+export { default } from "./BaseTable.vue";

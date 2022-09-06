@@ -1,1 +1,1 @@
-export { default } from './FieldValue.vue';
+export { default } from "./FieldValue.vue";

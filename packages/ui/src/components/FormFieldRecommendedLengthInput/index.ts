@@ -1,1 +1,1 @@
-export { default } from './FormFieldRecommendedLengthInput.vue';
+export { default } from "./FormFieldRecommendedLengthInput.vue";

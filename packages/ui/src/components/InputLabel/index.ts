@@ -1,1 +1,1 @@
-export { default } from './InputLabel.vue';
+export { default } from "./InputLabel.vue";

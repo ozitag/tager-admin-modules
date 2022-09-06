@@ -3,7 +3,6 @@ import { defineStore } from "pinia";
 import { FETCH_STATUSES } from "../constants/common";
 import RequestError from "../utils/request-error";
 import { FetchStatus, Nullable } from "../typings/common";
-
 import { getUserProfile } from "../services/profile-api";
 import { UserModel } from "../typings/user";
 

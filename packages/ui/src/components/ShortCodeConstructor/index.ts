@@ -1,1 +1,1 @@
-export { default } from './ShortCodeConstructor.vue';
+export { default } from "./ShortCodeConstructor.vue";

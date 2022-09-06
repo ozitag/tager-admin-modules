@@ -3,6 +3,7 @@ import {
   Router,
   START_LOCATION,
 } from "vue-router";
+
 import { Nullable } from "../typings/common";
 
 let previousRoute: Nullable<RouteLocationNormalizedLoaded> = null;

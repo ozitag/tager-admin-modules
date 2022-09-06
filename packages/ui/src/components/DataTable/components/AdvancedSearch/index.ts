@@ -1,1 +1,1 @@
-export { default } from './AdvancedSearch.vue';
+export { default } from "./AdvancedSearch.vue";

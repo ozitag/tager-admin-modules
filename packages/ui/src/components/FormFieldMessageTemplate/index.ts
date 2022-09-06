@@ -1,1 +1,1 @@
-export { default } from './FormFieldMessageTemplate.vue';
+export { default } from "./FormFieldMessageTemplate.vue";

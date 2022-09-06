@@ -10,6 +10,7 @@
     "clean": "yarn workspaces foreach --all --parallel run clean",
     "patch-typescript": "FOLDER=/private/var/folders/t3/bs3dlw0n1s9f2phdz6knp0yc0000gn/T/xfs-7da9884c/user && rm -rf $FOLDER/.idea && yarn patch-commit -s $FOLDER && rm -rf node_modules/typescript && yarn",
     "typecheck": "tsc --build",
+    "lint": "eslint \"packages/**\"",
     "dev": "yarn clean && tsc --build --watch"
   },
   "dependencies": {

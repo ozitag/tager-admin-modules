@@ -1,1 +1,1 @@
-export { default } from './FormFieldMultiSelect.vue';
+export { default } from "./FormFieldMultiSelect.vue";
