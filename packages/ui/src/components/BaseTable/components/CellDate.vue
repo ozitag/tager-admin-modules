@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import get from "lodash-es/get";
+import { get } from "lodash-es";
 import { computed, defineComponent, type PropType } from "vue";
 
 import { formatDate, formatDateTime } from "../../../utils/common";

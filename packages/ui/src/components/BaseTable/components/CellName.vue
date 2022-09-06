@@ -43,7 +43,7 @@
 
 <script lang="ts">
 import { defineComponent, computed, type PropType } from "vue";
-import get from "lodash-es/get";
+import { get } from "lodash-es";
 
 import { isAbsoluteUrl, isString, z } from "@tager/admin-services";
 

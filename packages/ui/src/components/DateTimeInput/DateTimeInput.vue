@@ -38,7 +38,7 @@
 
 <script lang="ts">
 import { computed, defineComponent } from "vue";
-import kebabCase from "lodash-es/kebabcase";
+import { kebabCase } from "lodash-es";
 
 import { isNotFalsy, type Nullable } from "@tager/admin-services";
 

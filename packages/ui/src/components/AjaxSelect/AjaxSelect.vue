@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import get from "lodash-es/get";
+import { get } from "lodash-es";
 import { defineComponent } from "vue";
 
 import {
