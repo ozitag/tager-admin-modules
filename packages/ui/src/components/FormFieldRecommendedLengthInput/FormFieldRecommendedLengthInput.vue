@@ -23,7 +23,7 @@
       v-bind="$attrs"
     />
 
-    <Progress :percent="percent" :color="color" />
+    <BaseProgress :percent="percent" :color="color" />
 
     <div class="count">
       <span class="count-zero">0</span>
@@ -44,7 +44,7 @@ import BaseInput from "../BaseInput";
 import BaseTextArea from "../BaseTextArea";
 import FormFieldWrapper from "../FormFieldWrapper.vue";
 
-import Progress from "./components/Progress";
+import BaseProgress from "./components/Progress";
 
 interface Props {
   name: string;
@@ -61,7 +61,7 @@ export default defineComponent({
   components: {
     BaseInput,
     BaseTextArea,
-    Progress,
+    BaseProgress,
     FormFieldWrapper,
   },
   inheritAttrs: false,
@@ -125,7 +125,7 @@ export default defineComponent({
       return (currentLength / recommendedLength) * 100;
     });
 
-    // TODO Refactor it. Maybe move this logic to Progress component
+    // TODO Refactor it. Maybe move this logic to BaseProgress component
     const color = computed<string>(() => {
       if (isLowerThanMinLength.value) {
         return "orange";

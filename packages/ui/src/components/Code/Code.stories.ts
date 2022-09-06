@@ -1,12 +1,12 @@
 import { defineComponent, ref } from "vue";
 
-import Code from "./Code.vue";
+import BaseCode from "./Code.vue";
 
 export default { title: "Code" };
 
 export const Default = () =>
   defineComponent({
-    components: { Code },
+    components: { BaseCode },
     setup() {
       const value = ref<string>("");
 
@@ -14,5 +14,5 @@ export const Default = () =>
         value,
       };
     },
-    template: '<Code v-model:value="value" />',
+    template: '<BaseCode v-model:value="value" />',
   });

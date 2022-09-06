@@ -34,6 +34,8 @@ jobs:
       - if: ${{ steps.yarn-cache.outputs.cache-hit != 'true' }}
         name: Install dependencies
         run: yarn install --immutable
+      - name: Lint
+        run: yarn run lint
       - name: Health check
         run: |
           yarn run typecheck

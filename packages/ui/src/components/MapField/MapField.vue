@@ -22,7 +22,7 @@
     </div>
 
     <template v-if="value">
-      <Map
+      <BaseMap
         :value="currentCoords"
         :is-editing="isFormEditing"
         @change="handleChange($event)"
@@ -56,7 +56,7 @@ import {
   MapFieldValueSchema,
 } from "./MapField.helpers";
 import CoordinatesForm from "./components/CoordinatesForm.vue";
-import Map from "./components/Map.vue";
+import BaseMap from "./components/Map.vue";
 
 type NonNullableMapFieldValueType = NonNullable<MapFieldValueType>;
 
@@ -75,7 +75,7 @@ export default defineComponent({
   components: {
     BaseButton,
     CoordinatesForm,
-    Map,
+    BaseMap,
     RemoveCircleIcon,
     AddCircleIcon,
   },
