@@ -6,9 +6,6 @@
   "author": "Ivan Saranchonkau <ivan.saranchenkov@gmail.com>",
   "license": "MIT",
   "type": "module",
-  "files": [
-    "index.js"
-  ],
   "typings": "./index.d.ts",
   "main": "./index.js",
   "module": "./index.js",
