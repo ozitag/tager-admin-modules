@@ -9,35 +9,33 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Setup node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16.17.0'
           registry-url: 'https://registry.npmjs.org'
           cache: 'yarn'
-#      - name: Setup .yarnrc.yml
-#        run: |
-#          yarn config set npmScopes.@tager.npmRegistryServer "http://npm.saranchonkau.com"
-#          yarn config set npmScopes.@tager.npmAlwaysAuth true
-#          yarn config set npmScopes.@tager.npmAuthToken $NPM_AUTH_TOKEN
-      - if: ${{ steps.yarn-cache.outputs.cache-hit != 'true' }}
-        name: Install dependencies
+
+      - name: Install dependencies
         run: yarn install --immutable
+
       - name: Lint
         run: yarn run lint
+
       - name: Health check
         run: |
           yarn run typecheck
           yarn workspaces foreach --verbose run build:package
-#      - name: Publish
-#        run: |
-#          yarn changeset status
-#          echo "@tager:registry=https://npm.saranchonkau.com/" >> `npm config get userconfig`
-#          echo "//npm.saranchonkau.com/:_authToken=$NPM_TOKEN" >> `npm config get userconfig`
-#          yarn changeset version
-#          . "./scripts/commit-ci-changes.sh"
-#          yarn changeset publish
-#          git push --follow-tags
-#        env:
-#          NPM_TOKEN: 'KRxbR+ltCDoGUmHF2WshP3PBALfGUvVlB4jBFmoJqW4='
-#          npm_config_registry: 'http://npm.saranchonkau.com'
+
+      - name: Publish
+        run: |
+          yarn changeset status
+          echo "@tager:registry=https://npm.saranchonkau.com/" >> `npm config get userconfig`
+          echo "//npm.saranchonkau.com/:_authToken=$NPM_TOKEN" >> `npm config get userconfig`
+          yarn changeset version
+          . "./scripts/commit-ci-changes.sh"
+          yarn changeset publish
+          git push --follow-tags
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
