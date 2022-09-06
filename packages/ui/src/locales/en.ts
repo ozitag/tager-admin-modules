@@ -32,6 +32,7 @@ const EN = {
     titleLabel: "Page title",
     descriptionLabel: "Page description",
     keywordsLabel: "Keywords",
+    h1Label: "H1",
     imageLabel: "Open graph image",
     previewAs: "Preview as",
     desktopGoogleSnippet: "Desktop Google snippet",
@@ -56,6 +57,8 @@ const EN = {
     noResultsFound: "No results found",
     loading: "Loading",
   },
+
+  sortBy: "Sort by",
 
   buttonField: {
     isNewTab: "Is new tab?",

@@ -224,6 +224,17 @@ export const Default = () =>
         },
       ]);
 
+      const sortOptions = [
+        {
+          value: "price_asc",
+          label: "Price Asc",
+        },
+        {
+          value: "year_asc",
+          label: "Year Asc",
+        },
+      ];
+
       return {
         isLoading,
         errorMessage,
@@ -235,33 +246,33 @@ export const Default = () =>
         pageNumber,
         pageCount,
         tags,
+        sortOptions,
       };
     },
     template: `
-      <div class="scrollContainer" style="overflow-Y: auto; height: 500px; padding: 1rem">
-        <DataTable
-          :column-defs="columnDefs"
-          :row-data="rowData"
-          :loading="isLoading"
-          :error-message="errorMessage"
-          :search-query="searchQuery"
-          :pagination="{ pageSize, pageNumber, pageCount, disabled: isLoading }"
-          @change="handleChange"
-        >
-          <template v-slot:filters>
-            <AdvancedSearch :tags="tags">
-              <div>filters content</div>
-            </AdvancedSearch>
-          </template>
-          <template v-slot:cell(platforms)="{ row }">
-            <ul v-if="row.platforms">
-              <li v-for="platform of row.platforms" :key="platform">
-                -&nbsp;{{ platform }}
-              </li>
-            </ul>
-            <span v-else>-</span>
-          </template>
-        </DataTable>
-      </div>
-  `,
+          <div class="scrollContainer" style="overflow-Y: auto; padding: 1rem">
+          <DataTable
+              :column-defs="columnDefs"
+              :row-data="rowData"
+              :loading="isLoading"
+              :error-message="errorMessage"
+              :search-query="searchQuery"
+              @change="handleChange"
+          >
+            <template v-slot:filters>
+              <AdvancedSearch :tags="tags">
+                <div>filters content</div>
+              </AdvancedSearch>
+            </template>
+            <template v-slot:cell(platforms)="{ row }">
+              <ul v-if="row.platforms">
+                <li v-for="platform of row.platforms" :key="platform">
+                  -&nbsp;{{ platform }}
+                </li>
+              </ul>
+              <span v-else>-</span>
+            </template>
+          </DataTable>
+          </div>
+        `,
   });

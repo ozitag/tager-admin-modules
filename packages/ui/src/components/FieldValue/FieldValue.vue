@@ -9,6 +9,10 @@
       {{ text }}
     </div>
 
+    <div v-if="type === 'json' && text">
+      <FieldValueJson :data="text" />
+    </div>
+
     <template v-if="type === 'link' && (text || src)">
       <router-link
         v-if="shouldUseRouter"
@@ -17,7 +21,12 @@
       >
         {{ text || src }}
       </router-link>
-      <a v-else :class="['link', { 'no-label': !label }]" :href="src">
+      <a
+        v-else
+        :class="['link', { 'no-label': !label }]"
+        :href="src"
+        target="_blank"
+      >
         {{ text || src }}
       </a>
     </template>
@@ -65,19 +74,23 @@ import { defineComponent, PropType } from "vue";
 
 import LoadableImage from "../LoadableImage";
 
+import FieldValueJson from "./сomponents/FieldValueJson.vue";
+
 export default defineComponent({
   name: "FieldValue",
-  components: { LoadableImage },
+  components: { FieldValueJson, LoadableImage },
   props: {
     label: {
       type: String,
       default: "",
     },
     type: {
-      type: String as PropType<"text" | "link" | "video" | "image" | "list">,
+      type: String as PropType<
+        "text" | "link" | "video" | "image" | "list" | "json"
+      >,
       default: "text",
       validator: (value: string) =>
-        ["text", "link", "video", "image", "list"].includes(value),
+        ["text", "link", "video", "image", "list", "json"].includes(value),
     },
     text: {
       type: String,
@@ -189,6 +202,16 @@ export default defineComponent({
     &.no-label {
       margin-top: 0;
     }
+  }
+}
+
+.field-json {
+  label {
+    margin-bottom: 0.5rem;
+  }
+
+  :deep(.jv-code) {
+    padding: 15px;
   }
 }
 </style>

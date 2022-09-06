@@ -34,6 +34,7 @@ const RU: typeof EN = {
     titleLabel: "Заголовок страницы",
     descriptionLabel: "Описание страницы",
     keywordsLabel: "Ключевые слова",
+    h1Label: "H1",
     imageLabel: "Картинка страницы",
     previewAs: "Предварительный просмотр как",
     desktopGoogleSnippet: "Desktop Google snippet",
@@ -58,6 +59,8 @@ const RU: typeof EN = {
     noResultsFound: "Результаты не найдены",
     loading: "Загрузка",
   },
+
+  sortBy: "Сортировать по",
 
   buttonField: {
     isNewTab: "Новая вкладка?",

@@ -28,10 +28,6 @@ const PageFooterStorybook = defineComponent({
         setTimeout(() => resolve({}), 1000);
       })
         .then(() => {
-          if (event.type === "save") {
-            // console.log('save');
-          }
-
           if (event.type === "save_exit") {
             alert('context.root.$router.push("save_exit")');
             console.log('context.root.$router.push("save_exit")');

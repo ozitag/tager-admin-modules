@@ -30,7 +30,7 @@ export default defineComponent({
   props: {
     searchable: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     name: {
       type: String,

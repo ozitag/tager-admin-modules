@@ -15,6 +15,7 @@ import CellColor from "./CellColor.vue";
 import CellName from "./CellName.vue";
 import CellFile from "./CellFile.vue";
 import CellKeyValue from "./CellKeyValue.vue";
+import CellList from "./CellList.vue";
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 type CellComponentType = Exclude<ColumnDefinition["type"], Function>;
@@ -40,6 +41,8 @@ function getCellComponentByColumnType(
       return CellKeyValue;
     case "file":
       return CellFile;
+    case "list":
+      return CellList;
 
     default:
       return CellString;

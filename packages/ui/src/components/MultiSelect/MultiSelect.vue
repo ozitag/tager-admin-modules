@@ -169,7 +169,7 @@ export default defineComponent({
     },
     searchable: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     searchPlaceholder: {
       type: String,
@@ -177,7 +177,7 @@ export default defineComponent({
     },
     shouldDisplayTags: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     maxSelectedCount: {
       type: Number,

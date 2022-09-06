@@ -1,6 +1,6 @@
 {
   "name": "@tager/admin-ui",
-  "version": "1.0.6",
+  "version": "1.0.15",
   "license": "MIT",
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
@@ -32,7 +32,8 @@
     "smoothscroll-polyfill": "^0.4.4",
     "sortablejs": "^1.15.0",
     "tinycolor2": "^1.4.2",
-    "vanilla-picker": "^2.12.1"
+    "vanilla-picker": "^2.12.1",
+    "vue3-json-viewer": "^2.2.2"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^6.5.10",
@@ -48,7 +49,6 @@
     "@types/resize-observer-browser": "^0.1.7",
     "@types/smoothscroll-polyfill": "^0.3.1",
     "@types/sortablejs": "^1.13.0",
-    "@types/tinycolor2": "^1.4.3",
     "@vitejs/plugin-vue": "^3.0.3",
     "core-js": "^3.25.0",
     "css-loader": "^6.7.1",

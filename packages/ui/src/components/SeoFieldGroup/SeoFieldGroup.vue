@@ -1,59 +1,5 @@
 <template>
   <div class="seo-field-group">
-    <FormGroup>
-      <InputLabel>{{ $i18n.t("ui:seoFieldGroup.previewAs") }}:</InputLabel>
-
-      <div class="mode-switcher">
-        <div class="form-check">
-          <input
-            id="flexRadioDefault1"
-            v-model="modeSwitcher"
-            value="desktop"
-            class="form-check-input"
-            type="radio"
-            name="flexRadioDefault"
-          />
-          <label class="form-check-label" for="flexRadioDefault1">
-            {{ $i18n.t("ui:seoFieldGroup.desktopGoogleSnippet") }}
-          </label>
-        </div>
-
-        <div class="form-check">
-          <input
-            id="flexRadioDefault2"
-            v-model="modeSwitcher"
-            value="mobile"
-            class="form-check-input"
-            type="radio"
-            name="flexRadioDefault"
-          />
-          <label class="form-check-label" for="flexRadioDefault2">
-            {{ $i18n.t("ui:seoFieldGroup.mobileGoogleSnippet") }}
-          </label>
-        </div>
-      </div>
-
-      <div v-if="modeSwitcher === 'desktop'" class="snippet-preview-desktop">
-        <div class="url">{{ getWebsiteOrigin() }}</div>
-        <div class="title">{{ shorten(title, 60) }}</div>
-        <div class="description">{{ shorten(description, 165) }}</div>
-      </div>
-
-      <div v-if="modeSwitcher === 'mobile'" class="snippet-preview-mobile">
-        <div class="snippet-preview-mobile-top">
-          <div class="url-wrapper">
-            <LanguageIcon class="icon" />
-            <div class="url">{{ getWebsiteOrigin() }}</div>
-          </div>
-          <div class="title">{{ shorten(title, 60) }}</div>
-        </div>
-        <div :class="['description', { 'is-image': !image }]">
-          {{ shorten(description, 165) }}
-          <img v-if="image" :src="image.file.url" :alt="title" />
-        </div>
-      </div>
-    </FormGroup>
-
     <FormFieldRecommendedLengthInput
       :value="title"
       :label="computedTitleLabel"
@@ -73,6 +19,74 @@
       type="textarea"
       :name="descriptionName"
       @input="handleDescriptionChange"
+    />
+
+    <FormGroup>
+      <div class="preview">
+        <div class="mode-switcher">
+          <div class="form-check">
+            <input
+              id="flexRadioDefault1"
+              v-model="modeSwitcher"
+              value="desktop"
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              {{ $i18n.t("ui:seoFieldGroup.desktopGoogleSnippet") }}
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              id="flexRadioDefault2"
+              v-model="modeSwitcher"
+              value="mobile"
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+            />
+            <label class="form-check-label" for="flexRadioDefault2">
+              {{ $i18n.t("ui:seoFieldGroup.mobileGoogleSnippet") }}
+            </label>
+          </div>
+        </div>
+
+        <div
+          v-if="modeSwitcher === 'desktop'"
+          class="snippet-preview snippet-preview-desktop"
+        >
+          <div class="url">{{ getWebsiteOrigin() }}</div>
+          <div class="title">{{ shorten(title, 60) }}</div>
+          <div class="description">{{ shorten(description, 165) }}</div>
+        </div>
+
+        <div
+          v-if="modeSwitcher === 'mobile'"
+          class="snippet-preview snippet-preview-mobile"
+        >
+          <div class="snippet-preview-mobile-top">
+            <div class="url-wrapper">
+              <LanguageIcon class="icon" />
+              <div class="url">{{ getWebsiteOrigin() }}</div>
+            </div>
+            <div class="title">{{ shorten(title, 60) }}</div>
+          </div>
+          <div :class="['description', { 'is-image': !image }]">
+            <div>{{ shorten(description, 165) }}</div>
+            <img v-if="image" :src="image.file.url" :alt="title" />
+          </div>
+        </div>
+      </div>
+    </FormGroup>
+
+    <FormField
+      v-if="shouldDisplayH1"
+      :value="h1"
+      :label="computedH1Label"
+      :error="h1ErrorMessage"
+      :name="h1Name"
+      @input="handleH1Change"
     />
 
     <FormField
@@ -114,7 +128,6 @@ import FormField from "../FormField";
 import FormFieldRecommendedLengthInput from "../FormFieldRecommendedLengthInput";
 import FormFieldFileInput from "../FormFieldFileInput";
 import FormGroup from "../FormGroup.vue";
-import InputLabel from "../InputLabel";
 import LanguageIcon from "../../icons/LanguageIcon.vue";
 import type { SingleFileInputValueType } from "../FileInput/FileInput.types";
 
@@ -128,6 +141,12 @@ interface Props {
   description: string;
   descriptionName: string;
   descriptionErrorMessage: string;
+
+  shouldDisplayH1: boolean;
+  h1Label: string;
+  h1: string;
+  h1Name: string;
+  h1ErrorMessage: string;
 
   shouldDisplayKeywords: boolean;
   keywordsLabel: string;
@@ -149,7 +168,6 @@ export default defineComponent({
     FormFieldRecommendedLengthInput,
     FormFieldFileInput,
     FormGroup,
-    InputLabel,
     FormField,
     LanguageIcon,
   },
@@ -183,6 +201,26 @@ export default defineComponent({
       default: "pageDescription",
     },
     descriptionErrorMessage: {
+      type: String,
+      default: "",
+    },
+    shouldDisplayH1: {
+      type: Boolean,
+      default: false,
+    },
+    h1Label: {
+      type: String,
+      default: "",
+    },
+    h1: {
+      type: String,
+      default: "",
+    },
+    h1Name: {
+      type: String,
+      default: "h1",
+    },
+    h1ErrorMessage: {
       type: String,
       default: "",
     },
@@ -236,6 +274,7 @@ export default defineComponent({
     "change:title",
     "change:description",
     "change:keywords",
+    "change:h1",
     "change:image",
   ],
   setup(props: Props, context: SetupContext) {
@@ -247,6 +286,7 @@ export default defineComponent({
         title: props.title,
         description: props.description,
         keywords: props.keywords,
+        h1: props.h1,
         image: props.image,
         ...event,
       };
@@ -266,6 +306,11 @@ export default defineComponent({
     function handleKeywordsChange(value: string) {
       context.emit("change:keywords", value);
       emitChangeEvent({ keywords: value });
+    }
+
+    function handleH1Change(value: string) {
+      context.emit("change:h1", value);
+      emitChangeEvent({ h1: value });
     }
 
     function handleImageChange(value: SingleFileInputValueType | null) {
@@ -301,6 +346,13 @@ export default defineComponent({
       return i18n.t("ui:seoFieldGroup.keywordsLabel");
     });
 
+    const computedH1Label = computed(() => {
+      if (props.h1Label) {
+        return props.h1Label;
+      }
+      return i18n.t("ui:seoFieldGroup.h1Label");
+    });
+
     const computedImageLabel = computed(() => {
       if (props.imageLabel) {
         return props.imageLabel;
@@ -315,10 +367,12 @@ export default defineComponent({
       handleTitleChange,
       handleDescriptionChange,
       handleKeywordsChange,
+      handleH1Change,
       handleImageChange,
       computedTitleLabel,
       computedDescriptionLabel,
       computedKeywordsLabel,
+      computedH1Label,
       computedImageLabel,
     };
   },
@@ -354,7 +408,7 @@ export default defineComponent({
     border: 1px solid rgba(0, 0, 0, 0.25);
     appearance: none;
     -webkit-print-color-adjust: exact;
-    color-adjust: exact;
+    print-color-adjust: exact;
 
     &[type="radio"] {
       border-radius: 50%;
@@ -440,12 +494,9 @@ export default defineComponent({
 }
 
 .snippet-preview-mobile {
-  border-bottom: 1px hidden rgb(255, 255, 255);
-  box-shadow: rgb(32 33 36 / 28%) 0 1px 6px;
   max-width: 400px;
   box-sizing: border-box;
   font-size: 14px;
-  padding: 0.75rem 1rem;
 
   .snippet-preview-mobile-top {
     margin-bottom: 0.75rem;
@@ -500,6 +551,19 @@ export default defineComponent({
       border-radius: 8px;
       object-fit: cover;
     }
+  }
+}
+
+.preview {
+  border: 1px solid #eee;
+
+  .mode-switcher {
+    border-bottom: 1px solid #eee;
+    padding: 0.75rem;
+  }
+
+  .snippet-preview {
+    padding: 0 0.75rem 0.75rem;
   }
 }
 </style>

@@ -26,6 +26,7 @@ const TEST_FILE: SingleFileInputValueType = {
 interface ValuesState {
   pageTitle: string;
   pageDescription: string;
+  h1: string;
   keywords: string;
   openGraphImage: SingleFileInputValueType | null;
 }
@@ -40,6 +41,7 @@ export const Default = () =>
         pageDescription:
           "Please provide a meta description by editing the snippet below. If you don’t, Google will try to find a relevant part of your post to show in the search results.",
         keywords: "keywords",
+        h1: "default H1",
         openGraphImage: TEST_FILE,
       });
 
@@ -59,6 +61,10 @@ export const Default = () =>
         values.value.pageDescription = value;
       }
 
+      function handleSEOH1(value: string) {
+        values.value.h1 = value;
+      }
+
       function handleSEOKeywords(value: string) {
         values.value.keywords = value;
       }
@@ -72,24 +78,30 @@ export const Default = () =>
         handleSEOTitle,
         handleSEODescription,
         handleSEOKeywords,
+        handleSEOH1,
         handleSEOImage,
         handleSearchEngineOptimization,
       };
     },
     template: `
-      <SeoFieldGroup
-        :title="values.pageTitle"
-        @change:title="handleSEOTitle"
-        :description="values.pageDescription"
-        @change:description="handleSEODescription"
+          <SeoFieldGroup
+              :title="values.pageTitle"
+              @change:title="handleSEOTitle"
 
-        :should-display-keywords="true"
-        :keywords="values.keywords"
-        @change:keywords="handleSEOKeywords"
-        
-        :image="values.openGraphImage"
-        @change:image="handleSEOImage"
-        @change="handleSearchEngineOptimization"
-      />
-    `,
+              :description="values.pageDescription"
+              @change:description="handleSEODescription"
+
+              :should-display-h1="true"
+              :h1="values.h1"
+              @change:h1="handleSEOH1"
+
+              :should-display-keywords="true"
+              :keywords="values.keywords"
+              @change:keywords="handleSEOKeywords"
+
+              :image="values.openGraphImage"
+              @change:image="handleSEOImage"
+              @change="handleSearchEngineOptimization"
+          />
+        `,
   });

@@ -308,7 +308,8 @@ export default defineComponent({
     }
 
     function isOptionSelected(option: OptionType) {
-      return props.value?.value === option.value;
+      // TODO: why `option.value` can be `undefined` ???
+      return option.value !== undefined && props.value?.value === option.value;
     }
 
     function handleInput(value: string) {

@@ -7,4 +7,8 @@ export type TableChangeEvent =
   | {
       type: "PAGE_SIZE_UPDATE";
       payload: number;
+    }
+  | {
+      type: "SORT_UPDATE";
+      payload: string;
     };

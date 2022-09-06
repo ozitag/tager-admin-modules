@@ -11,11 +11,13 @@ import { useSearch } from "../SearchInput";
 import { usePagination } from "../Pagination";
 
 import type { TableChangeEvent } from "./DataTable.types";
+import { useSort } from "./components/Sort/Sort.hooks";
 
 interface TableDataRequestParams {
   searchQuery?: string;
   pageNumber?: number;
   pageSize?: number;
+  sort?: string | null;
 }
 
 interface TableState<T> {
@@ -27,6 +29,7 @@ interface TableState<T> {
   pageNumber: Ref<number>;
   pageSize: Ref<number>;
   pageCount: ComputedRef<number>;
+  sort: Ref<Nullable<string>>;
   handleChange: (event: TableChangeEvent) => void;
   fetchEntityList: () => Promise<void>;
 }
@@ -38,8 +41,11 @@ export function useDataTable<T>(params: {
   initialValue?: Array<T>;
   resourceName?: string;
   pageSize?: number;
+  defaultSort?: string;
 }): TableState<T> {
   const searchQuery = useSearch();
+  const sort = useSort(params.defaultSort || null);
+
   const { pageNumber, pageSize } = usePagination({
     pageSize: params.pageSize,
   });
@@ -53,6 +59,7 @@ export function useDataTable<T>(params: {
         searchQuery: searchQuery.value,
         pageNumber: pageNumber.value,
         pageSize: pageSize.value,
+        sort: sort.value,
       }),
     initialValue: params.initialValue ?? [],
     resourceName: params.resourceName,
@@ -64,7 +71,7 @@ export function useDataTable<T>(params: {
     fetchEntityList();
   });
 
-  watch([searchQuery, pageNumber, pageSize], () => {
+  watch([searchQuery, pageNumber, pageSize, sort], () => {
     fetchEntityList();
   });
 
@@ -81,6 +88,9 @@ export function useDataTable<T>(params: {
         pageSize.value = event.payload;
         pageNumber.value = 1;
         break;
+      case "SORT_UPDATE":
+        sort.value = event.payload;
+        break;
     }
   }
 
@@ -93,6 +103,7 @@ export function useDataTable<T>(params: {
     pageNumber,
     pageSize,
     pageCount,
+    sort,
     handleChange,
     fetchEntityList,
   };
