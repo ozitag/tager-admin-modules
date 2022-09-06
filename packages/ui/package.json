@@ -50,7 +50,6 @@
     "@types/sortablejs": "^1.13.0",
     "@types/tinycolor2": "^1.4.3",
     "@vitejs/plugin-vue": "^3.0.3",
-    "concurrently": "^7.3.0",
     "core-js": "^3.25.0",
     "css-loader": "^6.7.1",
     "msw": "^0.46.1",
