@@ -11,3 +11,4 @@ ts-build
 *.tsbuildinfo
 
 .idea
+.DS_Store
