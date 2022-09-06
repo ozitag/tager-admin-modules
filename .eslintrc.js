@@ -13,7 +13,7 @@ module.exports = {
     "plugin:prettier/recommended",
     "plugin:storybook/recommended",
   ],
-  plugins: ["prettier", "import"],
+  plugins: ["prettier", "import", "lodash"],
   parser: "vue-eslint-parser",
   parserOptions: {
     parser: "@typescript-eslint/parser",
@@ -54,6 +54,7 @@ module.exports = {
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
     // off this rule, because we have the same rule for Typescript - "@typescript-eslint/no-unused-vars"
     "no-unused-vars": "off",
+    "lodash/import-scope": ["error", "member"],
     "import/order": [
       "error",
       {

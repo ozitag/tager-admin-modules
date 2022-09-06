@@ -2183,6 +2183,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/pluginutils@npm:^4.2.1":
+  version: 4.2.1
+  resolution: "@rollup/pluginutils@npm:4.2.1"
+  dependencies:
+    estree-walker: ^2.0.1
+    picomatch: ^2.2.2
+  checksum: 6bc41f22b1a0f1efec3043899e4d3b6b1497b3dea4d94292d8f83b4cf07a1073ecbaedd562a22d11913ff7659f459677b01b09e9598a98936e746780ecc93a12
+  languageName: node
+  linkType: hard
+
 "@rushstack/eslint-patch@npm:^1.1.4":
   version: 1.1.4
   resolution: "@rushstack/eslint-patch@npm:1.1.4"
@@ -3413,6 +3423,7 @@ __metadata:
     "@storybook/vue3": ^6.5.10
     "@tager/admin-services": "workspace:*"
     "@tager/admin-wysiwyg": ^1.0.0
+    "@tager/rollup-plugin-lodash": "workspace:*"
     "@types/autosize": ^4.0.1
     "@types/leaflet": ^1.7.11
     "@types/lodash-es": ^4.17.6
@@ -3451,6 +3462,16 @@ __metadata:
   checksum: c51c99f555973afae5ca52b3a7f591f2d6bfc45b90635c88bcc8838eecef5396f3a223fc16d36784c824aaad3056a5fcd295a0b9e25f06fe64cf4c23377b39a8
   languageName: node
   linkType: hard
+
+"@tager/rollup-plugin-lodash@workspace:*, @tager/rollup-plugin-lodash@workspace:packages/rollup-plugin-lodash":
+  version: 0.0.0-use.local
+  resolution: "@tager/rollup-plugin-lodash@workspace:packages/rollup-plugin-lodash"
+  dependencies:
+    "@rollup/pluginutils": ^4.2.1
+    acorn-walk: ^8.2.0
+    rollup: ^2.79.0
+  languageName: unknown
+  linkType: soft
 
 "@tootallnate/once@npm:2":
   version: 2.0.0
@@ -4732,6 +4753,13 @@ __metadata:
   peerDependencies:
     acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
   checksum: c3d3b2a89c9a056b205b69530a37b972b404ee46ec8e5b341666f9513d3163e2a4f214a71f4dfc7370f5a9c07472d2fd1c11c91c3f03d093e37637d95da98950
+  languageName: node
+  linkType: hard
+
+"acorn-walk@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "acorn-walk@npm:8.2.0"
+  checksum: 1715e76c01dd7b2d4ca472f9c58968516a4899378a63ad5b6c2d668bba8da21a71976c14ec5f5b75f887b6317c4ae0b897ab141c831d741dc76024d8745f1ad1
   languageName: node
   linkType: hard
 
@@ -7936,6 +7964,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-lodash@npm:^7.4.0":
+  version: 7.4.0
+  resolution: "eslint-plugin-lodash@npm:7.4.0"
+  dependencies:
+    lodash: ^4.17.21
+  peerDependencies:
+    eslint: ">=2"
+  checksum: 7557cded64dd0e1042b420214e65ba9d6c5cb6c83c40e471db1f7d33e63584d1260c9ca9a4fded4ca7a2fe2ac2a9cdc303e072105096fa99b583101c6e7ada13
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-prettier@npm:^4.2.1":
   version: 4.2.1
   resolution: "eslint-plugin-prettier@npm:4.2.1"
@@ -8139,7 +8178,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"estree-walker@npm:^2.0.2":
+"estree-walker@npm:^2.0.1, estree-walker@npm:^2.0.2":
   version: 2.0.2
   resolution: "estree-walker@npm:2.0.2"
   checksum: 6151e6f9828abe2259e57f5fd3761335bb0d2ebd76dc1a01048ccee22fabcfef3c0859300f6d83ff0d1927849368775ec5a6d265dde2f6de5a1be1721cd94efc
@@ -12753,7 +12792,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.3.0, picomatch@npm:^2.3.1":
+"picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.2.2, picomatch@npm:^2.3.0, picomatch@npm:^2.3.1":
   version: 2.3.1
   resolution: "picomatch@npm:2.3.1"
   checksum: 050c865ce81119c4822c45d3c84f1ced46f93a0126febae20737bd05ca20589c564d6e9226977df859ed5e03dc73f02584a2b0faad36e896936238238b0446cf
@@ -14114,6 +14153,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rollup@npm:^2.79.0":
+  version: 2.79.0
+  resolution: "rollup@npm:2.79.0"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: 166f1ffea1898e157003920065b3a328e7012ea6808860ee8fe5d1ce94804fcce9985c95a3c0f7fe9c611aff0d09a70f073f1d6f715c8faba28e4e40f71ee3bb
+  languageName: node
+  linkType: hard
+
 "rollup@npm:~2.78.0":
   version: 2.78.1
   resolution: "rollup@npm:2.78.1"
@@ -15297,6 +15350,7 @@ __metadata:
     eslint: 8.22.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-import: ^2.26.0
+    eslint-plugin-lodash: ^7.4.0
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-storybook: ^0.6.4
     eslint-plugin-vue: ^9.4.0

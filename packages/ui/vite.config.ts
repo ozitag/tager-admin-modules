@@ -4,6 +4,8 @@ import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
+import { optimizeLodashImports as lodash } from "@tager/rollup-plugin-lodash";
+
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 function resolvePath(filePath: string) {
@@ -29,5 +31,5 @@ export default defineConfig({
       external: external,
     },
   },
-  plugins: [vue()],
+  plugins: [vue(), lodash()],
 });
