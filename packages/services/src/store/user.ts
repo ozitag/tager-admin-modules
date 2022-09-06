@@ -2,9 +2,9 @@ import { defineStore } from "pinia";
 
 import { FETCH_STATUSES } from "../constants/common";
 import RequestError from "../utils/request-error";
-import { FetchStatus, Nullable } from "../typings/common";
+import type { FetchStatus, Nullable } from "../typings/common";
 import { getUserProfile } from "../services/profile-api";
-import { UserModel } from "../typings/user";
+import type { Scopes, ScopesOperand, UserModel } from "../typings/user";
 
 interface State {
   profile: Nullable<UserModel>;
@@ -51,15 +51,55 @@ export const useUserStore = defineStore("user", {
 
       return scopes;
     },
+    checkScopes(state) {
+      return (scopes: Scopes): boolean => {
+        const roles = state.profile ? state.profile.roles : [];
+
+        const scopesAll: Array<string> = [];
+        roles.forEach((role) => {
+          scopesAll.push(...role.scopes);
+        });
+
+        if (scopesAll.includes("*")) return true;
+
+        const scopesArray = typeof scopes === "string" ? [scopes] : scopes;
+        if (scopesArray.length === 0) {
+          return false;
+        }
+
+        const scopesOperand: ScopesOperand =
+          scopesArray[0] === "OR" ? "OR" : "AND";
+
+        if (scopesOperand === "OR") {
+          for (let i = 0; i < scopesArray.length; i++) {
+            if (scopesArray[i] === "OR" || scopesArray[i] === "AND") continue;
+
+            const scope = scopesArray[i];
+            if (scope && scopesAll.includes(scope)) {
+              return true;
+            }
+          }
+
+          return false;
+        } else if (scopesOperand === "AND") {
+          for (let i = 0; i < scopesArray.length; i++) {
+            if (scopesArray[i] === "OR" || scopesArray[i] === "AND") continue;
+
+            const scope = scopesArray[i];
+            if (scope && !scopesAll.includes(scope)) {
+              return false;
+            }
+          }
+
+          return true;
+        } else {
+          return false;
+        }
+      };
+    },
   },
 });
 
 export function useUserPermission(scope: string): boolean {
-  const store = useUserStore();
-
-  const scopes = store.userScopes;
-
-  if (scopes.includes("*")) return true;
-
-  return scopes.includes(scope);
+  return useUserStore().checkScopes(scope);
 }

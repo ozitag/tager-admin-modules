@@ -3,6 +3,8 @@ import { computed, ComputedRef, Ref, ref } from "vue";
 import { FetchStatus, Nullable, ResponseBody } from "../typings/common";
 import { FETCH_STATUSES } from "../constants/common";
 import { createId, getMessageFromError } from "../utils/common";
+import { Scopes } from "../typings/user";
+import { useUserStore } from "../store/user";
 
 import { useToast } from "./use-toast";
 
@@ -31,6 +33,7 @@ export function useResource<
     : (params: RequestParams) => Promise<ResponseBody<Data, Meta>>;
   initialValue: Data;
   resourceName?: string | undefined;
+  scopes?: Scopes;
 }): ResourceHookReturnType<Data, Meta, RequestParams> {
   const data = ref<Data>(params.initialValue) as Ref<Data>;
   const meta = ref<Meta | undefined>(undefined) as Ref<Meta | undefined>;
@@ -43,6 +46,13 @@ export function useResource<
   const loading = computed(() => status.value === FETCH_STATUSES.LOADING);
 
   function makeRequest(requestParams: RequestParams): Promise<void> {
+    const isValidScopes = params.scopes
+      ? useUserStore().checkScopes(params.scopes)
+      : true;
+    if (!isValidScopes) {
+      return new Promise((resolve) => resolve());
+    }
+
     status.value = FETCH_STATUSES.LOADING;
 
     const requestId = createId();

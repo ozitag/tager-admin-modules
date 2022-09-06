@@ -14,10 +14,10 @@ export {
   initializeEnvironment,
 } from "./services/environment.js";
 export * from "./typings/common";
+export * from "./typings/user";
 export * from "./constants/common.js";
 export * from "./utils/common";
 export * from "./utils/type-guards";
-
 export { z };
 
 export { request } from "./services/request";
