@@ -2,6 +2,11 @@
   "name": "@tager/admin-ui",
   "version": "1.0.15",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ozitag/tager-admin-modules.git",
+    "directory": "packages/ui"
+  },
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
   "types": "dist/main.d.ts",

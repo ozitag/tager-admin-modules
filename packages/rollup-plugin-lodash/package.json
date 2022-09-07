@@ -2,9 +2,13 @@
   "name": "@tager/rollup-plugin-lodash",
   "version": "0.1.0",
   "description": "This plugin is for rollup, similar to how babel-plugin-lodash works for babel.",
-  "repository": "git@github.com:ozitag/tager-admin-services.git",
   "author": "Ivan Saranchonkau <ivan.saranchenkov@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ozitag/tager-admin-modules.git",
+    "directory": "packages/rollup-plugin-lodash"
+  },
   "type": "module",
   "typings": "./index.d.ts",
   "main": "./index.js",
