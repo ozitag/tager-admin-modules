@@ -1,5 +1,5 @@
 import { defineComponent, ref } from "vue";
-import { StoryFn } from "@storybook/vue3";
+import type { Story } from "@storybook/vue3";
 
 import type { ResponseBody } from "@tager/admin-services";
 
@@ -13,7 +13,7 @@ export default { title: "ComboBox" };
 
 const OPTIONS = brandOptions;
 
-export const Default: StoryFn = () =>
+export const Default: Story = () =>
   defineComponent({
     name: "DefaultComboBox",
     components: { ComboBox },
@@ -31,7 +31,7 @@ export const Default: StoryFn = () =>
     `,
   });
 
-export const Playground: StoryFn = (args) =>
+export const Playground: Story = (args) =>
   defineComponent({
     name: "DefaultComboBox",
     components: { ComboBox },
@@ -143,7 +143,7 @@ export const CommonSelect = () =>
     `,
   });
 
-export const TestPopupFlip: StoryFn = () =>
+export const TestPopupFlip: Story = () =>
   defineComponent({
     name: "DefaultComboBoxFlip",
     components: { ComboBox },

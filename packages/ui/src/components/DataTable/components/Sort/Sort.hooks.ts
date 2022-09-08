@@ -1,7 +1,7 @@
 import { ref, type Ref, watch } from "vue";
 import { useRouter } from "vue-router";
 
-import { Nullable } from "@tager/admin-services";
+import type { Nullable } from "@tager/admin-services";
 
 import {
   getSearchParamByKey,

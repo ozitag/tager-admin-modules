@@ -12,6 +12,7 @@ module.exports = {
     "@vue/eslint-config-typescript/recommended",
     "plugin:prettier/recommended",
     "plugin:storybook/recommended",
+    "plugin:import/recommended",
   ],
   plugins: ["prettier", "import", "lodash"],
   parser: "vue-eslint-parser",

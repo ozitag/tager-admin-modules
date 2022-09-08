@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import { StoryFn } from "@storybook/vue3";
+import type { Story } from "@storybook/vue3";
 
 import { BaseButton } from "../BaseButton";
 
@@ -15,7 +15,7 @@ const STEPS: Array<StepType> = [
   { title: "Done" },
 ];
 
-export const Playground: StoryFn = (args) =>
+export const Playground: Story = (args) =>
   defineComponent({
     name: "DefaultSteps",
     components: { Steps, BaseButton },

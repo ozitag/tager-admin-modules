@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import { StoryFn } from "@storybook/vue3";
+import type { Story } from "@storybook/vue3";
 
 import { type ToastParams, useToast } from "@tager/admin-services";
 
@@ -15,7 +15,7 @@ const VARIANT_ARG_TYPE = {
   options: ["primary", "secondary", "success", "info", "warning", "danger"],
 };
 
-export const Playground: StoryFn = (args) =>
+export const Playground: Story = (args) =>
   defineComponent({
     components: { Toast },
     setup() {
@@ -44,7 +44,7 @@ Playground.args = {
   body: "Toast body",
 };
 
-export const Toaster: StoryFn = (args) =>
+export const Toaster: Story = (args) =>
   defineComponent({
     components: { ToastList, BaseButton },
     setup() {

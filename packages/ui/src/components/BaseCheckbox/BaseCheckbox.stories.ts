@@ -1,5 +1,5 @@
 import { defineComponent, ref } from "vue";
-import { StoryFn } from "@storybook/vue3";
+import type { Story } from "@storybook/vue3";
 
 import BaseCheckbox from "./BaseCheckbox.vue";
 
@@ -7,7 +7,7 @@ export default {
   title: "BaseCheckbox",
 };
 
-export const Default: StoryFn = () =>
+export const Default: Story = () =>
   defineComponent({
     components: { BaseCheckbox },
     setup() {
@@ -17,7 +17,7 @@ export const Default: StoryFn = () =>
     template: `<BaseCheckbox v-model:checked="isChecked"></BaseCheckbox>`,
   });
 
-export const Playground: StoryFn = (args) =>
+export const Playground: Story = (args) =>
   defineComponent({
     components: { BaseCheckbox },
     setup() {
@@ -31,13 +31,13 @@ Playground.args = {
   disabled: false,
 };
 
-export const Checked: StoryFn = () =>
+export const Checked: Story = () =>
   defineComponent({
     components: { BaseCheckbox },
     template: '<BaseCheckbox :checked="true"></BaseCheckbox>',
   });
 
-export const Disabled: StoryFn = () =>
+export const Disabled: Story = () =>
   defineComponent({
     components: { BaseCheckbox },
     template: '<BaseCheckbox :disabled="true"></BaseCheckbox>',

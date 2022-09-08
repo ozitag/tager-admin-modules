@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import { StoryFn } from "@storybook/vue3";
+import type { Story } from "@storybook/vue3";
 
 import Tag from "./Tag.vue";
 
@@ -12,7 +12,7 @@ export const Default = () =>
     template: `<Tag>Tag</Tag>`,
   });
 
-export const Playground: StoryFn = (args) =>
+export const Playground: Story = (args) =>
   defineComponent({
     name: "PlaygroundTag",
     components: { Tag },

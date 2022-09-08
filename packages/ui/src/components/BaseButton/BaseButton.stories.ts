@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import { StoryFn } from "@storybook/vue3";
+import type { Story } from "@storybook/vue3";
 
 import DeleteIcon from "../../icons/DeleteIcon.vue";
 import EditIcon from "../../icons/EditIcon.vue";
@@ -25,7 +25,7 @@ export const Default = () =>
     template: `<BaseButton />`,
   });
 
-export const Playground: StoryFn = (args) =>
+export const Playground: Story = (args) =>
   defineComponent({
     components: { BaseButton },
     setup() {
@@ -106,7 +106,7 @@ export const Icon = () =>
   </div>`,
   });
 
-export const Link: StoryFn = (args) =>
+export const Link: Story = (args) =>
   defineComponent({
     components: { BaseButton },
     setup() {

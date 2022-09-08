@@ -41,30 +41,12 @@
     "vue3-json-viewer": "^2.2.2"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^6.5.10",
-    "@storybook/addon-links": "^6.5.10",
-    "@storybook/builder-webpack5": "^6.5.10",
-    "@storybook/manager-webpack5": "^6.5.10",
-    "@storybook/preset-scss": "^1.0.3",
-    "@storybook/vue3": "^6.5.10",
     "@tager/rollup-plugin-lodash": "workspace:*",
     "@types/autosize": "^4.0.1",
     "@types/leaflet": "^1.7.11",
-    "@types/lodash-es": "^4.17.6",
-    "@types/resize-observer-browser": "^0.1.7",
     "@types/smoothscroll-polyfill": "^0.3.1",
     "@types/sortablejs": "^1.13.0",
-    "@vitejs/plugin-vue": "^3.0.3",
-    "core-js": "^3.25.0",
-    "css-loader": "^6.7.1",
-    "msw": "^0.46.1",
-    "msw-storybook-addon": "^1.6.3",
-    "sass": "^1.54.8",
-    "sass-loader": "^13.0.2",
-    "storybook-vue3-router": "^2.3.1",
-    "style-loader": "^3.3.1",
-    "vite": "*",
-    "webpack": "^5.74.0"
+    "vite": "*"
   },
   "peerDependencies": {
     "vue": "^3.2.33",

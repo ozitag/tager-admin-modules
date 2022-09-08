@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import { StoryFn } from "@storybook/vue3";
+import type { Story } from "@storybook/vue3";
 
 import BaseTextArea from "./BaseTextArea.vue";
 
@@ -15,7 +15,7 @@ export const Default = () => ({
   template: `<BaseTextArea v-model:value="value" />`,
 });
 
-export const Playground: StoryFn = (args) => ({
+export const Playground: Story = (args) => ({
   components: { BaseTextArea },
   setup() {
     const value = ref("");

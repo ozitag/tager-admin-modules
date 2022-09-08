@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import { StoryFn } from "@storybook/vue3";
+import type { Story } from "@storybook/vue3";
 
 import BaseSpinner from "./BaseSpinner.vue";
 
@@ -12,7 +12,7 @@ export const Default = () =>
       <BaseSpinner />`,
   });
 
-export const Playground: StoryFn = (args) =>
+export const Playground: Story = (args) =>
   defineComponent({
     components: { BaseSpinner },
     setup() {
@@ -27,7 +27,7 @@ Playground.args = {
   strokeWidth: 5,
 };
 
-export const Primary: StoryFn = (args) =>
+export const Primary: Story = (args) =>
   defineComponent({
     components: { BaseSpinner },
     setup() {

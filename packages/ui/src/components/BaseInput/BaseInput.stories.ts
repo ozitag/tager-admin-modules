@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import { StoryFn } from "@storybook/vue3";
+import type { Story } from "@storybook/vue3";
 
 import BaseInput from "./BaseInput.vue";
 
@@ -11,7 +11,7 @@ export const Default = () =>
     template: `<BaseInput />`,
   });
 
-export const Playground: StoryFn = (args) =>
+export const Playground: Story = (args) =>
   defineComponent({
     components: { BaseInput },
     setup() {

@@ -1,4 +1,4 @@
-import { TransformHook } from "rollup";
+import type { TransformHook } from "rollup";
 
 interface TransformPlugin {
   name: string;

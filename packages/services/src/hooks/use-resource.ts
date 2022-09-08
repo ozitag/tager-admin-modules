@@ -1,4 +1,4 @@
-import { computed, ComputedRef, Ref, ref } from "vue";
+import { computed, type ComputedRef, type Ref, ref } from "vue";
 
 import { FetchStatus, Nullable, ResponseBody } from "../typings/common";
 import { FETCH_STATUSES } from "../constants/common";

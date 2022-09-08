@@ -1,11 +1,11 @@
 import { defineComponent } from "vue";
-import { StoryFn } from "@storybook/vue3";
+import type { Story } from "@storybook/vue3";
 
 import Pagination from "./Pagination.vue";
 
 export default { title: "Pagination" };
 
-export const Playground: StoryFn = (args) =>
+export const Playground: Story = (args) =>
   defineComponent({
     components: { Pagination },
     setup() {

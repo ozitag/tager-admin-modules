@@ -1,6 +1,6 @@
 import { ref } from "vue";
 
-import { Nullable } from "@tager/admin-services";
+import type { Nullable } from "@tager/admin-services";
 
 import DateTimeInput from "./DateTimeInput.vue";
 

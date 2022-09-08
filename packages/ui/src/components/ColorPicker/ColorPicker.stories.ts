@@ -1,5 +1,5 @@
 import { defineComponent, ref } from "vue";
-import { StoryFn } from "@storybook/vue3";
+import type { Story } from "@storybook/vue3";
 
 import ColorPicker from "./ColorPicker.vue";
 
@@ -15,7 +15,7 @@ export const Default = () =>
     template: '<ColorPicker v-model:value="value"></ColorPicker>',
   });
 
-export const Playground: StoryFn = (args) =>
+export const Playground: Story = (args) =>
   defineComponent({
     components: { ColorPicker },
     setup() {

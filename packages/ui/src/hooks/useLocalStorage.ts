@@ -1,6 +1,6 @@
 import { onMounted, type Ref, ref } from "vue";
 
-import { LocalStorageService } from "../utils/common.js";
+import { LocalStorageService } from "../utils/common";
 
 function useLocalStorage<T>(
   key: string,

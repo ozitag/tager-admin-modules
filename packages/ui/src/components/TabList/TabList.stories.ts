@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import { StoryFn } from "@storybook/vue3";
+import type { Story } from "@storybook/vue3";
 
 import TabList from "./TabList.vue";
 import type { TabType } from "./TabList.types";
@@ -48,7 +48,7 @@ export const Default = () => ({
   `,
 });
 
-export const Playground: StoryFn = (args) => ({
+export const Playground: Story = (args) => ({
   name: "TabListDefault",
   components: { TabList },
   setup() {

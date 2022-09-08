@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import { StoryFn } from "@storybook/vue3";
+import type { Story } from "@storybook/vue3";
 
 import IconStoryItem from "./IconStoryItem.vue";
 import AddCircleIcon from "./AddCircleIcon.vue";
@@ -107,7 +107,7 @@ const ICON_COMPONENTS = {
   WebIcon,
 };
 
-export const Default: StoryFn = () =>
+export const Default: Story = () =>
   defineComponent({
     components: {
       IconStoryItem,

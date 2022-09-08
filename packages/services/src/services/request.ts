@@ -16,7 +16,7 @@ import {
 import { HTTP_METHODS, LOCAL_ENV } from "../constants/common";
 
 import configService from "./configuration";
-import { environment } from "./environment.js";
+import { environment } from "./environment";
 
 function configureHeaders(body?: BodyParam): Headers {
   const headers = new Headers();

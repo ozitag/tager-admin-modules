@@ -1,4 +1,4 @@
-import { StoryFn } from "@storybook/vue3";
+import type { Story } from "@storybook/vue3";
 
 import SearchInput from "./SearchInput.vue";
 
@@ -9,7 +9,7 @@ export const Default = () => ({
   template: `<SearchInput />`,
 });
 
-export const Playground: StoryFn = (args) => ({
+export const Playground: Story = (args) => ({
   components: { SearchInput },
   setup() {
     return { args };

@@ -1,9 +1,10 @@
-import { App, InjectionKey, reactive } from "vue";
-import i18next, { InitOptions, TFunction } from "i18next";
+import { type App, type InjectionKey, reactive } from "vue";
+import i18next from "i18next";
+import type { InitOptions, TFunction, i18n as I18nInstance } from "i18next";
 
-import configService from "./configuration.js";
+import configService from "./configuration";
 
-type I18nextResourceBundleArgs = Parameters<typeof i18next.addResourceBundle>;
+type I18nextResourceBundleArgs = Parameters<I18nInstance["addResourceBundle"]>;
 
 const resourceBundleArgs: Array<I18nextResourceBundleArgs> = [];
 

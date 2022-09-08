@@ -1,11 +1,11 @@
 import { defineComponent } from "vue";
-import { StoryFn } from "@storybook/vue3";
+import type { Story } from "@storybook/vue3";
 
 import PageTitle from "./PageTitle.vue";
 
 export default { title: "PageTitle" };
 
-export const Playground: StoryFn = (args) =>
+export const Playground: Story = (args) =>
   defineComponent({
     name: "PlaygroundPageTitle",
     components: { PageTitle },

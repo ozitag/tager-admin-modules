@@ -1,6 +1,6 @@
 import { inject } from "vue";
 
-import { i18nInjectionKey } from "../services/i18n.js";
+import { i18nInjectionKey } from "../services/i18n";
 
 export function useI18n() {
   const i18nContext = inject(i18nInjectionKey);

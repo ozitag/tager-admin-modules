@@ -1,9 +1,12 @@
 import { nanoid } from "nanoid";
 
 import { Nullable, QueryParams, ResponseBody } from "../typings/common";
-import { ACCESS_TOKEN_FIELD, REFRESH_TOKEN_FIELD } from "../constants/common";
-import { LOCAL_ENV } from "../constants/common";
-import { environment } from "../services/environment.js";
+import {
+  ACCESS_TOKEN_FIELD,
+  REFRESH_TOKEN_FIELD,
+  LOCAL_ENV,
+} from "../constants/common";
+import { environment } from "../services/environment";
 
 import RequestError from "./request-error";
 import { isValidationErrorsBody } from "./type-guards";

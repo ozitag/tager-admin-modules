@@ -56,7 +56,7 @@ import {
   watch,
 } from "vue";
 
-import { Nullable } from "@tager/admin-services";
+import type { Nullable } from "@tager/admin-services";
 
 import BaseTable from "../BaseTable";
 import SearchInput from "../SearchInput";
