@@ -1,4 +1,5 @@
-import Sortable from "sortablejs";
+import type { Options } from "sortablejs";
+import SortableClass from "sortablejs";
 import { onBeforeUnmount, onMounted, watch } from "vue";
 import type { Ref } from "vue";
 
@@ -8,10 +9,10 @@ export function useSortable<T>(params: {
   elementRef: Ref<HTMLElement | null>;
   entityList: Ref<Array<T>>;
   onChange: (entityList: Array<T>) => void;
-  options?: Sortable.Options;
+  options?: Options;
 }) {
   const { elementRef, entityList, onChange, options } = params;
-  let sortable: Sortable | null = null;
+  let sortable: SortableClass | null = null;
 
   function handleDragEnd(fromIndex: number, toIndex: number) {
     const movedElement = entityList.value[fromIndex];
@@ -27,7 +28,7 @@ export function useSortable<T>(params: {
   function initSortable() {
     if (!elementRef.value) return;
 
-    sortable = new Sortable(elementRef.value, {
+    sortable = new SortableClass(elementRef.value, {
       animation: 200,
       onEnd: (event) => {
         if (!isNumber(event.oldIndex) || !isNumber(event.newIndex)) return;

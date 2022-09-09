@@ -1,9 +1,9 @@
 import { computed, type ComputedRef, type Ref, ref } from "vue";
 
-import { FetchStatus, Nullable, ResponseBody } from "../typings/common";
+import type { FetchStatus, Nullable, ResponseBody } from "../typings/common";
 import { FETCH_STATUSES } from "../constants/common";
 import { createId, getMessageFromError } from "../utils/common";
-import { Scopes } from "../typings/user";
+import type { Scopes } from "../typings/user";
 import { useUserStore } from "../store/user";
 
 import { useToast } from "./use-toast";

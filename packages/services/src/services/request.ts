@@ -1,5 +1,5 @@
 import RequestError from "../utils/request-error";
-import {
+import type {
   BodyParam,
   HttpMethod,
   HttpRequestFunction,

@@ -32,7 +32,7 @@ import { isAbsoluteUrl } from "@tager/admin-services";
 
 import BaseSpinner from "../BaseSpinner";
 
-import { ButtonVariant } from "./BaseButton.types";
+import type { ButtonVariant } from "./BaseButton.types";
 
 interface Props {
   variant: ButtonVariant;

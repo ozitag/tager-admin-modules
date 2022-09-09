@@ -1,4 +1,4 @@
-import { ParsedResponseBody, QueryParams } from "../typings/common";
+import type { ParsedResponseBody, QueryParams } from "../typings/common";
 import configService from "../services/configuration";
 
 import RequestError from "./request-error";

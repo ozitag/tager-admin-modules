@@ -1,5 +1,5 @@
 import { request } from "../index";
-import { UserModel } from "../typings/user";
+import type { UserModel } from "../typings/user";
 
 export function getUserProfile(): Promise<{
   data: UserModel;

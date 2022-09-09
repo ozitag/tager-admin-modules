@@ -31,7 +31,7 @@
 <script lang="ts">
 import { defineComponent, type PropType } from "vue";
 
-import { TabType } from "./TabList.types";
+import type { TabType } from "./TabList.types";
 
 interface Props {
   tabList: Array<TabType>;

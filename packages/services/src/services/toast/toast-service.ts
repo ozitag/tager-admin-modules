@@ -1,7 +1,7 @@
 import { reactive } from "vue";
 import { nanoid } from "nanoid";
 
-import {
+import type {
   ShowToastOptions,
   Toast,
   ToastParams,

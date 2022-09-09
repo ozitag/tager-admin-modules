@@ -1,8 +1,10 @@
-import { DefaultBodyType, rest } from "msw";
+import type { DefaultBodyType } from "msw";
+import { rest } from "msw";
 
 import type { ResponseBody } from "@tager/admin-services";
 
-import { brandList, BrandType } from "./fixtures/brand-list";
+import type { BrandType } from "./fixtures/brand-list";
+import { brandList } from "./fixtures/brand-list";
 
 export const getBrands = rest.get<
   DefaultBodyType,

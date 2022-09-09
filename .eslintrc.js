@@ -13,6 +13,7 @@ module.exports = {
     "plugin:prettier/recommended",
     "plugin:storybook/recommended",
     "plugin:import/recommended",
+    "plugin:import/typescript",
   ],
   plugins: ["prettier", "import", "lodash"],
   parser: "vue-eslint-parser",
@@ -30,6 +31,7 @@ module.exports = {
       node: {
         extensions: allExtensions,
       },
+      typescript: true,
     },
   },
   overrides: [
@@ -42,6 +44,12 @@ module.exports = {
   ],
   rules: {
     "prettier/prettier": "warn",
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        prefer: "type-imports",
+      },
+    ],
     "import/extensions": [
       "warn",
       "ignorePackages",
@@ -53,8 +61,7 @@ module.exports = {
     ],
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-    // off this rule, because we have the same rule for Typescript - "@typescript-eslint/no-unused-vars"
-    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
     "lodash/import-scope": ["error", "member"],
     "import/order": [
       "error",

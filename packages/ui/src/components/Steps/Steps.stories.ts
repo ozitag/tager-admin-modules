@@ -4,7 +4,7 @@ import type { Story } from "@storybook/vue3";
 import { BaseButton } from "../BaseButton";
 
 import Steps from "./Steps.vue";
-import { StepType } from "./Steps.types";
+import type { StepType } from "./Steps.types";
 
 export default { title: "Steps" };
 

@@ -49,7 +49,7 @@ import { navigateBack, useI18n } from "@tager/admin-services";
 import { BaseButton } from "../BaseButton";
 import FormFieldCheckbox from "../FormFieldCheckbox";
 
-import { TagerFormSubmitEvent } from "./FormFooter.types";
+import type { TagerFormSubmitEvent } from "./FormFooter.types";
 
 interface Props {
   backHref: string;

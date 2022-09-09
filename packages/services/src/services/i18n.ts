@@ -1,5 +1,5 @@
 import { type App, type InjectionKey, reactive } from "vue";
-import i18next from "i18next";
+import i18next, { changeLanguage, init, t } from "i18next";
 import type { InitOptions, TFunction, i18n as I18nInstance } from "i18next";
 
 import configService from "./configuration";
@@ -23,19 +23,13 @@ export interface I18nContext {
 }
 
 const i18nContext = reactive<I18nContext>({
-  t: (key: string) => key,
+  t: t,
   language: "unknown",
-  changeLanguage(lang: string) {
-    return i18next.changeLanguage(lang);
-  },
+  changeLanguage: changeLanguage,
 });
 
 function updateI18nContext() {
-  function translate(...args: Parameters<TFunction>) {
-    return i18next.t(...args);
-  }
-
-  i18nContext.t = translate;
+  i18nContext.t = t;
   i18nContext.language = i18next.language;
 }
 
@@ -56,7 +50,7 @@ function initI18n(params?: InitOptions) {
     updateI18nContext();
   });
 
-  return i18next.init({
+  return init({
     lng: lang.toLowerCase(),
     defaultNS: "main",
     ...params,
@@ -79,7 +73,5 @@ declare module "@vue/runtime-core" {
 export const i18n = Object.freeze({
   init: initI18n,
   addTranslations,
-  changeLanguage(lang: string) {
-    return i18next.changeLanguage(lang);
-  },
+  changeLanguage: changeLanguage,
 });

@@ -1,10 +1,7 @@
-import {
-  RouteLocationNormalizedLoaded,
-  Router,
-  START_LOCATION,
-} from "vue-router";
+import type { RouteLocationNormalizedLoaded, Router } from "vue-router";
+import { START_LOCATION } from "vue-router";
 
-import { Nullable } from "../typings/common";
+import type { Nullable } from "../typings/common";
 
 let previousRoute: Nullable<RouteLocationNormalizedLoaded> = null;
 

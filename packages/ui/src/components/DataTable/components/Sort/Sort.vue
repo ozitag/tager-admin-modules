@@ -15,7 +15,7 @@
 import { defineComponent, type PropType } from "vue";
 
 import ComboBox from "../../../ComboBox/ComboBox.vue";
-import { OptionType } from "../../../../typings/common";
+import type { OptionType } from "../../../../typings/common";
 
 export interface SortProps {
   options: Array<OptionType>;

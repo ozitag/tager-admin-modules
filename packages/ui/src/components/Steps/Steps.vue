@@ -28,12 +28,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { type PropType } from "vue";
+import { defineComponent, type PropType } from "vue";
 
 import DoneIcon from "../../icons/DoneIcon.vue";
 
-import { StepType } from "./Steps.types";
+import type { StepType } from "./Steps.types";
 
 export default defineComponent({
   name: "BaseSteps",

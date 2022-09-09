@@ -1,6 +1,6 @@
 import type { TFunction } from "i18next";
 
-import { ResponseWithValidationErrorsType } from "../utils/type-guards";
+import type { ResponseWithValidationErrorsType } from "../utils/type-guards";
 
 export type ConstantMap<C extends string> = Readonly<Record<C, C>>;
 export type Nullable<T> = T | null;

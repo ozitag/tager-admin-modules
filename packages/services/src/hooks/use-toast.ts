@@ -1,4 +1,4 @@
-import { ToastActions } from "../services/toast/toast-model";
+import type { ToastActions } from "../services/toast/toast-model";
 import { toastService } from "../services/toast/toast-service";
 
 const TOAST_ACTIONS = Object.freeze<ToastActions>({

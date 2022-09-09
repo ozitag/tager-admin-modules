@@ -1,5 +1,4 @@
-import type { FetchStatus } from "@tager/admin-services";
-import type { Scopes } from "@tager/admin-services";
+import type { FetchStatus, Scopes } from "@tager/admin-services";
 
 import type { LinkType } from "../../typings/common";
 

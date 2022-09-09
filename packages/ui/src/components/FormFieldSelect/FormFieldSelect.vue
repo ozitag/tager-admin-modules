@@ -36,8 +36,14 @@ export default defineComponent({
       type: String,
       required: true,
     },
-    label: String,
-    error: String,
+    label: {
+      type: String,
+      default: "",
+    },
+    error: {
+      type: String,
+      default: "",
+    },
     containerClass: {
       type: String,
       default: "",

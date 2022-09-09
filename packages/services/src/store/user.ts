@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 
 import { FETCH_STATUSES } from "../constants/common";
-import RequestError from "../utils/request-error";
+import type RequestError from "../utils/request-error";
 import type { FetchStatus, Nullable } from "../typings/common";
 import { getUserProfile } from "../services/profile-api";
 import type { Scopes, ScopesOperand, UserModel } from "../typings/user";

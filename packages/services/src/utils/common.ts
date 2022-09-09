@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 
-import { Nullable, QueryParams, ResponseBody } from "../typings/common";
+import type { Nullable, QueryParams, ResponseBody } from "../typings/common";
 import {
   ACCESS_TOKEN_FIELD,
   REFRESH_TOKEN_FIELD,

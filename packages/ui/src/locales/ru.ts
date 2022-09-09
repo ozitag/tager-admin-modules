@@ -1,4 +1,4 @@
-import EN from "./en";
+import type EN from "./en";
 
 const RU: typeof EN = {
   formFooter: {
