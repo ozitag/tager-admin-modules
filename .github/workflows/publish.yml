@@ -20,13 +20,14 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
+      - name: Typecheck
+        run: yarn run typecheck
+
       - name: Lint
         run: yarn run lint
 
       - name: Health check
-        run: |
-          yarn run typecheck
-          yarn workspaces foreach --verbose run build:package
+        run: yarn workspaces foreach --verbose run build:package
 
       - name: Publish
         run: |
