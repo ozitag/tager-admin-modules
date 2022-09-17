@@ -7,13 +7,23 @@
     "url": "https://github.com/ozitag/tager-admin-modules.git",
     "directory": "packages/ui"
   },
-  "main": "dist/index.mjs",
-  "module": "dist/index.mjs",
-  "types": "dist/main.d.ts",
   "type": "module",
+  "main": "./src/main.ts",
+  "module": "./src/main.ts",
+  "typings": "./src/main.ts",
   "exports": {
-    "./css": "./dist/style.css",
-    ".": "./dist/index.mjs"
+    "./css": "./src/assets/css/index.css",
+    ".": "./src/main.ts"
+  },
+  "publishConfig": {
+    "main": "./dist/index.mjs",
+    "module": "./dist/index.mjs",
+    "typings": "dist/main.d.ts",
+    "exports": {
+      "./css": "./dist/style.css",
+      ".": "./dist/index.mjs"
+    },
+    "access": "public"
   },
   "files": [
     "dist"
@@ -51,9 +61,6 @@
   "peerDependencies": {
     "vue": "^3.2.33",
     "vue-router": "^4.0.14"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "msw": {
     "workerDirectory": ".storybook/public"
