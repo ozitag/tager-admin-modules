@@ -8,7 +8,7 @@ type LinkTypeWithScopes = LinkType & {
 
 export interface NavigationGridItem {
   name: string;
-  url?: string;
+  url?: string | null;
   total?: { status: FetchStatus; value: number; url?: string };
   linkList?: Array<LinkTypeWithScopes>;
   width?: number;
