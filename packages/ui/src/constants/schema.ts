@@ -1,6 +1,6 @@
 import { z } from "@tager/admin-services";
 
 export const LinkSchema = z.object({
-  url: z.string(),
+  url: z.string().nullable(),
   text: z.string(),
 });

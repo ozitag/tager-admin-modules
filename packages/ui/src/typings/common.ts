@@ -6,7 +6,7 @@ export type ShortCodeParamType = {
 };
 
 export type LinkType = {
-  url: string;
+  url: Nullable<string>;
   text: string;
 };
 

@@ -28,7 +28,7 @@
         </ul>
       </div>
 
-      <div v-if="state.websiteLink" class="url-block">
+      <div v-if="state.websiteLink && state.websiteLink.url" class="url-block">
         <a class="url" :href="state.websiteLink.url" target="_blank">
           {{ state.websiteLink.text }}
         </a>
@@ -36,6 +36,10 @@
           <ContentCopyIcon v-if="!isCopied" class="icon-copy" />
           <DoneIcon v-else class="icon-copy" />
         </BaseButton>
+      </div>
+
+      <div v-if="state.websiteLink && !state.websiteLink.url" class="url-block">
+        {{ state.websiteLink.text }}
       </div>
     </div>
   </td>

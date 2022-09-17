@@ -132,7 +132,11 @@ export function trimTrailingSlash(url: string): string {
   return url.endsWith("/") ? url.slice(0, -1) : url;
 }
 
-export function isAbsoluteUrl(url: string): boolean {
+export function isAbsoluteUrl(url: string | null): boolean {
+  if (!url) {
+    return false;
+  }
+
   try {
     new URL(url);
     return true;
