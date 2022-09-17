@@ -13,21 +13,13 @@
   "files": [
     "dist"
   ],
-  "main": "./src/index.ts",
-  "module": "./src/index.ts",
-  "typings": "./src/index.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "typings": "dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./dist/index.js"
   },
-  "publishConfig": {
-    "main": "./dist/index.js",
-    "module": "./dist/index.js",
-    "typings": "dist/index.d.ts",
-    "exports": {
-      ".": "./dist/index.js"
-    },
-    "access": "public"
-  },
+  "access": "public",
   "engines": {
     "node": ">=16"
   },

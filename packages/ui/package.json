@@ -8,23 +8,14 @@
     "directory": "packages/ui"
   },
   "type": "module",
-  "main": "./src/main.ts",
-  "module": "./src/main.ts",
-  "typings": "./src/main.ts",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "typings": "dist/main.d.ts",
   "exports": {
-    "./css": "./src/assets/css/index.css",
-    ".": "./src/main.ts"
+    "./css": "./dist/style.css",
+    ".": "./dist/index.mjs"
   },
-  "publishConfig": {
-    "main": "./dist/index.mjs",
-    "module": "./dist/index.mjs",
-    "typings": "dist/main.d.ts",
-    "exports": {
-      "./css": "./dist/style.css",
-      ".": "./dist/index.mjs"
-    },
-    "access": "public"
-  },
+  "access": "public",
   "files": [
     "dist"
   ],
