@@ -20,7 +20,6 @@
     "dist"
   ],
   "scripts": {
-    "clean": "find . -name dist -o -name \"*.tsbuildinfo\" -maxdepth 1 | xargs rm -rf",
     "build:js": "vite build",
     "build:package": "yarn build:js && yarn emit-declarations",
     "emit-declarations": "tsc --project tsconfig.app.json --emitDeclarationOnly  --declarationMap false",

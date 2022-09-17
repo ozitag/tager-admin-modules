@@ -24,7 +24,6 @@
     "node": ">=16"
   },
   "scripts": {
-    "clean": "find . -name dist -o -name \"*.tsbuildinfo\" -maxdepth 1 | xargs rm -rf",
     "emit-declarations": "tsc --project ./tsconfig.app.json --emitDeclarationOnly --declarationMap false",
     "build:js": "vite build",
     "build:package": "yarn run --top-level clean && yarn build:js && yarn emit-declarations",
