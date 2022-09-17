@@ -4,6 +4,7 @@
   "description": "Tager admin services",
   "author": "Ivan Saranchonkau <ivan.saranchenkov@gmail.com>",
   "license": "MIT",
+  "access": "public",
   "repository": {
     "type": "git",
     "url": "https://github.com/ozitag/tager-admin-modules.git",
@@ -13,13 +14,20 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "typings": "./src/index.ts",
   "exports": {
-    ".": "./dist/index.js"
+    ".": "./src/index.ts"
   },
-  "access": "public",
+  "publishConfig": {
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "typings": "dist/index.d.ts",
+    "exports": {
+      ".": "./dist/index.js"
+    }
+  },
   "engines": {
     "node": ">=16"
   },
@@ -27,7 +35,8 @@
     "emit-declarations": "tsc --project ./tsconfig.app.json --emitDeclarationOnly --declarationMap false",
     "build:js": "vite build",
     "build:package": "yarn run --top-level clean && yarn build:js && yarn emit-declarations",
-    "prepack": "yarn build:package"
+    "prepack": "yarn run build:package && yarn patch-package",
+    "postpack": "yarn restore-package"
   },
   "dependencies": {
     "i18next": "^21.9.1",
@@ -35,6 +44,7 @@
     "zod": "^3.18.0"
   },
   "devDependencies": {
+    "@tager/admin-tools": "workspace:*",
     "vite": "*"
   },
   "peerDependencies": {

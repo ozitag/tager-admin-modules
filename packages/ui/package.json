@@ -2,20 +2,29 @@
   "name": "@tager/admin-ui",
   "version": "1.0.19",
   "license": "MIT",
+  "access": "public",
   "repository": {
     "type": "git",
     "url": "https://github.com/ozitag/tager-admin-modules.git",
     "directory": "packages/ui"
   },
   "type": "module",
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "typings": "dist/main.d.ts",
+  "main": "./src/main.ts",
+  "module": "./src/main.ts",
+  "typings": "./src/main.ts",
   "exports": {
-    "./css": "./dist/style.css",
-    ".": "./dist/index.mjs"
+    "./css": "./src/assets/css/index.css",
+    ".": "./src/main.ts"
   },
-  "access": "public",
+  "publishConfig": {
+    "main": "./dist/index.mjs",
+    "module": "./dist/index.mjs",
+    "typings": "dist/main.d.ts",
+    "exports": {
+      "./css": "./dist/style.css",
+      ".": "./dist/index.mjs"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -24,7 +33,9 @@
     "build:package": "yarn build:js && yarn emit-declarations",
     "emit-declarations": "tsc --project tsconfig.app.json --emitDeclarationOnly  --declarationMap false",
     "storybook": "start-storybook --port 3000",
-    "tager:update": "yarn upgrade --latest --scope @tager"
+    "tager:update": "yarn upgrade --latest --scope @tager",
+    "prepack": "yarn run build:package && yarn patch-package",
+    "postpack": "yarn restore-package"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-vue": "^4.0.1",
@@ -41,6 +52,7 @@
     "vue3-json-viewer": "^2.2.2"
   },
   "devDependencies": {
+    "@tager/admin-tools": "workspace:*",
     "@tager/rollup-plugin-lodash": "workspace:*",
     "@types/autosize": "^4.0.1",
     "@types/leaflet": "^1.7.11",

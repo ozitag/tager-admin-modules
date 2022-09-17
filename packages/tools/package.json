@@ -1,0 +1,24 @@
+{
+  "name": "@tager/admin-tools",
+  "version": "0.1.0",
+  "description": "Tager admin tools",
+  "author": "Ivan Saranchonkau <ivan.saranchenkov@gmail.com>",
+  "license": "MIT",
+  "access": "public",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ozitag/tager-admin-modules.git",
+    "directory": "packages/tools"
+  },
+  "type": "module",
+  "bin": {
+    "patch-package": "./cli/patch-package.js",
+    "restore-package": "./cli/restore-package.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "picocolors": "^1.0.0"
+  }
+}
