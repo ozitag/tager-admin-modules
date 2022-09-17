@@ -32,8 +32,6 @@ jobs:
       - name: Publish
         run: |
           yarn changeset status
-          echo "@tager:registry=https://npm.saranchonkau.com/" >> `npm config get userconfig`
-          echo "//npm.saranchonkau.com/:_authToken=$NPM_TOKEN" >> `npm config get userconfig`
           yarn changeset version
           . "./scripts/commit-ci-changes.sh"
           yarn changeset publish
