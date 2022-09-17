@@ -1,5 +1,13 @@
 ## 0.8.5 (2021-01-13)
 
+## 1.0.19
+
+### Patch Changes
+
+- a685c8e: Revert adding `publishConfig` field
+- Updated dependencies [a685c8e]
+  - @tager/admin-services@1.1.6
+
 ## 1.0.18
 
 ### Patch Changes
