@@ -10,7 +10,7 @@
     "directory": "packages/rollup-plugin-lodash"
   },
   "type": "module",
-  "typings": "./index.d.ts",
+  "types": "./index.d.ts",
   "main": "./index.js",
   "module": "./index.js",
   "exports": {

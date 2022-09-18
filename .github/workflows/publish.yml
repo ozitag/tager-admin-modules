@@ -27,7 +27,9 @@ jobs:
         run: yarn run lint
 
       - name: Health check
-        run: yarn workspaces foreach --verbose run build:package
+        run: |
+          yarn run clean
+          yarn workspaces foreach --verbose run build:package
 
       - name: Publish
         run: |

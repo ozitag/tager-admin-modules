@@ -11,7 +11,7 @@
   "type": "module",
   "main": "./src/main.ts",
   "module": "./src/main.ts",
-  "typings": "./src/main.ts",
+  "types": "./src/main.ts",
   "exports": {
     "./css": "./src/assets/css/index.css",
     ".": "./src/main.ts"
@@ -19,7 +19,7 @@
   "publishConfig": {
     "main": "./dist/index.mjs",
     "module": "./dist/index.mjs",
-    "typings": "dist/main.d.ts",
+    "types": "dist/main.d.ts",
     "exports": {
       "./css": "./dist/style.css",
       ".": "./dist/index.mjs"
@@ -34,7 +34,7 @@
     "emit-declarations": "tsc --project tsconfig.app.json --emitDeclarationOnly  --declarationMap false",
     "storybook": "start-storybook --port 3000",
     "tager:update": "yarn upgrade --latest --scope @tager",
-    "prepack": "yarn run build:package && yarn patch-package",
+    "prepack": "yarn patch-package",
     "postpack": "yarn restore-package"
   },
   "dependencies": {
