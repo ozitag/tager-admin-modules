@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- 130654f: Add `publishConfig` field to `package.json` (again)
+- 130654f: Add `publishConfig` field to `package.json` (again).
 - Updated dependencies [130654f]
   - @tager/admin-services@1.1.7
 
