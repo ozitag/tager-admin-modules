@@ -1,5 +1,13 @@
 ## 0.8.5 (2021-01-13)
 
+## 1.0.20
+
+### Patch Changes
+
+- 130654f: Add `publishConfig` field to `package.json` (again)
+- Updated dependencies [130654f]
+  - @tager/admin-services@1.1.7
+
 ## 1.0.19
 
 ### Patch Changes
