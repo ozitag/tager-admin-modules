@@ -1,5 +1,11 @@
 ## 0.8.5 (2021-01-13)
 
+## 1.0.21
+
+### Patch Changes
+
+- 54e4fd2: Update typings in published npm package
+
 ## 1.0.20
 
 ### Patch Changes
