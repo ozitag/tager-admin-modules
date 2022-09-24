@@ -1,5 +1,11 @@
 ## 0.8.5 (2021-01-13)
 
+## 2.0.0
+
+### Major Changes
+
+- 6a06568: 1.0.21 - add ability to setup class value for cell dynically
+
 ## 1.0.21
 
 ### Patch Changes
