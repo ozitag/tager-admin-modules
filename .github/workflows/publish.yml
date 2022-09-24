@@ -10,23 +10,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16.17.0'
           registry-url: 'https://registry.npmjs.org'
           cache: 'yarn'
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: yarn install --immutable
 
-      - name: Typecheck
+      - name: Type Check
         run: yarn run typecheck
 
       - name: Lint
         run: yarn run lint
 
-      - name: Health check
+      - name: Health Check
         run: |
           yarn run clean
           yarn workspaces foreach --verbose run build:package
