@@ -3,6 +3,7 @@ import { computed, defineComponent, h, type PropType, type Slot } from "vue";
 
 import type {
   ColumnDefinition,
+  CssClass,
   RowDataDefaultType,
 } from "../../../typings/common";
 
@@ -83,6 +84,18 @@ export default defineComponent({
       rowIndex: props.rowIndex,
     }));
 
+    const cssClass = computed<CssClass>(() => {
+      if (props.column.class && typeof props.column.class === "function") {
+        return props.column.class({
+          row: props.row,
+          column: props.column,
+          rowIndex: props.rowIndex,
+        });
+      } else {
+        return props.column.class;
+      }
+    });
+
     const customCellElement = computed(() => {
       const scopedSlotNode = props.scopedSlot
         ? props.scopedSlot(cellProps.value)
@@ -98,7 +111,7 @@ export default defineComponent({
         ? children
         : h(
             "td",
-            { style: props.column.style, class: props.column.class },
+            { style: props.column.style, class: cssClass.value },
             children
           );
     });
@@ -121,7 +134,7 @@ export default defineComponent({
         ...cellProps.value,
         attrs: cellAttrs,
         style: props.column.style,
-        class: props.column.class,
+        class: cssClass.value,
       });
     });
 

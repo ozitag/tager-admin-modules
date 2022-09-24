@@ -49,12 +49,18 @@ const defaultColumnDefs = [
     name: "ID (10%)",
     field: "id",
     style: { width: "10%" },
+    class: ({ row }) => {
+      return ["id-cell", "id-cell-" + row.id];
+    },
   } as ColumnDefinitionCommon<TestEntity>,
   {
     id: 2,
     name: "String Color (30%)",
     field: "color",
     type: "color",
+    class: ({ row }) => {
+      return ["color-cell", "color-cell-" + row.id];
+    },
   } as ColumnDefinitionColor<TestEntity>,
   // {
   //   id: 2,
@@ -209,11 +215,11 @@ export const Default = () => ({
   },
   template: `
     <BaseTable :column-defs="columnDefs" :row-data="rowData" enumerable :loading="false" :use-sticky-header="false">
-      <template v-slot:cell(description)="{ row, column }">
-        <td :style="column.style">
-          <h4>{{ row[column.field] }}</h4>
-        </td>
-      </template>
+    <template v-slot:cell(description)="{ row, column }">
+      <td :style="column.style">
+        <h4>{{ row[column.field] }}</h4>
+      </td>
+    </template>
     </BaseTable>
   `,
 });

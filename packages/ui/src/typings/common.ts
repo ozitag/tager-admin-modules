@@ -71,13 +71,15 @@ export type ColumnParamsArg<RowData> = {
   rowIndex: number;
 };
 
+export type CssClass = string | string[] | object | undefined;
+
 export interface ColumnDefinitionCommon<RowData = RowDataDefaultType> {
   id: number;
   name: string;
   field: string;
   type?: string | ((params: ColumnParamsArg<RowData>) => string);
   format?: (params: ColumnParamsArg<RowData>) => any;
-  class?: any;
+  class?: CssClass | ((params: ColumnParamsArg<RowData>) => CssClass);
   // eslint-disable-next-line @typescript-eslint/ban-types
   style?: string | object[] | object;
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -92,7 +94,7 @@ export interface ColumnDefinitionDynamic<RowData = RowDataDefaultType> {
   field: string;
   type: (params: ColumnParamsArg<RowData>) => string;
   format?: (params: ColumnParamsArg<RowData>) => any;
-  class?: any;
+  class?: CssClass | ((params: ColumnParamsArg<RowData>) => CssClass);
   // eslint-disable-next-line @typescript-eslint/ban-types
   style?: string | object[] | object;
   // eslint-disable-next-line @typescript-eslint/ban-types
