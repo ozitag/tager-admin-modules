@@ -1,5 +1,11 @@
 # @tager/admin-services
 
+## 1.1.8
+
+### Patch Changes
+
+- 48f9772: Improve patch/restore package scripts.
+
 ## 1.1.7
 
 ### Patch Changes

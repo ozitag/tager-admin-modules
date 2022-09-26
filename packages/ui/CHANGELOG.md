@@ -1,5 +1,13 @@
 ## 0.8.5 (2021-01-13)
 
+## 1.0.23
+
+### Patch Changes
+
+- 48f9772: Improve patch/restore package scripts.
+- Updated dependencies [48f9772]
+  - @tager/admin-services@1.1.8
+
 ## 2.0.0
 
 ### Major Changes
