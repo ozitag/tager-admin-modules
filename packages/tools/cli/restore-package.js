@@ -1,15 +1,10 @@
-import { join } from "node:path";
-import { readFileSync, writeFileSync, rmSync } from "node:fs";
+import { fs } from "zx";
 
-import { success } from "./helpers.js";
+import { success as log } from "./helpers.js";
+import { PACKAGE_JSON, PACKAGE_JSON_BACKUP } from "./contants.js";
 
-const packageJsonPath = join(process.cwd(), "./package.json");
-const packageJsonBackupPath = join(process.cwd(), "./package.json.bac");
+log(`'package.json' restoring is starting...`);
 
-const packageJsonBackup = readFileSync(packageJsonBackupPath, {
-  encoding: "utf8",
-});
-writeFileSync(packageJsonPath, packageJsonBackup);
-rmSync(packageJsonBackupPath);
+await fs.move(PACKAGE_JSON_BACKUP, PACKAGE_JSON, { overwrite: true });
 
-success(`'package.json' has been restored!`);
+log(`'package.json' has been restored!`);
