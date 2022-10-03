@@ -1,5 +1,11 @@
 # @tager/admin-services
 
+## 1.1.9
+
+### Patch Changes
+
+- 75631f5: Fix `types` field in packed package.json
+
 ## 1.1.8
 
 ### Patch Changes
