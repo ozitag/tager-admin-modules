@@ -15,6 +15,7 @@ import ContentCopyIcon from "./ContentCopyIcon.vue";
 import DeleteIcon from "./DeleteIcon.vue";
 import DescriptionIcon from "./DescriptionIcon.vue";
 import DoneIcon from "./DoneIcon.vue";
+import EyeIcon from "./EyeIcon.vue";
 import EditIcon from "./EditIcon.vue";
 import EmailIcon from "./EmailIcon.vue";
 import ExpandLessIcon from "./ExpandLessIcon.vue";
@@ -91,6 +92,7 @@ const ICON_COMPONENTS = {
   EmailIcon,
   ExpandLessIcon,
   ExpandMoreIcon,
+  EyeIcon,
   GroupIcon,
   HomeIcon,
   LanguageIcon,

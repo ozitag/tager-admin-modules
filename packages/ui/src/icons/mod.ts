@@ -30,5 +30,6 @@ export { default as SmsIcon } from "./SmsIcon.vue";
 export { default as SouthIcon } from "./SouthIcon.vue";
 export { default as ViewListIcon } from "./ViewListIcon.vue";
 export { default as WebIcon } from "./WebIcon.vue";
+export { default as EyeIcon } from "./EyeIcon.vue";
 
 export * from "./file-extensions/mod";
