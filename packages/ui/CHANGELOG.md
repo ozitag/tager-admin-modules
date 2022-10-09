@@ -1,5 +1,11 @@
 ## 0.8.5 (2021-01-13)
 
+## 1.1.0
+
+### Minor Changes
+
+- 7b4b281: Add eye icon
+
 ## 1.0.24
 
 ### Patch Changes
