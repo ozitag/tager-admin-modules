@@ -37,9 +37,14 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    openedByDefault: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
-  setup() {
-    const isOpen = ref<boolean>(false);
+  setup(props) {
+    const isOpen = ref<boolean>(props.openedByDefault);
 
     return {
       isOpen: isOpen,
