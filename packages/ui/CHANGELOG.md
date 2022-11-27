@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.27
+
+### Patch Changes
+
+- fde6e1e: add openedByDefault param to ToggleSection
+
 ## 1.0.26
 
 ### Patch Changes
