@@ -1,8 +1,6 @@
-## 0.8.5 (2021-01-13)
+## 1.0.25
 
-## 1.1.0
-
-### Minor Changes
+### Patch Changes
 
 - 7b4b281: Add eye icon
 
@@ -57,6 +55,8 @@
 - 7d13db9: Add `publishConfig` field to `package.json`
 - Updated dependencies [7d13db9]
   - @tager/admin-services@1.1.5
+
+## 0.8.5 (2021-01-13)
 
 #### Features
 
