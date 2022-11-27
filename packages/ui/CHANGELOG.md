@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.26
+
+### Patch Changes
+
+- 0a10ed3: add ToggleSection component
+
 ### Patch Changes
 
 - 7b4b281: Add eye icon
