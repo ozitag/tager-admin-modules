@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.28
+
+### Patch Changes
+
+- 9be9229: Add Gallery Field Value
+
 ## 1.0.27
 
 ### Patch Changes
