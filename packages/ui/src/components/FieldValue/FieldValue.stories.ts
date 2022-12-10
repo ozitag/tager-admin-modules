@@ -13,7 +13,7 @@ export const Text = () => ({
     };
   },
   template: `
-      <FieldValue label="Label" type="text" :text="text"/>`,
+    <FieldValue label="Label" type="text" :text="text"/>`,
 });
 
 export const Link = () => ({
@@ -29,7 +29,7 @@ export const Link = () => ({
     };
   },
   template: `
-      <FieldValue label="Label" type="link" :src="src" :text="text"/>`,
+    <FieldValue label="Label" type="link" :src="src" :text="text"/>`,
 });
 
 export const Json = () => ({
@@ -41,7 +41,7 @@ export const Json = () => ({
     };
   },
   template: `
-      <FieldValue label="JSON" type="json" :text="text"/>`,
+    <FieldValue label="JSON" type="json" :text="text"/>`,
 });
 
 export const VideoYouTube = () => ({
@@ -55,7 +55,7 @@ export const VideoYouTube = () => ({
     };
   },
   template: `
-      <FieldValue label="Label" type="video" :videoId="videoId"/>`,
+    <FieldValue label="Label" type="video" :videoId="videoId"/>`,
 });
 export const VideoMP4 = () => ({
   name: "VideoFieldValue",
@@ -69,7 +69,7 @@ export const VideoMP4 = () => ({
     };
   },
   template: `
-      <FieldValue label="Label" type="video" :src="src"/>`,
+    <FieldValue label="Label" type="video" :src="src"/>`,
 });
 
 export const Image = () => ({
@@ -84,7 +84,22 @@ export const Image = () => ({
     };
   },
   template: `
-      <FieldValue label="Label" type="image" :src="src"/>`,
+    <FieldValue label="Label" type="image" :src="src"/>`,
+});
+
+export const Gallery = () => ({
+  name: "GalleryFieldValue",
+  components: { FieldValue },
+  setup() {
+    const src =
+      "https://images.pexels.com/photos/1252869/pexels-photo-1252869.jpeg?cs=srgb&dl=scenic-view-of-forest-during-night-time-1252869.jpg&fm=jpg";
+
+    return {
+      images: [src, src, src, src, src, src],
+    };
+  },
+  template: `
+    <FieldValue label="Label" type="gallery" :images="images"/>`,
 });
 
 export const List = () => ({
@@ -105,5 +120,5 @@ export const List = () => ({
     };
   },
   template: `
-      <FieldValue label="Список продуктов на неделю" type="list" :items="items"/>`,
+    <FieldValue label="Список продуктов на неделю" type="list" :items="items"/>`,
 });

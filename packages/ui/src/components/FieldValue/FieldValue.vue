@@ -58,6 +58,15 @@
       />
     </div>
 
+    <div
+      v-if="type === 'gallery' && images && images.length > 0"
+      :class="['gallery']"
+    >
+      <div v-for="item in images" :key="item">
+        <LoadableImage :src="item" />
+      </div>
+    </div>
+
     <ul
       v-if="type === 'list' && items && items.length > 0"
       :class="['list', { 'no-label': !label }]"
@@ -86,11 +95,13 @@ export default defineComponent({
     },
     type: {
       type: String as PropType<
-        "text" | "link" | "video" | "image" | "list" | "json"
+        "text" | "link" | "video" | "image" | "list" | "json" | "gallery"
       >,
       default: "text",
       validator: (value: string) =>
-        ["text", "link", "video", "image", "list", "json"].includes(value),
+        ["text", "link", "video", "image", "list", "json", "gallery"].includes(
+          value
+        ),
     },
     text: {
       type: String,
@@ -101,6 +112,10 @@ export default defineComponent({
       default: false,
     },
     items: {
+      type: Array,
+      default: () => [],
+    },
+    images: {
       type: Array,
       default: () => [],
     },
@@ -212,6 +227,30 @@ export default defineComponent({
 
   :deep(.jv-code) {
     padding: 15px;
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
+
+  > div {
+    padding: 0.6rem;
+    height: 220px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 200px;
+    border: 1px solid #ccc;
+    background: #f7f7f7;
+
+    img {
+      max-height: 100%;
+    }
   }
 }
 </style>
