@@ -16,6 +16,20 @@ export const Text = () => ({
     <FieldValue label="Label" type="text" :text="text"/>`,
 });
 
+export const Date = () => ({
+  name: "DateFieldValue",
+  components: { FieldValue },
+  template: `
+    <FieldValue label="Label" type="date" value="2022-12-21T23:20:35+00:00"/>`,
+});
+
+export const DateTime = () => ({
+  name: "DateTimeFieldValue",
+  components: { FieldValue },
+  template: `
+    <FieldValue label="Label" type="datetime" value="2022-12-21T23:20:35+00:00"/>`,
+});
+
 export const Link = () => ({
   name: "LinkFieldValue",
   components: { FieldValue },

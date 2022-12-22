@@ -1,24 +1,25 @@
 <template>
-  <button
-    type="button"
-    :class="['title-button', isOpen ? 'collapse' : 'expand']"
-    :title="isOpen ? 'Collapse' : 'Expand'"
-    @click="toggleOpen"
-  >
-    <span
-      role="img"
-      :class="['icon-chevron-right', { 'icon-expand-more': isOpen }]"
+  <div>
+    <button
+      type="button"
+      :class="['title-button', isOpen ? 'collapse' : 'expand']"
+      :title="isOpen ? 'Collapse' : 'Expand'"
+      @click="toggleOpen"
     >
-      <ChevronRightIcon />
-    </span>
+      <span
+        role="img"
+        :class="['icon-chevron-right', { 'icon-expand-more': isOpen }]"
+      >
+        <ChevronRightIcon />
+      </span>
 
-    <span class="title">
-      {{ label }}
-    </span>
-  </button>
-
-  <div v-show="isOpen" class="content">
-    <slot />
+      <span class="title">
+        {{ label }}
+      </span>
+    </button>
+    <div v-show="isOpen" class="content">
+      <slot />
+    </div>
   </div>
 </template>
 

@@ -9,6 +9,20 @@
       {{ text }}
     </div>
 
+    <div
+      v-if="type === 'date' && value"
+      :class="['text', { 'no-label': !label }]"
+    >
+      {{ formatDate(new Date(value)) }}
+    </div>
+
+    <div
+      v-if="type === 'datetime' && value"
+      :class="['text', { 'no-label': !label }]"
+    >
+      {{ formatDateTime(new Date(value)) }}
+    </div>
+
     <div v-if="type === 'json' && text">
       <FieldValueJson :data="text" />
     </div>
@@ -82,6 +96,7 @@
 import { defineComponent, type PropType } from "vue";
 
 import LoadableImage from "../LoadableImage";
+import { formatDate, formatDateTime } from "../../utils/common";
 
 import FieldValueJson from "./сomponents/FieldValueJson.vue";
 
@@ -95,7 +110,15 @@ export default defineComponent({
     },
     type: {
       type: String as PropType<
-        "text" | "link" | "video" | "image" | "list" | "json" | "gallery"
+        | "text"
+        | "link"
+        | "video"
+        | "image"
+        | "list"
+        | "json"
+        | "gallery"
+        | "date"
+        | "datetime"
       >,
       default: "text",
       validator: (value: string) =>
@@ -104,6 +127,10 @@ export default defineComponent({
         ),
     },
     text: {
+      type: String,
+      default: "",
+    },
+    value: {
       type: String,
       default: "",
     },
@@ -140,6 +167,12 @@ export default defineComponent({
       default: "",
     },
   },
+  setup() {
+    return {
+      formatDate,
+      formatDateTime,
+    };
+  },
 });
 </script>
 
@@ -148,7 +181,9 @@ export default defineComponent({
   margin-bottom: 1.5rem;
 }
 
-.field-text {
+.field-text,
+.field-date,
+.field-datetime {
   .text {
     margin-top: 0.5rem;
     font-weight: bold;
