@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.30
+
+### Patch Changes
+
+- 1b41bdf: admin-ui 1.0.29 - add space between toggleselections
+
 ## 1.0.29
 
 ### Patch Changes
