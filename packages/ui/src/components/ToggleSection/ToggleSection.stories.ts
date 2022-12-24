@@ -15,6 +15,22 @@ export const Default: StoryFn = () =>
       <ToggleSection label="Section">Content Content Content</ToggleSection>`,
   });
 
+export const Multiple: StoryFn = () =>
+  defineComponent({
+    components: { ToggleSection },
+    setup() {
+      return {};
+    },
+    template: `
+      <div>
+      <ToggleSection label="Section">Content Content Content</ToggleSection>
+      <ToggleSection label="Section">Content Content Content</ToggleSection>
+      <ToggleSection label="Section">Content Content Content</ToggleSection>
+      <ToggleSection label="Section">Content Content Content</ToggleSection>
+      </div>
+      `,
+  });
+
 export const OpenedByDefault: StoryFn = () =>
   defineComponent({
     components: { ToggleSection },
