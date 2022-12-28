@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.31
+
+### Patch Changes
+
+- 9cb0256: 1.0.30 - dateinput trigger change/input events only if date is valid
+
 ## 1.0.30
 
 ### Patch Changes
