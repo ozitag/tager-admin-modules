@@ -1,5 +1,15 @@
 <template>
   <input
+    v-if="type === 'date'"
+    :value="value"
+    :type="type"
+    :autocomplete="autocomplete"
+    max="2999-12-31"
+    @input="handleInput"
+    @change="handleChange"
+  />
+  <input
+    v-else
     :value="value"
     :type="type"
     :autocomplete="autocomplete"
@@ -45,12 +55,19 @@ export default defineComponent({
 
     function handleInput(event: Event) {
       const value = getInputValueFromEvent(event);
+      if (_props.type === "date" && (Date.parse(value) < 0 || !value)) {
+        return;
+      }
       context.emit("input", value);
       context.emit("update:value", value);
     }
 
     function handleChange(event: Event) {
-      context.emit("change", getInputValueFromEvent(event));
+      const value = getInputValueFromEvent(event);
+      if (_props.type === "date" && (Date.parse(value) < 0 || !value)) {
+        return;
+      }
+      context.emit("change", value);
     }
 
     return { handleInput, handleChange };
