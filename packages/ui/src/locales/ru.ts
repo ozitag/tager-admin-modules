@@ -107,6 +107,11 @@ const RU: typeof EN = {
     hide: "Закрыть",
     open: "Открыть",
   },
+
+  minmax: {
+    Min: "Мин.",
+    Max: "Макс.",
+  },
 };
 
 export default RU;

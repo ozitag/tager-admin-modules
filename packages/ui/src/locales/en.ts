@@ -105,6 +105,11 @@ const EN = {
     hide: "Hide",
     open: "Open",
   },
+
+  minmax: {
+    Min: "Min",
+    Max: "Max",
+  },
 };
 
 export default EN;
