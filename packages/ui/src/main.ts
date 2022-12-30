@@ -73,6 +73,11 @@ export { default as FormFieldMessageTemplate } from "./components/FormFieldMessa
 export { default as Code } from "./components/Code";
 export { default as IconBase } from "./components/IconBase";
 export { default as ToggleSection } from "./components/ToggleSection";
+export {
+  default as BaseMinMax,
+  type MinMaxValue,
+} from "./components/BaseMinMax";
+export { default as FormFieldMinMax } from "./components/FormFieldMinMax";
 
 export { default as ToastList } from "./components/Toast/ToastList.vue";
 

@@ -25,12 +25,7 @@
 import type { PropType } from "vue";
 import { defineComponent } from "vue";
 
-import type { Nullable } from "@tager/admin-services";
-
-export type MinMaxValue = Nullable<{
-  min: number | null;
-  max: number | null;
-}>;
+import type { MinMaxValue } from "./typings";
 
 interface Props {
   value?: MinMaxValue;
