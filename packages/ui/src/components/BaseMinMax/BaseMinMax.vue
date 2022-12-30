@@ -22,6 +22,7 @@
 </template>
 
 <script lang="ts">
+import type { PropType } from "vue";
 import { defineComponent } from "vue";
 
 import type { Nullable } from "@tager/admin-services";
@@ -41,7 +42,7 @@ export default defineComponent({
 
   props: {
     value: {
-      type: Object,
+      type: Object as PropType<MinMaxValue>,
       required: false,
       default: null,
     },
