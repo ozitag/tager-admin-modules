@@ -43,3 +43,8 @@ export const Disabled = () => ({
   components: { BaseInput },
   template: '<BaseInput value="default text"  :disabled="true" />',
 });
+
+export const Date = () => ({
+  components: { BaseInput },
+  template: '<BaseInput type="date" />',
+});

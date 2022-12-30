@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="toggle-section">
     <button
       type="button"
       :class="['title-button', isOpen ? 'collapse' : 'expand']"
@@ -58,6 +58,10 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+.toggle-section + .toggle-section {
+  margin-top: 1rem;
+}
+
 .title-button {
   display: inline-flex;
   align-items: center;
