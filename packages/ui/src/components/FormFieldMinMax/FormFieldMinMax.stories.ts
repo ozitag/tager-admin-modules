@@ -1,6 +1,6 @@
 import { ref, watch } from "vue";
 
-import type { MinMaxValue } from "../BaseMinMax/BaseMinMax.vue";
+import type { MinMaxValue } from "../BaseMinMax";
 
 import FormFieldMinMax from "./FormFieldMinMax.vue";
 
