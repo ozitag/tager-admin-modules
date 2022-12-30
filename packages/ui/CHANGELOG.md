@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.32
+
+### Patch Changes
+
+- d511c9a: add minMax input
+
 ## 1.0.31
 
 ### Patch Changes
