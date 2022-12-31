@@ -49,11 +49,17 @@ export default defineComponent({
     };
 
     const onMinusClick = () => {
-      setValue((innerValue.value ? innerValue.value : 0) - props.step);
+      setValue(
+        (innerValue.value ? innerValue.value : 0) -
+          (props.step ? props.step : 1)
+      );
     };
 
     const onPlusClick = () => {
-      setValue((innerValue.value ? innerValue.value : 0) + props.step);
+      setValue(
+        (innerValue.value ? innerValue.value : 0) +
+          (props.step ? props.step : 1)
+      );
     };
 
     const minDisabled = computed<boolean>(
