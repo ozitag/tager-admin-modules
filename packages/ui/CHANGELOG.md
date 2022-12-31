@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.34
+
+### Patch Changes
+
+- f5abe0e: add OptionsSwitcher
+
 ## 1.0.33
 
 ### Patch Changes
