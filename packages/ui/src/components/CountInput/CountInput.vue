@@ -35,7 +35,8 @@ export default defineComponent({
   },
   emits: ["change", "update:value"],
   setup(props, { emit }) {
-    const innerValue = ref<number>();
+    const innerValue = ref<number>(0);
+
     watch(
       () => props.value,
       () => (innerValue.value = props.value || 0)

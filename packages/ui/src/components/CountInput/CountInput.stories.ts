@@ -56,7 +56,7 @@ export const WithEventOnChange = () =>
     setup() {
       const value = ref<number>(0);
 
-      const onChange = (newValue) => {
+      const onChange = (newValue: number) => {
         console.log("trigger onChange");
         value.value = newValue;
       };
