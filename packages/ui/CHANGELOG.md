@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.33
+
+### Patch Changes
+
+- cf7d42e: add CountInput
+
 ## 1.0.32
 
 ### Patch Changes
