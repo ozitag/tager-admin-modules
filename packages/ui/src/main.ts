@@ -30,7 +30,6 @@ export { default as FormGroup } from "./components/FormGroup.vue";
 export { default as FileInput } from "./components/FileInput";
 export { default as FormFieldFileInput } from "./components/FormFieldFileInput";
 export { default as NumberInput } from "./components/NumberInput";
-export { default as FormFieldNumberInput } from "./components/FormFieldNumberInput";
 export { default as ColorInput } from "./components/ColorPicker";
 export { default as FormFieldColorInput } from "./components/FormFieldColorPicker";
 export { default as MultiSelect } from "./components/MultiSelect";

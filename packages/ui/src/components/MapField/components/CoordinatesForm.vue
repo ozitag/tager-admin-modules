@@ -1,7 +1,8 @@
 <template>
   <div>
     <div class="row">
-      <FormFieldNumberInput
+      <FormField
+        type="number"
         :value="values.lat"
         :label="$i18n.t('ui:mapField.latitude')"
         name="lat"
@@ -9,7 +10,8 @@
         :disabled="!isEditing"
         @update:value="handleChange('lat', $event)"
       />
-      <FormFieldNumberInput
+      <FormField
+        type="number"
         :value="values.lng"
         :label="$i18n.t('ui:mapField.longitude')"
         name="lng"
@@ -47,7 +49,7 @@ import {
 import { isNotNullish, isString, useI18n } from "@tager/admin-services";
 
 import EditIcon from "../../../icons/EditIcon.vue";
-import FormFieldNumberInput from "../../FormFieldNumberInput";
+import FormField from "../../FormField";
 import { BaseButton } from "../../BaseButton";
 import { type MapValueType, ValuePropSchema } from "../MapField.helpers";
 
@@ -87,7 +89,7 @@ type Props = {
 export default defineComponent({
   name: "CoordinatesForm",
   components: {
-    FormFieldNumberInput,
+    FormField,
     BaseButton,
     EditIcon,
   },

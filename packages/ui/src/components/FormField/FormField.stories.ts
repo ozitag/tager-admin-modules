@@ -16,6 +16,30 @@ export const Default = () =>
       '<FormField v-model:value="email" name="email" label="Email" type="email" />',
   });
 
+export const Number = () =>
+  defineComponent({
+    components: { FormField },
+    data() {
+      return {
+        value: "",
+      };
+    },
+    template:
+      '<FormField v-model:value="value" name="number" type="number" label="Number" />',
+  });
+
+export const NumberWithThousands = () =>
+  defineComponent({
+    components: { FormField },
+    data() {
+      return {
+        value: "",
+      };
+    },
+    template:
+      '<FormField v-model:value="value" name="number" type="number" label="Number" thousands-separator=" " />',
+  });
+
 export const NoError = () =>
   defineComponent({
     components: { FormField },

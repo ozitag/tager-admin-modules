@@ -13,6 +13,14 @@
       :value="value"
       v-bind="$attrs"
     />
+    <NumberInput
+      v-else-if="type === 'number'"
+      :id="name"
+      :name="name"
+      :value="value"
+      :thousands-separator="thousandsSeparator"
+      v-bind="$attrs"
+    />
     <BaseInput
       v-else
       :id="name"
@@ -28,6 +36,7 @@
 import { defineComponent } from "vue";
 
 import BaseInput from "../BaseInput";
+import NumberInput from "../NumberInput";
 import BaseTextArea from "../BaseTextArea";
 import FormFieldWrapper from "../FormFieldWrapper.vue";
 
@@ -35,6 +44,7 @@ export default defineComponent({
   name: "FormField",
   components: {
     BaseInput,
+    NumberInput,
     BaseTextArea,
     FormFieldWrapper,
   },
@@ -66,6 +76,10 @@ export default defineComponent({
           "textarea",
         ].includes(value);
       },
+    },
+    thousandsSeparator: {
+      type: String,
+      default: "",
     },
     error: {
       type: String,
