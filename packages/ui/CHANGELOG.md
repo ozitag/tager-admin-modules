@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.39
+
+### Patch Changes
+
+- 92c43ed: remove FormNumberInput
+
 ## 1.0.38
 
 ### Patch Changes
