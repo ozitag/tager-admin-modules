@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.40
+
+### Patch Changes
+
+- 378acf9: rename NumberInput to BaseNumberInput, support null value
+
 ## 1.0.39
 
 ### Patch Changes
