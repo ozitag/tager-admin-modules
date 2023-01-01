@@ -9,6 +9,10 @@ const PageFooterStorybook = defineComponent({
   name: "FormFooterStorybook",
   components: { FormFooter },
   props: {
+    isCustomLeft: {
+      type: Boolean,
+      default: false,
+    },
     isCreation: {
       type: Boolean,
       default: false,
@@ -80,7 +84,11 @@ const PageFooterStorybook = defineComponent({
           :is-submitting="isSubmitting"
           :is-creation="isCreation"
           :can-create-another="shouldCreateAnother"
-        />
+        >
+          <template #left v-if="isCustomLeft">
+            Left..
+          </template>
+        </FormFooter>
       </div>
     `,
 });
@@ -104,4 +112,15 @@ export const Edit = () =>
     name: "FormFooterEdit",
     components: { PageFooterStorybook },
     template: `<PageFooterStorybook :is-creation="false" />`,
+  });
+
+export const CustomLeft = () =>
+  defineComponent({
+    name: "FormFooterCustomLeft",
+    components: { PageFooterStorybook },
+    template: `<PageFooterStorybook :is-creation="false" :is-custom-left="true">
+      <template #left>
+        Left..
+      </template>
+    </PageFooterStorybook>`,
   });

@@ -1,7 +1,8 @@
 <template>
   <footer class="footer">
     <div class="bottom">
-      <BaseButton class="btn-back" variant="secondary" @click="goBack">
+      <slot v-if="slots.left" name="left"></slot>
+      <BaseButton v-else class="btn-back" variant="secondary" @click="goBack">
         {{ computedBackLabel }}
       </BaseButton>
 
@@ -41,7 +42,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref } from "vue";
+import { computed, defineComponent, ref, useSlots } from "vue";
 import { useRouter } from "vue-router";
 
 import { navigateBack, useI18n } from "@tager/admin-services";
@@ -102,6 +103,8 @@ export default defineComponent({
   },
   emits: ["submit"],
   setup(props: Props, context) {
+    const slots = useSlots();
+
     const i18n = useI18n();
     const router = useRouter();
     const isAnotherCreationEnabled = ref<boolean>(false);
@@ -185,6 +188,7 @@ export default defineComponent({
       isCheckboxVisible,
       shouldDisplaySaveAndExitButton,
       isSaveAndExitButtonDisabled,
+      slots,
     };
   },
 });
