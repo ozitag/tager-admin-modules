@@ -20,12 +20,12 @@ type Props = {
 };
 
 export default defineComponent({
-  name: "NumberInput",
+  name: "BaseNumberInput",
   components: { BaseInput },
   props: {
     value: {
       type: String,
-      default: "",
+      default: null,
     },
     thousandsSeparator: {
       type: String,
@@ -42,8 +42,9 @@ export default defineComponent({
   emits: ["update:value"],
   setup(props: Props, context) {
     const formattedNumber = computed<string>(() => {
+      if (!props.value) return "";
       const containsDot = props.value.includes(".");
-      const [integer, fraction] = props.value.split(".");
+      const [integer, fraction] = props.value ? props.value.split(".") : [];
 
       /** e.g. "12345678" => "12 345 678" */
       const formattedInteger = props.thousandsSeparator
@@ -69,8 +70,8 @@ export default defineComponent({
       const ALLOWED_KEYS = ["ArrowLeft", "ArrowRight", "Delete", "Backspace"];
       const DOTS = [",", "."];
 
-      const isValueContainsDot = DOTS.some((dotChar) =>
-        props.value.includes(dotChar)
+      const isValueContainsDot = DOTS.some(
+        (dotChar) => props.value && props.value.includes(dotChar)
       );
 
       if (props.type !== "integer" && !isValueContainsDot) {
