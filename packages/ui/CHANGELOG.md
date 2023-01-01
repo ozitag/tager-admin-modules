@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.38
+
+### Patch Changes
+
+- ddfc768: add no-error-padding for all form-xxx components
+
 ## 1.0.37
 
 ### Patch Changes
