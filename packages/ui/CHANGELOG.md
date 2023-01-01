@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.36
+
+### Patch Changes
+
+- cc90125: remove template option from OptionsSwitcherTrueFalse
+
 ## 1.0.35
 
 ### Patch Changes
