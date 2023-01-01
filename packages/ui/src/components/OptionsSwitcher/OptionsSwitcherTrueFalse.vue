@@ -1,3 +1,11 @@
+<template>
+  <OptionsSwitcher
+    :options="options"
+    :value="innerValue ? '1' : '0'"
+    @change.self="onChange"
+  />
+</template>
+
 <script lang="ts">
 import { defineComponent, ref, watch } from "vue";
 
@@ -43,43 +51,5 @@ export default defineComponent({
       onChange,
     };
   },
-  template: `
-    <OptionsSwitcher :options="options" :value="innerValue ? '1' : '0'" v-on:change.self="onChange"/>`,
 });
 </script>
-
-<style lang="scss" scoped>
-.options-switcher {
-  display: flex;
-  overflow: hidden;
-
-  span {
-    height: 40px;
-    font-size: 1rem;
-    padding: 0 1rem;
-    display: flex;
-    align-items: center;
-    flex: 1 1 1px;
-    cursor: pointer;
-    justify-content: center;
-    border: 1px solid var(--input-border-color);
-    transition: 0.3s all ease;
-
-    &:first-child {
-      border-radius: var(--input-border-radius) 0 0 var(--input-border-radius);
-    }
-
-    &:last-child {
-      border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;
-    }
-
-    &:not(:first-child) {
-      border-left: 0 none;
-    }
-
-    &.active {
-      background: var(--input-border-color);
-    }
-  }
-}
-</style>
