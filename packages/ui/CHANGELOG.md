@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.35
+
+### Patch Changes
+
+- 3e3a0e8: add OptionsSwitcherTrueFalse, fix colors for OptionsSwitcher,CountInput
+
 ## 1.0.34
 
 ### Patch Changes
