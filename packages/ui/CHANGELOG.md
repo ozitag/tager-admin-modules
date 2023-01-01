@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.37
+
+### Patch Changes
+
+- 597cf44: add no-error mode for FormGroup
+
 ## 1.0.36
 
 ### Patch Changes
