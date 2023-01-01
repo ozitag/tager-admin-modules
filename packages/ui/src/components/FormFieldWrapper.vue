@@ -1,5 +1,5 @@
 <template>
-  <FormGroup>
+  <FormGroup :no-error-padding="noErrorPadding">
     <InputLabel v-if="Boolean(label)" :for="labelFor">{{ label }}</InputLabel>
     <slot></slot>
     <FormFieldError v-if="Boolean(error)">{{ error }}</FormFieldError>
@@ -28,6 +28,10 @@ export default defineComponent({
     error: {
       type: String,
       default: "",
+    },
+    noErrorPadding: {
+      type: Boolean,
+      default: false,
     },
   },
 });

@@ -16,6 +16,18 @@ export const Default = () =>
       '<FormField v-model:value="email" name="email" label="Email" type="email" />',
   });
 
+export const NoError = () =>
+  defineComponent({
+    components: { FormField },
+    data() {
+      return {
+        email: "",
+      };
+    },
+    template:
+      '<FormField v-model:value="email" name="email" label="Email" type="email" :no-error-padding="true" />',
+  });
+
 export const WithError = () =>
   defineComponent({
     components: { FormField },

@@ -64,7 +64,6 @@ export default defineComponent({
     };
 
     const minDisabled = computed<boolean>(() => {
-      console.log(props.min);
       return props.min !== undefined && props.min >= innerValue.value;
     });
     const maxDisabled = computed<boolean>(
