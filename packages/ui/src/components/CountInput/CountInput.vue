@@ -18,11 +18,11 @@ export default defineComponent({
     },
     min: {
       type: Number,
-      default: null,
+      default: undefined,
     },
     max: {
       type: Number,
-      default: null,
+      default: undefined,
     },
     step: {
       type: Number,
@@ -63,9 +63,10 @@ export default defineComponent({
       );
     };
 
-    const minDisabled = computed<boolean>(
-      () => props.min !== undefined && props.min >= innerValue.value
-    );
+    const minDisabled = computed<boolean>(() => {
+      console.log(props.min);
+      return props.min !== undefined && props.min >= innerValue.value;
+    });
     const maxDisabled = computed<boolean>(
       () => props.max !== undefined && props.max <= innerValue.value
     );
@@ -101,8 +102,8 @@ export default defineComponent({
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ddd;
-    color: #333;
+    background: var(--input-border-color);
+    color: var(--text-color);
     font-size: 2rem;
     transition: 0.3s all ease;
 
@@ -112,11 +113,11 @@ export default defineComponent({
     }
 
     &:first-child {
-      border-radius: 0.35rem 0 0 0.35rem;
+      border-radius: var(--input-border-radius) 0 0 var(--input-border-radius);
     }
 
     &:last-child {
-      border-radius: 0 0.35rem 0.35rem 0;
+      border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;
     }
 
     &:hover:not([disabled]) {
@@ -135,8 +136,8 @@ export default defineComponent({
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+    border-top: 1px solid var(--input-border-color);
+    border-bottom: 1px solid var(--input-border-color);
   }
 }
 </style>

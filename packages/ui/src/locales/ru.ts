@@ -112,6 +112,11 @@ const RU: typeof EN = {
     Min: "Мин.",
     Max: "Макс.",
   },
+
+  optionsSwitcher: {
+    Yes: "Да",
+    No: "Нет",
+  },
 };
 
 export default RU;

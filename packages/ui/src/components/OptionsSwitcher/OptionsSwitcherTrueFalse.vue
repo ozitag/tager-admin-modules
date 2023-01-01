@@ -1,37 +1,23 @@
-<template>
-  <div class="options-switcher">
-    <span
-      v-for="item in options"
-      :key="item.value"
-      :class="item.value === innerValue ? 'active' : ''"
-      @click="() => onChange(item.value)"
-    >
-      {{ item.label }}
-    </span>
-  </div>
-</template>
-
 <script lang="ts">
-import type { PropType } from "vue";
 import { defineComponent, ref, watch } from "vue";
 
-import type { OptionType } from "../../typings/common";
+import { useI18n } from "@tager/admin-services";
+
+import OptionsSwitcher from "./OptionsSwitcher.vue";
 
 export default defineComponent({
-  name: "OptionsSwitcher",
+  name: "OptionsSwitcherTrueFalse",
+  components: { OptionsSwitcher },
   props: {
     value: {
-      type: String,
+      type: Boolean,
       default: null,
     },
-    options: {
-      type: Array as PropType<Array<OptionType>>,
-      default: () => [],
-    },
   },
+
   emits: ["change", "update:value"],
   setup(props, { emit }) {
-    const innerValue = ref<string | null>(props.value || null);
+    const innerValue = ref<boolean | null>(props.value || null);
 
     watch(
       () => props.value,
@@ -40,17 +26,25 @@ export default defineComponent({
       }
     );
 
+    const i18n = useI18n();
+
     const onChange = (newValue: string) => {
-      innerValue.value = newValue;
-      emit("change", newValue);
-      emit("update:value", newValue);
+      innerValue.value = newValue === "1";
+      emit("change", innerValue.value);
+      emit("update:value", innerValue.value);
     };
 
     return {
+      options: [
+        { label: i18n.t("ui:optionsSwitcher.No"), value: "0" },
+        { label: i18n.t("ui:optionsSwitcher.Yes"), value: "1" },
+      ],
       innerValue,
       onChange,
     };
   },
+  template: `
+    <OptionsSwitcher :options="options" :value="innerValue ? '1' : '0'" v-on:change.self="onChange"/>`,
 });
 </script>
 

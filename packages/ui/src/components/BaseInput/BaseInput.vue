@@ -88,7 +88,7 @@ input {
   background-clip: padding-box;
   border: 1px solid var(--input-border-color);
   appearance: none;
-  border-radius: 0.25rem;
+  border-radius: var(--input-border-radius);
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
   @media (prefers-reduced-motion: reduce) {

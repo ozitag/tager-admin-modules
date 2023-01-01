@@ -14,7 +14,9 @@ export const Default = () =>
   defineComponent({
     components: { CountInput },
     template: `
+      <div :style="{width: '400px'}">
       <CountInput/>
+      </div>
     `,
   });
 

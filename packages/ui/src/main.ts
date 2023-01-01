@@ -49,7 +49,10 @@ export { default as MapField } from "./components/MapField";
 export { default as CountInput } from "./components/CountInput";
 export { default as ShortCodeConstructor } from "./components/ShortCodeConstructor";
 export { default as CountButton } from "./components/CountButton";
-export { default as OptionsSwitcher } from "./components/OptionsSwitcher";
+export {
+  default as OptionsSwitcher,
+  OptionsSwitcherTrueFalse,
+} from "./components/OptionsSwitcher";
 export { default as FormFieldRecommendedLengthInput } from "./components/FormFieldRecommendedLengthInput";
 export {
   default as DataTable,

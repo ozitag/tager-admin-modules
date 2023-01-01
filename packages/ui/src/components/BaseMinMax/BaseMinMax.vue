@@ -113,7 +113,7 @@ export default defineComponent({
     align-items: center;
 
     &:first-child {
-      border-radius: 0.25rem 0 0 0.25rem;
+      border-radius: var(--input-border-radius) 0 0 var(--input-border-radius);
     }
   }
 
@@ -132,7 +132,7 @@ export default defineComponent({
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
     &:last-child {
-      border-radius: 0 0.25rem 0.25rem 0;
+      border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;
     }
 
     @media (prefers-reduced-motion: reduce) {

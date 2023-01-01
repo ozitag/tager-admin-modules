@@ -57,6 +57,6 @@ ul {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.25rem;
+  border-radius: var(--input-border-radius);
 }
 </style>

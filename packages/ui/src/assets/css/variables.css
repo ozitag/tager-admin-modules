@@ -20,8 +20,11 @@
     --input-placeholder-color: #6c757d;
     --input-disabled-bg: #e9ecef;
     --input-disabled-color: #6c757d;
+    --input-background-color: #4b5156;
 
     --input-border-color: #ced4da;
     --input-focus-border-color: #80bdff;
     --input-focus-box-shadow: rgba(0,123,255,.25);
+
+    --input-border-radius: 0.25rem;
 }

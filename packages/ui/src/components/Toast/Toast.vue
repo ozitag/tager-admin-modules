@@ -66,7 +66,7 @@ export default defineComponent({
   backface-visibility: hidden;
   background-clip: padding-box;
   z-index: 1;
-  border-radius: 0.25rem;
+  border-radius: var(--input-border-radius);
 
   &:not(:last-child) {
     margin-bottom: 0.75rem;
@@ -82,7 +82,7 @@ export default defineComponent({
     box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     opacity: 1;
-    border-radius: 0.25rem;
+    border-radius: var(--input-border-radius);
     transition: opacity 200ms;
 
     &.hidden {

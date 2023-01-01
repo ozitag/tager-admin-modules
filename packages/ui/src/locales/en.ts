@@ -110,6 +110,11 @@ const EN = {
     Min: "Min",
     Max: "Max",
   },
+
+  optionsSwitcher: {
+    Yes: "Yes",
+    No: "No",
+  },
 };
 
 export default EN;
