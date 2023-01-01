@@ -4,6 +4,7 @@
     :label="label"
     :label-for="name"
     :error="error"
+    :no-error-padding="noErrorPadding"
   >
     <BaseRichTextInput :id="name" :name="name" :value="value" v-bind="$attrs" />
   </FormFieldWrapper>
@@ -42,6 +43,10 @@ export default defineComponent({
     containerClass: {
       type: String,
       default: "",
+    },
+    noErrorPadding: {
+      type: Boolean,
+      default: false,
     },
   },
 });

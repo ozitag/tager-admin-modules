@@ -4,6 +4,7 @@
     :label="label"
     :label-for="name"
     :error="error"
+    :no-error-padding="noErrorPadding"
   >
     <BaseInput
       v-if="type !== 'textarea'"
@@ -108,6 +109,10 @@ export default defineComponent({
     containerClass: {
       type: String,
       default: "",
+    },
+    noErrorPadding: {
+      type: Boolean,
+      default: false,
     },
   },
   setup(props: Props) {

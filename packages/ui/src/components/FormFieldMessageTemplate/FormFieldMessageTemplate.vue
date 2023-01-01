@@ -1,6 +1,10 @@
 <template>
   <div class="form-field-message-template" :class="containerClass">
-    <FormFieldWrapper :label="label" :error="errorMessage">
+    <FormFieldWrapper
+      :label="label"
+      :error="errorMessage"
+      :no-error-padding="noErrorPadding"
+    >
       <BaseRichTextInput
         v-if="type === 'richText'"
         :value="value"
@@ -67,6 +71,10 @@ export default defineComponent({
     containerClass: {
       type: String,
       default: "",
+    },
+    noErrorPadding: {
+      type: Boolean,
+      default: false,
     },
   },
 });

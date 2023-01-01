@@ -1,5 +1,10 @@
 <template>
-  <FormFieldWrapper :label-for="name" :label="label" :error="error">
+  <FormFieldWrapper
+    :label-for="name"
+    :label="label"
+    :error="error"
+    :no-error-padding="noErrorPadding"
+  >
     <ColorPicker :value="value" v-bind="$attrs" />
   </FormFieldWrapper>
 </template>
@@ -33,6 +38,10 @@ export default defineComponent({
     error: {
       type: String,
       default: null,
+    },
+    noErrorPadding: {
+      type: Boolean,
+      default: false,
     },
   },
 });
