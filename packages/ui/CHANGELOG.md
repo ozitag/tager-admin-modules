@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.41
+
+### Patch Changes
+
+- ea52f0d: add left slot to FormFooter
+
 ## 1.0.40
 
 ### Patch Changes
