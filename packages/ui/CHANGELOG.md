@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.42
+
+### Patch Changes
+
+- da384e0: fix crash in BaseNumberInput when value is int
+
 ## 1.0.41
 
 ### Patch Changes
