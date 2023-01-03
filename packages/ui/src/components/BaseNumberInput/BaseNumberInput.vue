@@ -43,8 +43,10 @@ export default defineComponent({
   setup(props: Props, context) {
     const formattedNumber = computed<string>(() => {
       if (!props.value) return "";
-      const containsDot = props.value.includes(".");
-      const [integer, fraction] = props.value ? props.value.split(".") : [];
+      const containsDot = String(props.value).includes(".");
+      const [integer, fraction] = props.value
+        ? String(props.value).split(".")
+        : [];
 
       /** e.g. "12345678" => "12 345 678" */
       const formattedInteger = props.thousandsSeparator
@@ -71,7 +73,8 @@ export default defineComponent({
       const DOTS = [",", "."];
 
       const isValueContainsDot = DOTS.some(
-        (dotChar) => props.value && props.value.includes(dotChar)
+        (dotChar) =>
+          String(props.value) && String(props.value).includes(dotChar)
       );
 
       if (props.type !== "integer" && !isValueContainsDot) {
