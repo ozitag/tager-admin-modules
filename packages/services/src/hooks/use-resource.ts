@@ -12,7 +12,9 @@ export type ResourceRef<Data, Meta = undefined> = {
   data: Ref<Data>;
   meta: Ref<Meta | undefined>;
   loading: ComputedRef<boolean>;
-  error: Ref<Nullable<string>>;
+  errorMessage: Ref<Nullable<string>>;
+
+  error: Ref<anu>;
   status: Ref<FetchStatus>;
 };
 
@@ -38,7 +40,8 @@ export function useResource<
   const data = ref<Data>(params.initialValue) as Ref<Data>;
   const meta = ref<Meta | undefined>(undefined) as Ref<Meta | undefined>;
   const status = ref<FetchStatus>(FETCH_STATUSES.IDLE);
-  const error = ref<string | null>(null);
+  const errorMessage = ref<string | null>(null);
+  const error = ref<any>(null);
   const toast = useToast();
 
   const currentRequestId = ref<string | null>(null);
@@ -69,6 +72,7 @@ export function useResource<
         meta.value = response.meta;
         status.value = FETCH_STATUSES.SUCCESS;
         error.value = null;
+        errorMessage.value = null;
       })
       .catch((error) => {
         if (requestId !== currentRequestId.value) return;
@@ -88,12 +92,13 @@ export function useResource<
         data.value = params.initialValue;
         meta.value = undefined;
         status.value = FETCH_STATUSES.FAILURE;
-        error.value = getMessageFromError(error);
+        error.value = error;
+        errorMessage.value = getMessageFromError(error);
       });
   }
 
   return [
     makeRequest,
-    { data, meta, loading, error, status },
+    { data, meta, loading, error, errorMessage, status },
   ] as ResourceHookReturnType<Data, Meta, RequestParams>;
 }
