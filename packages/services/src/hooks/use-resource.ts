@@ -74,12 +74,12 @@ export function useResource<
         error.value = null;
         errorMessage.value = null;
       })
-      .catch((error) => {
+      .catch((requestError) => {
         if (requestId !== currentRequestId.value) return;
 
         currentRequestId.value = null;
 
-        console.error(error);
+        console.error(requestError);
 
         const resourceName = params.resourceName ?? "Resource";
 
@@ -92,7 +92,7 @@ export function useResource<
         data.value = params.initialValue;
         meta.value = undefined;
         status.value = FETCH_STATUSES.FAILURE;
-        error.value = error;
+        error.value = requestError;
         errorMessage.value = getMessageFromError(error);
       });
   }
