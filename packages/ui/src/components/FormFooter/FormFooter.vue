@@ -6,7 +6,7 @@
         {{ computedBackLabel }}
       </BaseButton>
 
-      <div class="bottom-right">
+      <div v-if="!hideSubmitButtons" class="bottom-right">
         <FormFieldCheckbox
           v-if="isCheckboxVisible"
           v-model:checked="isAnotherCreationEnabled"
@@ -61,6 +61,7 @@ interface Props {
   isSubmitButtonDisabled: boolean;
   isCreation: boolean;
   canCreateAnother: boolean;
+  hideSubmitButtons: boolean;
 }
 
 export default defineComponent({
@@ -97,6 +98,10 @@ export default defineComponent({
       default: false,
     },
     canCreateAnother: {
+      type: Boolean,
+      default: false,
+    },
+    hideSubmitButtons: {
       type: Boolean,
       default: false,
     },
