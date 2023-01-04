@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.46
+
+### Patch Changes
+
+- be50811: fix CountInput default value
+
 ## 1.0.45
 
 ### Patch Changes
