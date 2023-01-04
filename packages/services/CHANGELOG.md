@@ -1,5 +1,11 @@
 # @tager/admin-services
 
+## 1.1.10
+
+### Patch Changes
+
+- 3af1133: add error object to UseResource, move error message errorMessage field
+
 ## 1.1.9
 
 ### Patch Changes
