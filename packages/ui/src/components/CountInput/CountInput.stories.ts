@@ -77,7 +77,7 @@ export const WithVModel = () =>
   defineComponent({
     components: { CountInput, BaseButton, BaseInput },
     setup() {
-      const value = ref<number>(0);
+      const value = ref<number>(5);
 
       const reset = () => (value.value = 0);
 
