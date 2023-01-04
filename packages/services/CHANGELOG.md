@@ -1,5 +1,11 @@
 # @tager/admin-services
 
+## 1.1.11
+
+### Patch Changes
+
+- 904daf3: fix useResource error
+
 ## 1.1.10
 
 ### Patch Changes
