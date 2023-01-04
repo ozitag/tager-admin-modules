@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.45
+
+### Patch Changes
+
+- f84dd42: add hideSubmitButtons props to FormFooter
+
 ## 1.0.44
 
 ### Patch Changes
