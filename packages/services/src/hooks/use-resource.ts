@@ -14,7 +14,7 @@ export type ResourceRef<Data, Meta = undefined> = {
   loading: ComputedRef<boolean>;
   errorMessage: Ref<Nullable<string>>;
 
-  error: Ref<anu>;
+  error: Ref<any>;
   status: Ref<FetchStatus>;
 };
 
