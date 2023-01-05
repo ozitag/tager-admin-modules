@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.48
+
+### Patch Changes
+
+- e17e106: BaseNumberInput change value type from String to Number, improve FieldValue edit mode
+
 ## 1.0.47
 
 ### Patch Changes
