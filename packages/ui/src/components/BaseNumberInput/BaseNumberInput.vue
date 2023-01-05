@@ -14,7 +14,7 @@ import { DOT_REGEXP, SPACE_REGEXP } from "../../utils/common";
 import BaseInput from "../BaseInput";
 
 type Props = {
-  value: string;
+  value: number;
   type: "integer" | "float" | "";
   thousandsSeparator: string;
 };
@@ -24,7 +24,7 @@ export default defineComponent({
   components: { BaseInput },
   props: {
     value: {
-      type: String,
+      type: Number,
       default: null,
     },
     thousandsSeparator: {
@@ -41,8 +41,11 @@ export default defineComponent({
   },
   emits: ["update:value"],
   setup(props: Props, context) {
+    const isFloat = props.type !== "integer";
+
     const formattedNumber = computed<string>(() => {
       if (!props.value) return "";
+
       const containsDot = String(props.value).includes(".");
       const [integer, fraction] = props.value
         ? String(props.value).split(".")
@@ -64,8 +67,10 @@ export default defineComponent({
       return value.replace(DOT_REGEXP, ".");
     }
 
-    function normalizeNumber(formattedNumber: string): string {
-      return normalizeDots(formattedNumber).replace(SPACE_REGEXP, "");
+    function normalizeNumber(formattedNumber: string): number {
+      const value = normalizeDots(formattedNumber).replace(SPACE_REGEXP, "");
+
+      return isFloat ? parseFloat(value) : parseInt(value);
     }
 
     function handleKeydown(event: KeyboardEvent) {
@@ -77,7 +82,7 @@ export default defineComponent({
           String(props.value) && String(props.value).includes(dotChar)
       );
 
-      if (props.type !== "integer" && !isValueContainsDot) {
+      if (isFloat && !isValueContainsDot) {
         ALLOWED_KEYS.push(...DOTS);
       }
 

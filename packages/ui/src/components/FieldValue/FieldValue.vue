@@ -84,15 +84,23 @@
       </ul>
     </div>
 
-    <button v-if="withEdit" class="edit-button" @click="onEditClick">
-      {{ editLabel || $i18n.t("ui:fieldValue.edit") }}
-    </button>
-    <slot v-else name="bottom" />
+    <template v-if="withEdit">
+      <button
+        v-if="!editActive || !slots.edit"
+        class="edit-button"
+        @click="onEditClick"
+      >
+        {{ editLabel || $i18n.t("ui:fieldValue.edit") }}
+      </button>
+      <div v-else class="edit-container">
+        <slot name="edit" />
+      </div>
+    </template>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, type PropType } from "vue";
+import { defineComponent, type PropType, useSlots } from "vue";
 
 import LoadableImage from "../LoadableImage";
 import { formatDate, formatDateTime } from "../../utils/common";
@@ -167,14 +175,20 @@ export default defineComponent({
     },
     editLabel: {
       type: String,
-      required: false,
+      default: null,
+    },
+    editActive: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: ["edit"],
   setup(_props, context) {
+    const slots = useSlots();
     const onEditClick = () => context.emit("edit");
 
     return {
+      slots,
       formatDate,
       formatDateTime,
       onEditClick,
@@ -299,6 +313,12 @@ export default defineComponent({
       max-height: 100%;
     }
   }
+}
+
+.field .edit-container {
+  border-left: 1px solid var(--input-border-color);
+  margin-top: 0.5rem;
+  padding: 0.5rem 0 0.5rem 1rem;
 }
 
 .field .edit-button {

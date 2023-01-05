@@ -8,7 +8,7 @@ export const Float = () =>
   defineComponent({
     components: { BaseNumberInput },
     setup() {
-      const value = ref("123123");
+      const value = ref(213412);
 
       return { value };
     },
@@ -30,7 +30,7 @@ export const WithThousandsSeparator = () =>
   defineComponent({
     components: { BaseNumberInput },
     setup() {
-      const value = ref("");
+      const value = ref(null);
 
       return { value };
     },

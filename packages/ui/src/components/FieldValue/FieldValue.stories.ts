@@ -23,23 +23,31 @@ export const TextWithEdit = () => ({
   components: { FieldValue },
   setup() {
     const editMode = ref<boolean>(false);
-    const text = "It's not exactly a real DOM element.";
 
     const onEditClick = () => {
       editMode.value = true;
     };
 
+    const onCancelClick = () => {
+      editMode.value = false;
+    };
+
     return {
-      text,
       editMode,
       onEditClick,
+      onCancelClick,
     };
   },
   template: `
-    <FieldValue label="Label" type="text" :value="text" :with-edit="!editMode" edit-label="Edit Item" @edit="onEditClick">
-      <template #bottom>
-        ....
-      </template>
+    <FieldValue label="Label" type="text" value="It's not exactly a real DOM element."
+                :with-edit="true" :edit-active="editMode" edit-label="Edit Item"
+                @edit="onEditClick">
+    <template #edit>
+      Edit Form...<br/>
+      Edit Form...<br/>
+      Edit Form...<br/>
+      <button @click="onCancelClick">Cancel</button>
+    </template>
     </FieldValue>`,
 });
 
