@@ -3,86 +3,74 @@
     <div v-if="label" class="label">{{ label }}</div>
 
     <div class="field-value">
-      <Nl2Br
-        v-if="type === 'text' && value"
-        :class="['text', { 'no-label': !label }]"
-        :text="value"
-      />
-      <div
-        v-if="type === 'date' && value"
-        :class="['text', { 'no-label': !label }]"
-      >
-        {{ formatDate(new Date(value)) }}
-      </div>
-      <div
-        v-if="type === 'datetime' && value"
-        :class="['text', { 'no-label': !label }]"
-      >
-        {{ formatDateTime(new Date(value)) }}
-      </div>
-      <div v-if="type === 'json' && value">
-        <FieldValueJson :data="value" />
-      </div>
-      <template v-if="type === 'link' && src">
-        <router-link
-          v-if="shouldUseRouter"
-          :class="['link', { 'no-label': !label }]"
-          :to="src"
-        >
-          {{ src }}
-        </router-link>
-        <a
-          v-else
-          :class="['link', { 'no-label': !label }]"
-          :href="src"
-          target="_blank"
-        >
-          {{ src }}
-        </a>
-      </template>
-      <div
-        v-if="type === 'video' && (videoId || src)"
-        :class="['video', { 'no-label': !label }]"
-        :style="{ height: maxHeight + 'px' }"
-      >
-        <iframe
-          v-if="videoId"
-          :src="`https://www.youtube.com/embed/${videoId}`"
-          allowfullscreen
-          :height="maxHeight"
-        ></iframe>
+      <template v-if="slots.value" />
+      <template v-else>
+        <Nl2Br v-if="type === 'text' && value" :text="value" />
 
-        <video v-if="src" :src="src" controls :height="maxHeight"></video>
-      </div>
-      <div
-        v-if="type === 'image' && src"
-        :class="['image', { 'no-label': !label }]"
-        :style="{ height: maxHeight + 'px' }"
-      >
-        <LoadableImage
-          :src="src"
-          :style="{ width: maxWidth + 'px', height: maxHeight + 'px' }"
-          :alt="alt"
-        />
-      </div>
-      <div
-        v-if="type === 'gallery' && images && images.length > 0"
-        :class="['gallery']"
-      >
-        <div v-for="item in images" :key="item">
-          <LoadableImage :src="item" />
+        <div v-if="type === 'date' && value">
+          {{ formatDate(new Date(value)) }}
         </div>
-      </div>
-      <ul
-        v-if="
-          type === 'list' && value && Array.isArray(value) && value.length > 0
-        "
-        :class="['list', { 'no-label': !label }]"
-      >
-        <li v-for="(item, index) in value" :key="index">
-          {{ item }}
-        </li>
-      </ul>
+
+        <div v-if="type === 'datetime' && value">
+          {{ formatDateTime(new Date(value)) }}
+        </div>
+
+        <div v-if="type === 'json' && value">
+          <FieldValueJson :data="value" />
+        </div>
+
+        <template v-if="type === 'link' && src">
+          <router-link v-if="shouldUseRouter" class="link" :to="src">
+            {{ src }}
+          </router-link>
+          <a v-else class="link" :href="src" target="_blank">
+            {{ src }}
+          </a>
+        </template>
+        <div
+          v-if="type === 'video' && (videoId || src)"
+          class="video"
+          :style="{ height: maxHeight + 'px' }"
+        >
+          <iframe
+            v-if="videoId"
+            :src="`https://www.youtube.com/embed/${videoId}`"
+            allowfullscreen
+            :height="maxHeight"
+          ></iframe>
+
+          <video v-if="src" :src="src" controls :height="maxHeight"></video>
+        </div>
+        <div
+          v-if="type === 'image' && src"
+          class="image"
+          :style="{ height: maxHeight + 'px' }"
+        >
+          <LoadableImage
+            :src="src"
+            :style="{ width: maxWidth + 'px', height: maxHeight + 'px' }"
+            :alt="alt"
+          />
+        </div>
+        <div
+          v-if="type === 'gallery' && images && images.length > 0"
+          class="gallery"
+        >
+          <div v-for="item in images" :key="item">
+            <LoadableImage :src="item" />
+          </div>
+        </div>
+        <ul
+          v-if="
+            type === 'list' && value && Array.isArray(value) && value.length > 0
+          "
+          class="list"
+        >
+          <li v-for="(item, index) in value" :key="index">
+            {{ item }}
+          </li>
+        </ul>
+      </template>
     </div>
 
     <template v-if="withEdit">
@@ -131,11 +119,21 @@ export default defineComponent({
       >,
       default: "text",
       validator: (value: string) =>
-        ["text", "link", "video", "image", "list", "json", "gallery"].includes(
-          value
-        ),
+        [
+          "text",
+          "link",
+          "video",
+          "image",
+          "list",
+          "json",
+          "gallery",
+          "date",
+          "datetime",
+        ].includes(value),
     },
-    value: [Number, String, Array],
+    value: {
+      type: [Number, String, Array],
+    },
     shouldUseRouter: {
       type: Boolean,
       default: false,
@@ -199,24 +197,19 @@ export default defineComponent({
   &:first-child {
     margin-top: 0;
   }
-}
 
-.field-text,
-.field-date,
-.field-datetime {
-  .text {
-    margin-top: 0.5rem;
-    font-weight: bold;
+  .label {
+    font-weight: 700;
+    font-size: 0.9rem;
 
-    &.no-label {
-      margin-top: 0;
+    + .field-value {
+      margin-top: 0.5rem;
     }
   }
 }
 
 .field-link {
   .link {
-    margin-top: 0.5rem;
     color: #007bff;
     font-weight: bold;
     display: block;
@@ -225,24 +218,15 @@ export default defineComponent({
       color: #0056b3;
       text-decoration: underline;
     }
-
-    &.no-label {
-      margin-top: 0;
-    }
   }
 }
 
 .field-image {
   .image {
     display: block;
-    margin-top: 0.5rem;
 
     img {
       object-fit: cover;
-    }
-
-    &.no-label {
-      margin-top: 0;
     }
   }
 }
@@ -250,14 +234,9 @@ export default defineComponent({
 .field-video {
   .video {
     display: block;
-    margin-top: 0.5rem;
 
     iframe {
       border-width: 0;
-    }
-
-    &.no-label {
-      margin-top: 0;
     }
   }
 }
@@ -265,20 +244,14 @@ export default defineComponent({
 .field-list {
   .list {
     display: block;
-    margin-top: 0.5rem;
     padding-left: 27px;
     list-style-type: disc;
-
-    &.no-label {
-      margin-top: 0;
-    }
   }
 }
 
 .field-json {
   label {
     margin-bottom: 0.35rem;
-    font-size: 0.9rem;
   }
 
   :deep(.jv-code) {
@@ -290,7 +263,6 @@ export default defineComponent({
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
-  margin-top: 0.5rem;
 
   > div {
     padding: 0.6rem;
