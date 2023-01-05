@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.50
+
+### Patch Changes
+
+- 08096d9: add :as-string prop to BaseNumberInput
+
 ## 1.0.49
 
 ### Patch Changes
