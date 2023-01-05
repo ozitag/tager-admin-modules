@@ -117,6 +117,10 @@ const RU: typeof EN = {
     Yes: "Да",
     No: "Нет",
   },
+
+  fieldValue: {
+    edit: "Изменить",
+  },
 };
 
 export default RU;

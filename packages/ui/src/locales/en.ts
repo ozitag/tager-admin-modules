@@ -115,6 +115,10 @@ const EN = {
     Yes: "Yes",
     No: "No",
   },
+
+  fieldValue: {
+    edit: "Edit",
+  },
 };
 
 export default EN;

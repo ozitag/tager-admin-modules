@@ -1,3 +1,5 @@
+import { ref } from "vue";
+
 import FieldValue from "./FieldValue.vue";
 
 export default { title: "FieldValue" };
@@ -13,7 +15,32 @@ export const Text = () => ({
     };
   },
   template: `
-    <FieldValue label="Label" type="text" :text="text"/>`,
+    <FieldValue label="Label" type="text" :value="text"/>`,
+});
+
+export const TextWithEdit = () => ({
+  name: "TextFieldValue",
+  components: { FieldValue },
+  setup() {
+    const editMode = ref<boolean>(false);
+    const text = "It's not exactly a real DOM element.";
+
+    const onEditClick = () => {
+      editMode.value = true;
+    };
+
+    return {
+      text,
+      editMode,
+      onEditClick,
+    };
+  },
+  template: `
+    <FieldValue label="Label" type="text" :value="text" :with-edit="!editMode" edit-label="Edit Item" @edit="onEditClick">
+      <template #bottom>
+        ....
+      </template>
+    </FieldValue>`,
 });
 
 export const Date = () => ({
@@ -43,7 +70,7 @@ export const Link = () => ({
     };
   },
   template: `
-    <FieldValue label="Label" type="link" :src="src" :text="text"/>`,
+    <FieldValue label="Label" type="link" :src="src" :value="text"/>`,
 });
 
 export const Json = () => ({
@@ -55,7 +82,7 @@ export const Json = () => ({
     };
   },
   template: `
-    <FieldValue label="JSON" type="json" :text="text"/>`,
+    <FieldValue label="JSON" type="json" :value="text"/>`,
 });
 
 export const VideoYouTube = () => ({
