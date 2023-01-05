@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.51
+
+### Patch Changes
+
+- bb8391a: improve FieldValue, remove legacy code, add #value slot, change font-weight for labels
+
 ## 1.0.50
 
 ### Patch Changes
