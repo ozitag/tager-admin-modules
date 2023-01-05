@@ -51,6 +51,20 @@ export const TextWithEdit = () => ({
     </FieldValue>`,
 });
 
+export const TextMultiLine = () => ({
+  name: "TextMultiLine",
+  components: { FieldValue },
+  setup() {
+    const text = "Line1\nLine 2\nLine 3\nLine 4";
+
+    return {
+      text,
+    };
+  },
+  template: `
+    <FieldValue label="Label" type="text" :value="text"/>`,
+});
+
 export const Date = () => ({
   name: "DateFieldValue",
   components: { FieldValue },
@@ -154,20 +168,8 @@ export const Gallery = () => ({
 export const List = () => ({
   name: "ListFieldValue",
   components: { FieldValue },
-  setup() {
-    const items = [
-      { title: "Картофель" },
-      { title: "Морковь" },
-      { title: "Лук" },
-      { title: "Чеснок" },
-      { title: "Петрушка" },
-      { title: "Укроп" },
-    ];
-
-    return {
-      items,
-    };
-  },
   template: `
-    <FieldValue label="Список продуктов на неделю" type="list" :items="items"/>`,
+    <FieldValue label="Список продуктов на неделю" :with-edit="true" type="list" :value="[
+      'Картофель', 'Морковь', 'Лук',  'Чеснок', 'Петрушка', 'Укроп'
+    ]"/>`,
 });

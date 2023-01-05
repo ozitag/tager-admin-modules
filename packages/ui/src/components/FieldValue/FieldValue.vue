@@ -3,12 +3,11 @@
     <div v-if="label" class="label">{{ label }}</div>
 
     <div class="field-value">
-      <div
+      <Nl2Br
         v-if="type === 'text' && value"
         :class="['text', { 'no-label': !label }]"
-      >
-        {{ value }}
-      </div>
+        :text="value"
+      />
       <div
         v-if="type === 'date' && value"
         :class="['text', { 'no-label': !label }]"
@@ -75,11 +74,13 @@
         </div>
       </div>
       <ul
-        v-if="type === 'list' && items && items.length > 0"
+        v-if="
+          type === 'list' && value && Array.isArray(value) && value.length > 0
+        "
         :class="['list', { 'no-label': !label }]"
       >
-        <li v-for="(item, index) in items" :key="index">
-          {{ item.title }}
+        <li v-for="(item, index) in value" :key="index">
+          {{ item }}
         </li>
       </ul>
     </div>
@@ -104,12 +105,13 @@ import { defineComponent, type PropType, useSlots } from "vue";
 
 import LoadableImage from "../LoadableImage";
 import { formatDate, formatDateTime } from "../../utils/common";
+import Nl2Br from "../../components/Nl2Br";
 
 import FieldValueJson from "./сomponents/FieldValueJson.vue";
 
 export default defineComponent({
   name: "FieldValue",
-  components: { FieldValueJson, LoadableImage },
+  components: { FieldValueJson, LoadableImage, Nl2Br },
   props: {
     label: {
       type: String,
@@ -133,17 +135,10 @@ export default defineComponent({
           value
         ),
     },
-    value: {
-      type: String,
-      default: "",
-    },
+    value: [Number, String, Array],
     shouldUseRouter: {
       type: Boolean,
       default: false,
-    },
-    items: {
-      type: Array,
-      default: () => [],
     },
     images: {
       type: Array,

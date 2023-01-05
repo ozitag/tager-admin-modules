@@ -37,6 +37,7 @@ export { default as FormFieldMultiSelect } from "./components/FormFieldMultiSele
 export { default as FormFieldUrlAliasInput } from "./components/FormFieldUrlAliasInput";
 export * from "./components/NavigationGrid";
 export { default as LoadableImage } from "./components/LoadableImage";
+export { default as Nl2Br } from "./components/Nl2Br";
 export { default as DropdownMenu } from "./components/DropdownMenu";
 export { default as BaseSelect } from "./components/BaseSelect";
 export { default as FormFieldSelect } from "./components/FormFieldSelect";
