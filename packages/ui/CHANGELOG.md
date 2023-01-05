@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.47
+
+### Patch Changes
+
+- cdc1608: add :with-edit prop to FieldValue, remove :text prop from FieldValue
+
 ## 1.0.46
 
 ### Patch Changes
