@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.49
+
+### Patch Changes
+
+- 481e1a8: add Nl2Br component, remove object structure from FieldValue list value
+
 ## 1.0.48
 
 ### Patch Changes
