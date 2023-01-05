@@ -99,7 +99,8 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .min-max {
-  display: inline-flex;
+  width: 100%;
+  display: flex;
   align-items: center;
 
   label {

@@ -14,9 +14,10 @@ import { DOT_REGEXP, SPACE_REGEXP } from "../../utils/common";
 import BaseInput from "../BaseInput";
 
 type Props = {
-  value: number;
+  value: number | string;
   type: "integer" | "float" | "";
   thousandsSeparator: string;
+  asString: boolean;
 };
 
 export default defineComponent({
@@ -24,7 +25,7 @@ export default defineComponent({
   components: { BaseInput },
   props: {
     value: {
-      type: Number,
+      type: [Number, String],
       default: null,
     },
     thousandsSeparator: {
@@ -37,6 +38,10 @@ export default defineComponent({
       validator(value: string) {
         return !value || ["integer", "float"].includes(value);
       },
+    },
+    asString: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: ["update:value"],
@@ -67,10 +72,11 @@ export default defineComponent({
       return value.replace(DOT_REGEXP, ".");
     }
 
-    function normalizeNumber(formattedNumber: string): number {
+    function normalizeNumber(formattedNumber: string): string | number {
       const value = normalizeDots(formattedNumber).replace(SPACE_REGEXP, "");
 
-      return isFloat ? parseFloat(value) : parseInt(value);
+      const valueFormatted = isFloat ? parseFloat(value) : parseInt(value);
+      return props.asString ? String(valueFormatted) : valueFormatted;
     }
 
     function handleKeydown(event: KeyboardEvent) {
