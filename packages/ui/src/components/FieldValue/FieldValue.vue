@@ -3,7 +3,9 @@
     <div v-if="label" class="label">{{ label }}</div>
 
     <div class="field-value">
-      <template v-if="slots.value" />
+      <template v-if="slots.value">
+        <slot name="value"></slot>
+      </template>
       <template v-else>
         <Nl2Br v-if="type === 'text' && value" :text="value" />
 
