@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.52
+
+### Patch Changes
+
+- 903b058: fix slot name in FieldValue
+
 ## 1.0.51
 
 ### Patch Changes
