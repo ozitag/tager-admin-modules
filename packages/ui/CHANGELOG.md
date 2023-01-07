@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.55
+
+### Patch Changes
+
+- f9e91e0: fix toggle-section margins
+
 ## 1.0.54
 
 ### Patch Changes
