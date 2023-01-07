@@ -2,13 +2,13 @@
   <div class="toggle-section">
     <button
       type="button"
-      :class="['title-button', isOpen ? 'collapse' : 'expand']"
-      :title="isOpen ? 'Collapse' : 'Expand'"
-      @click="toggleOpen"
+      :class="['title-button', opened ? 'collapse' : 'expand']"
+      :title="opened ? 'Collapse' : 'Expand'"
+      @click="() => toggle(!opened)"
     >
       <span
         role="img"
-        :class="['icon-chevron-right', { 'icon-expand-more': isOpen }]"
+        :class="['icon-chevron-right', { 'icon-expand-more': opened }]"
       >
         <ChevronRightIcon />
       </span>
@@ -17,14 +17,14 @@
         {{ label }}
       </span>
     </button>
-    <div v-show="isOpen" class="content">
+    <div v-show="opened" class="content">
       <slot />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, watch } from "vue";
 
 import ChevronRightIcon from "../../icons/ChevronRightIcon.vue";
 
@@ -38,20 +38,29 @@ export default defineComponent({
       type: String,
       required: true,
     },
-    openedByDefault: {
+    isOpen: {
       type: Boolean,
-      required: false,
       default: false,
     },
   },
-  setup(props) {
-    const isOpen = ref<boolean>(props.openedByDefault);
+  emits: ["toggle", "update:isOpen"],
+  setup(props, { emit }) {
+    const opened = ref<boolean>(props.isOpen || false);
+
+    const toggle = (value: boolean) => {
+      opened.value = value;
+      emit("toggle", value);
+      emit("update:isOpen", value);
+    };
+
+    watch(
+      () => props.isOpen,
+      () => (opened.value = props.isOpen || false)
+    );
 
     return {
-      isOpen: isOpen,
-      toggleOpen: () => {
-        isOpen.value = !isOpen.value;
-      },
+      opened,
+      toggle,
     };
   },
 });
