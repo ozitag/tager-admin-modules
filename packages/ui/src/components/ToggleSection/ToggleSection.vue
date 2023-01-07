@@ -67,8 +67,10 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.toggle-section + .toggle-section {
-  margin-top: 1rem;
+.toggle-section {
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
 }
 
 .title-button {
