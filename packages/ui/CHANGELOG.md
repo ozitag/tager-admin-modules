@@ -1,5 +1,12 @@
 ## 1.0.25
 
+## 1.0.53
+
+### Patch Changes
+
+- 97b2038: add disabled state for MultiSelect, add grid styles
+- d41835b: remove tabs negative margins
+
 ## 1.0.52
 
 ### Patch Changes
