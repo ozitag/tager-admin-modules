@@ -1,7 +1,11 @@
 <template>
-  <span class="tag">
+  <span :class="{ tag: true, disabled }">
     <slot></slot>
-    <button v-if="closable" class="tag-close" @click="handleCloseClick">
+    <button
+      v-if="closable"
+      :class="{ 'tag-close': true, disabled: disabled }"
+      @click="handleCloseClick"
+    >
       <CloseIcon class="icon-close" />
     </button>
   </span>
@@ -14,6 +18,7 @@ import CloseIcon from "../../icons/CloseIcon.vue";
 
 interface Props {
   closable: boolean;
+  disabled: boolean;
 }
 
 export default defineComponent({
@@ -24,11 +29,17 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ["close"],
-  setup(_props: Props, context: SetupContext) {
+  setup(props: Props, context: SetupContext) {
     function handleCloseClick(event: Event) {
-      context.emit("close", event);
+      if (!props.disabled) {
+        context.emit("close", event);
+      }
     }
 
     return {
@@ -41,7 +52,6 @@ export default defineComponent({
 <style scoped lang="scss">
 .tag {
   --tag-close-size: 16px;
-
   display: inline-flex;
   align-items: center;
   font-size: 0.875rem;
@@ -50,6 +60,10 @@ export default defineComponent({
   background: #fafafa;
   border: 1px solid #d9d9d9;
   border-radius: 2px;
+
+  &.disabled {
+    opacity: 0.75;
+  }
 }
 
 .tag-close {
@@ -63,7 +77,7 @@ export default defineComponent({
     transition: fill 0.3s;
   }
 
-  &:hover {
+  &:not(.disabled):hover {
     .icon-close {
       fill: rgba(0, 0, 0, 0.85);
     }

@@ -7,6 +7,7 @@
         class="search-control"
         type="text"
         :placeholder="computedSearchPlaceholder"
+        :disabled="disabled"
       />
 
       <SearchIcon class="icon-search" />
@@ -33,6 +34,7 @@
               <Tag
                 class="tag"
                 :closable="true"
+                :disabled="disabled"
                 @close="handleTagCloseClick(option)"
               >
                 {{ option.label }}
@@ -42,7 +44,7 @@
         </div>
       </div>
 
-      <div v-else class="no-tags">
+      <div v-else :class="{ 'no-tags': true, disabled: disabled }">
         {{ $i18n.t("ui:multiSelect.noSelected") }}
       </div>
     </div>
@@ -60,12 +62,16 @@
         {
           selected: isAllSelected,
         },
+        {
+          disabled: disabled,
+        },
       ]"
     >
       <div v-if="!maxSelectedCount" class="option-inner">
         <BaseCheckbox
           :id="`${name}SelectAll`"
           :checked="isAllSelected"
+          :disabled="disabled"
           @change="handleSelectAllChange"
         />
         <label :for="`${name}SelectAll`" class="select-all-label">
@@ -86,7 +92,7 @@
           {
             selected: isCheckedOption(option),
             focused: isFocusedOption(option),
-            disabled: !isCheckedOption(option) && isMaxSelected,
+            disabled: (!isCheckedOption(option) && isMaxSelected) || disabled,
           },
         ]"
       >
@@ -94,6 +100,7 @@
           <BaseCheckbox
             :id="`${name}[${index}]`"
             :checked="isCheckedOption(option)"
+            :disabled="disabled"
             @change="(checked, e) => toggleOption(option, e)"
             @focus="handleOptionFocus(option)"
             @blur="handleOptionBlur(option)"
@@ -166,6 +173,10 @@ export default defineComponent({
       validator(options: Array<OptionType>) {
         return options.every(isValidSelectOption);
       },
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
     searchable: {
       type: Boolean,
@@ -387,9 +398,11 @@ export default defineComponent({
     pointer-events: none;
   }
 
-  &:hover,
-  &.focused {
-    background-color: #d1e3ff;
+  &:not(.disabled) {
+    &:hover,
+    &.focused {
+      background-color: #d1e3ff;
+    }
   }
 
   &.selected {
@@ -546,6 +559,10 @@ export default defineComponent({
     padding: 0 0.5rem;
     height: var(--tags-height);
     user-select: none;
+
+    &.disabled {
+      opacity: 0.75;
+    }
   }
 }
 

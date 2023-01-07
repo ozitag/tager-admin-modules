@@ -1,0 +1,24 @@
+.row-cols-2, .row-cols-3, .row-cols-4, .row-cols-5, .row-cols-6{
+  display: grid;
+  gap: 1rem;
+}
+
+.row-cols-2{
+  grid-template-columns: 1fr 1fr;
+}
+
+.row-cols-3{
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.row-cols-4{
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.row-cols-5{
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.row-cols-6{
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}

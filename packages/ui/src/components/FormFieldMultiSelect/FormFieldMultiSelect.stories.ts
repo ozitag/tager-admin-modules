@@ -29,6 +29,7 @@ export const Default = () => ({
     <FormFieldMultiSelect
       v-model:selected-options="selectedOptions"
       :options="options"
+      :disabled="true"
       name="countries"
       label="Countries"
       error="Please, select at least 4 countries"

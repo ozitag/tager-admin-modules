@@ -27,6 +27,25 @@ export const Default = () => ({
   template: `<MultiSelect v-model:selected-options="selectedOptions" :options="options"  name="countries" :should-display-tags="true" style="width: 300px" />`,
 });
 
+export const Disabled = () => ({
+  name: "DisabledMultiSelect",
+  components: { MultiSelect },
+  setup() {
+    const selectedOptions = ref([OPTIONS[2], OPTIONS[5]]);
+    const options = ref(OPTIONS);
+
+    watch(selectedOptions, (selectedOptions) => {
+      console.log("selectedOptions:", selectedOptions);
+    });
+
+    return {
+      selectedOptions,
+      options,
+    };
+  },
+  template: `<MultiSelect v-model:selected-options="selectedOptions" :options="options"  name="countries" :should-display-tags="true" style="width: 300px" :disabled="true" />`,
+});
+
 export const WithSearch = () => ({
   name: "MultiSelectWithSearch",
   components: { MultiSelect },
