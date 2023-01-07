@@ -6,9 +6,6 @@ import type { TabType } from "./TabList.types";
 
 export default {
   title: "TabList",
-  decorators: [
-    () => ({ template: '<div style="margin: 1rem;"><story/></div>' }),
-  ],
 };
 
 const TAB_LIST: Array<TabType> = [

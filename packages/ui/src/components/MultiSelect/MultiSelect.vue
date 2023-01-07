@@ -83,7 +83,11 @@
       </div>
     </div>
 
-    <ul v-if="options.length > 0" class="option-list" data-multi-select-list>
+    <ul
+      v-if="options.length > 0"
+      :class="{ 'option-list': true, disabled }"
+      data-multi-select-list
+    >
       <li
         v-for="(option, index) in filteredOptions"
         :key="option.value"
@@ -352,8 +356,10 @@ export default defineComponent({
   /** Custom Scrollbars **/
   overflow: hidden;
 
-  &:hover {
-    overflow-y: auto;
+  &:not(.disabled) {
+    &:hover {
+      overflow-y: auto;
+    }
   }
 
   /* Works on Firefox */
@@ -398,16 +404,18 @@ export default defineComponent({
     pointer-events: none;
   }
 
-  &:not(.disabled) {
-    &:hover,
-    &.focused {
-      background-color: #d1e3ff;
-    }
-  }
-
   &.selected {
     background-color: var(--primary);
     color: white;
+  }
+
+  &:not(.disabled) {
+    &:not(.selected) {
+      &:hover,
+      &.focused {
+        background-color: #d1e3ff;
+      }
+    }
   }
 }
 

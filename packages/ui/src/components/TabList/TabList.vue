@@ -79,7 +79,6 @@ export default defineComponent({
 .tab-list {
   display: flex;
   border-bottom: 1px solid #eee;
-  margin: -1rem -1rem 1.5rem -1rem;
 
   &.aligned-right {
     justify-content: flex-end;
@@ -144,7 +143,7 @@ export default defineComponent({
       border-right: 1px solid #eee;
     }
 
-    .tab.active:before {
+    .tab.active:not(:first-child):before {
       left: -1px;
     }
 
