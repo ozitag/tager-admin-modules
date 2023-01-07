@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.54
+
+### Patch Changes
+
+- 2ba72e8: ToggleSection isOpen v-model attribute, @toggle event
+
 ## 1.0.53
 
 ### Patch Changes
