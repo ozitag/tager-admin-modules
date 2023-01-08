@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.56
+
+### Patch Changes
+
+- a70750a: add width parameter for column in DataTable, add BooleanCell
+
 ## 1.0.55
 
 ### Patch Changes
