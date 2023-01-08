@@ -17,6 +17,7 @@ import CellName from "./CellName.vue";
 import CellFile from "./CellFile.vue";
 import CellKeyValue from "./CellKeyValue.vue";
 import CellList from "./CellList.vue";
+import CellBoolean from "./CellBoolean.vue";
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 type CellComponentType = Exclude<ColumnDefinition["type"], Function>;
@@ -44,6 +45,8 @@ function getCellComponentByColumnType(
       return CellFile;
     case "list":
       return CellList;
+    case "boolean":
+      return CellBoolean;
 
     default:
       return CellString;
@@ -107,13 +110,13 @@ export default defineComponent({
 
       if (!children) return null;
 
+      const style = props.column.width
+        ? Object.assign(props.column.style ?? {}, { width: props.column.width })
+        : props.column.style;
+
       return props.column.useCustomDataCell
         ? children
-        : h(
-            "td",
-            { style: props.column.style, class: cssClass.value },
-            children
-          );
+        : h("td", { style, class: cssClass.value }, children);
     });
 
     const cellElement = computed(() => {
@@ -130,10 +133,14 @@ export default defineComponent({
         cellType as CellComponentType
       );
 
+      const style = props.column.width
+        ? Object.assign(props.column.style ?? {}, { width: props.column.width })
+        : props.column.style;
+
       return h(cellComponent, {
         ...cellProps.value,
         attrs: cellAttrs,
-        style: props.column.style,
+        style,
         class: cssClass.value,
       });
     });

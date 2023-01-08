@@ -1,6 +1,7 @@
 import type { FileType, Nullable } from "@tager/admin-services";
 
 import type {
+  ColumnDefinitionBoolean,
   ColumnDefinitionColor,
   ColumnDefinitionCommon,
   ColumnDefinitionDate,
@@ -21,7 +22,7 @@ const defaultColumnDefs = [
     name: "Name",
     type: "name",
     field: "name",
-    style: { width: "40%" },
+    width: "80%",
     format: ({ row }) => {
       return {
         adminLink: {
@@ -44,6 +45,28 @@ const defaultColumnDefs = [
       // shouldUseRouter: false,
     },
   } as ColumnDefinitionName<TestEntity>,
+  {
+    id: 98,
+    name: "Active",
+    field: "active",
+    type: "boolean",
+  } as ColumnDefinitionBoolean<TestEntity>,
+  /*{
+    id: 99,
+    name: "Active 2",
+    field: "active",
+    type: "boolean",
+    view: "TICK",
+  } as ColumnDefinitionBoolean<TestEntity>,
+  {
+    id: 100,
+    name: "Active 3",
+    type: "boolean",
+    view: "TICK",
+    format: ({row}) => {
+      return row.name === 'Ivan';
+    }
+  } as ColumnDefinitionBoolean<TestEntity>,*/
   {
     id: 1,
     name: "ID (10%)",
@@ -128,6 +151,7 @@ const defaultColumnDefs = [
 
 interface TestEntity {
   id: number;
+  active: boolean;
   name: string;
   url: Nullable<string>;
   urlDisabled?: boolean;
@@ -143,6 +167,7 @@ interface TestEntity {
 const defaultRowData: Array<TestEntity> = [
   {
     id: 1,
+    active: false,
     name: "Makeup Purple",
     url: "https://banuba-catalog.dev.ozitag.com/beautification/eyes-hazel",
     color: "#374635",
@@ -164,6 +189,7 @@ const defaultRowData: Array<TestEntity> = [
   },
   {
     id: 2,
+    active: true,
     color: "rgba(222,111,123,0.8)",
     name: "Ivan",
     url: "https://banuba-catalog.dev.ozitag.com/interactive-background/golden-confetti",
@@ -184,6 +210,7 @@ const defaultRowData: Array<TestEntity> = [
   },
   {
     id: 3,
+    active: false,
     color: "rgba(222,111,123,0.8)",
     name: "Ivan",
     url: "https://banuba-catalog.dev.ozitag.com/interactive-background/golden-confetti",

@@ -39,6 +39,7 @@ export interface ColorOptionType<V = number> {
 export type DateCellValue = Date | null;
 export type ColorCellValue = string | null;
 export type StringCellValue = string | null;
+export type BooleanCellValue = boolean | null;
 export type ImageCellValue = string | null;
 export type LinkCellValue = LinkType | string | null;
 export type NameCellValue =
@@ -54,6 +55,7 @@ export type FileCellValue = Nullable<FileType>;
 
 export type ColumnType =
   | "string"
+  | "boolean"
   | "date"
   | "datetime"
   | "image"
@@ -80,6 +82,7 @@ export interface ColumnDefinitionCommon<RowData = RowDataDefaultType> {
   type?: string | ((params: ColumnParamsArg<RowData>) => string);
   format?: (params: ColumnParamsArg<RowData>) => any;
   class?: CssClass | ((params: ColumnParamsArg<RowData>) => CssClass);
+  width?: string;
   // eslint-disable-next-line @typescript-eslint/ban-types
   style?: string | object[] | object;
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -95,6 +98,7 @@ export interface ColumnDefinitionDynamic<RowData = RowDataDefaultType> {
   type: (params: ColumnParamsArg<RowData>) => string;
   format?: (params: ColumnParamsArg<RowData>) => any;
   class?: CssClass | ((params: ColumnParamsArg<RowData>) => CssClass);
+  width?: string;
   // eslint-disable-next-line @typescript-eslint/ban-types
   style?: string | object[] | object;
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -107,6 +111,13 @@ export interface ColumnDefinitionString<RowData = RowDataDefaultType>
   extends ColumnDefinitionCommon<RowData> {
   type?: "string";
   format?: (params: ColumnParamsArg<RowData>) => StringCellValue;
+}
+
+export interface ColumnDefinitionBoolean<RowData = RowDataDefaultType>
+  extends ColumnDefinitionCommon<RowData> {
+  type?: "boolean";
+  view?: "YES_NO" | "TICK";
+  format?: (params: ColumnParamsArg<RowData>) => BooleanCellValue;
 }
 
 export interface ColumnDefinitionList<RowData = RowDataDefaultType>
@@ -187,6 +198,7 @@ export type ColumnDefinition<RowData = RowDataDefaultType> =
   | ColumnDefinitionDynamic<RowData>
   | ColumnDefinitionList<RowData>
   | ColumnDefinitionString<RowData>
+  | ColumnDefinitionBoolean<RowData>
   | ColumnDefinitionDate<RowData>
   | ColumnDefinitionDateTime<RowData>
   | ColumnDefinitionImage<RowData>

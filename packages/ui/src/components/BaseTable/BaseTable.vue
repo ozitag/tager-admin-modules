@@ -14,7 +14,12 @@
           <th
             v-for="column of enhancedColumnDefs"
             :key="column.id"
-            :style="[column.headStyle]"
+            :style="
+              Object.assign(
+                column.headStyle ? column.headStyle : {},
+                column.width ? { width: column.width } : {}
+              )
+            "
             :data-table-head-cell="column.field"
           >
             {{ column.name }}
@@ -29,7 +34,12 @@
           <th
             v-for="column of enhancedColumnDefs"
             :key="column.id"
-            :style="[column.headStyle]"
+            :style="
+              Object.assign(
+                column.headStyle ? column.headStyle : {},
+                column.width ? { width: column.width } : {}
+              )
+            "
             :data-table-head-cell="column.field"
           >
             {{ column.name }}
