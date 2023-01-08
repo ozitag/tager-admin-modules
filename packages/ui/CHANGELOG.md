@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.57
+
+### Patch Changes
+
+- 12020ff: add align center for Boolean, add i18n for BooleanCell, add value function for Boolean
+
 ## 1.0.56
 
 ### Patch Changes
