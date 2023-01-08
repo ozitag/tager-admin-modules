@@ -1,4 +1,7 @@
 const EN = {
+  Yes: "Yes",
+  No: "No",
+
   formFooter: {
     back: "Back",
     addMore: "Add more",

@@ -22,7 +22,7 @@ const defaultColumnDefs = [
     name: "Name",
     type: "name",
     field: "name",
-    width: "80%",
+    width: "20%",
     format: ({ row }) => {
       return {
         adminLink: {
@@ -45,28 +45,43 @@ const defaultColumnDefs = [
       // shouldUseRouter: false,
     },
   } as ColumnDefinitionName<TestEntity>,
+
   {
     id: 98,
     name: "Active",
     field: "active",
     type: "boolean",
   } as ColumnDefinitionBoolean<TestEntity>,
-  /*{
-    id: 99,
-    name: "Active 2",
-    field: "active",
-    type: "boolean",
-    view: "TICK",
-  } as ColumnDefinitionBoolean<TestEntity>,
-  {
-    id: 100,
-    name: "Active 3",
-    type: "boolean",
-    view: "TICK",
-    format: ({row}) => {
-      return row.name === 'Ivan';
-    }
-  } as ColumnDefinitionBoolean<TestEntity>,*/
+  /* {
+   id: 99,
+   name: "Active2",
+   field: "active",
+   type: "boolean",
+   view: "TICK",
+ } as ColumnDefinitionBoolean<TestEntity>,
+ {
+   id: 100,
+   name: "Active3",
+   type: "boolean",
+   view: "TICK",
+   value: ({row}) => {
+     return row.name === 'Ivan';
+   },
+   style: {
+     textAlign: 'right'
+   }
+ } as ColumnDefinitionBoolean<TestEntity>,
+ {
+   id: 100,
+   name: "Active4",
+   type: "boolean",
+   trueLabel: "+",
+   falseLabel: "-",
+   value: ({row}) => {
+     return row.name === 'Ivan';
+   }
+ } as ColumnDefinitionBoolean<TestEntity>,*/
+
   {
     id: 1,
     name: "ID (10%)",

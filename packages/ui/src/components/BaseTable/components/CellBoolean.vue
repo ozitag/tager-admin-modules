@@ -1,7 +1,11 @@
 <template>
   <td :style="{ textAlign: 'center' }">
     <template v-if="value !== null && column.view !== 'TICK'">
-      {{ value ? "Yes" : "No" }}
+      {{
+        value
+          ? column.trueLabel || $i18n.t("ui:Yes")
+          : column.falseLabel || $i18n.t("ui:No")
+      }}
     </template>
     <DoneIcon v-else-if="value === true" />
   </td>
@@ -44,8 +48,8 @@ export default defineComponent({
   setup(props: Props) {
     const value = computed<BooleanCellValue>(() => {
       return (
-        props.column.format
-          ? props.column.format({
+        props.column.value
+          ? props.column.value({
               row: props.row,
               column: props.column,
               rowIndex: props.rowIndex,

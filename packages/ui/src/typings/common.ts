@@ -117,7 +117,9 @@ export interface ColumnDefinitionBoolean<RowData = RowDataDefaultType>
   extends ColumnDefinitionCommon<RowData> {
   type?: "boolean";
   view?: "YES_NO" | "TICK";
-  format?: (params: ColumnParamsArg<RowData>) => BooleanCellValue;
+  trueLabel?: string;
+  falseLabel?: string;
+  value?: (params: ColumnParamsArg<RowData>) => BooleanCellValue;
 }
 
 export interface ColumnDefinitionList<RowData = RowDataDefaultType>

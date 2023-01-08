@@ -1,6 +1,9 @@
 import type EN from "./en";
 
 const RU: typeof EN = {
+  Yes: "Да",
+  No: "Нет",
+
   formFooter: {
     back: "Назад",
     addMore: "Добавить еще",
@@ -71,7 +74,7 @@ const RU: typeof EN = {
   },
 
   baseTable: {
-    itemsNotFound: "Предметы не найдены",
+    itemsNotFound: "Элементы не найдены",
   },
 
   dateTimeInput: {

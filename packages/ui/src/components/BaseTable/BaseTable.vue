@@ -16,8 +16,9 @@
             :key="column.id"
             :style="
               Object.assign(
-                column.headStyle ? column.headStyle : {},
-                column.width ? { width: column.width } : {}
+                column.width ? { width: column.width } : {},
+                column.type === 'boolean' ? { textAlign: 'center' } : {},
+                column.headStyle ? column.headStyle : {}
               )
             "
             :data-table-head-cell="column.field"
@@ -36,8 +37,9 @@
             :key="column.id"
             :style="
               Object.assign(
-                column.headStyle ? column.headStyle : {},
-                column.width ? { width: column.width } : {}
+                column.width ? { width: column.width } : {},
+                column.type === 'boolean' ? { textAlign: 'center' } : {},
+                column.headStyle ? column.headStyle : {}
               )
             "
             :data-table-head-cell="column.field"
