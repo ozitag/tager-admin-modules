@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.58
+
+### Patch Changes
+
+- df5da67: Improve image sizing in ImageCell for DataTable
+
 ## 1.0.57
 
 ### Patch Changes
