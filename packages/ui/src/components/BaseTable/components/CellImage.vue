@@ -5,7 +5,7 @@
         <LoadableImage
           :src="value"
           alt="Photo"
-          style="height: 100px; min-width: 100px; object-fit: contain"
+          style="min-height: 100px; min-width: 100px; object-fit: contain"
         />
       </div>
     </div>
@@ -91,6 +91,16 @@ td.image-cell {
 
     display: flex;
     justify-content: center;
+
+    img {
+      height: auto;
+      width: auto;
+      margin: 0 auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 }
 </style>

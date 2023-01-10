@@ -1,5 +1,5 @@
 <template>
-  <img v-if="status === 'SUCCESS'" loading="lazy" v-bind="$attrs" />
+  <img v-if="status === 'SUCCESS'" loading="lazy" :alt="alt" :src="src" />
 
   <div v-else class="image-container" :style="loadingContainerStyle">
     <SpinnerContainer v-if="status === 'LOADING'">
@@ -9,7 +9,8 @@
     <img
       :style="[{ opacity: 0 }]"
       loading="lazy"
-      v-bind="$attrs"
+      :alt="alt"
+      :src="src"
       @load="setStatus('SUCCESS')"
       @error="setStatus('FAILURE')"
     />
@@ -33,6 +34,8 @@ export default defineComponent({
       type: [Object, String, Array],
       default: null,
     },
+    alt: { type: String, required: false, default: null },
+    src: { type: String, required: false, default: null },
   },
   setup() {
     const status = ref<string>(FETCH_STATUSES.LOADING);
