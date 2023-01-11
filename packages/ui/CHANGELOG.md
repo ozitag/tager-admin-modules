@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.59
+
+### Patch Changes
+
+- 6577850: improve link styling in FieldValue
+
 ## 1.0.58
 
 ### Patch Changes
