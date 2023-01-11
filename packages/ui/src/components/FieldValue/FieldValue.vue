@@ -22,10 +22,10 @@
         </div>
 
         <template v-if="type === 'link' && src">
-          <router-link v-if="shouldUseRouter" class="link" :to="src">
+          <router-link v-if="shouldUseRouter" :to="src">
             {{ src }}
           </router-link>
-          <a v-else class="link" :href="src" target="_blank">
+          <a v-else :href="src" target="_blank">
             {{ src }}
           </a>
         </template>
@@ -208,17 +208,16 @@ export default defineComponent({
       margin-top: 0.5rem;
     }
   }
-}
 
-.field-link {
-  .link {
-    color: #007bff;
-    font-weight: bold;
-    display: block;
+  .field-value {
+    a {
+      color: #007bff;
+      display: block;
 
-    &:hover {
-      color: #0056b3;
-      text-decoration: underline;
+      &:hover {
+        color: #0056b3;
+        text-decoration: underline;
+      }
     }
   }
 }
