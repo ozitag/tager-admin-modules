@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.60
+
+### Patch Changes
+
+- d327f48: add EditLink,EditOpenNewTab props to FieldValue
+
 ## 1.0.59
 
 ### Patch Changes
