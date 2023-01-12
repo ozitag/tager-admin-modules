@@ -76,13 +76,26 @@
     </div>
 
     <template v-if="withEdit">
-      <button
-        v-if="!editActive || !slots.edit"
-        class="edit-button"
-        @click="onEditClick"
-      >
-        {{ editLabel || $i18n.t("ui:fieldValue.edit") }}
-      </button>
+      <template v-if="!editActive || !slots.edit">
+        <router-link
+          v-if="editLink && !editOpenNewTab"
+          :to="editLink"
+          class="edit-button"
+        >
+          {{ editLabel || $i18n.t("ui:fieldValue.edit") }}
+        </router-link>
+        <a
+          v-else-if="editLink && editOpenNewTab"
+          :href="editLink"
+          target="_blank"
+          class="edit-button"
+        >
+          {{ editLabel || $i18n.t("ui:fieldValue.edit") }}
+        </a>
+        <button v-else class="edit-button" @click="onEditClick">
+          {{ editLabel || $i18n.t("ui:fieldValue.edit") }}
+        </button>
+      </template>
       <div v-else class="edit-container">
         <slot name="edit" />
       </div>
@@ -176,6 +189,14 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    editLink: {
+      type: String,
+      default: null,
+    },
+    editOpenNewTab: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ["edit"],
   setup(_props, context) {
@@ -210,9 +231,8 @@ export default defineComponent({
   }
 
   .field-value {
-    a {
+    :deep(a) {
       color: #007bff;
-      display: block;
 
       &:hover {
         color: #0056b3;

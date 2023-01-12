@@ -173,3 +173,14 @@ export const List = () => ({
       'Картофель', 'Морковь', 'Лук',  'Чеснок', 'Петрушка', 'Укроп'
     ]"/>`,
 });
+
+export const Custom = () => ({
+  name: "CustomFieldValue",
+  components: { FieldValue },
+  template: `
+    <FieldValue label="Список продуктов на неделю" :with-edit="true" type="list" :edit-open-new-tab="true" edit-link="/">
+    <template #value>
+      Value <a href="#">Link</a>, Text
+    </template>
+    </FieldValue>`,
+});
