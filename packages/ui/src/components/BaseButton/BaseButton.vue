@@ -211,11 +211,11 @@ a {
   }
 
   &.red-outline {
-    color: var(--red);
-    border-color: var(--red);
+    color: var(--red-dark);
+    border-color: var(--red-dark);
 
     .button-spinner {
-      color: var(--red);
+      color: var(--red-dark);
     }
 
     &:not(:disabled):hover,
@@ -253,11 +253,11 @@ a {
   }
 
   &.green-outline {
-    color: var(--green);
-    border-color: var(--green);
+    color: var(--green-dark);
+    border-color: var(--green-dark);
 
     .button-spinner {
-      color: var(--green);
+      color: var(--green-dark);
     }
 
     &:not(:disabled):hover,
@@ -276,38 +276,38 @@ a {
   }
 
   &.primary-link {
-    color: var(--primary);
-    border-bottom-color: var(--primary);
+    color: var(--primary-dark);
+    border-bottom-color: var(--primary-dark);
 
     &:hover {
-      color: var(--primary-dark);
+      color: var(--primary);
     }
   }
 
   &.secondary-link {
-    color: var(--secondary);
-    border-bottom-color: var(--secondary);
+    color: var(--secondary-dark);
+    border-bottom-color: var(--secondary-dark);
 
     &:hover {
-      color: var(--secondary--dark);
+      color: var(--secondary);
     }
   }
 
   &.red-link {
-    color: var(--red);
-    border-bottom-color: var(--red);
+    color: var(--red-dark);
+    border-bottom-color: var(--red-dark);
 
     &:hover {
-      color: var(--red-dark);
+      color: var(--red);
     }
   }
 
   &.green-link {
-    color: var(--green);
-    border-bottom-color: var(--green);
+    color: var(--green-dark);
+    border-bottom-color: var(--green-dark);
 
     &:hover {
-      color: var(--green-dark);
+      color: var(--green);
     }
   }
 }

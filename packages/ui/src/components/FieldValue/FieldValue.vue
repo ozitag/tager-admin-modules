@@ -288,11 +288,13 @@ export default defineComponent({
 
   .field-value {
     :deep(a) {
-      color: #007bff;
+      border-bottom: 1px solid var(--primary-dark);
+      color: var(--primary-dark);
+      transition: 0.3s all ease;
 
       &:hover {
-        color: #0056b3;
-        text-decoration: underline;
+        color: var(--primary);
+        border-bottom-color: transparent;
       }
     }
   }

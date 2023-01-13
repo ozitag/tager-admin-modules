@@ -191,9 +191,14 @@ export const WithButtons = () => ({
   components: { FieldValue },
   template: `
     <FieldValue label="Список продуктов на неделю" type="list" :buttons="[
-        {label: 'Button 1 (onClick)', variant: 'red-link', onClick: () => alert('')},
-        {label: 'Button 2 (Link)', variant: 'red-link', to: '/', useRouter: true},
+        {label: 'Button 1 (onClick)', variant: 'primary-link', onClick: () => alert('')},
+        {label: 'Button 2 (Link)', variant: 'secondary-link', to: '/', useRouter: true},
         {label: 'Button 3 (New Tab)', variant: 'red-link', to: 'https://google.com', useRouter: false},
+        {label: 'Button 4 (New Tab)', variant: 'green-link', to: 'https://google.com', useRouter: false},
+        {label: 'Button 1 (onClick)', variant: 'primary', onClick: () => alert('')},
+        {label: 'Button 2 (Link)', variant: 'secondary', to: '/', useRouter: true},
+        {label: 'Button 3 (New Tab)', variant: 'red', to: 'https://google.com', useRouter: false},
+        {label: 'Button 4 (New Tab)', variant: 'green', to: 'https://google.com', useRouter: false},
     ]">
     <template #value>
       Value <a href="#">Link</a>, Text
