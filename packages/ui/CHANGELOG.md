@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.61
+
+### Patch Changes
+
+- f00bbe5: add red, green buttons, add buttons props to FieldValue
+
 ## 1.0.60
 
 ### Patch Changes
