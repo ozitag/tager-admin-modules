@@ -178,7 +178,23 @@ export const Custom = () => ({
   name: "CustomFieldValue",
   components: { FieldValue },
   template: `
-    <FieldValue label="Список продуктов на неделю" :with-edit="true" type="list" :edit-open-new-tab="true" edit-link="/">
+    <FieldValue label="Список продуктов на неделю" :with-edit="true" type="list" :edit-open-new-tab="true"
+                edit-link="/">
+    <template #value>
+      Value <a href="#">Link</a>, Text
+    </template>
+    </FieldValue>`,
+});
+
+export const WithButtons = () => ({
+  name: "CustomFieldValue",
+  components: { FieldValue },
+  template: `
+    <FieldValue label="Список продуктов на неделю" type="list" :buttons="[
+        {label: 'Button 1 (onClick)', variant: 'red-link', onClick: () => alert('')},
+        {label: 'Button 2 (Link)', variant: 'red-link', to: '/', useRouter: true},
+        {label: 'Button 3 (New Tab)', variant: 'red-link', to: 'https://google.com', useRouter: false},
+    ]">
     <template #value>
       Value <a href="#">Link</a>, Text
     </template>

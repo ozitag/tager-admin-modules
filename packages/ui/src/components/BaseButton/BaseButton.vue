@@ -50,11 +50,16 @@ export default defineComponent({
       type: String as PropType<ButtonVariant>,
       validator(value: string) {
         return [
+          "link",
           "primary",
           "outline-primary",
           "secondary",
           "outline-secondary",
           "icon",
+          "red",
+          "red-outline",
+          "green",
+          "green-outline",
         ].includes(value);
       },
       default: "primary",
@@ -146,8 +151,8 @@ a {
   font-size: 1rem;
   line-height: 1.5;
   border-radius: var(--input-border-radius);
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out,
+    border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
   cursor: pointer;
   text-decoration: none;
 
@@ -164,6 +169,146 @@ a {
   &.loading {
     color: transparent;
     cursor: wait;
+  }
+
+  &.primary-link,
+  &.red-link,
+  &.secondary-link,
+  &.green-link {
+    padding: 0;
+    border: 0 none;
+    line-height: 100%;
+    border-radius: 0;
+    border-bottom: 1px solid;
+
+    &:disabled,
+    &[disabled] {
+      opacity: 0.5;
+    }
+
+    &:hover {
+      border-bottom-color: transparent;
+    }
+  }
+
+  &.red {
+    color: white;
+    border-color: var(--red);
+    background-color: var(--red);
+
+    .button-spinner {
+      color: white;
+    }
+
+    &:not(:disabled):hover,
+    &:not(:disabled):active {
+      background-color: var(--red-dark);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem var(--red-shadow);
+    }
+  }
+
+  &.red-outline {
+    color: var(--red);
+    border-color: var(--red);
+
+    .button-spinner {
+      color: var(--red);
+    }
+
+    &:not(:disabled):hover,
+    &:not(:disabled):active {
+      background-color: var(--red);
+      color: white;
+
+      .button-spinner {
+        color: white;
+      }
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem var(--red-shadow);
+    }
+  }
+
+  &.green {
+    color: white;
+    border-color: var(--green);
+    background-color: var(--green);
+
+    .button-spinner {
+      color: white;
+    }
+
+    &:not(:disabled):hover,
+    &:not(:disabled):active {
+      background-color: var(--green-dark);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem var(--green-shadow);
+    }
+  }
+
+  &.green-outline {
+    color: var(--green);
+    border-color: var(--green);
+
+    .button-spinner {
+      color: var(--green);
+    }
+
+    &:not(:disabled):hover,
+    &:not(:disabled):active {
+      background-color: var(--green);
+      color: white;
+
+      .button-spinner {
+        color: white;
+      }
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem var(--green-shadow);
+    }
+  }
+
+  &.primary-link {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+
+    &:hover {
+      color: var(--primary-dark);
+    }
+  }
+
+  &.secondary-link {
+    color: var(--secondary);
+    border-bottom-color: var(--secondary);
+
+    &:hover {
+      color: var(--secondary--dark);
+    }
+  }
+
+  &.red-link {
+    color: var(--red);
+    border-bottom-color: var(--red);
+
+    &:hover {
+      color: var(--red-dark);
+    }
+  }
+
+  &.green-link {
+    color: var(--green);
+    border-bottom-color: var(--green);
+
+    &:hover {
+      color: var(--green-dark);
+    }
   }
 }
 

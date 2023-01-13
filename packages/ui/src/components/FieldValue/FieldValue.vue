@@ -75,26 +75,34 @@
       </template>
     </div>
 
-    <template v-if="withEdit">
+    <template v-if="withEdit || footerButtons.length">
       <template v-if="!editActive || !slots.edit">
-        <router-link
-          v-if="editLink && !editOpenNewTab"
-          :to="editLink"
-          class="edit-button"
-        >
-          {{ editLabel || $i18n.t("ui:fieldValue.edit") }}
-        </router-link>
-        <a
-          v-else-if="editLink && editOpenNewTab"
-          :href="editLink"
-          target="_blank"
-          class="edit-button"
-        >
-          {{ editLabel || $i18n.t("ui:fieldValue.edit") }}
-        </a>
-        <button v-else class="edit-button" @click="onEditClick">
-          {{ editLabel || $i18n.t("ui:fieldValue.edit") }}
-        </button>
+        <ul class="field-value__buttons">
+          <li v-for="button in footerButtons" :key="button.label">
+            <BaseButton
+              v-if="button.to && button.useRouter"
+              :href="button.to"
+              :variant="button.variant"
+            >
+              {{ button.label }}
+            </BaseButton>
+            <BaseButton
+              v-else-if="button.to && button.useRouter === false"
+              :href="button.to"
+              target="_blank"
+              :variant="button.variant"
+            >
+              {{ button.label }}
+            </BaseButton>
+            <BaseButton
+              v-else-if="button.onClick"
+              :variant="button.variant"
+              @click="button.onClick"
+            >
+              {{ button.label }}
+            </BaseButton>
+          </li>
+        </ul>
       </template>
       <div v-else class="edit-container">
         <slot name="edit" />
@@ -106,15 +114,28 @@
 <script lang="ts">
 import { defineComponent, type PropType, useSlots } from "vue";
 
+import type { Nullable } from "@tager/admin-services";
+import { useI18n } from "@tager/admin-services";
+
 import LoadableImage from "../LoadableImage";
 import { formatDate, formatDateTime } from "../../utils/common";
 import Nl2Br from "../../components/Nl2Br";
+import type { ButtonVariant } from "../BaseButton";
+import { BaseButton } from "../BaseButton";
 
 import FieldValueJson from "./сomponents/FieldValueJson.vue";
 
+type FieldValueButtonType = {
+  label: string;
+  variant: ButtonVariant;
+  onClick?: () => void;
+  to?: string;
+  useRouter?: boolean;
+};
+
 export default defineComponent({
   name: "FieldValue",
-  components: { FieldValueJson, LoadableImage, Nl2Br },
+  components: { FieldValueJson, LoadableImage, Nl2Br, BaseButton },
   props: {
     label: {
       type: String,
@@ -197,17 +218,52 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    buttons: {
+      type: Array as PropType<Array<FieldValueButtonType>>,
+      default: null,
+    },
   },
   emits: ["edit"],
-  setup(_props, context) {
+  setup(props, context) {
+    const { t } = useI18n();
     const slots = useSlots();
-    const onEditClick = () => context.emit("edit");
+
+    const getEditButton = (): Nullable<FieldValueButtonType> => {
+      if (!props.withEdit) {
+        return null;
+      }
+
+      const label = props.editLabel || t("ui:fieldValue.edit");
+
+      if (props.editLink) {
+        return {
+          label,
+          variant: "secondary-link",
+          to: props.editLink,
+          useRouter: !props.editOpenNewTab,
+        };
+      }
+
+      return {
+        label,
+        variant: "secondary-link",
+        onClick: () => context.emit("edit"),
+      };
+    };
+
+    const editButton = getEditButton();
+    const defaultButtons: Array<FieldValueButtonType> = props.buttons
+      ? props.buttons
+      : [];
+    const footerButtons: Array<FieldValueButtonType> = editButton
+      ? [editButton, ...defaultButtons]
+      : defaultButtons;
 
     return {
+      footerButtons,
       slots,
       formatDate,
       formatDateTime,
-      onEditClick,
     };
   },
 });
@@ -309,15 +365,17 @@ export default defineComponent({
   padding: 0.5rem 0 0.5rem 1rem;
 }
 
-.field .edit-button {
+.field-value__buttons {
   margin-top: 0.35rem;
-  font-size: 0.75rem;
-  color: var(--text-color);
+  display: flex;
+  align-items: center;
 
-  text-decoration: underline;
+  > *:not(:first-child) {
+    margin-left: 0.85rem;
+  }
 
-  &:hover {
-    text-decoration: none;
+  .button {
+    font-size: 0.85rem;
   }
 }
 </style>

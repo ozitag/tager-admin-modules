@@ -12,9 +12,17 @@ const variantArgType = {
   control: "select",
   options: [
     "primary",
+    "primary-link",
     "outline-primary",
     "secondary",
+    "secondary-link",
     "outline-secondary",
+    "red",
+    "red-link",
+    "red-outline",
+    "green",
+    "green-link",
+    "green-outline",
     "icon",
   ],
 };
@@ -22,7 +30,8 @@ const variantArgType = {
 export const Default = () =>
   defineComponent({
     components: { BaseButton },
-    template: `<BaseButton />`,
+    template: `
+      <BaseButton/>`,
   });
 
 export const Playground: Story = (args) =>
@@ -31,7 +40,8 @@ export const Playground: Story = (args) =>
     setup() {
       return { args };
     },
-    template: `<BaseButton v-bind="args" />`,
+    template: `
+      <BaseButton v-bind="args"/>`,
   });
 
 Playground.argTypes = {
@@ -49,7 +59,7 @@ export const Primary = () =>
   defineComponent({
     components: { BaseButton },
     template: `
-        <BaseButton variant="primary"/>
+      <BaseButton variant="primary"/>
     `,
   });
 
@@ -57,7 +67,7 @@ export const PrimaryOutline = () =>
   defineComponent({
     components: { BaseButton },
     template: `
-        <BaseButton variant="outline-primary"/>
+      <BaseButton variant="outline-primary"/>
     `,
   });
 
@@ -65,7 +75,7 @@ export const Secondary = () =>
   defineComponent({
     components: { BaseButton },
     template: `
-        <BaseButton variant="secondary"/>
+      <BaseButton variant="secondary"/>
     `,
   });
 
@@ -73,7 +83,7 @@ export const SecondaryOutline = () =>
   defineComponent({
     components: { BaseButton },
     template: `
-        <BaseButton variant="outline-secondary"/>
+      <BaseButton variant="outline-secondary"/>
     `,
   });
 
@@ -81,7 +91,7 @@ export const PrimaryLoading = () =>
   defineComponent({
     components: { BaseButton },
     template: `
-        <BaseButton variant="primary" loading></BaseButton>
+      <BaseButton variant="primary" loading></BaseButton>
     `,
   });
 
@@ -89,21 +99,22 @@ export const PrimaryOutlineLoading = () =>
   defineComponent({
     components: { BaseButton },
     template: `
-        <BaseButton variant="outline-primary" loading></BaseButton>
+      <BaseButton variant="outline-primary" loading></BaseButton>
     `,
   });
 
 export const Icon = () =>
   defineComponent({
     components: { BaseButton, EditIcon, DeleteIcon },
-    template: `<div>
+    template: `
+      <div>
       <BaseButton variant="icon">
-          <EditIcon />
+        <EditIcon/>
       </BaseButton>
       <BaseButton variant="icon" disabled>
-          <DeleteIcon />
+        <DeleteIcon/>
       </BaseButton>
-  </div>`,
+      </div>`,
   });
 
 export const Link: Story = (args) =>
@@ -113,7 +124,7 @@ export const Link: Story = (args) =>
       return { args };
     },
     template: `
-        <BaseButton variant="primary" v-bind="args"></BaseButton>
+      <BaseButton variant="primary" target="_blank" v-bind="args">Go</BaseButton>
     `,
   });
 

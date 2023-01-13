@@ -3,11 +3,19 @@
 
     --primary: #6ba0ff;
     --primary-dark: #0069d9;
-    --primary-shadow: rgba(38,143,255,.5);
+    --primary-shadow: rgba(38, 143, 255, .5);
 
     --secondary: #6c757d;
     --secondary-dark: #5a6268;
-    --secondary-shadow: rgba(130,138,145,.5);
+    --secondary-shadow: rgba(130, 138, 145, .5);
+
+    --red: #d74b58;
+    --red-dark: #de1e30;
+    --red-shadow: rgba(220, 39, 56, .5);
+
+    --green: #3ea656;
+    --green-dark: #13a634;
+    --green-shadow: rgba(40, 167, 55, .5);
 
     --success: #28a745;
     --info: #17a2b8;
@@ -24,7 +32,7 @@
 
     --input-border-color: #ced4da;
     --input-focus-border-color: #80bdff;
-    --input-focus-box-shadow: rgba(0,123,255,.25);
+    --input-focus-box-shadow: rgba(0, 123, 255, .25);
 
     --input-border-radius: 0.25rem;
 }
