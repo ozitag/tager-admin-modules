@@ -178,7 +178,7 @@ export const Custom = () => ({
   name: "CustomFieldValue",
   components: { FieldValue },
   template: `
-    <FieldValue label="Список продуктов на неделю" :with-edit="true" type="list" :edit-open-new-tab="true"
+    <FieldValue label="Список продуктов на неделю" :loading="true" :with-edit="true" type="list" :edit-open-new-tab="true"
                 edit-link="/">
     <template #value>
       Value <a href="#">Link</a>, Text
@@ -192,10 +192,10 @@ export const WithButtons = () => ({
   template: `
     <FieldValue label="Список продуктов на неделю" type="list" :buttons="[
         {label: 'Button 1 (onClick)', variant: 'primary-link', onClick: () => alert('')},
-        {label: 'Button 2 (Link)', variant: 'secondary-link', to: '/', useRouter: true},
+        {label: 'Button 2 (Link)', variant: 'secondary-link', to: '/', useRouter: true, disabled: true},
         {label: 'Button 3 (New Tab)', variant: 'red-link', to: 'https://google.com', useRouter: false},
         {label: 'Button 4 (New Tab)', variant: 'green-link', to: 'https://google.com', useRouter: false},
-        {label: 'Button 1 (onClick)', variant: 'primary', onClick: () => alert('')},
+        {label: 'Button 1 (onClick)', variant: 'primary', onClick: () => alert(''), loading: true},
         {label: 'Button 2 (Link)', variant: 'secondary', to: '/', useRouter: true},
         {label: 'Button 3 (New Tab)', variant: 'red', to: 'https://google.com', useRouter: false},
         {label: 'Button 4 (New Tab)', variant: 'green', to: 'https://google.com', useRouter: false},

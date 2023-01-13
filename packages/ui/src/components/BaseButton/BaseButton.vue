@@ -52,13 +52,17 @@ export default defineComponent({
         return [
           "link",
           "primary",
+          "primary-link",
           "outline-primary",
           "secondary",
+          "secondary-link",
           "outline-secondary",
           "icon",
           "red",
+          "red-link",
           "red-outline",
           "green",
+          "green-link",
           "green-outline",
         ].includes(value);
       },
@@ -101,6 +105,7 @@ export default defineComponent({
       "button",
       props.variant,
       { loading: props.loading },
+      { disabled: props.disabled },
     ]);
 
     function handleClick(event: Event) {
@@ -136,6 +141,15 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+button.button.loading {
+  color: transparent;
+  cursor: wait;
+}
+
+a.button.disabled {
+  pointer-events: none;
+}
+
 .button,
 a {
   position: relative;
@@ -161,14 +175,10 @@ a {
   }
 
   &:disabled,
+  &.disabled,
   &[disabled] {
     cursor: not-allowed;
     opacity: 0.3;
-  }
-
-  &.loading {
-    color: transparent;
-    cursor: wait;
   }
 
   &.primary-link,
@@ -186,7 +196,12 @@ a {
       opacity: 0.5;
     }
 
-    &:hover {
+    &.loading {
+      border-bottom-color: transparent;
+      color: transparent !important;
+    }
+
+    &:hover:not(:disabled) {
       border-bottom-color: transparent;
     }
   }
@@ -282,6 +297,10 @@ a {
     &:hover {
       color: var(--primary);
     }
+
+    :deep(.spinner-wrapper) {
+      color: var(--primary);
+    }
   }
 
   &.secondary-link {
@@ -289,6 +308,10 @@ a {
     border-bottom-color: var(--secondary-dark);
 
     &:hover {
+      color: var(--secondary);
+    }
+
+    :deep(.spinner-wrapper) {
       color: var(--secondary);
     }
   }
@@ -300,6 +323,10 @@ a {
     &:hover {
       color: var(--red);
     }
+
+    :deep(.spinner-wrapper) {
+      color: var(--red);
+    }
   }
 
   &.green-link {
@@ -307,6 +334,10 @@ a {
     border-bottom-color: var(--green-dark);
 
     &:hover {
+      color: var(--green);
+    }
+
+    :deep(.spinner-wrapper) {
       color: var(--green);
     }
   }

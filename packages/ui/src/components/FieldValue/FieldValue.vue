@@ -3,7 +3,8 @@
     <div v-if="label" class="label">{{ label }}</div>
 
     <div class="field-value">
-      <template v-if="slots.value">
+      <BaseSpinner v-if="loading" size="28" />
+      <template v-else-if="slots.value">
         <slot name="value"></slot>
       </template>
       <template v-else>
@@ -75,7 +76,7 @@
       </template>
     </div>
 
-    <template v-if="withEdit || footerButtons.length">
+    <template v-if="!loading && (withEdit || footerButtons.length)">
       <template v-if="!editActive || !slots.edit">
         <ul class="field-value__buttons">
           <li v-for="button in footerButtons" :key="button.label">
@@ -83,6 +84,8 @@
               v-if="button.to && button.useRouter"
               :href="button.to"
               :variant="button.variant"
+              :disabled="button.disabled"
+              :loading="button.loading"
             >
               {{ button.label }}
             </BaseButton>
@@ -91,12 +94,16 @@
               :href="button.to"
               target="_blank"
               :variant="button.variant"
+              :disabled="button.disabled"
+              :loading="button.loading"
             >
               {{ button.label }}
             </BaseButton>
             <BaseButton
               v-else-if="button.onClick"
               :variant="button.variant"
+              :disabled="button.disabled"
+              :loading="button.loading"
               @click="button.onClick"
             >
               {{ button.label }}
@@ -112,7 +119,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, type PropType, useSlots } from "vue";
+import { computed, defineComponent, type PropType, useSlots } from "vue";
 
 import type { Nullable } from "@tager/admin-services";
 import { useI18n } from "@tager/admin-services";
@@ -122,6 +129,7 @@ import { formatDate, formatDateTime } from "../../utils/common";
 import Nl2Br from "../../components/Nl2Br";
 import type { ButtonVariant } from "../BaseButton";
 import { BaseButton } from "../BaseButton";
+import BaseSpinner from "../BaseSpinner/BaseSpinner.vue";
 
 import FieldValueJson from "./сomponents/FieldValueJson.vue";
 
@@ -131,11 +139,13 @@ type FieldValueButtonType = {
   onClick?: () => void;
   to?: string;
   useRouter?: boolean;
+  disabled?: boolean;
+  loading?: boolean;
 };
 
 export default defineComponent({
   name: "FieldValue",
-  components: { FieldValueJson, LoadableImage, Nl2Br, BaseButton },
+  components: { BaseSpinner, FieldValueJson, LoadableImage, Nl2Br, BaseButton },
   props: {
     label: {
       type: String,
@@ -166,6 +176,10 @@ export default defineComponent({
           "date",
           "datetime",
         ].includes(value),
+    },
+    loading: {
+      type: Boolean,
+      default: false,
     },
     value: {
       type: [Number, String, Array],
@@ -251,13 +265,14 @@ export default defineComponent({
       };
     };
 
-    const editButton = getEditButton();
-    const defaultButtons: Array<FieldValueButtonType> = props.buttons
-      ? props.buttons
-      : [];
-    const footerButtons: Array<FieldValueButtonType> = editButton
-      ? [editButton, ...defaultButtons]
-      : defaultButtons;
+    const footerButtons = computed<Array<FieldValueButtonType>>(() => {
+      const editButton = getEditButton();
+      const defaultButtons: Array<FieldValueButtonType> = props.buttons
+        ? props.buttons
+        : [];
+
+      return editButton ? [editButton, ...defaultButtons] : defaultButtons;
+    });
 
     return {
       footerButtons,
@@ -368,7 +383,7 @@ export default defineComponent({
 }
 
 .field-value__buttons {
-  margin-top: 0.35rem;
+  margin-top: 0.5rem;
   display: flex;
   align-items: center;
 
