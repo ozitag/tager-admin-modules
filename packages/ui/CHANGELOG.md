@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.62
+
+### Patch Changes
+
+- dc60989: improve colors
+
 ## 1.0.61
 
 ### Patch Changes
