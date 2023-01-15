@@ -24,3 +24,22 @@ export const Default = () =>
     template: `
       <BaseRichTextInput :get-upload-adapter-options="getUploadAdapterPluginOptions" v-model:value="value"/>`,
   });
+
+export const Disabled = () =>
+  defineComponent({
+    components: { BaseRichTextInput },
+    setup() {
+      function getUploadAdapterPluginOptions() {
+        return { uploadScenario: "custom" };
+      }
+
+      const value = ref("");
+
+      return {
+        getUploadAdapterPluginOptions,
+        value,
+      };
+    },
+    template: `
+      <BaseRichTextInput :get-upload-adapter-options="getUploadAdapterPluginOptions" :disabled="true" v-model:value="value"/>`,
+  });
