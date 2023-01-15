@@ -1,5 +1,12 @@
 ## 1.0.25
 
+## 1.0.65
+
+### Patch Changes
+
+- e1052cf: add rowCssClass for DataTable
+- 30a76ec: add rowCssClass prop to BaseTable
+
 ## 1.0.64
 
 ### Patch Changes
