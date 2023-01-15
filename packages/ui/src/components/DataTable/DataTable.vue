@@ -88,7 +88,7 @@ interface SortProps {
 interface Props {
   columnDefs: Array<ColumnDefinition>;
   rowData: Array<RowDataDefaultType>;
-  rowCssClass?: (row: RowDataDefaultType) => string;
+  rowCssClass: (row: RowDataDefaultType) => string;
   loading: boolean;
   errorMessage: string | null;
   searchQuery: string;
