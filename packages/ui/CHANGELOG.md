@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.64
+
+### Patch Changes
+
+- d7b9b59: fix image sizing in DataTable
+
 ## 1.0.63
 
 ### Patch Changes
