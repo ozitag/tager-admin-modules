@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.63
+
+### Patch Changes
+
+- c0b72c2: add loading to FieldValue, add loading to link buttons
+
 ## 1.0.62
 
 ### Patch Changes
