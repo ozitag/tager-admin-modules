@@ -253,10 +253,14 @@ export const Default = () => ({
     return {
       columnDefs: defaultColumnDefs,
       rowData: defaultRowData,
+      rowCssClass: (row) => {
+        return "row-id-" + row.id;
+      },
     };
   },
   template: `
-    <BaseTable :column-defs="columnDefs" :row-data="rowData" enumerable :loading="false" :use-sticky-header="false">
+    <BaseTable :column-defs="columnDefs" :row-data="rowData" :row-css-class="rowCssClass" enumerable :loading="false"
+               :use-sticky-header="false">
     <template v-slot:cell(description)="{ row, column }">
       <td :style="column.style">
         <h4>{{ row[column.field] }}</h4>
