@@ -11,6 +11,7 @@
     <BaseTable
       :column-defs="columnDefs"
       :row-data="rowData"
+      :row-css-class="rowCssClass"
       :loading="loading"
       :error-message="errorMessage"
       :use-sticky-header="true"
@@ -87,6 +88,7 @@ interface SortProps {
 interface Props {
   columnDefs: Array<ColumnDefinition>;
   rowData: Array<RowDataDefaultType>;
+  rowCssClass?: (row: RowDataDefaultType) => string;
   loading: boolean;
   errorMessage: string | null;
   searchQuery: string;
@@ -113,6 +115,10 @@ export default defineComponent({
     rowData: {
       type: Array as PropType<Props["rowData"]>,
       required: true,
+    },
+    rowCssClass: {
+      type: Function as PropType<Props["rowCssClass"]>,
+      default: null,
     },
     loading: {
       type: Boolean,
