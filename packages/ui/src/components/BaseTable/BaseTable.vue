@@ -92,7 +92,6 @@ import Spinner from "../BaseSpinner";
 import type {
   ColumnDefinition,
   ColumnDefinitionCommon,
-  RowDataDefaultType,
 } from "../../typings/common";
 
 import BaseTableCell from "./components/Cell.vue";
@@ -100,8 +99,8 @@ import { useStickyTableHeader } from "./BaseTable.hooks";
 
 interface Props {
   columnDefs: Array<ColumnDefinition>;
-  rowData: Array<RowDataDefaultType>;
-  rowCssClass?: (row: RowDataDefaultType) => string;
+  rowData: Array<unknown>;
+  rowCssClass?: (row: unknown) => string;
   enumerable: boolean;
   loading: boolean;
   useStickyHeader: boolean;

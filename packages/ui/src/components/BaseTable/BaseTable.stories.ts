@@ -253,7 +253,7 @@ export const Default = () => ({
     return {
       columnDefs: defaultColumnDefs,
       rowData: defaultRowData,
-      rowCssClass: (row) => {
+      rowCssClass: (row: any) => {
         return "row-id-" + row.id;
       },
     };
