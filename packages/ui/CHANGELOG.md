@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.66
+
+### Patch Changes
+
+- f069ef1: fix .field margin direction
+
 ## 1.0.65
 
 ### Patch Changes
