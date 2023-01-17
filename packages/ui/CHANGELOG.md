@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.67
+
+### Patch Changes
+
+- 0568c26: fix input label color
+
 ## 1.0.66
 
 ### Patch Changes
