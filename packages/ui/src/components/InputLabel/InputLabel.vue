@@ -32,6 +32,8 @@ export default defineComponent({
 label {
   display: inline-block;
   margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 0.9rem;
 }
 
 .checkbox-label {
