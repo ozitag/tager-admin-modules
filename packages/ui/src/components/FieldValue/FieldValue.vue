@@ -286,10 +286,10 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .field {
-  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 
-  &:first-child {
-    margin-top: 0;
+  &:last-child {
+    margin-bottom: 0;
   }
 
   .label {
