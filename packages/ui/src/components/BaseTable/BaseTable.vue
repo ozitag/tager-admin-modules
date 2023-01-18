@@ -243,8 +243,20 @@ table {
   border-collapse: collapse;
   background-color: transparent;
   text-align: left;
-  color: var(--text-color);
   transition: 0.1s filter;
+  font-size: var(--table-font-size);
+
+  th {
+    color: var(--table-th-color);
+  }
+
+  td {
+    color: var(--table-td-color);
+  }
+
+  a {
+    color: var(--link-color);
+  }
 }
 
 th,

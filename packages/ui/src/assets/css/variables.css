@@ -1,6 +1,8 @@
 :root {
     --text-color: #333;
 
+    --link-color: #007bff;
+
     --primary: #6ba0ff;
     --primary-dark: #0069d9;
     --primary-shadow: rgba(38, 143, 255, .5);
@@ -33,6 +35,10 @@
     --input-border-color: #ced4da;
     --input-focus-border-color: #80bdff;
     --input-focus-box-shadow: rgba(0, 123, 255, .25);
-
     --input-border-radius: 0.25rem;
+
+    --table-th-color: var(--text-color);
+    --table-td-color: #555;
+    --table-a-color: var(--link-color);
+    --table-font-size: 1rem;
 }

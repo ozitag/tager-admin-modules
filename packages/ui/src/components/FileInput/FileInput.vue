@@ -9,9 +9,7 @@
     ]"
   >
     <div v-if="!multiple && fileList.length > 0" class="header">
-      <label v-if="!!label" class="header-label">
-        {{ label }}
-      </label>
+      <InputLabel v-if="!!label">{{ label }}</InputLabel>
       <TabList
         v-if="urlUploadEnabled && fileList.length === 0"
         v-model:tab-id="selectedTabId"
@@ -68,9 +66,8 @@
     </div>
 
     <div v-if="!multiple && fileList.length === 0" class="header">
-      <label v-if="!!label" class="header-label">
-        {{ label }}
-      </label>
+      <InputLabel v-if="!!label">{{ label }}</InputLabel>
+
       <TabList
         v-if="urlUploadEnabled && savedFileList.length === 0"
         v-model:tab-id="selectedTabId"
@@ -146,9 +143,7 @@
     </div>
 
     <div v-if="multiple" class="header">
-      <label class="header-label">
-        {{ label }}
-      </label>
+      <InputLabel v-if="!!label">{{ label }}</InputLabel>
       <TabList
         v-if="urlUploadEnabled"
         v-model:tab-id="selectedTabId"
@@ -220,6 +215,7 @@ import {
 
 import { ARCHIVE_ACCEPT } from "../../constants/common";
 import { BaseButton } from "../BaseButton";
+import InputLabel from "../InputLabel";
 import BaseTextArea from "../BaseTextArea";
 import ProgressBar from "../ProgressBar";
 import LoadableImage from "../LoadableImage";
@@ -263,6 +259,7 @@ export default defineComponent({
     UploadFileFromUrlForm,
     CloudUploadIcon,
     CloseIcon,
+    InputLabel,
   },
   props: {
     value: {
@@ -916,9 +913,8 @@ export default defineComponent({
   justify-content: space-between;
   align-items: flex-end;
 
-  .header-label {
+  label {
     margin-right: 20px;
-    margin-bottom: 0.5rem;
     min-height: 35px;
     display: flex;
     align-items: flex-end;
