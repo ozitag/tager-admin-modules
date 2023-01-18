@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.70
+
+### Patch Changes
+
+- 0eaa359: add CSS vars for tables
+
 ## 1.0.69
 
 ### Patch Changes
