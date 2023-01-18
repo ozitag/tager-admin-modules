@@ -254,17 +254,21 @@ table {
     color: var(--table-td-color);
   }
 
-  a {
+  :deep(a) {
     color: var(--link-color);
-  }
-}
 
-th,
-td {
-  border: 1px solid #e9ecef;
-  border-bottom-width: 2px;
-  padding: 0.75rem;
-  text-align: inherit;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  th,
+  td {
+    border: 1px solid #e9ecef;
+    border-bottom-width: 2px;
+    padding: 0.75rem;
+    text-align: inherit;
+  }
 }
 
 tr.empty {

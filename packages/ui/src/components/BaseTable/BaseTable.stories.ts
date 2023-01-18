@@ -264,6 +264,7 @@ export const Default = () => ({
     <template v-slot:cell(description)="{ row, column }">
       <td :style="column.style">
         <h4>{{ row[column.field] }}</h4>
+        <a href="#">Test ink</a>
       </td>
     </template>
     </BaseTable>
