@@ -80,7 +80,14 @@ export default defineComponent({
     }
 
     function handleKeydown(event: KeyboardEvent) {
-      const ALLOWED_KEYS = ["ArrowLeft", "ArrowRight", "Delete", "Backspace"];
+      const ALLOWED_KEYS = [
+        "ArrowLeft",
+        "ArrowRight",
+        "Delete",
+        "Backspace",
+        "Enter",
+        "Tab",
+      ];
       const DOTS = [",", "."];
 
       const isValueContainsDot = DOTS.some(
