@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.68
+
+### Patch Changes
+
+- 89c6fe3: add Enter and Tab to Allowed keys for NumberInput
+
 ## 1.0.67
 
 ### Patch Changes
