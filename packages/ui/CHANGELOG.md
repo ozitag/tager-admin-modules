@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.69
+
+### Patch Changes
+
+- 01e1ff9: change table color to text-color, set text-color darker
+
 ## 1.0.68
 
 ### Patch Changes
