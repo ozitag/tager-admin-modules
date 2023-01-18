@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.71
+
+### Patch Changes
+
+- dc270ca: fix links in table
+
 ## 1.0.70
 
 ### Patch Changes
