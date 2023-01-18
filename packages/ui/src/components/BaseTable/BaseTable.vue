@@ -243,7 +243,7 @@ table {
   border-collapse: collapse;
   background-color: transparent;
   text-align: left;
-  color: var(--secondary);
+  color: var(--text-color);
   transition: 0.1s filter;
 }
 
