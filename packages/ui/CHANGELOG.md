@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.72
+
+### Patch Changes
+
+- 206b896: fix color for placeholders, add default styles to <hr>
+
 ## 1.0.71
 
 ### Patch Changes
