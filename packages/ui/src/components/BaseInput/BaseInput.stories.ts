@@ -17,7 +17,7 @@ export const Playground: Story = (args) =>
     setup() {
       return { args };
     },
-    template: `<BaseInput v-bind="args" />`,
+    template: `<BaseInput placeholder="placeholder.." v-bind="args" />`,
   });
 
 Playground.argTypes = {

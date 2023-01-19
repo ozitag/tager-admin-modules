@@ -120,3 +120,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+hr {
+    background: var(--input-border-color);
+    margin: 1.5rem 0;
+    height: 2px;
+    border: 0 none;
+}
