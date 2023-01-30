@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.73
+
+### Patch Changes
+
+- 9b7788e: add no-error-padding for FormFieldCheckox
+
 ## 1.0.72
 
 ### Patch Changes
