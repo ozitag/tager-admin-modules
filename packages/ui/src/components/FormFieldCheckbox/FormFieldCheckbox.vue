@@ -1,5 +1,5 @@
 <template>
-  <FormGroup :class="containerClass">
+  <FormGroup :class="containerClass" :no-error-padding="noErrorPadding">
     <BaseCheckbox
       :id="name"
       :name="name"
@@ -55,6 +55,10 @@ export default defineComponent({
     containerClass: {
       type: String,
       default: "",
+    },
+    noErrorPadding: {
+      type: Boolean,
+      default: false,
     },
   },
 });
