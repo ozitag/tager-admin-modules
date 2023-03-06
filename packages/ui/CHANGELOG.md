@@ -1,5 +1,13 @@
 ## 1.0.25
 
+## 1.0.74
+
+### Patch Changes
+
+- 3e09530: remove ending symbol "/" in getWebsiteOrigin
+- Updated dependencies [3e09530]
+  - @tager/admin-services@1.1.12
+
 ## 1.0.73
 
 ### Patch Changes
