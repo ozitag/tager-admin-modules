@@ -222,7 +222,9 @@ export function urlTranslit(phrase: string): string {
 }
 
 export function getWebsiteOrigin(): string {
-  return environment.websiteUrl || window.location.origin;
+  return environment.websiteUrl
+    ? environment.websiteUrl.replace(/\/+$/gi, "")
+    : window.location.origin;
 }
 
 export function getSearchParams(): URLSearchParams {

@@ -1,12 +1,6 @@
 <template>
   <FormGroup :class="containerClass" :no-error-padding="noErrorPadding">
-    <BaseCheckbox
-      :id="name"
-      :name="name"
-      :value="value"
-      :checked="checked"
-      v-bind="$attrs"
-    />
+    <BaseCheckbox :id="name" :name="name" :checked="checked" v-bind="$attrs" />
     <InputLabel v-if="Boolean(label)" for-checkbox :for="name">
       {{ label }}
     </InputLabel>
@@ -43,10 +37,6 @@ export default defineComponent({
     checked: {
       type: Boolean,
       default: false,
-    },
-    value: {
-      type: String,
-      default: "",
     },
     error: {
       type: String,
