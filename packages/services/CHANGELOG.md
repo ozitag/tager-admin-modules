@@ -1,5 +1,11 @@
 # @tager/admin-services
 
+## 1.1.13
+
+### Patch Changes
+
+- ee0b393: UI - add color to BaseSpinner, Services - add color to SplashScreen config
+
 ## 1.1.12
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 ## 1.0.25
 
+## 1.0.76
+
+### Patch Changes
+
+- ee0b393: UI - add color to BaseSpinner, Services - add color to SplashScreen config
+- Updated dependencies [ee0b393]
+  - @tager/admin-services@1.1.13
+
 ## 1.0.75
 
 ### Patch Changes
