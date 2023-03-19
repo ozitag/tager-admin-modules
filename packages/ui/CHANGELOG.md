@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.75
+
+### Patch Changes
+
+- 1495f7b: 1.0.74 - add IDLE, FAILURE statuses for NavigationGrid items
+
 ## 1.0.74
 
 ### Patch Changes
