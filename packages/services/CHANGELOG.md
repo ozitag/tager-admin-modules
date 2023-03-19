@@ -1,5 +1,11 @@
 # @tager/admin-services
 
+## 1.1.14
+
+### Patch Changes
+
+- f34a278: set black color as default for spinner, set SPLASHSCREEN config parameter as optional
+
 ## 1.1.13
 
 ### Patch Changes
