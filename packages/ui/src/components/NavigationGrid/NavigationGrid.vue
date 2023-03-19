@@ -21,6 +21,18 @@
               :stroke-width="3"
               class="spinner"
             />
+            <span
+              v-else-if="navItem.total.status === 'FAILURE'"
+              class="total-failure"
+            >
+              {{ $i18n.t("ui:error") }}
+            </span>
+            <span
+              v-else-if="navItem.total.status === 'IDLE'"
+              class="total-idle"
+            >
+              ...
+            </span>
             <component
               :is="navItem.total.url ? 'router-link' : 'span'"
               v-else
@@ -168,6 +180,18 @@ export default defineComponent({
 .total-value {
   font-size: 2.3rem;
   font-weight: 500;
+}
+
+.total-failure {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--red);
+}
+
+.total-idle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--secondary);
 }
 
 .link-list {

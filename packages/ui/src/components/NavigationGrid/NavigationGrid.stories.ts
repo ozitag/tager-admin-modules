@@ -43,6 +43,26 @@ const navItemList: Array<NavigationGridItem> = [
     total: { status: FETCH_STATUSES.LOADING, value: 11523 },
     // linkList: [{ url: '/presets', text: 'Preset list' }],
   },
+  {
+    name: "Presets",
+    total: { status: FETCH_STATUSES.IDLE, value: 1 },
+    width: 25,
+  },
+  {
+    name: "Presets",
+    total: { status: FETCH_STATUSES.LOADING, value: 2 },
+    width: 25,
+  },
+  {
+    name: "Presets",
+    total: { status: FETCH_STATUSES.SUCCESS, value: 3 },
+    width: 25,
+  },
+  {
+    name: "Presets",
+    total: { status: FETCH_STATUSES.FAILURE, value: 4 },
+    width: 25,
+  },
 ];
 
 export const Default = () => ({

@@ -14,6 +14,7 @@ import "../src/assets/css/index.css";
 import { mswHandlers } from "../src/msw/handlers";
 import EN from "../src/locales/en";
 import RU from "../src/locales/ru";
+import {createPinia} from "pinia";
 
 export const decorators = [vueRouter(), mswDecorator];
 
@@ -41,7 +42,10 @@ initializeEnvironment({
 i18n.addTranslations("en", "ui", EN);
 i18n.addTranslations("ru", "ui", RU);
 
-app.use(i18nPlugin);
+app.use(i18nPlugin)
+
+const pinia = createPinia();
+app.use(pinia);
 
 configStore.setConfig(config);
 

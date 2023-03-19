@@ -2,6 +2,8 @@ const EN = {
   Yes: "Yes",
   No: "No",
 
+  error: "Error",
+
   formFooter: {
     back: "Back",
     addMore: "Add more",
