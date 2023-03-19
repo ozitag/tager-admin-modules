@@ -25,6 +25,7 @@ export const Playground: Story = (args) =>
 Playground.args = {
   size: 25,
   strokeWidth: 5,
+  color: "#000000",
 };
 
 export const Primary: Story = (args) =>

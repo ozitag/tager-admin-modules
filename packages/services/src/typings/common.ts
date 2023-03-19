@@ -79,9 +79,9 @@ export type AppConfigType = {
     subtitle?: string;
   };
   SPLASH_SCREEN: {
-    enabled: boolean;
-    logo: string;
-    background: string;
+    logo?: string;
+    background?: string;
+    color?: string;
   };
 };
 

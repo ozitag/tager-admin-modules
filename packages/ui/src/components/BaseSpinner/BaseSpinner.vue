@@ -4,6 +4,7 @@
     viewBox="0 0 50 50"
     :width="size"
     :height="size"
+    :style="{ color }"
     data-spinner
   >
     <circle
@@ -30,6 +31,10 @@ export default defineComponent({
     strokeWidth: {
       type: [Number, String],
       default: 5,
+    },
+    color: {
+      type: String,
+      default: "red",
     },
   },
 });
