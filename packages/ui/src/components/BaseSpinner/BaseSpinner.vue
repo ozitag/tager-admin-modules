@@ -34,7 +34,7 @@ export default defineComponent({
     },
     color: {
       type: String,
-      default: "red",
+      default: "#000",
     },
   },
 });

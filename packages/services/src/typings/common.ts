@@ -78,7 +78,7 @@ export type AppConfigType = {
     large: LogoConfig;
     subtitle?: string;
   };
-  SPLASH_SCREEN: {
+  SPLASH_SCREEN?: {
     logo?: string;
     background?: string;
     color?: string;
