@@ -2,7 +2,7 @@ const EN = {
   Yes: "Yes",
   No: "No",
 
-  error: "Error",
+  Error: "Error",
 
   formFooter: {
     back: "Back",

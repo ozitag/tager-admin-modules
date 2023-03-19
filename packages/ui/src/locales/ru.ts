@@ -4,7 +4,7 @@ const RU: typeof EN = {
   Yes: "Да",
   No: "Нет",
 
-  error: "Ошибка",
+  Error: "Ошибка",
 
   formFooter: {
     back: "Назад",

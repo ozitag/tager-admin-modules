@@ -25,7 +25,7 @@
               v-else-if="navItem.total.status === 'FAILURE'"
               class="total-failure"
             >
-              {{ $i18n.t("ui:error") }}
+              {{ $i18n.t("ui:Error") }}
             </span>
             <span
               v-else-if="navItem.total.status === 'IDLE'"
