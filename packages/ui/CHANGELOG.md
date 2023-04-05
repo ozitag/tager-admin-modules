@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.78
+
+### Patch Changes
+
+- d6e0554: add totalRowIndex, totalCount to Cell props
+
 ## 1.0.77
 
 ### Patch Changes
