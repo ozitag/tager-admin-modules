@@ -105,8 +105,6 @@ export default defineComponent({
           row: props.row,
           column: props.column,
           rowIndex: props.rowIndex,
-          totalRowIndex: props.totalRowIndex,
-          totalCount: props.totalCount,
         });
       } else {
         return props.column.class;

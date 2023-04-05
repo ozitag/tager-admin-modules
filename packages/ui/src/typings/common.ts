@@ -71,8 +71,6 @@ export type ColumnParamsArg<RowData> = {
   row: RowData;
   column: ColumnDefinition<RowData>;
   rowIndex: number;
-  totalRowIndex: number;
-  totalCount: number;
 };
 
 export type CssClass = string | string[] | object | undefined;
