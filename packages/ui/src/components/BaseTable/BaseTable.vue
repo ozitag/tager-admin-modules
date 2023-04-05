@@ -73,6 +73,12 @@
             :key="column.id"
             :row="row"
             :row-index="index"
+            :total-row-index="
+              pagination?.pageNumber && pagination?.pageSize
+                ? (pagination.pageNumber - 1) * pagination.pageSize + index
+                : 0
+            "
+            :total-count="pagination?.totalCount || 0"
             :column="column"
             :scoped-slot="getCellSlot(column.field)"
           />
@@ -98,6 +104,13 @@ import type {
 import BaseTableCell from "./components/Cell.vue";
 import { useStickyTableHeader } from "./BaseTable.hooks";
 
+interface PaginationProps {
+  pageNumber: number;
+  pageSize: number;
+  pageCount: number;
+  usePageSize?: boolean;
+}
+
 interface Props {
   columnDefs: Array<ColumnDefinition>;
   rowData: Array<RowDataDefaultType>;
@@ -108,6 +121,7 @@ interface Props {
   indexColumnDef: ColumnDefinition;
   notFoundMessage: string;
   errorMessage: string;
+  pagination: PaginationProps;
 }
 
 /**
@@ -134,6 +148,10 @@ export default defineComponent({
     },
     rowCssClass: {
       type: Function as PropType<Props["rowCssClass"]>,
+      default: null,
+    },
+    pagination: {
+      type: Object as PropType<Props["pagination"]>,
       default: null,
     },
     /**
@@ -175,6 +193,7 @@ export default defineComponent({
   },
   setup(props: Props, context) {
     const i18n = useI18n();
+
     const { tableRef, tableCloneRef } = useStickyTableHeader(
       props.useStickyHeader
     );

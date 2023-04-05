@@ -20,10 +20,8 @@ const COLUMN_DEFS: Array<ColumnDefinition> = [
   },
   {
     id: 2,
-    name: "Popular weight",
-    field: "popularWeight",
-    style: { minWidth: "128px" },
-    headStyle: { minWidth: "128px" },
+    name: "Custom",
+    field: "custom",
   },
   {
     id: 3,
@@ -87,6 +85,7 @@ export const Default = () =>
         pageSize,
         pageNumber,
         pageCount,
+        totalCount,
       } = useDataTable({
         fetchEntityList: (params) =>
           getProductList({
@@ -244,35 +243,48 @@ export const Default = () =>
         handleChange,
         pageSize,
         pageNumber,
+        totalCount,
         pageCount,
         tags,
         sortOptions,
       };
     },
     template: `
-          <div class="scrollContainer" style="overflow-Y: auto; padding: 1rem">
-          <DataTable
-              :column-defs="columnDefs"
-              :row-data="rowData"
-              :loading="isLoading"
-              :error-message="errorMessage"
-              :search-query="searchQuery"
-              @change="handleChange"
-          >
-            <template v-slot:filters>
-              <AdvancedSearch :tags="tags">
-                <div>filters content</div>
-              </AdvancedSearch>
-            </template>
-            <template v-slot:cell(platforms)="{ row }">
-              <ul v-if="row.platforms">
-                <li v-for="platform of row.platforms" :key="platform">
-                  -&nbsp;{{ platform }}
-                </li>
-              </ul>
-              <span v-else>-</span>
-            </template>
-          </DataTable>
-          </div>
-        `,
+      <div class="scrollContainer" style="overflow-Y: auto; padding: 1rem">
+      <DataTable
+        :column-defs="columnDefs"
+        :row-data="rowData"
+        :loading="isLoading"
+        :error-message="errorMessage"
+        :search-query="searchQuery"
+        :pagination="{
+                pageNumber,
+                pageCount,
+                pageSize,
+                totalCount,
+                disabled: isLoading,
+              }"
+        @change="handleChange"
+      >
+        <template v-slot:filters>
+          <AdvancedSearch :tags="tags">
+            <div>filters content</div>
+          </AdvancedSearch>
+        </template>
+        <template v-slot:cell(custom)="{ row, rowIndex, totalRowIndex, totalCount }">
+          rowIndex: {{rowIndex}}<br/>
+          totalRowIndex: {{totalRowIndex}}<br/>
+          totalCount: {{totalCount}}
+        </template>
+        <template v-slot:cell(platforms)="{ row }">
+          <ul v-if="row.platforms">
+            <li v-for="platform of row.platforms" :key="platform">
+              -&nbsp;{{ platform }}
+            </li>
+          </ul>
+          <span v-else>-</span>
+        </template>
+      </DataTable>
+      </div>
+    `,
   });

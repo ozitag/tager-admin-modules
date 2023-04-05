@@ -29,6 +29,7 @@ interface TableState<T> {
   pageNumber: Ref<number>;
   pageSize: Ref<number>;
   pageCount: ComputedRef<number>;
+  totalCount: Ref<number>;
   sort: Ref<Nullable<string>>;
   handleChange: (event: TableChangeEvent) => void;
   fetchEntityList: () => Promise<void>;
@@ -66,6 +67,7 @@ export function useDataTable<T>(params: {
   });
 
   const pageCount = computed<number>(() => meta.value?.page.count ?? 0);
+  const totalCount = computed<number>(() => meta.value?.total ?? 0);
 
   onMounted(() => {
     fetchEntityList();
@@ -103,6 +105,7 @@ export function useDataTable<T>(params: {
     pageNumber,
     pageSize,
     pageCount,
+    totalCount,
     sort,
     handleChange,
     fetchEntityList,

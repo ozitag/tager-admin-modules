@@ -16,6 +16,7 @@
       :error-message="errorMessage"
       :use-sticky-header="true"
       :enumerable="enumerable"
+      :pagination="computedPagination"
     >
       <template v-for="(index, name) in $slots" #[name]="data">
         <slot :name="name" v-bind="data"></slot>
@@ -77,6 +78,7 @@ interface PaginationProps {
   pageNumber: number;
   pageSize: number;
   pageCount: number;
+  totalCount?: number;
   usePageSize?: boolean;
 }
 
@@ -201,6 +203,7 @@ export default defineComponent({
         pageNumber: 1,
         pageSize: 100,
         pageCount: 0,
+        totalCount: 0,
       };
 
       return { ...defaultPaginationProps, ...props.pagination };

@@ -57,6 +57,8 @@ interface Props {
   column: ColumnDefinition;
   row: RowDataDefaultType;
   rowIndex: number;
+  totalRowIndex: number;
+  totalCount: number;
   scopedSlot: Slot | null;
 }
 
@@ -75,6 +77,14 @@ export default defineComponent({
       type: Number,
       required: true,
     },
+    totalRowIndex: {
+      type: Number,
+      required: true,
+    },
+    totalCount: {
+      type: Number,
+      required: true,
+    },
     scopedSlot: {
       type: Function as PropType<Slot>,
       default: null,
@@ -85,6 +95,8 @@ export default defineComponent({
       column: props.column,
       row: props.row,
       rowIndex: props.rowIndex,
+      totalRowIndex: props.totalRowIndex,
+      totalCount: props.totalCount,
     }));
 
     const cssClass = computed<CssClass>(() => {
@@ -93,6 +105,8 @@ export default defineComponent({
           row: props.row,
           column: props.column,
           rowIndex: props.rowIndex,
+          totalRowIndex: props.totalRowIndex,
+          totalCount: props.totalCount,
         });
       } else {
         return props.column.class;
