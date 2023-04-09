@@ -27,7 +27,6 @@ export function useStickyTableHeader(useStickyHeader: boolean): {
 
   const isAbsoluteTop = ref<boolean>(false);
   const isFixed = ref<boolean>(false);
-  const isAbsoluteBottom = ref<boolean>(false);
 
   watch(isAbsoluteTop, (value) => {
     if (tableCloneRef.value && value) {
@@ -36,6 +35,7 @@ export function useStickyTableHeader(useStickyHeader: boolean): {
       tableCloneRef.value.style.left = "";
       tableCloneRef.value.style.bottom = "";
       tableCloneRef.value.style.opacity = "0";
+      tableCloneRef.value.style.visibility = "hidden";
     }
   });
 
@@ -49,15 +49,7 @@ export function useStickyTableHeader(useStickyHeader: boolean): {
       tableCloneRef.value.style.top = `${scrollTop.value}px`;
       tableCloneRef.value.style.bottom = "";
       tableCloneRef.value.style.opacity = "1";
-    }
-  });
-
-  watch(isAbsoluteBottom, (value) => {
-    if (tableCloneRef.value && value) {
-      tableCloneRef.value.style.position = "absolute";
-      tableCloneRef.value.style.top = "auto";
-      tableCloneRef.value.style.left = "";
-      tableCloneRef.value.style.bottom = "0";
+      tableCloneRef.value.style.visibility = "visible";
     }
   });
 
@@ -111,9 +103,6 @@ export function useStickyTableHeader(useStickyHeader: boolean): {
       isFixed.value =
         containerRect.top >= tableRect.top &&
         containerRect.top + trCloneRect.height <= tableRect.bottom;
-
-      isAbsoluteBottom.value =
-        containerRect.top + trCloneRect.height >= tableRect.bottom;
     }
   }
 
@@ -154,7 +143,9 @@ export function useStickyTableHeader(useStickyHeader: boolean): {
       handleScroll();
 
       scrollParentElementsRef.value.forEach((element) => {
-        element.addEventListener("scroll", handleScroll);
+        const scrollableElement =
+          element === document.body ? document : element;
+        scrollableElement.addEventListener("scroll", handleScroll);
       });
     }
   });
@@ -162,7 +153,9 @@ export function useStickyTableHeader(useStickyHeader: boolean): {
   onUnmounted(() => {
     if (useStickyHeader) {
       scrollParentElementsRef.value.forEach((element) => {
-        element.removeEventListener("scroll", handleScroll);
+        const scrollableElement =
+          element === document.body ? document : element;
+        scrollableElement.removeEventListener("scroll", handleScroll);
       });
     }
   });

@@ -260,7 +260,7 @@ export const Default = () => ({
   },
   template: `
     <BaseTable :column-defs="columnDefs" :row-data="rowData" :row-css-class="rowCssClass" enumerable :loading="false"
-               :use-sticky-header="false">
+               :use-sticky-header="true">
     <template v-slot:cell(description)="{ row, column }">
       <td :style="column.style">
         <h4>{{ row[column.field] }}</h4>
