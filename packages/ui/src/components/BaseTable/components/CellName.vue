@@ -150,7 +150,9 @@ export default defineComponent({
         ...state.value,
         websiteLink: {
           ...state.value.websiteLink,
-          text: cutUrlOrigin(state.value.websiteLink.text),
+          text: props.column.options?.displayFullWebsiteLink
+            ? state.value.websiteLink.text
+            : cutUrlOrigin(state.value.websiteLink.text),
         },
       };
     });

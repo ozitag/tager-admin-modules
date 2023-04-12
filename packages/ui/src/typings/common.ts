@@ -181,6 +181,7 @@ export interface ColumnDefinitionName<RowData = RowDataDefaultType>
   options?: {
     shouldOpenNewTab?: boolean;
     shouldUseRouter?: boolean;
+    displayFullWebsiteLink?: boolean;
   };
 }
 

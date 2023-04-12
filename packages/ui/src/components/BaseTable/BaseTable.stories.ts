@@ -42,6 +42,7 @@ const defaultColumnDefs = [
     },
     options: {
       shouldOpenNewTab: false,
+      displayFullWebsiteLink: true,
       // shouldUseRouter: false,
     },
   } as ColumnDefinitionName<TestEntity>,
