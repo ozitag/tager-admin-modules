@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.80
+
+### Patch Changes
+
+- 20e5c83: add displayFullWebsiteLink option to CellName
+
 ## 1.0.79
 
 ### Patch Changes
