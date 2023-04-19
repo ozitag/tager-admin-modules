@@ -6,7 +6,7 @@ import AjaxSelect from "./AjaxSelect.vue";
 
 export default { title: "AjaxSelect" };
 
-const url = "/admin/brands";
+const url = "http://localhost:7001/api/admin/games/ajax-search";
 
 export const Default = () =>
   defineComponent({
@@ -24,8 +24,8 @@ export const Default = () =>
       <AjaxSelect
           v-model:value="selected"
           :request-url="url"
-          value-field="id"
-          label-field="name"
+          value-field="value"
+          label-field="label"
       />
     `,
   });

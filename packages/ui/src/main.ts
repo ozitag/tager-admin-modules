@@ -29,6 +29,7 @@ export { default as TableCell } from "./components/BaseTable/components/Cell.vue
 export { default as FormGroup } from "./components/FormGroup.vue";
 export { default as FileInput } from "./components/FileInput";
 export { default as FormFieldFileInput } from "./components/FormFieldFileInput";
+export { default as FormFieldAjaxSelect } from "./components/FormFieldAjaxSelect";
 export { default as BaseNumberInput } from "./components/BaseNumberInput";
 export { default as ColorInput } from "./components/ColorPicker";
 export { default as FormFieldColorInput } from "./components/FormFieldColorPicker";

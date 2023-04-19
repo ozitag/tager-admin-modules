@@ -13,12 +13,7 @@
 import { get } from "lodash-es";
 import { defineComponent } from "vue";
 
-import {
-  isAbsoluteUrl,
-  isNullish,
-  request,
-  type ResponseBody,
-} from "@tager/admin-services";
+import { isNullish, request, type ResponseBody } from "@tager/admin-services";
 
 import type { OptionType } from "../../typings/common";
 import ComboBox, { useSelectOptionsResource } from "../ComboBox";
@@ -54,11 +49,7 @@ export default defineComponent({
     function fetchEntityList(params?: {
       query?: string;
     }): Promise<ResponseBody<Array<EntityType>>> {
-      return request.get(
-        isAbsoluteUrl(props.requestUrl)
-          ? { absoluteUrl: props.requestUrl, params }
-          : { path: props.requestUrl, params }
-      );
+      return request.get({ path: props.requestUrl, params });
     }
 
     const { loading, options, noOptionsMessage, handleSearchQueryChange } =
