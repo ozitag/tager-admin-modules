@@ -51,7 +51,13 @@ function configureBody(body?: BodyParam): BodyInit | null {
 
 function getRequestUrl(path = "", params?: QueryParams): string {
   const searchParams = getSearchString(params);
-  return [getApiUrl(), path, searchParams].filter(Boolean).join("");
+  return [
+    getApiUrl(),
+    path,
+    path.includes("?") ? searchParams.replace("?", "&") : searchParams,
+  ]
+    .filter(Boolean)
+    .join("");
 }
 
 function configureOptions({
