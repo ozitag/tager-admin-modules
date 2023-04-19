@@ -1,5 +1,11 @@
 # @tager/admin-services
 
+## 1.1.15
+
+### Patch Changes
+
+- 4b89fec: fix requests when path contains ? - remove double ? from requestUrl
+
 ## 1.1.14
 
 ### Patch Changes
