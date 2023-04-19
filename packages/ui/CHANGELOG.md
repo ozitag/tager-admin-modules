@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.81
+
+### Patch Changes
+
+- 55a824a: add FormFieldAjaxSelect
+
 ## 1.0.80
 
 ### Patch Changes
