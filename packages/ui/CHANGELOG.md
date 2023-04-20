@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.83
+
+### Patch Changes
+
+- 25d6572: FormFields add for OptionsSwitcher, OptionsSwitcherTrueFalse
+
 ## 1.0.82
 
 ### Patch Changes
