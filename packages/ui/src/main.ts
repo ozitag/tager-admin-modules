@@ -54,6 +54,10 @@ export {
   default as OptionsSwitcher,
   OptionsSwitcherTrueFalse,
 } from "./components/OptionsSwitcher";
+export {
+  default as FormFieldOptionsSwitcher,
+  FormFieldOptionsSwitcherTrueFalse,
+} from "./components/FormFieldOptionsSwitcher";
 export { default as FormFieldRecommendedLengthInput } from "./components/FormFieldRecommendedLengthInput";
 export {
   default as DataTable,
