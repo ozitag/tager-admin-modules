@@ -66,7 +66,7 @@ export const YesNoColor = () =>
     components: { OptionsSwitcherYesNo },
     template: `
       <div :style="{width: '300px'}">
-      <OptionsSwitcherYesNo no-color="red" no-text-color="#fff" yes-color="green" yes-text-color="#fff"/>
+      <OptionsSwitcherYesNo false-color="red" false-text-color="#fff" true-color="green" true-text-color="#fff"/>
       </div>
     `,
   });

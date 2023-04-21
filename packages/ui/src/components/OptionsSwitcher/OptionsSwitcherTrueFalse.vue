@@ -21,19 +21,19 @@ export default defineComponent({
       type: Boolean,
       default: null,
     },
-    noColor: {
+    trueColor: {
       type: String,
       default: null,
     },
-    noTextColor: {
+    trueTextColor: {
       type: String,
       default: null,
     },
-    yesColor: {
+    falseColor: {
       type: String,
       default: null,
     },
-    yesTextColor: {
+    falseTextColor: {
       type: String,
       default: null,
     },
@@ -63,14 +63,14 @@ export default defineComponent({
         {
           label: i18n.t("ui:optionsSwitcher.No"),
           value: "0",
-          activeColor: props.noColor,
-          activeTextColor: props.noTextColor,
+          activeColor: props.falseColor,
+          activeTextColor: props.falseTextColor,
         },
         {
           label: i18n.t("ui:optionsSwitcher.Yes"),
           value: "1",
-          activeColor: props.yesColor,
-          activeTextColor: props.yesTextColor,
+          activeColor: props.trueColor,
+          activeTextColor: props.trueTextColor,
         },
       ],
       innerValue,

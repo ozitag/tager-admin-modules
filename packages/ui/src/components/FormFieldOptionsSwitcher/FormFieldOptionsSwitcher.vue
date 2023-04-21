@@ -18,6 +18,11 @@ import type { OptionType } from "../../typings/common";
 import OptionsSwitcher from "../OptionsSwitcher";
 import FormFieldWrapper from "../FormFieldWrapper.vue";
 
+type OptionsSwitcherOption = OptionType & {
+  activeColor?: string;
+  activeTextColor?: string;
+};
+
 export default defineComponent({
   name: "FormFieldOptionsSwitcher",
   components: {
@@ -31,7 +36,7 @@ export default defineComponent({
       default: null,
     },
     options: {
-      type: Array as PropType<Array<OptionType>>,
+      type: Array as PropType<Array<OptionsSwitcherOption>>,
       default: () => [],
     },
     value: {

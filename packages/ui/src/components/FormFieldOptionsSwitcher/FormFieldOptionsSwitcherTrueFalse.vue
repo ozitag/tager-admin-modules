@@ -6,7 +6,14 @@
     :error="error"
     :no-error-padding="noErrorPadding"
   >
-    <OptionsSwitcherTrueFalse :value="value" v-bind="$attrs" />
+    <OptionsSwitcherTrueFalse
+      :value="value"
+      :true-color="trueColor"
+      :true-text-color="trueTextColor"
+      :false-color="falseColor"
+      :false-text-color="falseTextColor"
+      v-bind="$attrs"
+    />
   </FormFieldWrapper>
 </template>
 
@@ -30,6 +37,22 @@ export default defineComponent({
     },
     value: {
       type: Boolean,
+      default: null,
+    },
+    trueColor: {
+      type: String,
+      default: null,
+    },
+    trueTextColor: {
+      type: String,
+      default: null,
+    },
+    falseColor: {
+      type: String,
+      default: null,
+    },
+    falseTextColor: {
+      type: String,
       default: null,
     },
     error: {
