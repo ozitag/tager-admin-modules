@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.84
+
+### Patch Changes
+
+- 7279e74: add colors to OptionsSwitcher
+
 ## 1.0.83
 
 ### Patch Changes
