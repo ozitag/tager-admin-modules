@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.85
+
+### Patch Changes
+
+- 40d9b9b: rename "yes/no" to "True/False" in OptionsSwitcherTrueFalse, add colors to FormFieldOptionsSwitcher
+
 ## 1.0.84
 
 ### Patch Changes
