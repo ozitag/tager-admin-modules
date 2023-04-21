@@ -4,6 +4,14 @@
       v-for="item in options"
       :key="item.value"
       :class="item.value === innerValue ? 'active' : ''"
+      :style="
+        item.value === innerValue
+          ? {
+              background: item.activeColor || 'var(--input-border-color)',
+              color: item.activeTextColor || '',
+            }
+          : {}
+      "
       @click="() => onChange(item.value)"
     >
       {{ item.label }}
@@ -17,6 +25,11 @@ import { defineComponent, ref, watch } from "vue";
 
 import type { OptionType } from "../../typings/common";
 
+type OptionsSwitcherOption = OptionType & {
+  activeColor?: string;
+  activeTextColor?: string;
+};
+
 export default defineComponent({
   name: "OptionsSwitcher",
   props: {
@@ -25,7 +38,7 @@ export default defineComponent({
       default: null,
     },
     options: {
-      type: Array as PropType<Array<OptionType>>,
+      type: Array as PropType<Array<OptionsSwitcherOption>>,
       default: () => [],
     },
   },
@@ -69,7 +82,7 @@ export default defineComponent({
     cursor: pointer;
     justify-content: center;
     border: 1px solid var(--input-border-color);
-    transition: 0.3s all ease;
+    transition: 0.3s background ease;
 
     &:first-child {
       border-radius: var(--input-border-radius) 0 0 var(--input-border-radius);
@@ -85,6 +98,7 @@ export default defineComponent({
 
     &.active {
       background: var(--input-border-color);
+      font-weight: 700;
     }
   }
 }

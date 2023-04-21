@@ -24,6 +24,19 @@ export const Default = () =>
     `,
   });
 
+export const WithColors = () =>
+  defineComponent({
+    components: { OptionsSwitcher },
+    template: `
+      <div :style="{width: '500px'}">
+      <OptionsSwitcher :options="[
+  {value: '1', label: 'Option 1', activeColor: 'green', activeTextColor: 'black'},
+  {value: '2', label: 'Option 2', activeColor: 'red', activeTextColor: '#fff'},
+]"/>
+      </div>
+    `,
+  });
+
 export const WithValue = () =>
   defineComponent({
     components: { OptionsSwitcher },
@@ -44,6 +57,16 @@ export const YesNo = () =>
     template: `
       <div :style="{width: '300px'}">
       <OptionsSwitcherYesNo/>
+      </div>
+    `,
+  });
+
+export const YesNoColor = () =>
+  defineComponent({
+    components: { OptionsSwitcherYesNo },
+    template: `
+      <div :style="{width: '300px'}">
+      <OptionsSwitcherYesNo no-color="red" no-text-color="#fff" yes-color="green" yes-text-color="#fff"/>
       </div>
     `,
   });
