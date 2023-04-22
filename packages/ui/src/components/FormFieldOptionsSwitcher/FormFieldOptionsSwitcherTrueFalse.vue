@@ -8,8 +8,10 @@
   >
     <OptionsSwitcherTrueFalse
       :value="value"
+      :true-label="trueLabel"
       :true-color="trueColor"
       :true-text-color="trueTextColor"
+      :false-label="falseLabel"
       :false-color="falseColor"
       :false-text-color="falseTextColor"
       v-bind="$attrs"
@@ -39,11 +41,19 @@ export default defineComponent({
       type: Boolean,
       default: null,
     },
+    trueLabel: {
+      type: String,
+      default: null,
+    },
     trueColor: {
       type: String,
       default: null,
     },
     trueTextColor: {
+      type: String,
+      default: null,
+    },
+    falseLabel: {
       type: String,
       default: null,
     },

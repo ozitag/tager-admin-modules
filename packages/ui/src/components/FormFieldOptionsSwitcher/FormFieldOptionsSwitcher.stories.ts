@@ -49,5 +49,9 @@ export const TrueFalse = () => ({
     <FormFieldOptionsSwitcherTrueFalse
       v-model:value="value"
       label="Visible"
+      :false-color="red"
+      :false-text-color="white"
+      :true-color="green"
+      :true-text-color="white"
     />`,
 });
