@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.86
+
+### Patch Changes
+
+- 675e870: add trueLabel / falseLabel to OptionsSwitcherTrueFalse
+
 ## 1.0.85
 
 ### Patch Changes
