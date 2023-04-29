@@ -15,7 +15,7 @@ import type { PropType } from "vue";
 import { defineComponent } from "vue";
 
 import type { OptionType } from "../../typings/common";
-import OptionsSwitcher from "../OptionsSwitcher";
+import OptionsSwitcher from "../OptionsSwitcher/OptionsSwitcher.vue";
 import FormFieldWrapper from "../FormFieldWrapper.vue";
 
 type OptionsSwitcherOption = OptionType & {

@@ -23,12 +23,7 @@
 import type { PropType } from "vue";
 import { defineComponent, ref, watch } from "vue";
 
-import type { OptionType } from "../../typings/common";
-
-export type OptionsSwitcherOption = OptionType & {
-  activeColor?: string;
-  activeTextColor?: string;
-};
+import type { OptionsSwitcherOption } from "./OptionsSwitcher.types";
 
 export default defineComponent({
   name: "OptionsSwitcher",
