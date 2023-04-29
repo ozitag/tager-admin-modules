@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.87
+
+### Patch Changes
+
+- 01ae0c8: add OptionsSwitcherOption to export
+
 ## 1.0.86
 
 ### Patch Changes
