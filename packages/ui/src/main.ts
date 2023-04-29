@@ -51,7 +51,7 @@ export { default as CountInput } from "./components/CountInput";
 export { default as ShortCodeConstructor } from "./components/ShortCodeConstructor";
 export { default as CountButton } from "./components/CountButton";
 export {
-  default as OptionsSwitcher,
+  OptionsSwitcher,
   OptionsSwitcherTrueFalse,
   type OptionsSwitcherOption,
 } from "./components/OptionsSwitcher";
