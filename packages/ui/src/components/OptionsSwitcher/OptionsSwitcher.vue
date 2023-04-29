@@ -25,7 +25,7 @@ import { defineComponent, ref, watch } from "vue";
 
 import type { OptionType } from "../../typings/common";
 
-type OptionsSwitcherOption = OptionType & {
+export type OptionsSwitcherOption = OptionType & {
   activeColor?: string;
   activeTextColor?: string;
 };

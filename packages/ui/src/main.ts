@@ -53,6 +53,7 @@ export { default as CountButton } from "./components/CountButton";
 export {
   default as OptionsSwitcher,
   OptionsSwitcherTrueFalse,
+  type OptionsSwitcherOption,
 } from "./components/OptionsSwitcher";
 export {
   default as FormFieldOptionsSwitcher,
