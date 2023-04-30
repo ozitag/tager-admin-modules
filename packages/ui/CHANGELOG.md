@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.90
+
+### Patch Changes
+
+- 91c2c07: add phone formatter to table cell
+
 ## 1.0.89
 
 ### Patch Changes
