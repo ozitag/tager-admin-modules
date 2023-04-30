@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.88
+
+### Patch Changes
+
+- 1ec1bb8: add Badge, BadgeCell
+
 ## 1.0.87
 
 ### Patch Changes
