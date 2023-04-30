@@ -1,6 +1,12 @@
 <template>
   <td :style="{ textAlign: 'center' }" class="cell-badge">
-    <Badge v-if="label" :size="size" :text-color="textColor" :color="color">
+    <Badge
+      v-if="label"
+      :size="size"
+      :text-color="textColor"
+      :color="color"
+      :w100="w100"
+    >
       {{ label }}
     </Badge>
   </td>
@@ -27,10 +33,6 @@ export default defineComponent({
   name: "CellBadge",
   components: { Badge },
   props: {
-    size: {
-      type: Number,
-      default: 11,
-    },
     column: {
       type: Object as PropType<Props["column"]>,
       required: true,
@@ -73,7 +75,13 @@ export default defineComponent({
         : value.value?.textColor || undefined
     );
 
-    return { label, color, textColor };
+    return {
+      label,
+      color,
+      textColor,
+      w100: !!props.column.w100,
+      size: props.column.size,
+    };
   },
 });
 </script>

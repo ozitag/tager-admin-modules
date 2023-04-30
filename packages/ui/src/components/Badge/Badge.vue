@@ -2,7 +2,12 @@
   <span
     v-if="visible"
     class="badge"
-    :style="{ background: color, color: textColor, fontSize: size + 'px' }"
+    :style="{
+      background: color,
+      color: textColor,
+      fontSize: size + 'px',
+      display: w100 ? 'block' : 'inline-block',
+    }"
   >
     <slot></slot>
   </span>
@@ -14,9 +19,14 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "BaseBadge",
   props: {
+    w100: {
+      type: Boolean,
+      default: false,
+    },
     size: {
       type: Number,
       default: 11,
+      required: false,
     },
     color: {
       type: String,
@@ -28,7 +38,6 @@ export default defineComponent({
     },
   },
   setup(_props, { slots }) {
-    console.log(slots["default"]);
     return { visible: !!slots["default"] };
   },
 });

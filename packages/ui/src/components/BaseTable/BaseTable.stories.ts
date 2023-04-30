@@ -52,9 +52,10 @@ const defaultColumnDefs = [
     name: "Status",
     field: "status",
     type: "badge",
+    w100: true,
     format: ({ row }) => {
       return row.active
-        ? { label: "", color: "green", textColor: "white" }
+        ? { label: "Active", color: "green", textColor: "white" }
         : { label: "Disabled", color: "red", textColor: "black" };
     },
   } as ColumnDefinitionBadge<TestEntity>,
