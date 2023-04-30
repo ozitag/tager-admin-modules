@@ -52,6 +52,13 @@ export type NameCellValue =
   | null;
 export type KeyValueCellValue = Array<{ key: string; value: string }> | null;
 export type FileCellValue = Nullable<FileType>;
+export type BadgeCellValue =
+  | string
+  | {
+      label: string;
+      color?: string;
+      textColor?: string;
+    };
 
 export type ColumnType =
   | "string"
@@ -63,7 +70,8 @@ export type ColumnType =
   | "html"
   | "color"
   | "key-value"
-  | "file";
+  | "file"
+  | "badge";
 
 export type RowDataDefaultType = { [key: string]: unknown };
 
@@ -197,6 +205,13 @@ export interface ColumnDefinitionFile<RowData = RowDataDefaultType>
   format?: (params: ColumnParamsArg<RowData>) => FileCellValue;
 }
 
+export interface ColumnDefinitionBadge<RowData = RowDataDefaultType>
+  extends ColumnDefinitionCommon<RowData> {
+  type: "badge";
+  size?: number;
+  format?: (params: ColumnParamsArg<RowData>) => BadgeCellValue;
+}
+
 export type ColumnDefinition<RowData = RowDataDefaultType> =
   | ColumnDefinitionDynamic<RowData>
   | ColumnDefinitionList<RowData>
@@ -210,7 +225,8 @@ export type ColumnDefinition<RowData = RowDataDefaultType> =
   | ColumnDefinitionColor<RowData>
   | ColumnDefinitionName<RowData>
   | ColumnDefinitionKeyValue<RowData>
-  | ColumnDefinitionFile<RowData>;
+  | ColumnDefinitionFile<RowData>
+  | ColumnDefinitionBadge<RowData>;
 
 export type DropdownMenuItemType = {
   type: "button" | "link" | "divider";

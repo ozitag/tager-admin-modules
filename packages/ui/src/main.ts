@@ -50,6 +50,7 @@ export { default as MapField } from "./components/MapField";
 export { default as CountInput } from "./components/CountInput";
 export { default as ShortCodeConstructor } from "./components/ShortCodeConstructor";
 export { default as CountButton } from "./components/CountButton";
+export { default as Badge } from "./components/Badge";
 export {
   OptionsSwitcher,
   OptionsSwitcherTrueFalse,

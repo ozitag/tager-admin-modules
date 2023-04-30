@@ -18,6 +18,7 @@ import CellFile from "./CellFile.vue";
 import CellKeyValue from "./CellKeyValue.vue";
 import CellList from "./CellList.vue";
 import CellBoolean from "./CellBoolean.vue";
+import CellBadge from "./CellBadge.vue";
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 type CellComponentType = Exclude<ColumnDefinition["type"], Function>;
@@ -29,6 +30,8 @@ function getCellComponentByColumnType(
     case "datetime":
     case "date":
       return CellDate;
+    case "badge":
+      return CellBadge;
     case "image":
       return CellImage;
     case "link":

@@ -1,6 +1,7 @@
 import type { FileType, Nullable } from "@tager/admin-services";
 
 import type {
+  ColumnDefinitionBadge,
   ColumnDefinitionBoolean,
   ColumnDefinitionColor,
   ColumnDefinitionCommon,
@@ -46,7 +47,17 @@ const defaultColumnDefs = [
       // shouldUseRouter: false,
     },
   } as ColumnDefinitionName<TestEntity>,
-
+  {
+    id: 100,
+    name: "Status",
+    field: "status",
+    type: "badge",
+    format: ({ row }) => {
+      return row.active
+        ? { label: "", color: "green", textColor: "white" }
+        : { label: "Disabled", color: "red", textColor: "black" };
+    },
+  } as ColumnDefinitionBadge<TestEntity>,
   {
     id: 98,
     name: "Active",
