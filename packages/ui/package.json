@@ -1,6 +1,6 @@
 {
   "name": "@tager/admin-ui",
-  "version": "1.0.88",
+  "version": "1.0.89",
   "license": "MIT",
   "access": "public",
   "repository": {
@@ -44,6 +44,7 @@
     "@tager/admin-wysiwyg": "^1.0.0",
     "autosize": "^5.0.1",
     "leaflet": "^1.8.0",
+    "libphonenumber-js": "^1.10.28",
     "lodash-es": "*",
     "smoothscroll-polyfill": "^0.4.4",
     "sortablejs": "^1.15.0",

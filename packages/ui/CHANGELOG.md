@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.89
+
+### Patch Changes
+
+- ca80e85: add w100 prop to Badge
+
 ## 1.0.88
 
 ### Patch Changes

@@ -11,6 +11,7 @@ import type {
   ColumnDefinitionImage,
   ColumnDefinitionLink,
   ColumnDefinitionName,
+  ColumnDefinitionString,
 } from "../../typings/common";
 
 import BaseTable from "./BaseTable.vue";
@@ -48,11 +49,17 @@ const defaultColumnDefs = [
     },
   } as ColumnDefinitionName<TestEntity>,
   {
+    id: 102,
+    name: "Phone",
+    field: "phone",
+    type: "string",
+    formatter: "phone",
+  } as ColumnDefinitionString<TestEntity>,
+  {
     id: 100,
     name: "Status",
     field: "status",
     type: "badge",
-    w100: true,
     format: ({ row }) => {
       return row.active
         ? { label: "Active", color: "green", textColor: "white" }
@@ -93,7 +100,7 @@ const defaultColumnDefs = [
    value: ({row}) => {
      return row.name === 'Ivan';
    }
- } as ColumnDefinitionBoolean<TestEntity>,*/
+ } as ColumnDefinitionBoolean<TestEntity>,
 
   {
     id: 1,
@@ -103,7 +110,7 @@ const defaultColumnDefs = [
     class: ({ row }) => {
       return ["id-cell", "id-cell-" + row.id];
     },
-  } as ColumnDefinitionCommon<TestEntity>,
+  } as ColumnDefinitionCommon<TestEntity>,*/
   {
     id: 2,
     name: "String Color (30%)",
@@ -179,6 +186,7 @@ const defaultColumnDefs = [
 
 interface TestEntity {
   id: number;
+  phone?: string;
   active: boolean;
   name: string;
   url: Nullable<string>;
@@ -195,6 +203,7 @@ interface TestEntity {
 const defaultRowData: Array<TestEntity> = [
   {
     id: 1,
+    phone: "375296704790",
     active: false,
     name: "Makeup Purple",
     url: "https://banuba-catalog.dev.ozitag.com/beautification/eyes-hazel",
@@ -217,6 +226,7 @@ const defaultRowData: Array<TestEntity> = [
   },
   {
     id: 2,
+    phone: "48451670377",
     active: true,
     color: "rgba(222,111,123,0.8)",
     name: "Ivan",

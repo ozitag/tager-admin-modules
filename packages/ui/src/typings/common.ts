@@ -118,6 +118,8 @@ export interface ColumnDefinitionDynamic<RowData = RowDataDefaultType> {
 export interface ColumnDefinitionString<RowData = RowDataDefaultType>
   extends ColumnDefinitionCommon<RowData> {
   type?: "string";
+  noWrap?: boolean;
+  formatter?: "phone";
   format?: (params: ColumnParamsArg<RowData>) => StringCellValue;
 }
 
@@ -208,7 +210,6 @@ export interface ColumnDefinitionFile<RowData = RowDataDefaultType>
 export interface ColumnDefinitionBadge<RowData = RowDataDefaultType>
   extends ColumnDefinitionCommon<RowData> {
   type: "badge";
-  w100?: boolean;
   size?: number;
   format?: (params: ColumnParamsArg<RowData>) => BadgeCellValue;
 }

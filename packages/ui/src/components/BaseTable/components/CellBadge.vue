@@ -5,7 +5,7 @@
       :size="size"
       :text-color="textColor"
       :color="color"
-      :w100="w100"
+      :w100="true"
     >
       {{ label }}
     </Badge>
@@ -79,7 +79,6 @@ export default defineComponent({
       label,
       color,
       textColor,
-      w100: !!props.column.w100,
       size: props.column.size,
     };
   },

@@ -1,10 +1,18 @@
 <template>
-  <td>{{ value }}</td>
+  <td>
+    <span v-if="noWrap" style="white-space: nowrap">
+      {{ formattedValue }}
+    </span>
+    <template v-else>
+      {{ formattedValue }}
+    </template>
+  </td>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, type PropType } from "vue";
 import { get } from "lodash-es";
+import { AsYouType } from "libphonenumber-js";
 
 import type {
   ColumnDefinitionString,
@@ -47,7 +55,20 @@ export default defineComponent({
       ) as StringCellValue;
     });
 
-    return { value };
+    const formattedValue = computed<string>(() => {
+      if (!value.value) return "";
+
+      if (props.column.formatter === "phone") {
+        return new AsYouType().input(
+          (value.value?.startsWith("+") ? "" : "+") + value.value
+        );
+      }
+      return value.value;
+    });
+
+    const noWrap = props.column.noWrap || props.column.formatter === "phone";
+
+    return { formattedValue, noWrap };
   },
 });
 </script>
