@@ -120,6 +120,11 @@ const defaultColumnDefs = [
       return ["color-cell", "color-cell-" + row.id];
     },
   } as ColumnDefinitionColor<TestEntity>,
+  {
+    id: 3,
+    name: "MultiLine",
+    field: "name",
+  },
   // {
   //   id: 2,
   //   name: 'String cell (30%)',
@@ -205,7 +210,7 @@ const defaultRowData: Array<TestEntity> = [
     id: 1,
     phone: "375296704790",
     active: false,
-    name: "Makeup Purple",
+    name: "Makeup\nPurple",
     url: "https://banuba-catalog.dev.ozitag.com/beautification/eyes-hazel",
     color: "#374635",
     content: "<p>simple header <h3>Title</h3></p>",
@@ -215,7 +220,7 @@ const defaultRowData: Array<TestEntity> = [
     date: new Date().toISOString(),
     link: "/presets",
     description:
-      "Some description Some description Some description Some description Some description Some description Some description Some description Some description Some description",
+      "Some descriptionSome description Some description Some description Some description Some description Some description Some description Some description Some description",
     file: {
       id: "80d47541-e186-481a-8add-a4a351e62b6d",
       mime: "application/zip",

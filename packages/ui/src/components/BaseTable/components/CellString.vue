@@ -4,7 +4,10 @@
       {{ formattedValue }}
     </span>
     <template v-else>
-      {{ formattedValue }}
+      <Nl2Br v-if="formattedValue.includes(`\n`)" :text="formattedValue" />
+      <template v-else>
+        {{ formattedValue }}
+      </template>
     </template>
   </td>
 </template>
@@ -19,6 +22,7 @@ import type {
   RowDataDefaultType,
   StringCellValue,
 } from "../../../typings/common";
+import Nl2Br from "../../Nl2Br";
 
 interface Props {
   column: ColumnDefinitionString;
@@ -28,6 +32,7 @@ interface Props {
 
 export default defineComponent({
   name: "CellString",
+  components: { Nl2Br },
   props: {
     column: {
       type: Object as PropType<Props["column"]>,
@@ -63,7 +68,7 @@ export default defineComponent({
           (value.value?.startsWith("+") ? "" : "+") + value.value
         );
       }
-      return value.value;
+      return String(value.value);
     });
 
     const noWrap = props.column.noWrap || props.column.formatter === "phone";
