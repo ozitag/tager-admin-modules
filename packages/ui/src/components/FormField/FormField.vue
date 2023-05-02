@@ -11,6 +11,7 @@
       :id="name"
       :name="name"
       :value="value"
+      :max-height-rows="maxHeightRows"
       v-bind="$attrs"
     />
     <BaseNumberInput
@@ -61,6 +62,10 @@ export default defineComponent({
     value: {
       type: String,
       default: "",
+    },
+    maxHeightRows: {
+      type: Number,
+      default: 25,
     },
     type: {
       type: String,

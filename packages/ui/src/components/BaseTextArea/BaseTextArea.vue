@@ -4,6 +4,11 @@
     :autocomplete="autocomplete"
     :rows="rows"
     :value="value"
+    :style="{
+      maxHeight: maxHeightRows
+        ? maxHeightRows * 1.5 + 0.375 * 2 + 'rem'
+        : 'auto',
+    }"
     @input="handleInput"
     @change="handleChange"
   />
@@ -37,6 +42,10 @@ export default defineComponent({
     autosize: {
       type: Boolean,
       default: true,
+    },
+    maxHeightRows: {
+      type: Number,
+      default: 25,
     },
     rows: {
       type: Number,
