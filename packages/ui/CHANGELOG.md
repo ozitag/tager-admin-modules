@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.92
+
+### Patch Changes
+
+- b9e194a: limit textarea height in BaseTextArea
+
 ## 1.0.91
 
 ### Patch Changes
