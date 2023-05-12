@@ -38,32 +38,35 @@
         {{ computedPlaceholder }}
       </BaseButton>
 
-      <SearchIcon
-        v-if="searchable && popupIsOpen && !loading"
-        class="icon-search"
-        focusable="false"
-        aria-hidden="true"
-      />
+      <div class="select-actions">
+        <SearchIcon
+          v-if="searchable && popupIsOpen && !loading"
+          class="icon-search"
+          focusable="false"
+          aria-hidden="true"
+        />
 
-      <button
-        v-else-if="clearable && value && !loading && !disabled"
-        class="btn-clear"
-        type="button"
-        @click="handleClearClick"
-      >
-        <CloseIcon class="icon-clear" focusable="false" aria-hidden="true" />
-      </button>
+        <button
+          v-else-if="clearable && value && !loading && !disabled"
+          class="btn-clear"
+          type="button"
+          @click="handleClearClick"
+        >
+          <CloseIcon class="icon-clear" focusable="false" aria-hidden="true" />
+        </button>
 
-      <span v-else-if="loading" class="icon-expand-more">
-        <BaseSpinner size="20" />
-      </span>
+        <span v-else-if="loading" class="icon-expand-more">
+          <BaseSpinner size="20" />
+        </span>
 
-      <ExpandMoreIcon
-        v-else
-        class="icon-expand-more"
-        focusable="false"
-        aria-hidden="true"
-      />
+        <ExpandMoreIcon
+          v-if="!popupIsOpen"
+          class="icon-expand-more"
+          focusable="false"
+          aria-hidden="true"
+          @click="handleInputFocus"
+        />
+      </div>
     </div>
 
     <Teleport to="#popup-target">
@@ -175,7 +178,7 @@ export default defineComponent({
     },
     clearable: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     searchable: {
       type: Boolean,
@@ -285,9 +288,9 @@ export default defineComponent({
       }
     }
 
-    function focusSelect() {
+    /*  function focusSelect() {
       getSelectControlElement()?.focus();
-    }
+    }*/
 
     function blurSelect() {
       getSelectControlElement()?.blur();
@@ -319,7 +322,7 @@ export default defineComponent({
     function handleClearClick() {
       handleChange(null);
       highlightedIndex.value = -1;
-      focusSelect();
+      //focusSelect();
     }
 
     function handleOptionSelect(option: OptionType, index: number) {
@@ -441,6 +444,19 @@ export default defineComponent({
   width: 100%;
 }
 
+.select-actions {
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 10px;
+  align-items: center;
+
+  > *:not(:first-child) {
+    margin-left: 0.3rem;
+  }
+}
+
 .select-control-wrapper {
   position: relative;
 
@@ -498,21 +514,22 @@ export default defineComponent({
 .btn-clear,
 .icon-search,
 .icon-expand-more {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translate(0, -50%);
   display: flex;
+  align-items: center;
 }
 
 .icon-clear,
+.icon-search {
+  pointer-events: none;
+}
+.icon-clear,
 .icon-search,
 .icon-expand-more {
-  pointer-events: none;
   width: 20px;
   height: 20px;
   fill: var(--input-color);
   transition: fill 0.3s;
+  cursor: pointer;
 }
 
 .btn-clear {
