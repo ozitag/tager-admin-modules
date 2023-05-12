@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.93
+
+### Patch Changes
+
+- 9fe5adc: set clearable enabled as default in ComboBox
+
 ## 1.0.92
 
 ### Patch Changes
