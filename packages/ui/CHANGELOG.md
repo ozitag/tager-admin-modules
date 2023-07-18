@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.94
+
+### Patch Changes
+
+- e5ba6ac: add "clearable" flag to sort dropdown
+
 ## 1.0.93
 
 ### Patch Changes
