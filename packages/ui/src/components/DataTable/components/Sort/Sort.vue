@@ -6,6 +6,7 @@
       :options="options"
       :value="value"
       :disabled="disabled"
+      :clearable="false"
       @change="handleChange"
     />
   </div>
