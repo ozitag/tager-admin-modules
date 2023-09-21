@@ -207,6 +207,12 @@ export interface ColumnDefinitionFile<RowData = RowDataDefaultType>
   format?: (params: ColumnParamsArg<RowData>) => FileCellValue;
 }
 
+export interface ColumnDefinitionJson<RowData = RowDataDefaultType>
+  extends ColumnDefinitionCommon<RowData> {
+  type: "json";
+  format?: (params: ColumnParamsArg<RowData>) => StringCellValue;
+}
+
 export interface ColumnDefinitionBadge<RowData = RowDataDefaultType>
   extends ColumnDefinitionCommon<RowData> {
   type: "badge";
@@ -228,7 +234,8 @@ export type ColumnDefinition<RowData = RowDataDefaultType> =
   | ColumnDefinitionName<RowData>
   | ColumnDefinitionKeyValue<RowData>
   | ColumnDefinitionFile<RowData>
-  | ColumnDefinitionBadge<RowData>;
+  | ColumnDefinitionBadge<RowData>
+  | ColumnDefinitionJson<RowData>;
 
 export type DropdownMenuItemType = {
   type: "button" | "link" | "divider";

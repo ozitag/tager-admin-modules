@@ -12,6 +12,7 @@ import type {
   ColumnDefinitionLink,
   ColumnDefinitionName,
   ColumnDefinitionString,
+  ColumnDefinitionJson,
 } from "../../typings/common";
 
 import BaseTable from "./BaseTable.vue";
@@ -187,6 +188,12 @@ const defaultColumnDefs = [
     field: "file",
     type: "file",
   } as ColumnDefinitionFile<TestEntity>,
+  {
+    id: 7,
+    name: "JSON",
+    field: "json",
+    type: "json",
+  } as ColumnDefinitionJson<TestEntity>,
 ];
 
 interface TestEntity {
@@ -203,6 +210,7 @@ interface TestEntity {
   link: string;
   description: string;
   file: Nullable<FileType>;
+  json: string;
 }
 
 const defaultRowData: Array<TestEntity> = [
@@ -228,6 +236,7 @@ const defaultRowData: Array<TestEntity> = [
       size: 1059388,
       url: "https://presetbox.dev.ozitag.com/uploads/zip/8k/3k/8k3kXkohkb.zip",
     },
+    json: '{"amplitudeEvent":{"name":"AppOpenedWithNotification","params":[{"param":"type","value":"pre-release"},{"param":"id","value":"26667"}]},"action":{"screen":"game","id":24719}}',
   },
   {
     id: 2,
@@ -250,6 +259,7 @@ const defaultRowData: Array<TestEntity> = [
       size: 1059388,
       url: "https://presetbox.dev.ozitag.com/uploads/zip/8k/3k/8k3kXkohkb.zip",
     },
+    json: '{"amplitudeEvent":{"name":"AppOpenedWithNotification","params":[{"param":"type","value":"pre-release"},{"param":"id","value":"26667"}]},"action":{"screen":"game","id":24719}}',
   },
   {
     id: 3,
@@ -272,6 +282,7 @@ const defaultRowData: Array<TestEntity> = [
       size: 1059388,
       url: "https://presetbox.dev.ozitag.com/uploads/zip/8k/3k/8k3kXkohkb.zip",
     },
+    json: '{"amplitudeEvent":{"name":"AppOpenedWithNotification","params":[{"param":"type","value":"pre-release"},{"param":"id","value":"26667"}]},"action":{"screen":"game","id":24719}}',
   },
 ];
 
