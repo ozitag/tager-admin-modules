@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.95
+
+### Patch Changes
+
+- cdaac5a: add JSON cell to table
+
 ## 1.0.94
 
 ### Patch Changes
