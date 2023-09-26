@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.96
+
+### Patch Changes
+
+- f2f03a2: add view option to KeyValueCell
+
 ## 1.0.95
 
 ### Patch Changes
