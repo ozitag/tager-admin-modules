@@ -1,5 +1,5 @@
 <template>
-  <td class="key-value-cell">
+  <td :class="['key-value-cell', 'key-value-cell--' + view]">
     <ul v-if="value">
       <li v-for="item in value" :key="item.key">
         <span>{{ item.key }}:</span>
@@ -54,8 +54,11 @@ export default defineComponent({
       ) as KeyValueCellValue;
     });
 
+    const view = props.column.options?.view || "column";
+
     return {
       value,
+      view,
     };
   },
 });
@@ -63,16 +66,32 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .key-value-cell {
+  font-size: 13px;
+
   li {
-    margin-top: 5px;
-
-    &:first-child {
-      margin-top: 0;
+    &:not(:first-child) {
+      margin-top: 0.313rem;
     }
+  }
 
-    span:first-child {
-      font-weight: bold;
-      display: block;
+  &--column {
+    li {
+      span:first-child {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.15rem;
+      }
+    }
+  }
+
+  &--row {
+    li {
+      display: flex;
+
+      span:last-child {
+        font-weight: bold;
+        margin-left: 0.15rem;
+      }
     }
   }
 }

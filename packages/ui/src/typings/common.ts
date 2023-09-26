@@ -199,6 +199,9 @@ export interface ColumnDefinitionKeyValue<RowData = RowDataDefaultType>
   extends ColumnDefinitionCommon<RowData> {
   type: "key-value";
   format?: (params: ColumnParamsArg<RowData>) => KeyValueCellValue;
+  options?: {
+    view: "column" | "row";
+  };
 }
 
 export interface ColumnDefinitionFile<RowData = RowDataDefaultType>

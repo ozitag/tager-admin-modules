@@ -4,15 +4,9 @@ import type {
   ColumnDefinitionBadge,
   ColumnDefinitionBoolean,
   ColumnDefinitionColor,
-  ColumnDefinitionCommon,
-  ColumnDefinitionDate,
-  ColumnDefinitionFile,
   ColumnDefinitionHtml,
   ColumnDefinitionImage,
-  ColumnDefinitionLink,
-  ColumnDefinitionName,
-  ColumnDefinitionString,
-  ColumnDefinitionJson,
+  ColumnDefinitionKeyValue,
 } from "../../typings/common";
 
 import BaseTable from "./BaseTable.vue";
@@ -20,7 +14,7 @@ import BaseTable from "./BaseTable.vue";
 export default { title: "BaseTable" };
 
 const defaultColumnDefs = [
-  {
+  /* {
     id: 100,
     name: "Name",
     type: "name",
@@ -55,7 +49,7 @@ const defaultColumnDefs = [
     field: "phone",
     type: "string",
     formatter: "phone",
-  } as ColumnDefinitionString<TestEntity>,
+  } as ColumnDefinitionString<TestEntity>,*/
   {
     id: 100,
     name: "Status",
@@ -148,7 +142,7 @@ const defaultColumnDefs = [
     field: "content",
     type: "html",
   } as ColumnDefinitionHtml<TestEntity>,
-  {
+  /* {
     id: 3,
     name: "Date cell (30%)",
     field: "date",
@@ -181,8 +175,8 @@ const defaultColumnDefs = [
     //   url: row[column.field],
     //   text: row.link,
     // }),
-  } as ColumnDefinitionLink<TestEntity>,
-  {
+  } as ColumnDefinitionLink<TestEntity>,*/
+  /*{
     id: 6,
     name: "File cell",
     field: "file",
@@ -193,7 +187,25 @@ const defaultColumnDefs = [
     name: "JSON",
     field: "json",
     type: "json",
-  } as ColumnDefinitionJson<TestEntity>,
+  } as ColumnDefinitionJson<TestEntity>,*/
+  {
+    id: 8,
+    name: "Key-Value",
+    field: "taxonomies",
+    type: "key-value",
+    // options: {
+    //   view: "column",
+    // },
+  } as ColumnDefinitionKeyValue<TestEntity>,
+  {
+    id: 9,
+    name: "Stats",
+    field: "stats",
+    type: "key-value",
+    options: {
+      view: "row",
+    },
+  } as ColumnDefinitionKeyValue<TestEntity>,
 ];
 
 interface TestEntity {
@@ -211,6 +223,8 @@ interface TestEntity {
   description: string;
   file: Nullable<FileType>;
   json: string;
+  taxonomies: any;
+  stats: any;
 }
 
 const defaultRowData: Array<TestEntity> = [
@@ -237,6 +251,16 @@ const defaultRowData: Array<TestEntity> = [
       url: "https://presetbox.dev.ozitag.com/uploads/zip/8k/3k/8k3kXkohkb.zip",
     },
     json: '{"amplitudeEvent":{"name":"AppOpenedWithNotification","params":[{"param":"type","value":"pre-release"},{"param":"id","value":"26667"}]},"action":{"screen":"game","id":24719}}',
+    taxonomies: [
+      { key: "Categories", value: "Cat 1, Cat 2, Cat 3" },
+      { key: "Categories", value: "Cat 1, Cat 2, Cat 3" },
+      { key: "Categories", value: "Cat 1, Cat 2, Cat 3" },
+    ],
+    stats: [
+      { key: "Played", value: "12" },
+      { key: "Wanted", value: "12" },
+      { key: "Skipped", value: "12" },
+    ],
   },
   {
     id: 2,
@@ -260,6 +284,16 @@ const defaultRowData: Array<TestEntity> = [
       url: "https://presetbox.dev.ozitag.com/uploads/zip/8k/3k/8k3kXkohkb.zip",
     },
     json: '{"amplitudeEvent":{"name":"AppOpenedWithNotification","params":[{"param":"type","value":"pre-release"},{"param":"id","value":"26667"}]},"action":{"screen":"game","id":24719}}',
+    taxonomies: [
+      { key: "Categories", value: "Cat 1, Cat 2, Cat 3" },
+      { key: "Categories", value: "Cat 1, Cat 2, Cat 3" },
+      { key: "Categories", value: "Cat 1, Cat 2, Cat 3" },
+    ],
+    stats: [
+      { key: "Played", value: "12" },
+      { key: "Wanted", value: "12" },
+      { key: "Skipped", value: "12" },
+    ],
   },
   {
     id: 3,
@@ -283,6 +317,16 @@ const defaultRowData: Array<TestEntity> = [
       url: "https://presetbox.dev.ozitag.com/uploads/zip/8k/3k/8k3kXkohkb.zip",
     },
     json: '{"amplitudeEvent":{"name":"AppOpenedWithNotification","params":[{"param":"type","value":"pre-release"},{"param":"id","value":"26667"}]},"action":{"screen":"game","id":24719}}',
+    taxonomies: [
+      { key: "Categories", value: "Cat 1, Cat 2, Cat 3" },
+      { key: "Categories", value: "Cat 1, Cat 2, Cat 3" },
+      { key: "Categories", value: "Cat 1, Cat 2, Cat 3" },
+    ],
+    stats: [
+      { key: "Played", value: "12" },
+      { key: "Wanted", value: "12" },
+      { key: "Skipped", value: "12" },
+    ],
   },
 ];
 
