@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.97
+
+### Patch Changes
+
+- 5fb6dcd: Improve width option for table cells
+
 ## 1.0.96
 
 ### Patch Changes
