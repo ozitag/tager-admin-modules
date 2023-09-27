@@ -20,7 +20,6 @@
                   ? {
                       width: column.width,
                       minWidth: column.width,
-                      maxWidth: column.width,
                     }
                   : {},
                 column.type === 'boolean' ? { textAlign: 'center' } : {},
@@ -47,7 +46,6 @@
                   ? {
                       width: column.width,
                       minWidth: column.width,
-                      maxWidth: column.width,
                     }
                   : {},
                 column.type === 'boolean' ? { textAlign: 'center' } : {},

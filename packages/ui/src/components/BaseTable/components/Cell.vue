@@ -132,7 +132,6 @@ export default defineComponent({
         ? Object.assign(props.column.style ?? {}, {
             width: props.column.width,
             minWidth: props.column.width,
-            maxWidth: props.column.width,
           })
         : props.column.style;
 
@@ -159,7 +158,6 @@ export default defineComponent({
         ? Object.assign(props.column.style ?? {}, {
             width: props.column.width,
             minWidth: props.column.width,
-            maxWidth: props.column.width,
           })
         : props.column.style;
 
