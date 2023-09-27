@@ -16,7 +16,13 @@
             :key="column.id"
             :style="
               Object.assign(
-                column.width ? { width: column.width } : {},
+                column.width
+                  ? {
+                      width: column.width,
+                      minWidth: column.width,
+                      maxWidth: column.width,
+                    }
+                  : {},
                 column.type === 'boolean' ? { textAlign: 'center' } : {},
                 column.headStyle ? column.headStyle : {}
               )
@@ -37,7 +43,13 @@
             :key="column.id"
             :style="
               Object.assign(
-                column.width ? { width: column.width } : {},
+                column.width
+                  ? {
+                      width: column.width,
+                      minWidth: column.width,
+                      maxWidth: column.width,
+                    }
+                  : {},
                 column.type === 'boolean' ? { textAlign: 'center' } : {},
                 column.headStyle ? column.headStyle : {}
               )

@@ -169,6 +169,7 @@ a {
     border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
   cursor: pointer;
   text-decoration: none;
+  white-space: nowrap;
 
   &:hover {
     text-decoration: none;

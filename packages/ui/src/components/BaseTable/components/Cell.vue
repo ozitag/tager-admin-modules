@@ -129,7 +129,11 @@ export default defineComponent({
       if (!children) return null;
 
       const style = props.column.width
-        ? Object.assign(props.column.style ?? {}, { width: props.column.width })
+        ? Object.assign(props.column.style ?? {}, {
+            width: props.column.width,
+            minWidth: props.column.width,
+            maxWidth: props.column.width,
+          })
         : props.column.style;
 
       return props.column.useCustomDataCell
@@ -152,7 +156,11 @@ export default defineComponent({
       );
 
       const style = props.column.width
-        ? Object.assign(props.column.style ?? {}, { width: props.column.width })
+        ? Object.assign(props.column.style ?? {}, {
+            width: props.column.width,
+            minWidth: props.column.width,
+            maxWidth: props.column.width,
+          })
         : props.column.style;
 
       return h(cellComponent, {
