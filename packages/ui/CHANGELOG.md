@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.98
+
+### Patch Changes
+
+- b963740: remove MaxWidth from tableCell
+
 ## 1.0.97
 
 ### Patch Changes
