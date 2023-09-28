@@ -31,5 +31,7 @@ export { default as SouthIcon } from "./SouthIcon.vue";
 export { default as ViewListIcon } from "./ViewListIcon.vue";
 export { default as WebIcon } from "./WebIcon.vue";
 export { default as EyeIcon } from "./EyeIcon.vue";
+export { default as ZoomInIcon } from "./ZoomInIcon.vue";
+export { default as ZoomOutIcon } from "./ZoomOutIcon.vue";
 
 export * from "./file-extensions/mod";

@@ -34,6 +34,8 @@ import SmsIcon from "./SmsIcon.vue";
 import SouthIcon from "./SouthIcon.vue";
 import ViewListIcon from "./ViewListIcon.vue";
 import WebIcon from "./WebIcon.vue";
+import ZoomInIcon from "./ZoomInIcon.vue";
+import ZoomOutIcon from "./ZoomOutIcon.vue";
 import FileAviIcon from "./file-extensions/FileAviIcon.vue";
 import FileCssIcon from "./file-extensions/FileCssIcon.vue";
 import FileCsvIcon from "./file-extensions/FileCsvIcon.vue";
@@ -107,6 +109,8 @@ const ICON_COMPONENTS = {
   SouthIcon,
   ViewListIcon,
   WebIcon,
+  ZoomInIcon,
+  ZoomOutIcon,
 };
 
 export const Default: Story = () =>
