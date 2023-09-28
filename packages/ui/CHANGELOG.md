@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.100
+
+### Patch Changes
+
+- 248791f: add listener to body "zoom-changed" event to ResizeObserver
+
 ## 1.0.99
 
 ### Patch Changes
