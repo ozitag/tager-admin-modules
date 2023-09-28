@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.99
+
+### Patch Changes
+
+- 5bc7565: add zoomIn, zoomOut icons
+
 ## 1.0.98
 
 ### Patch Changes
