@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.101
+
+### Patch Changes
+
+- bd5ecc4: add zoom to popup
+
 ## 1.0.100
 
 ### Patch Changes
