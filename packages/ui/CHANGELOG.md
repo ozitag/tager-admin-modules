@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.102
+
+### Patch Changes
+
+- c62dd58: add RowNoHover props to DataTable
+
 ## 1.0.101
 
 ### Patch Changes
