@@ -1,12 +1,11 @@
 import type { FileType, Nullable } from "@tager/admin-services";
 
 import type {
-  ColumnDefinitionBadge,
-  ColumnDefinitionBoolean,
   ColumnDefinitionColor,
   ColumnDefinitionHtml,
   ColumnDefinitionImage,
   ColumnDefinitionKeyValue,
+  ColumnDefinitionName,
 } from "../../typings/common";
 
 import BaseTable from "./BaseTable.vue";
@@ -14,7 +13,7 @@ import BaseTable from "./BaseTable.vue";
 export default { title: "BaseTable" };
 
 const defaultColumnDefs = [
-  /* {
+  {
     id: 100,
     name: "Name",
     type: "name",
@@ -23,7 +22,7 @@ const defaultColumnDefs = [
     format: ({ row }) => {
       return {
         adminLink: {
-          url: "/admin/products/40",
+          url: "/products/40",
           text: row.name,
           subtext: "3mL/R.8mR/L",
         },
@@ -42,14 +41,14 @@ const defaultColumnDefs = [
       displayFullWebsiteLink: true,
       // shouldUseRouter: false,
     },
-  } as ColumnDefinitionName<TestEntity>,
+  } as ColumnDefinitionName<TestEntity> /*
   {
     id: 102,
     name: "Phone",
     field: "phone",
     type: "string",
     formatter: "phone",
-  } as ColumnDefinitionString<TestEntity>,*/
+  } as ColumnDefinitionString<TestEntity>,
   {
     id: 100,
     name: "Status",
@@ -105,7 +104,7 @@ const defaultColumnDefs = [
     class: ({ row }) => {
       return ["id-cell", "id-cell-" + row.id];
     },
-  } as ColumnDefinitionCommon<TestEntity>,*/
+  } as ColumnDefinitionCommon<TestEntity>,*/,
   {
     id: 2,
     name: "String Color (30%)",

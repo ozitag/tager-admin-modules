@@ -48,6 +48,7 @@
 <script lang="ts">
 import { defineComponent, computed, type PropType } from "vue";
 import { get } from "lodash-es";
+import { useRouter } from "vue-router";
 
 import { isAbsoluteUrl, isString, z } from "@tager/admin-services";
 
@@ -114,6 +115,8 @@ export default defineComponent({
     },
   },
   setup(props) {
+    const router = useRouter();
+
     const state = computed<NameCellValueObjectType | null>(() => {
       const value = (
         props.column.format
@@ -176,9 +179,10 @@ export default defineComponent({
         target: shouldOpenNewTab ? "_blank" : undefined,
       };
 
-      const href = !shouldUseRouter.value
-        ? undefined
-        : modifiedState.value?.adminLink.url;
+      const href =
+        shouldUseRouter.value && modifiedState.value?.adminLink.url
+          ? router.options.history.createHref(modifiedState.value.adminLink.url)
+          : undefined;
 
       /**
        * In some cases `href` attr can override `href` attr in `router-link` component,
