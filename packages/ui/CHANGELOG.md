@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.103
+
+### Patch Changes
+
+- bbb57a4: fix base link for table name cell
+
 ## 1.0.102
 
 ### Patch Changes
