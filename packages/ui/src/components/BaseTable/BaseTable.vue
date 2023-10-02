@@ -58,7 +58,7 @@
           </th>
         </tr>
       </thead>
-      <tbody>
+      <tbody :class="rowNoHover ? 'table-row-no-hover' : ''">
         <tr v-if="rowData.length === 0" class="empty">
           <td :colspan="enhancedColumnDefs.length">
             <div>
@@ -200,6 +200,10 @@ export default defineComponent({
       type: String,
       default: "",
     },
+    rowNoHover: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props: Props, context) {
     const i18n = useI18n();
@@ -319,7 +323,7 @@ tr.empty {
   }
 }
 
-tbody tr {
+tbody:not(.table-row-no-hover) tr {
   &:hover {
     background-color: rgba(0, 0, 0, 0.02);
   }

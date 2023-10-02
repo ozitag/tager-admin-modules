@@ -12,6 +12,7 @@
       :column-defs="columnDefs"
       :row-data="rowData"
       :row-css-class="rowCssClass"
+      :row-no-hover="rowNoHover"
       :loading="loading"
       :error-message="errorMessage"
       :use-sticky-header="true"
@@ -121,6 +122,10 @@ export default defineComponent({
     rowCssClass: {
       type: Function as PropType<Props["rowCssClass"]>,
       default: null,
+    },
+    rowNoHover: {
+      type: Boolean,
+      default: false,
     },
     loading: {
       type: Boolean,
