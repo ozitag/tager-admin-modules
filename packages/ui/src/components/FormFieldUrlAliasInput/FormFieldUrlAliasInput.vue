@@ -79,8 +79,14 @@ export default defineComponent({
 
     function updateInputWidth() {
       if (!measureTextRef.value) return;
-      const newWidth = measureTextRef.value.offsetWidth;
-      inputStyle.value = { width: newWidth + 2 + "px" };
+
+      const cloneNode = measureTextRef.value.cloneNode(true) as HTMLDivElement;
+      document.body.appendChild(cloneNode);
+      const newWidth = cloneNode.offsetWidth;
+
+      cloneNode.remove();
+
+      inputStyle.value = { width: newWidth + "px" };
     }
 
     const mutationObserver = new MutationObserver(() => {
@@ -130,8 +136,9 @@ export default defineComponent({
   pointer-events: none;
   position: absolute;
   opacity: 0;
-  padding: 0.375rem 0.75rem;
   border: 1px solid var(--input-border-color);
+  font-size: 1rem;
+  padding: 0 calc(0.75rem);
 }
 
 .alias-input {
