@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.105
+
+### Patch Changes
+
+- 9b6b399: UrlAliasInput fix width calculation in hidden mode
+
 ## 1.0.104
 
 ### Patch Changes
