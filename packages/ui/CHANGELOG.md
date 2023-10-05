@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.104
+
+### Patch Changes
+
+- 47f100e: improve link cell - allow empty url value
+
 ## 1.0.103
 
 ### Patch Changes
