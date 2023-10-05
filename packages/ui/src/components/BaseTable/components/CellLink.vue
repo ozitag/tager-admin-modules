@@ -1,24 +1,32 @@
 <template>
   <td>
-    <div v-if="link" class="url">
-      <router-link v-if="shouldUseRouter" :to="link.url" v-bind="linkAttrs">
-        {{ decodeURI(link.text) }}
-      </router-link>
+    <template v-if="link">
+      <template v-if="typeof link === 'string'">
+        {{ link }}
+      </template>
+      <template v-else-if="!link.url">
+        {{ link.text }}
+      </template>
+      <div v-else class="url">
+        <router-link v-if="shouldUseRouter" :to="link.url" v-bind="linkAttrs">
+          {{ decodeURI(link.text) }}
+        </router-link>
 
-      <a v-else :href="link.url" v-bind="linkAttrs">
-        {{ decodeURI(link.text) }}
-      </a>
+        <a v-else :href="link.url" v-bind="linkAttrs">
+          {{ decodeURI(link.text) }}
+        </a>
 
-      <BaseButton
-        v-if="shouldUseCopyButton"
-        variant="icon"
-        title="Copy to clipboard"
-        @click="handleCopy(link.url)"
-      >
-        <ContentCopyIcon v-if="!isCopied" class="icon-copy" />
-        <DoneIcon v-else class="icon-copy" />
-      </BaseButton>
-    </div>
+        <BaseButton
+          v-if="shouldUseCopyButton"
+          variant="icon"
+          title="Copy to clipboard"
+          @click="handleCopy(link.url)"
+        >
+          <ContentCopyIcon v-if="!isCopied" class="icon-copy" />
+          <DoneIcon v-else class="icon-copy" />
+        </BaseButton>
+      </div>
+    </template>
   </td>
 </template>
 
