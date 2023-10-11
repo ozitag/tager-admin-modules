@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.106
+
+### Patch Changes
+
+- a661757: add Relations cell
+
 ## 1.0.105
 
 ### Patch Changes
