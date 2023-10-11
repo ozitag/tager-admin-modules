@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.107
+
+### Patch Changes
+
+- 2b58975: improve to prop for RelationCellValue
+
 ## 1.0.106
 
 ### Patch Changes
