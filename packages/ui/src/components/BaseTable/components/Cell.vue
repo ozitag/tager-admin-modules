@@ -20,6 +20,7 @@ import CellList from "./CellList.vue";
 import CellBoolean from "./CellBoolean.vue";
 import CellBadge from "./CellBadge.vue";
 import CellJson from "./CellJson.vue";
+import CellRelations from "./CellRelations.vue";
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 type CellComponentType = Exclude<ColumnDefinition["type"], Function>;
@@ -53,6 +54,8 @@ function getCellComponentByColumnType(
       return CellBoolean;
     case "json":
       return CellJson;
+    case "relations":
+      return CellRelations;
 
     default:
       return CellString;

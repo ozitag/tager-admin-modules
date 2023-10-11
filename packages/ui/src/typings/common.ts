@@ -42,6 +42,11 @@ export type StringCellValue = string | null;
 export type BooleanCellValue = boolean | null;
 export type ImageCellValue = string | null;
 export type LinkCellValue = LinkType | string | null;
+export type RelationsCellValue = Array<{
+  label: string;
+  to: string | Location;
+  quantity: number;
+}>;
 export type NameCellValue =
   | {
       adminLink: LinkType & { subtext?: string };
@@ -71,6 +76,8 @@ export type ColumnType =
   | "color"
   | "key-value"
   | "file"
+  | "json"
+  | "relations"
   | "badge";
 
 export type RowDataDefaultType = { [key: string]: unknown };
@@ -146,6 +153,12 @@ export interface ColumnDefinitionLink<RowData = RowDataDefaultType>
     shouldUseRouter?: boolean;
     disableCopyButton?: boolean;
   };
+}
+
+export interface ColumnDefinitionRelations<RowData = RowDataDefaultType>
+  extends ColumnDefinitionCommon<RowData> {
+  type: "relations";
+  format: (params: ColumnParamsArg<RowData>) => RelationsCellValue;
 }
 
 export interface ColumnDefinitionHtml<RowData = RowDataDefaultType>
@@ -238,7 +251,8 @@ export type ColumnDefinition<RowData = RowDataDefaultType> =
   | ColumnDefinitionKeyValue<RowData>
   | ColumnDefinitionFile<RowData>
   | ColumnDefinitionBadge<RowData>
-  | ColumnDefinitionJson<RowData>;
+  | ColumnDefinitionJson<RowData>
+  | ColumnDefinitionRelations<RowData>;
 
 export type DropdownMenuItemType = {
   type: "button" | "link" | "divider";
