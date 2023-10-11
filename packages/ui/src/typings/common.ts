@@ -1,3 +1,5 @@
+import type { RouteLocationRaw } from "vue-router";
+
 import type { FileType, Nullable, Nullish } from "@tager/admin-services";
 
 export type ShortCodeParamType = {
@@ -44,7 +46,7 @@ export type ImageCellValue = string | null;
 export type LinkCellValue = LinkType | string | null;
 export type RelationsCellValue = Array<{
   label: string;
-  to: string | Location;
+  to: RouteLocationRaw;
   quantity: number;
 }>;
 export type NameCellValue =
