@@ -17,7 +17,7 @@ type Labels = {
 export const useAdvancedSearchLabels = (label: string | null): Labels => {
   const i18n = useI18n();
 
-  const labelDate = label ?? i18n.t("ui:advancedSearchDateFilter.date") ?? "";
+  const labelDate = label ?? i18n.t("ui:advancedSearchDateFilter.Date") ?? "";
 
   const labelDateFrom =
     labelDate + " " + i18n.t("ui:advancedSearchDateFilter.from");
