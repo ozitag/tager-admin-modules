@@ -1,4 +1,5 @@
 import { useRoute } from "vue-router";
+import type { Ref } from "vue";
 import { computed, ref, watch } from "vue";
 
 import type { FilterTagType } from "@tager/admin-ui";
@@ -7,10 +8,16 @@ import { isNotNullish, useI18n } from "@tager/admin-services";
 
 import type { AdvancedSearchDateFilterType } from "./AdvancedSearchDateFilter.types";
 
-export const useAdvancedSearchLabels = (label: string | null) => {
+type Labels = {
+  labelDate: string;
+  labelDateFrom: string;
+  labelDateTo: string;
+};
+
+export const useAdvancedSearchLabels = (label: string | null): Labels => {
   const i18n = useI18n();
 
-  const labelDate = label ?? i18n.t("ui:advancedSearchDateFilter.date");
+  const labelDate = label ?? i18n.t("ui:advancedSearchDateFilter.date") ?? "";
 
   const labelDateFrom =
     labelDate + " " + i18n.t("ui:advancedSearchDateFilter.from");
@@ -34,6 +41,13 @@ type Params = {
   };
 };
 
+type Result = {
+  filter: Ref<AdvancedSearchDateFilterType>;
+  getFilterParams: () => Record<string, string>;
+  tagRemovalHandler: (event: FilterTagType) => void;
+  tags: () => FilterTagType[];
+};
+
 export const useAdvancedSearchDateFilter = ({
   label = null,
   queryParams = {
@@ -41,7 +55,7 @@ export const useAdvancedSearchDateFilter = ({
     dateFrom: "date-from",
     dateTo: "date-to",
   },
-}: Params = {}) => {
+}: Params = {}): Result => {
   const route = useRoute();
 
   const { labelDate, labelDateFrom, labelDateTo } =
