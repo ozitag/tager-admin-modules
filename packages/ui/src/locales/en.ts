@@ -33,6 +33,12 @@ const EN = {
     toggleLabel: "Advanced Search",
   },
 
+  advancedSearchDateFilter: {
+    Date: "Date",
+    from: "from",
+    to: "to",
+  },
+
   seoFieldGroup: {
     titleLabel: "Page title",
     descriptionLabel: "Page description",

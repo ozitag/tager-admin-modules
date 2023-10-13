@@ -35,6 +35,12 @@ const RU: typeof EN = {
     toggleLabel: "Расширенный поиск",
   },
 
+  advancedSearchDateFilter: {
+    Date: "Дата",
+    from: "от",
+    to: "до",
+  },
+
   seoFieldGroup: {
     titleLabel: "Заголовок страницы",
     descriptionLabel: "Описание страницы",

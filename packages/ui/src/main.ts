@@ -66,6 +66,13 @@ export {
   useDataTable,
   AdvancedSearch,
 } from "./components/DataTable";
+
+export {
+  default as AdvancedSearchDateFilter,
+  type AdvancedSearchDateFilterType,
+  useAdvancedSearchDateFilter,
+} from "./components/DataTable/components/AdvancedSearchDateFilter";
+
 export { default as SearchInput, useSearch } from "./components/SearchInput";
 export { default as Pagination, usePagination } from "./components/Pagination";
 export {
