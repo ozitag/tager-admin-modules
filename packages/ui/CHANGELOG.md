@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.109
+
+### Patch Changes
+
+- e56fb21: add typings to AdvancedSearchDateFilter
+
 ## 1.0.108
 
 ### Patch Changes
