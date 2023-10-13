@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.108
+
+### Patch Changes
+
+- 8c1078d: add AdvancedSearchDateFilter
+
 ## 1.0.107
 
 ### Patch Changes
