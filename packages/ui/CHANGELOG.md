@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.110
+
+### Patch Changes
+
+- d86b005: fix typo in locale advancedSearchDateFilter
+
 ## 1.0.109
 
 ### Patch Changes
