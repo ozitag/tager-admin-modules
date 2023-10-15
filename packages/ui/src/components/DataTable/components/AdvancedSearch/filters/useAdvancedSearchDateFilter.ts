@@ -1,12 +1,19 @@
 import { useRoute } from "vue-router";
-import type { Ref } from "vue";
 import { computed, ref, watch } from "vue";
 
-import type { FilterTagType } from "@tager/admin-ui";
-import { getFilterParamAsString } from "@tager/admin-ui";
+import type { Nullable } from "@tager/admin-services";
 import { isNotNullish, useI18n } from "@tager/admin-services";
 
-import type { AdvancedSearchDateFilterType } from "./AdvancedSearchDateFilter.types";
+import { getFilterParamAsString } from "../../../../../utils/common";
+import type { FilterTagType } from "../../../../../typings/common";
+
+import type { AdvancedSearchFilter } from "./types";
+
+export type AdvancedSearchDateFilterType = {
+  date: Nullable<string>;
+  dateFrom: Nullable<string>;
+  dateTo: Nullable<string>;
+};
 
 type Labels = {
   labelDate: string;
@@ -41,13 +48,6 @@ type Params = {
   };
 };
 
-type Result = {
-  filter: Ref<AdvancedSearchDateFilterType>;
-  getFilterParams: () => Record<string, string>;
-  tagRemovalHandler: (event: FilterTagType) => void;
-  tags: () => FilterTagType[];
-};
-
 export const useAdvancedSearchDateFilter = ({
   label = null,
   queryParams = {
@@ -55,7 +55,7 @@ export const useAdvancedSearchDateFilter = ({
     dateFrom: "date-from",
     dateTo: "date-to",
   },
-}: Params = {}): Result => {
+}: Params = {}): AdvancedSearchFilter<AdvancedSearchDateFilterType> => {
   const route = useRoute();
 
   const { labelDate, labelDateFrom, labelDateTo } =
@@ -74,7 +74,7 @@ export const useAdvancedSearchDateFilter = ({
     dateFilter.value = initialDateFilter.value;
   });
 
-  const getDateFilterParams = () => {
+  const filterParams = () => {
     return {
       [queryParams.date]: dateFilter.value.date || "",
       [queryParams.dateFrom]: dateFilter.value.dateFrom || "",
@@ -131,7 +131,7 @@ export const useAdvancedSearchDateFilter = ({
 
   return {
     filter: dateFilter,
-    getFilterParams: getDateFilterParams,
+    filterParams: filterParams,
     tagRemovalHandler: dateTagRemovalHandler,
     tags: dateTags,
   };

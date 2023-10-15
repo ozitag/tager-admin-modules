@@ -1,1 +1,11 @@
 export { default } from "./AdvancedSearch.vue";
+
+export { default as AdvancedSearchDateFilter } from "./AdvancedSearch.vue";
+
+export {
+  type AdvancedSearchDateFilterType,
+  useAdvancedSearchDateFilter,
+} from "./filters/useAdvancedSearchDateFilter";
+
+export { useAdvancedSearchSingleOptionFilter } from "./filters/useAdvancedSearchSingleOptionFilter";
+export { useAdvancedSearchTextFilter } from "./filters/useAdvancedSearchTextFilter";

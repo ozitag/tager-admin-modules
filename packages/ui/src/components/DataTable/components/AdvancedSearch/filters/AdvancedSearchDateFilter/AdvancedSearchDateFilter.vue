@@ -31,10 +31,10 @@
 import type { PropType } from "vue";
 import { computed, defineComponent, ref, watch } from "vue";
 
-import { FormField } from "@tager/admin-ui";
 import type { Nullable } from "@tager/admin-services";
 
-import { useAdvancedSearchLabels } from "./AdvancedSearchDateFilter.hook";
+import { FormField } from "../../../../../../main";
+import { useAdvancedSearchLabels } from "../useAdvancedSearchDateFilter";
 
 export type AdvancedSearchDateFilter = {
   date: Nullable<string>;

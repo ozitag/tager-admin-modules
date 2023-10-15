@@ -61,17 +61,9 @@ export {
   FormFieldOptionsSwitcherTrueFalse,
 } from "./components/FormFieldOptionsSwitcher";
 export { default as FormFieldRecommendedLengthInput } from "./components/FormFieldRecommendedLengthInput";
-export {
-  default as DataTable,
-  useDataTable,
-  AdvancedSearch,
-} from "./components/DataTable";
+export { default as DataTable, useDataTable } from "./components/DataTable";
 
-export {
-  default as AdvancedSearchDateFilter,
-  type AdvancedSearchDateFilterType,
-  useAdvancedSearchDateFilter,
-} from "./components/DataTable/components/AdvancedSearchDateFilter";
+export * from "./components/DataTable/components/AdvancedSearch";
 
 export { default as SearchInput, useSearch } from "./components/SearchInput";
 export { default as Pagination, usePagination } from "./components/Pagination";
