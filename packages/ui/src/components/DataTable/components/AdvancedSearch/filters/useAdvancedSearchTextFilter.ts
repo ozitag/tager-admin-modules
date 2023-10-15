@@ -4,12 +4,12 @@ import { useRoute } from "vue-router";
 import type { FilterTagType } from "@tager/admin-ui";
 import { getFilterParamAsString } from "@tager/admin-ui";
 
-import type { AdvancedSearchFilter } from "./types";
+import type { AdvancedSearchFilterType } from "../AdvancedSearch.types";
 
 export function useAdvancedSearchTextFilter(
   queryParam: string,
   title: string
-): AdvancedSearchFilter<string> {
+): AdvancedSearchFilterType<string> {
   const route = useRoute();
 
   const initialFilter = computed<string>(

@@ -6,8 +6,7 @@ import { isNotNullish, useI18n } from "@tager/admin-services";
 
 import { getFilterParamAsString } from "../../../../../utils/common";
 import type { FilterTagType } from "../../../../../typings/common";
-
-import type { AdvancedSearchFilter } from "./types";
+import type { AdvancedSearchFilterType } from "../AdvancedSearch.types";
 
 export type AdvancedSearchDateFilterType = {
   date: Nullable<string>;
@@ -55,7 +54,7 @@ export const useAdvancedSearchDateFilter = ({
     dateFrom: "date-from",
     dateTo: "date-to",
   },
-}: Params = {}): AdvancedSearchFilter<AdvancedSearchDateFilterType> => {
+}: Params = {}): AdvancedSearchFilterType<AdvancedSearchDateFilterType> => {
   const route = useRoute();
 
   const { labelDate, labelDateFrom, labelDateTo } =

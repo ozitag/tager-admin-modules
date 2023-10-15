@@ -10,9 +10,9 @@ import type {
 import { getFilterParamAsString } from "@tager/admin-ui";
 import type { Nullable } from "@tager/admin-services";
 
-import type { AdvancedSearchFilter } from "./types";
+import type { AdvancedSearchFilterType } from "../AdvancedSearch.types";
 
-type State<Type extends BaseOptionValue = string> = AdvancedSearchFilter<
+type State<Type extends BaseOptionValue = string> = AdvancedSearchFilterType<
   Nullable<OptionType<Type>>
 >;
 
@@ -57,7 +57,9 @@ export function useAdvancedSearchSingleOptionFilter<
       : [];
 
   const filterParams = () => {
-    return { [queryParam]: String(filter.value?.value) || "" };
+    return {
+      [queryParam]: filter.value?.value ? String(filter.value.value) : "",
+    };
   };
 
   const tagRemovalHandler = (event: FilterTagType) => {
