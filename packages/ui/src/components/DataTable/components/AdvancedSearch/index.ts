@@ -9,5 +9,8 @@ export {
 export { useAdvancedSearchSingleOptionFilter } from "./filters/useAdvancedSearchSingleOptionFilter";
 export { useAdvancedSearchTextFilter } from "./filters/useAdvancedSearchTextFilter";
 
-export { type AdvancedSearchFilterType } from "./AdvancedSearch.types";
+export {
+  type AdvancedSearchFilterType,
+  type AdvancedSearchFilterParams,
+} from "./AdvancedSearch.types";
 export { useAdvancedSearch } from "./useAdvancedSearch";
