@@ -73,15 +73,13 @@ export const useAdvancedSearchDateFilter = ({
     dateFilter.value = initialDateFilter.value;
   });
 
-  const filterParams = () => {
-    return {
-      [queryParams.date]: dateFilter.value.date || "",
-      [queryParams.dateFrom]: dateFilter.value.dateFrom || "",
-      [queryParams.dateTo]: dateFilter.value.dateTo || "",
-    };
-  };
+  const filterParams = () => ({
+    [queryParams.date]: dateFilter.value.date || "",
+    [queryParams.dateFrom]: dateFilter.value.dateFrom || "",
+    [queryParams.dateTo]: dateFilter.value.dateTo || "",
+  });
 
-  const dateTagRemovalHandler = (event: FilterTagType): void => {
+  const tagRemovalHandler = (event: FilterTagType): void => {
     if (event.name === queryParams.date) {
       dateFilter.value = {
         ...dateFilter.value,
@@ -100,7 +98,7 @@ export const useAdvancedSearchDateFilter = ({
     }
   };
 
-  const dateTags = () =>
+  const tags = () =>
     [
       dateFilter.value && dateFilter.value.date
         ? {
@@ -129,9 +127,9 @@ export const useAdvancedSearchDateFilter = ({
     ].filter(isNotNullish);
 
   return {
-    filter: dateFilter,
-    filterParams: filterParams,
-    tagRemovalHandler: dateTagRemovalHandler,
-    tags: dateTags,
+    value: dateFilter,
+    filterParams,
+    tagRemovalHandler,
+    tags,
   };
 };

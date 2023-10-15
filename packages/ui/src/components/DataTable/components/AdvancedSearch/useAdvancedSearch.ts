@@ -7,10 +7,13 @@ import type { FilterTagType } from "@tager/admin-ui";
 import { getFilterParams } from "@tager/admin-ui";
 import { isNotNullish } from "@tager/admin-services";
 
-import type { AdvancedSearchFilterType } from "./AdvancedSearch.types";
+import type {
+  AdvancedSearchFilterType,
+  AdvancedSearchFilterParams,
+} from "./AdvancedSearch.types";
 
 type State = {
-  filterParams: Ref<Record<string, string | string[]>>;
+  filterParams: Ref<AdvancedSearchFilterParams>;
   tagRemovalHandler: (event: FilterTagType) => void;
   tags: Ref<FilterTagType[]>;
 };

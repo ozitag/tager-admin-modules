@@ -32,13 +32,11 @@ export function useAdvancedSearchTextFilter(
         ]
       : [];
 
-  const filterParams = () => {
-    return { [queryParam]: filter.value || "" };
-  };
+  const filterParams = () => ({ [queryParam]: filter.value || "" });
 
   const tagRemovalHandler = (event: FilterTagType) => {
     if (event.name === queryParam) filter.value = "";
   };
 
-  return { filter, tags, filterParams, tagRemovalHandler };
+  return { value: filter, tags, filterParams, tagRemovalHandler };
 }

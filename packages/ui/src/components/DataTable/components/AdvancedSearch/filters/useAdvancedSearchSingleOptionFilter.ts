@@ -56,20 +56,18 @@ export function useAdvancedSearchSingleOptionFilter<
         ]
       : [];
 
-  const filterParams = () => {
-    return {
-      [queryParam]: filter.value?.value ? String(filter.value.value) : "",
-    };
-  };
+  const filterParams = () => ({
+    [queryParam]: filter.value?.value ? String(filter.value.value) : "",
+  });
 
   const tagRemovalHandler = (event: FilterTagType) => {
     if (event.name === queryParam) filter.value = null;
   };
 
   return {
-    filter,
-    tags,
+    value: filter,
     filterParams,
+    tags,
     tagRemovalHandler,
   };
 }
