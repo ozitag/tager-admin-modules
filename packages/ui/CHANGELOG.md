@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.116
+
+### Patch Changes
+
+- f4982d8: add type AdvancedSearchFilterParams to export
+
 ## 1.0.115
 
 ### Patch Changes
