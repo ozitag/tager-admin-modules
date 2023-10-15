@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.117
+
+### Patch Changes
+
+- 76b8822: fix typo in filters
+
 ## 1.0.116
 
 ### Patch Changes
