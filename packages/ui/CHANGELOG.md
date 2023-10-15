@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.112
+
+### Patch Changes
+
+- cfff982: fix AdvancedSearch typings
+
 ## 1.0.111
 
 ### Patch Changes
