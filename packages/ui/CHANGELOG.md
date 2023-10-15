@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.115
+
+### Patch Changes
+
+- 71cdc4d: improve AdvancedSearch filter types
+
 ## 1.0.114
 
 ### Patch Changes
