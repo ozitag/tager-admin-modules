@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.113
+
+### Patch Changes
+
+- b879f62: add 'AdvancedSearchDateFilter to export'
+
 ## 1.0.112
 
 ### Patch Changes
