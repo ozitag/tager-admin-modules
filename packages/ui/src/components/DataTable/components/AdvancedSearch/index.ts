@@ -1,4 +1,5 @@
 export { default as AdvancedSearch } from "./AdvancedSearch.vue";
+export { default as AdvancedSearchDateFilter } from "./filters/AdvancedSearchDateFilter/AdvancedSearchDateFilter.vue";
 
 export {
   type AdvancedSearchDateFilterType,
