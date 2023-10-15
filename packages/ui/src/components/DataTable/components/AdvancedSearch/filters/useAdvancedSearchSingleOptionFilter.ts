@@ -40,7 +40,7 @@ export function useAdvancedSearchSingleOptionFilter<
     Nullable<OptionType<Type>>
   >(initialFilter.value);
 
-  watch(filter, () => {
+  watch(initialFilter, () => {
     filter.value = initialFilter.value;
   });
 
