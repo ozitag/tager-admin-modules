@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.114
+
+### Patch Changes
+
+- 84b1f27: Add useAdvancedSearch hook
+
 ## 1.0.113
 
 ### Patch Changes
