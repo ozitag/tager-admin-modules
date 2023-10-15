@@ -6,7 +6,7 @@ import type { ColumnDefinition, FilterTagType } from "../../typings/common";
 
 import { useDataTable } from "./DataTable.hooks";
 import DataTable from "./DataTable.vue";
-import AdvancedSearch from "./components/AdvancedSearch";
+import { AdvancedSearch } from "./components/AdvancedSearch";
 
 export default { title: "DataTable" };
 
