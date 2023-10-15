@@ -1,5 +1,12 @@
 ## 1.0.25
 
+## 1.0.111
+
+### Patch Changes
+
+- 222564e: add SingleOption / Text filters to Search
+- 222564e: add AdvancedSearch SingleOption / Text filters
+
 ## 1.0.110
 
 ### Patch Changes
