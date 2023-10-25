@@ -1,5 +1,11 @@
 # @tager/admin-services
 
+## 1.1.16
+
+### Patch Changes
+
+- 0337e99: fix useUserPermission to ComputedRef
+
 ## 1.1.15
 
 ### Patch Changes
