@@ -1,4 +1,6 @@
 import { defineStore } from "pinia";
+import type { ComputedRef } from "vue";
+import { computed } from "vue";
 
 import { FETCH_STATUSES } from "../constants/common";
 import type RequestError from "../utils/request-error";
@@ -100,6 +102,8 @@ export const useUserStore = defineStore("user", {
   },
 });
 
-export function useUserPermission(scope: string): boolean {
-  return useUserStore().checkScopes(scope);
+export function useUserPermission(scope: string): ComputedRef<boolean> {
+  return computed<boolean>(() => {
+    return useUserStore().checkScopes(scope);
+  });
 }
