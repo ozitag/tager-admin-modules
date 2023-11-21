@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.119
+
+### Patch Changes
+
+- 24bfe86: add useAdvancedSearchBooleanFilter
+
 ## 1.0.118
 
 ### Patch Changes
