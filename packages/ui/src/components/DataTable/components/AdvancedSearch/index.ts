@@ -8,6 +8,7 @@ export {
 
 export { useAdvancedSearchSingleOptionFilter } from "./filters/useAdvancedSearchSingleOptionFilter";
 export { useAdvancedSearchTextFilter } from "./filters/useAdvancedSearchTextFilter";
+export { useAdvancedSearchBooleanFilter } from "./filters/useAdvancedSearchBooleanFilter";
 
 export {
   type AdvancedSearchFilterType,

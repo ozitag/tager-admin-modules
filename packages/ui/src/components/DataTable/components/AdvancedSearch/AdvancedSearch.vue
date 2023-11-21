@@ -10,7 +10,10 @@
       <div class="tag-grid">
         <div v-for="(tag, index) of tags" :key="index" class="tag-item">
           <div class="tag" :title="tag.title" @click="handleTagClick(tag)">
-            <span class="tag-label"> {{ tag.title }}: {{ tag.label }} </span>
+            <span class="tag-label">
+              {{ tag.title }}
+              {{ String(tag.label).length > 0 ? ": " + tag.label : "" }}
+            </span>
             <CloseIcon class="tag-close" />
           </div>
         </div>
