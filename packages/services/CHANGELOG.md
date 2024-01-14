@@ -1,5 +1,11 @@
 # @tager/admin-services
 
+## 1.1.17
+
+### Patch Changes
+
+- 7d5ce5d: add fileSize to FileCell
+
 ## 1.1.16
 
 ### Patch Changes

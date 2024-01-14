@@ -1,5 +1,13 @@
 ## 1.0.25
 
+## 1.0.120
+
+### Patch Changes
+
+- 7d5ce5d: add fileSize to FileCell
+- Updated dependencies [7d5ce5d]
+  - @tager/admin-services@1.1.17
+
 ## 1.0.119
 
 ### Patch Changes
