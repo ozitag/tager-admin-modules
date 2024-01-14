@@ -223,6 +223,9 @@ export interface ColumnDefinitionFile<RowData = RowDataDefaultType>
   extends ColumnDefinitionCommon<RowData> {
   type: "file";
   format?: (params: ColumnParamsArg<RowData>) => FileCellValue;
+  options?: {
+    hideFileSize: boolean;
+  };
 }
 
 export interface ColumnDefinitionJson<RowData = RowDataDefaultType>

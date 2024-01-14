@@ -1,17 +1,24 @@
 <template>
   <td>
-    <a v-if="file" class="file-link" :href="file.url" target="_blank">
-      <div>
-        <component :is="iconComponent" />
-      </div>
-      <span>{{ file.name }}</span>
-    </a>
+    <div v-if="file" class="file">
+      <a class="file-link" :href="file.url" target="_blank">
+        <div>
+          <component :is="iconComponent" />
+        </div>
+        <span>{{ file.name }}</span>
+      </a>
+      <span v-if="!hideFileSize" class="file-size">{{
+        humanFileSize(file.size)
+      }}</span>
+    </div>
   </td>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, type PropType } from "vue";
 import { get } from "lodash-es";
+
+import { humanFileSize } from "@tager/admin-services";
 
 import type {
   ColumnDefinitionFile,
@@ -57,17 +64,30 @@ export default defineComponent({
 
     const iconComponent = computed(() => getFileIconComponent(file.value));
 
-    return { file, iconComponent };
+    const hideFileSize = !!props.column.options?.hideFileSize;
+
+    return { file, iconComponent, humanFileSize, hideFileSize };
   },
 });
 </script>
 
 <style lang="scss" scoped>
-.file-link {
-  max-width: 150px;
-  overflow: hidden;
-  display: block;
-  text-align: center;
-  text-overflow: ellipsis;
+.file {
+  display: inline-block;
+
+  .file-link {
+    max-width: 150px;
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    text-overflow: ellipsis;
+  }
+
+  .file-size {
+    display: block;
+    text-align: center;
+    font-size: 80%;
+    color: #666;
+  }
 }
 </style>

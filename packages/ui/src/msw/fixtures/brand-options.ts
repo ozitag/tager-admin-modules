@@ -43,3 +43,10 @@ export const brandOptions: ReadonlyArray<BaseOptionType> = Object.freeze([
   { value: 39, label: "buick" },
   { value: 40, label: "jaguar" },
 ]);
+
+export const selectedBrandOptions: Array<BaseOptionType> = [
+  { value: 10, label: "porsche" },
+  { value: 9, label: "rolls-royce" },
+  { value: 16, label: "mclaren" },
+  { value: 3, label: "mercedes-benz" },
+];

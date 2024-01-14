@@ -2,6 +2,7 @@ import type { FileType, Nullable } from "@tager/admin-services";
 
 import type {
   ColumnDefinitionColor,
+  ColumnDefinitionFile,
   ColumnDefinitionHtml,
   ColumnDefinitionImage,
   ColumnDefinitionKeyValue,
@@ -172,18 +173,18 @@ const defaultColumnDefs = [
     //   text: row.link,
     // }),
   } as ColumnDefinitionLink<TestEntity>,*/
-  /*{
+  {
     id: 6,
     name: "File cell",
     field: "file",
     type: "file",
-  } as ColumnDefinitionFile<TestEntity>,
+  } as ColumnDefinitionFile<TestEntity> /*
   {
     id: 7,
     name: "JSON",
     field: "json",
     type: "json",
-  } as ColumnDefinitionJson<TestEntity>,*/
+  } as ColumnDefinitionJson<TestEntity>,*/,
   {
     id: 8,
     name: "Key-Value",
