@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.121
+
+### Patch Changes
+
+- bdb2533: add Copy button to JsonViewer
+
 ## 1.0.120
 
 ### Patch Changes
