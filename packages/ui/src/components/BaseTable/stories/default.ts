@@ -5,6 +5,7 @@ import type {
   ColumnDefinitionFile,
   ColumnDefinitionHtml,
   ColumnDefinitionImage,
+  ColumnDefinitionJson,
   ColumnDefinitionKeyValue,
   ColumnDefinitionName,
 } from "../../../typings/common";
@@ -178,13 +179,13 @@ const defaultColumnDefs = [
     name: "File cell",
     field: "file",
     type: "file",
-  } as ColumnDefinitionFile<TestEntity> /*
+  } as ColumnDefinitionFile<TestEntity>,
   {
     id: 7,
     name: "JSON",
     field: "json",
     type: "json",
-  } as ColumnDefinitionJson<TestEntity>,*/,
+  } as ColumnDefinitionJson<TestEntity>,
   {
     id: 8,
     name: "Key-Value",

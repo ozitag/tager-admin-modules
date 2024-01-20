@@ -13,8 +13,8 @@
 import { computed, defineComponent, type PropType } from "vue";
 import { get } from "lodash-es";
 import { AsYouType } from "libphonenumber-js";
-import { JsonViewer } from "vue3-json-viewer";
 
+import JsonViewer from "../../JsonViewer";
 import type {
   ColumnDefinitionString,
   RowDataDefaultType,
