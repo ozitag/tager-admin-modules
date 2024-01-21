@@ -1,14 +1,16 @@
 <template>
   <td>
-    <span v-if="noWrap" style="white-space: nowrap">
-      {{ formattedValue }}
-    </span>
-    <template v-else>
-      <Nl2Br v-if="formattedValue.includes(`\n`)" :text="formattedValue" />
+    <div :title="shouldDisplayTitle ? formattedValue : ''">
+      <span v-if="noWrap" style="white-space: nowrap">
+        {{ displayValue }}
+      </span>
       <template v-else>
-        {{ formattedValue }}
+        <Nl2Br v-if="displayValue.includes(`\n`)" :text="displayValue" />
+        <template v-else>
+          {{ displayValue }}
+        </template>
       </template>
-    </template>
+    </div>
   </td>
 </template>
 
@@ -73,7 +75,21 @@ export default defineComponent({
 
     const noWrap = props.column.noWrap || props.column.formatter === "phone";
 
-    return { formattedValue, noWrap };
+    const displayValue = computed<string>(() => {
+      const maxLength = props.column.options?.maxLength;
+      if (!maxLength || formattedValue.value.length <= maxLength) {
+        return formattedValue.value;
+      }
+
+      return formattedValue.value.substring(0, maxLength) + "...";
+    });
+
+    const shouldDisplayTitle = computed<boolean>(() => {
+      const maxLength = props.column.options?.maxLength;
+      return maxLength && formattedValue.value.length > maxLength;
+    });
+
+    return { displayValue, formattedValue, shouldDisplayTitle, noWrap };
   },
 });
 </script>

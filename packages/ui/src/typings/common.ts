@@ -130,6 +130,9 @@ export interface ColumnDefinitionString<RowData = RowDataDefaultType>
   noWrap?: boolean;
   formatter?: "phone";
   format?: (params: ColumnParamsArg<RowData>) => StringCellValue;
+  options?: {
+    maxLength?: number;
+  };
 }
 
 export interface ColumnDefinitionBoolean<RowData = RowDataDefaultType>

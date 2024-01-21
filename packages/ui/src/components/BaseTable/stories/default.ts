@@ -118,6 +118,14 @@ const defaultColumnDefs = [
     name: "MultiLine",
     field: "name",
   },
+  {
+    id: 3,
+    name: "Line with MaxLength",
+    field: "name",
+    options: {
+      maxLength: 10,
+    },
+  },
   // {
   //   id: 2,
   //   name: 'String cell (30%)',
