@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.122
+
+### Patch Changes
+
+- 5a5371d: add maxLength option to StringTableCell
+
 ## 1.0.121
 
 ### Patch Changes
