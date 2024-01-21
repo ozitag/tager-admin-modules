@@ -86,7 +86,7 @@ export default defineComponent({
 
     const shouldDisplayTitle = computed<boolean>(() => {
       const maxLength = props.column.options?.maxLength;
-      return maxLength && formattedValue.value.length > maxLength;
+      return maxLength ? formattedValue.value.length > maxLength : false;
     });
 
     return { displayValue, formattedValue, shouldDisplayTitle, noWrap };
