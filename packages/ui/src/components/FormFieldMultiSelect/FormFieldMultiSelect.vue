@@ -80,6 +80,10 @@ export default defineComponent({
       type: String,
       default: "",
     },
+    description: {
+      type: String,
+      default: "",
+    },
   },
   setup(props: Props) {
     const fieldLabel = computed(() => {

@@ -4,6 +4,7 @@
       :label="label"
       :error="errorMessage"
       :no-error-padding="noErrorPadding"
+      :description="description"
     >
       <BaseRichTextInput
         v-if="type === 'richText'"
@@ -75,6 +76,10 @@ export default defineComponent({
     noErrorPadding: {
       type: Boolean,
       default: false,
+    },
+    description: {
+      type: String,
+      default: "",
     },
   },
 });

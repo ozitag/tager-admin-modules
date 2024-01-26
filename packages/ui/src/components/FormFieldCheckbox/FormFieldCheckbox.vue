@@ -1,28 +1,30 @@
 <template>
-  <FormGroup :class="containerClass" :no-error-padding="noErrorPadding">
+  <FormFieldWrapper
+    :description="description"
+    :class="containerClass"
+    :no-error-padding="noErrorPadding"
+    :error="error"
+  >
     <BaseCheckbox :id="name" :name="name" :checked="checked" v-bind="$attrs" />
     <InputLabel v-if="Boolean(label)" for-checkbox :for="name">
       {{ label }}
     </InputLabel>
-    <FormFieldError v-if="Boolean(error)">{{ error }}</FormFieldError>
-  </FormGroup>
+  </FormFieldWrapper>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 
 import BaseCheckbox from "../BaseCheckbox";
-import FormGroup from "../FormGroup.vue";
 import InputLabel from "../InputLabel";
-import FormFieldError from "../FormFieldError";
+import FormFieldWrapper from "../FormFieldWrapper.vue";
 
 export default defineComponent({
   name: "FormFieldCheckbox",
   components: {
     BaseCheckbox,
-    FormGroup,
-    FormFieldError,
     InputLabel,
+    FormFieldWrapper,
   },
   inheritAttrs: false,
   props: {
@@ -49,6 +51,10 @@ export default defineComponent({
     noErrorPadding: {
       type: Boolean,
       default: false,
+    },
+    description: {
+      type: String,
+      default: "",
     },
   },
 });

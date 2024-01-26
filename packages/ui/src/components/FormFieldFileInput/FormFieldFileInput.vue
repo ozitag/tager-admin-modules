@@ -1,5 +1,10 @@
 <template>
-  <FormGroup :class="containerClass">
+  <FormFieldWrapper
+    :class="containerClass"
+    :error="error"
+    :description="description"
+    :no-error-padding="noErrorPadding"
+  >
     <FileInput
       :id="name"
       :label="label"
@@ -10,23 +15,20 @@
       v-bind="$attrs"
       :scenario="scenario"
     />
-    <FormFieldError v-if="Boolean(error)">{{ error }}</FormFieldError>
-  </FormGroup>
+  </FormFieldWrapper>
 </template>
 
 <script lang="ts">
 import { defineComponent, type PropType } from "vue";
 
-import FormGroup from "../FormGroup.vue";
-import FormFieldError from "../FormFieldError";
 import FileInput from "../FileInput";
 import type { FileInputValueType } from "../FileInput/FileInput.types";
+import FormFieldWrapper from "../FormFieldWrapper.vue";
 
 export default defineComponent({
   name: "FormFieldFileInput",
   components: {
-    FormGroup,
-    FormFieldError,
+    FormFieldWrapper,
     FileInput,
   },
   inheritAttrs: false,
@@ -58,6 +60,14 @@ export default defineComponent({
     containerClass: {
       type: String,
       default: "",
+    },
+    description: {
+      type: String,
+      default: "",
+    },
+    noErrorPadding: {
+      type: Boolean,
+      default: false,
     },
   },
 });

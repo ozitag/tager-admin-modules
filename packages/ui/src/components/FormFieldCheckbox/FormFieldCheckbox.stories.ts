@@ -13,7 +13,7 @@ export const Default = () =>
       return { isValid };
     },
     template:
-      '<FormFieldCheckbox v-model:checked="isValid" name="isValid" label="Is valid?" />',
+      '<FormFieldCheckbox v-model:checked="isValid" name="isValid" label="Is valid?" description="Check pls me" />',
   });
 
 export const WithError = () =>

@@ -5,6 +5,7 @@
     :label-for="name"
     :error="error"
     :no-error-padding="noErrorPadding"
+    :description="description"
   >
     <OptionsSwitcher :options="options" :value="value" v-bind="$attrs" />
   </FormFieldWrapper>
@@ -54,6 +55,10 @@ export default defineComponent({
     noErrorPadding: {
       type: Boolean,
       default: false,
+    },
+    description: {
+      type: String,
+      default: "",
     },
   },
 });

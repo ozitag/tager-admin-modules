@@ -5,6 +5,7 @@
     :label-for="name"
     :error="error"
     :no-error-padding="noErrorPadding"
+    :description="description"
   >
     <ComboBox
       :id="name"
@@ -52,6 +53,10 @@ export default defineComponent({
     noErrorPadding: {
       type: Boolean,
       default: false,
+    },
+    description: {
+      type: String,
+      default: "",
     },
   },
 });

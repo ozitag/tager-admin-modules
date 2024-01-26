@@ -2,6 +2,9 @@
   <FormGroup :no-error-padding="noErrorPadding">
     <InputLabel v-if="Boolean(label)" :for="labelFor">{{ label }}</InputLabel>
     <slot></slot>
+    <span v-if="description.length > 0" class="description">
+      {{ description }}
+    </span>
     <FormFieldError v-if="Boolean(error)">{{ error }}</FormFieldError>
   </FormGroup>
 </template>
@@ -29,6 +32,10 @@ export default defineComponent({
       type: String,
       default: "",
     },
+    description: {
+      type: String,
+      default: "",
+    },
     noErrorPadding: {
       type: Boolean,
       default: false,
@@ -37,4 +44,11 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.description {
+  display: block;
+  color: var(--input-description);
+  margin-top: 0.2rem;
+  font-size: 0.85rem;
+}
+</style>

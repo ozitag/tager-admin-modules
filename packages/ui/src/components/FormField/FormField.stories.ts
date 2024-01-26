@@ -13,7 +13,7 @@ export const Default = () =>
       };
     },
     template:
-      '<FormField v-model:value="email" name="email" label="Email" type="email" />',
+      '<FormField v-model:value="email" name="email" label="Email" type="email" description="Description of the field" />',
   });
 
 export const Number = () =>

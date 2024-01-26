@@ -5,6 +5,7 @@
     :label-for="name"
     :error="error"
     :no-error-padding="noErrorPadding"
+    :description="description"
   >
     <ComboBox :id="name" :name="name" v-bind="$attrs" />
   </FormFieldWrapper>
@@ -43,6 +44,10 @@ export default defineComponent({
     noErrorPadding: {
       type: Boolean,
       default: false,
+    },
+    description: {
+      type: String,
+      default: "",
     },
   },
 });

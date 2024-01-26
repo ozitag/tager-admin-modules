@@ -4,6 +4,7 @@
     :label="label"
     :error="error"
     :no-error-padding="noErrorPadding"
+    :description="description"
   >
     <ColorPicker :value="value" v-bind="$attrs" />
   </FormFieldWrapper>
@@ -42,6 +43,10 @@ export default defineComponent({
     noErrorPadding: {
       type: Boolean,
       default: false,
+    },
+    description: {
+      type: String,
+      default: "",
     },
   },
 });

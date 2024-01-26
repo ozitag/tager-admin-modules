@@ -5,6 +5,7 @@
     :label-for="id"
     :error="error"
     :no-error-padding="noErrorPadding"
+    :description="description"
   >
     <div class="field-inner">
       <span ref="measureTextRef" class="measure">{{ value }}</span>
@@ -71,6 +72,10 @@ export default defineComponent({
     noErrorPadding: {
       type: Boolean,
       default: false,
+    },
+    description: {
+      type: String,
+      default: "",
     },
   },
   setup(props) {

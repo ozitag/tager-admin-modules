@@ -67,7 +67,7 @@ export const Default = () =>
       };
     },
     template:
-      '<FormFieldFileInput v-model:value="file" name="file" label="Content" error="Error message" />',
+      '<FormFieldFileInput v-model:value="file" name="file" label="Content" error="Error message" description="Description" />',
   });
 
 export const WithCaption = () =>

@@ -5,6 +5,7 @@
     :label-for="name"
     :error="error"
     :no-error-padding="noErrorPadding"
+    :description="description"
   >
     <AjaxSelect
       :id="name"
@@ -60,6 +61,10 @@ export default defineComponent({
     noErrorPadding: {
       type: Boolean,
       default: false,
+    },
+    description: {
+      type: String,
+      default: "",
     },
   },
 });

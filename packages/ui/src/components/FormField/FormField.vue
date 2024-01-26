@@ -5,6 +5,7 @@
     :label-for="name"
     :error="error"
     :no-error-padding="noErrorPadding"
+    :description="description"
   >
     <BaseTextArea
       v-if="type === 'textarea'"
@@ -97,6 +98,10 @@ export default defineComponent({
     noErrorPadding: {
       type: Boolean,
       default: false,
+    },
+    description: {
+      type: String,
+      default: "",
     },
   },
 });
