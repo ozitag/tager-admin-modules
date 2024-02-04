@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.124
+
+### Patch Changes
+
+- 42a8a27: hide scrollbar in IE in Select
+
 ## 1.0.123
 
 ### Patch Changes
