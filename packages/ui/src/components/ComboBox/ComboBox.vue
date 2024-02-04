@@ -567,6 +567,9 @@ export default defineComponent({
   scrollbar-width: thin;
   scrollbar-color: rgba(144, 147, 153, 0.3) #fff;
 
+  /* Internet Explorer and Edge */
+  -ms-overflow-style: none;
+
   /* Works on Chrome, Edge, and Safari */
   &::-webkit-scrollbar {
     width: 6px;
