@@ -35,7 +35,7 @@ export function formatDateTime(
     return formatDate(date);
   }
 
-  const options = {
+  const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "numeric",
     day: "numeric",
