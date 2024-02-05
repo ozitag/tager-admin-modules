@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.125
+
+### Patch Changes
+
+- 3ed95f8: add scrollbar for tablist, add seconds to tableCell datetime
+
 ## 1.0.124
 
 ### Patch Changes
