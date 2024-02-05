@@ -18,11 +18,13 @@ export function formatDate(date: Date): string {
 /**
  * @param {Date} date
  * @param {boolean} ignoreStartOfDayTime
+ * @param {boolean} displaySeconds
  * @returns {string}
  */
 export function formatDateTime(
   date: Date,
-  ignoreStartOfDayTime = false
+  ignoreStartOfDayTime = false,
+  displaySeconds = false
 ): string {
   if (
     ignoreStartOfDayTime &&
@@ -33,13 +35,19 @@ export function formatDateTime(
     return formatDate(date);
   }
 
-  return date.toLocaleString([], {
+  const options = {
     year: "numeric",
     month: "numeric",
     day: "numeric",
     hour: "2-digit",
     minute: "2-digit",
-  });
+  };
+
+  if (displaySeconds) {
+    options["second"] = "2-digit";
+  }
+
+  return date.toLocaleString([], options);
 }
 
 /**

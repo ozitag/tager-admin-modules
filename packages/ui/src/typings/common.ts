@@ -193,6 +193,7 @@ export interface ColumnDefinitionDateTime<RowData = RowDataDefaultType>
   format?: (params: ColumnParamsArg<RowData>) => DateCellValue;
   options?: {
     ignoreStartOfDayTime?: boolean;
+    displaySeconds?: boolean;
   };
 }
 

@@ -55,7 +55,13 @@ export default defineComponent({
       } else {
         const ignoreStartOfDayTime =
           props.column.options?.ignoreStartOfDayTime ?? true;
-        return formatDateTime(new Date(date), ignoreStartOfDayTime);
+        const displaySeconds = props.column.options?.displaySeconds ?? false;
+
+        return formatDateTime(
+          new Date(date),
+          ignoreStartOfDayTime,
+          displaySeconds
+        );
       }
     });
 

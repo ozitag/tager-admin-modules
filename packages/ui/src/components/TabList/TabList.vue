@@ -80,6 +80,32 @@ export default defineComponent({
   display: flex;
   border-bottom: 1px solid #eee;
 
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  &::-webkit-scrollbar {
+    height: 0.25rem;
+    width: 0.25rem;
+    background: #fff;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #fff;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(170, 170, 170, 0.2);
+
+    &:hover {
+      background-color: rgba(153, 153, 153, 0.2);
+    }
+  }
+
+  &::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(170, 170, 170, 0.2);
+  }
+
   &.aligned-right {
     justify-content: flex-end;
 
@@ -212,5 +238,6 @@ export default defineComponent({
   padding: 0.7rem 2rem;
   color: inherit;
   font-weight: inherit;
+  white-space: nowrap;
 }
 </style>

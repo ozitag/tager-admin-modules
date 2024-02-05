@@ -57,6 +57,32 @@ export const Playground: Story = (args) => ({
     };
   },
   template: `
+    <TabList
+      :tab-list="tabList"
+      v-model:tab-id="selectedTabId"
+      v-bind="args"
+    />
+  `,
+});
+
+export const LargeWidth: Story = (args) => ({
+  name: "TabListLargeWidth",
+  components: { TabList },
+  setup() {
+    const selectedTabId = ref(TAB_LIST[0]?.id ?? null);
+    return {
+      selectedTabId,
+      tabList: [
+        ...TAB_LIST,
+        ...TAB_LIST,
+        ...TAB_LIST,
+        ...TAB_LIST,
+        ...TAB_LIST,
+      ],
+      args,
+    };
+  },
+  template: `
     <TabList 
         :tab-list="tabList"
         v-model:tab-id="selectedTabId"
