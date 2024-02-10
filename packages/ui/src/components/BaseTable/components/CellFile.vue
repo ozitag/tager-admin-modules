@@ -73,7 +73,11 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .file {
-  display: inline-block;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   .file-link {
     max-width: 150px;
