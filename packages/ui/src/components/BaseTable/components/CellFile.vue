@@ -80,7 +80,6 @@ export default defineComponent({
   align-items: center;
 
   .file-link {
-    max-width: 150px;
     overflow: hidden;
     display: block;
     text-align: center;

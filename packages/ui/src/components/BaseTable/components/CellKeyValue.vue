@@ -1,11 +1,21 @@
 <template>
   <td :class="['key-value-cell', 'key-value-cell--' + view]">
-    <ul v-if="value">
-      <li v-for="item in value" :key="item.key">
-        <span>{{ item.key }}:</span>
-        <span>{{ item.value }}</span>
-      </li>
-    </ul>
+    <template v-if="value">
+      <ul v-if="view === 'column' || view === 'row'">
+        <li v-for="item in value" :key="item.key">
+          <span>{{ item.key }}:</span>
+          <span>{{ item.value }}</span>
+        </li>
+      </ul>
+      <table v-if="view === 'table'">
+        <tbody>
+          <tr v-for="item in value" :key="item.key">
+            <td>{{ item.key }}:</td>
+            <td>{{ item.value }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </template>
   </td>
 </template>
 
@@ -91,6 +101,23 @@ export default defineComponent({
       span:last-child {
         font-weight: bold;
         margin-left: 0.15rem;
+      }
+    }
+  }
+
+  &--table {
+    table {
+      width: 100%;
+      font-size: 95%;
+    }
+
+    td {
+      padding: 0.5rem;
+      &:first-child {
+        width: 1px;
+      }
+      &:last-child {
+        font-weight: bold;
       }
     }
   }

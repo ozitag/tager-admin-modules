@@ -219,7 +219,7 @@ export interface ColumnDefinitionKeyValue<RowData = RowDataDefaultType>
   type: "key-value";
   format?: (params: ColumnParamsArg<RowData>) => KeyValueCellValue;
   options?: {
-    view: "column" | "row";
+    view: "column" | "row" | "table";
   };
 }
 
