@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.127
+
+### Patch Changes
+
+- db31661: add view "table" for KeyValue TableCell
+
 ## 1.0.126
 
 ### Patch Changes
