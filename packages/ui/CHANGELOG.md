@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.131
+
+### Patch Changes
+
+- 1fdf28d: add hideValueOnEdit to FieldValue
+
 ## 1.0.130
 
 ### Patch Changes
