@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.132
+
+### Patch Changes
+
+- 2f04e85: fix
+
 ## 1.0.131
 
 ### Patch Changes
