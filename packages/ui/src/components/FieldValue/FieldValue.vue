@@ -2,7 +2,7 @@
   <div :class="['field', `field-${type}`]">
     <div v-if="label" class="label">{{ label }}</div>
 
-    <div v-if="!editVisible || !hideValueOnEdit" class="field-value">
+    <div v-if="!editActive || !hideValueOnEdit" class="field-value">
       <BaseSpinner v-if="loading" size="28" />
       <template v-else-if="slots.value">
         <slot name="value"></slot>
