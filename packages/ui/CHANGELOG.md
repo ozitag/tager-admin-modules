@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.128
+
+### Patch Changes
+
+- 55446a0: fix keyValue tableCell
+
 ## 1.0.127
 
 ### Patch Changes
