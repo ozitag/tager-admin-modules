@@ -1,8 +1,12 @@
 <template>
-  <FormGroup :class="containerClass">
-    <InputLabel v-if="Boolean(label)" :for="name">
-      {{ fieldLabel }}
-    </InputLabel>
+  <FormFieldWrapper
+    :class="containerClass"
+    :label="label"
+    :label-for="name"
+    :error="error"
+    :no-error-padding="noErrorPadding"
+    :description="description"
+  >
     <MultiSelect
       :name="name"
       :options="options"
@@ -10,18 +14,15 @@
       :max-selected-count="maxSelectedCount"
       v-bind="$attrs"
     />
-    <FormFieldError v-if="Boolean(error)">{{ error }}</FormFieldError>
-  </FormGroup>
+  </FormFieldWrapper>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, type PropType } from "vue";
 
-import FormGroup from "../FormGroup.vue";
-import FormFieldError from "../FormFieldError";
-import InputLabel from "../InputLabel";
-import MultiSelect from "../MultiSelect";
 import type { OptionType } from "../../typings/common";
+import MultiSelect from "../MultiSelect";
+import FormFieldWrapper from "../FormFieldWrapper.vue";
 
 function isValidSelectOption(option: OptionType) {
   return typeof option === "object" && "value" in option && "label" in option;
@@ -39,9 +40,7 @@ interface Props {
 export default defineComponent({
   name: "FormFieldMultiSelect",
   components: {
-    FormGroup,
-    FormFieldError,
-    InputLabel,
+    FormFieldWrapper,
     MultiSelect,
   },
   inheritAttrs: false,
@@ -80,6 +79,10 @@ export default defineComponent({
       type: String,
       default: "",
     },
+    noErrorPadding: {
+      type: Boolean,
+      default: false,
+    },
     description: {
       type: String,
       default: "",
@@ -100,5 +103,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped lang="scss"></style>
