@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.130
+
+### Patch Changes
+
+- b3ba840: add FormFieldWrapper for FormFieldMultiSelect
+
 ## 1.0.129
 
 ### Patch Changes
