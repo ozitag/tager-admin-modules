@@ -2,9 +2,10 @@
   <div :class="['field', `field-${type}`]">
     <div v-if="label" class="label">{{ label }}</div>
 
-    <div v-if="!editActive || !hideValueOnEdit" class="field-value">
-      <BaseSpinner v-if="loading" size="28" />
-      <template v-else-if="slots.value">
+    <BaseSpinner v-if="loading" size="28" />
+
+    <div v-else-if="!editActive || !hideValueOnEdit" class="field-value">
+      <template v-if="slots.value">
         <slot name="value"></slot>
       </template>
       <template v-else>
