@@ -10,7 +10,7 @@
       <table v-if="view === 'table'">
         <tbody>
           <tr v-for="item in value" :key="item.key">
-            <td>{{ item.key }}:</td>
+            <td>{{ item.key }}</td>
             <td>{{ item.value }}</td>
           </tr>
         </tbody>
@@ -115,6 +115,7 @@ export default defineComponent({
       padding: 0.5rem;
       &:first-child {
         width: 1px;
+        white-space: nowrap;
       }
       &:last-child {
         font-weight: bold;
