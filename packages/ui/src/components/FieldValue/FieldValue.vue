@@ -2,7 +2,7 @@
   <div :class="['field', `field-${type}`]">
     <div v-if="label" class="label">{{ label }}</div>
 
-    <div class="field-value">
+    <div v-if="!editVisible || !hideValueOnEdit" class="field-value">
       <BaseSpinner v-if="loading" size="28" />
       <template v-else-if="slots.value">
         <slot name="value"></slot>
@@ -76,7 +76,7 @@
       </template>
     </div>
 
-    <template v-if="!loading && (withEdit || footerButtons.length)">
+    <template v-if="editVisible">
       <template v-if="!editActive || !slots.edit">
         <ul class="field-value__buttons">
           <li v-for="button in footerButtons" :key="button.label">
@@ -260,6 +260,10 @@ export default defineComponent({
       type: Array as PropType<Array<FieldValueButtonType>>,
       default: null,
     },
+    hideValueOnEdit: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ["edit", "cancel", "save"],
   setup(props, context) {
@@ -298,7 +302,12 @@ export default defineComponent({
       return editButton ? [editButton, ...defaultButtons] : defaultButtons;
     });
 
+    const editVisible = computed<boolean>(
+      () => !!(!props.loading && (props.withEdit || footerButtons.value.length))
+    );
+
     return {
+      editVisible,
       footerButtons,
       slots,
       formatDate,
