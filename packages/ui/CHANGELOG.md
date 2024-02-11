@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.129
+
+### Patch Changes
+
+- 5513b33: add buttons to FieldValue edit mode
+
 ## 1.0.128
 
 ### Patch Changes
