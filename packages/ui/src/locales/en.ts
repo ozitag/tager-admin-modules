@@ -129,6 +129,8 @@ const EN = {
 
   fieldValue: {
     edit: "Edit",
+    save: "Save",
+    cancel: "Cancel",
   },
 };
 

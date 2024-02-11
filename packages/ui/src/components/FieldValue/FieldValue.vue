@@ -113,6 +113,22 @@
       </template>
       <div v-else class="edit-container">
         <slot name="edit" />
+        <div v-if="withEditActions" class="edit-buttons">
+          <BaseButton
+            variant="secondary"
+            :loading="editActionsLoading"
+            @click="$emit('cancel')"
+          >
+            {{ $i18n.t("ui:fieldValue.cancel") }}
+          </BaseButton>
+          <BaseButton
+            variant="primary"
+            :loading="editActionsLoading"
+            @click="$emit('save')"
+          >
+            {{ $i18n.t("ui:fieldValue.save") }}
+          </BaseButton>
+        </div>
       </div>
     </template>
   </div>
@@ -216,6 +232,14 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    withEditActions: {
+      type: Boolean,
+      default: false,
+    },
+    editActionsLoading: {
+      type: Boolean,
+      default: false,
+    },
     editLabel: {
       type: String,
       default: null,
@@ -237,7 +261,7 @@ export default defineComponent({
       default: null,
     },
   },
-  emits: ["edit"],
+  emits: ["edit", "cancel", "save"],
   setup(props, context) {
     const { t } = useI18n();
     const slots = useSlots();
@@ -394,5 +418,12 @@ export default defineComponent({
   .button {
     font-size: 0.85rem;
   }
+}
+
+.edit-buttons {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 </style>

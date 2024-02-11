@@ -42,11 +42,55 @@ export const TextWithEdit = () => ({
     <FieldValue label="Label" type="text" value="It's not exactly a real DOM element."
                 :with-edit="true" :edit-active="editMode" edit-label="Edit Item"
                 @edit="onEditClick">
+      <template #edit>
+        Edit Form...<br/>
+        Edit Form...<br/>
+        Edit Form...<br/>
+        <button @click="onCancelClick">Cancel</button>
+      </template>
+    </FieldValue>`,
+});
+
+export const TextWithEditActions = () => ({
+  name: "TextWithEditActions",
+  components: { FieldValue },
+  setup() {
+    const editMode = ref<boolean>(false);
+    const loading = ref<boolean>(false);
+
+    const onEditClick = () => {
+      editMode.value = true;
+    };
+
+    const onCancelClick = () => {
+      editMode.value = false;
+    };
+
+    const onSaveClick = () => {
+      loading.value = true;
+      setTimeout(() => {
+        editMode.value = false;
+        loading.value = false;
+      }, 2000);
+    };
+
+    return {
+      loading,
+      editMode,
+      onEditClick,
+      onSaveClick,
+      onCancelClick,
+    };
+  },
+  template: `
+    <FieldValue label="Label" type="text" value="It's not exactly a real DOM element."
+                :with-edit="true" :edit-active="editMode" edit-label="Edit Item"
+                :with-edit-actions="true" :edit-actions-loading="loading"
+                @edit="onEditClick" @cancel="onCancelClick" @save="onSaveClick">
     <template #edit>
       Edit Form...<br/>
       Edit Form...<br/>
-      Edit Form...<br/>
-      <button @click="onCancelClick">Cancel</button>
+      Edit Form...
     </template>
     </FieldValue>`,
 });

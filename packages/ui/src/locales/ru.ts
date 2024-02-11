@@ -131,6 +131,8 @@ const RU: typeof EN = {
 
   fieldValue: {
     edit: "Изменить",
+    save: "Сохранить",
+    cancel: "Отменить",
   },
 };
 
