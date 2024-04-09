@@ -18,6 +18,7 @@
 import { JsonViewer as JsonViewVue } from "vue3-json-viewer";
 import { defineComponent } from "vue";
 
+import "vue3-json-viewer/dist/index.css";
 import useCopyToClipboard from "../../hooks/useCopyToClipboard";
 
 export default defineComponent({

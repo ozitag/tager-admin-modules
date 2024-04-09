@@ -19,7 +19,7 @@
           {{ formatDateTime(new Date(value)) }}
         </div>
 
-        <div v-if="type === 'json' && value">
+        <div v-if="type === 'json'">
           <FieldValueJson :data="value" />
         </div>
 

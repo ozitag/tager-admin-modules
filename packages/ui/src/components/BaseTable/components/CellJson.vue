@@ -1,7 +1,8 @@
 <template>
   <td>
     <JsonViewer
-      :value="JSON.parse(formattedValue)"
+      v-if="formattedValue"
+      :value="formattedValue"
       boxed
       :expanded="true"
       expand-depth="2"
@@ -12,7 +13,6 @@
 <script lang="ts">
 import { computed, defineComponent, type PropType } from "vue";
 import { get } from "lodash-es";
-import { AsYouType } from "libphonenumber-js";
 
 import JsonViewer from "../../JsonViewer";
 import type {
@@ -57,15 +57,14 @@ export default defineComponent({
       ) as StringCellValue;
     });
 
-    const formattedValue = computed<string>(() => {
-      if (!value.value) return "";
+    const formattedValue = computed<null | Record<any, any>>(() => {
+      if (!value.value) return null;
 
-      if (props.column.formatter === "phone") {
-        return new AsYouType().input(
-          (value.value?.startsWith("+") ? "" : "+") + value.value
-        );
+      if (typeof value.value === "string") {
+        return JSON.parse(value.value);
       }
-      return String(value.value);
+
+      return value.value;
     });
 
     const noWrap = props.column.noWrap || props.column.formatter === "phone";

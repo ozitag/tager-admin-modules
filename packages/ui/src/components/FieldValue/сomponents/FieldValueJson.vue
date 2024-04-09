@@ -1,25 +1,39 @@
 <template>
-  <JsonViewer
-    :value="JSON.parse(data)"
-    boxed
-    :expanded="true"
-    expand-depth="2"
-  />
+  <JsonViewer :value="formattedValue" boxed :expanded="true" expand-depth="2" />
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { JsonViewer } from "vue3-json-viewer";
-import "vue3-json-viewer/dist/index.css";
+import { defineComponent, computed } from "vue";
+
+import type { Nullable } from "@tager/admin-services";
+
+import JsonViewer from "../../JsonViewer";
 
 export default defineComponent({
   name: "FieldValueJson",
   components: { JsonViewer },
   props: {
     data: {
-      type: String,
+      type: [String, Object],
       default: "",
     },
+  },
+  setup(props) {
+    const formattedValue = computed<Nullable<Record<any, any>>>(() => {
+      if (props.data) {
+        if (typeof props.data === "string") {
+          return JSON.parse(props.data);
+        } else {
+          return props.data;
+        }
+      }
+
+      return null;
+    });
+
+    return {
+      formattedValue,
+    };
   },
 });
 </script>
