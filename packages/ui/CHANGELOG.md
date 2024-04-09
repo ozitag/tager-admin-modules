@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.134
+
+### Patch Changes
+
+- 49794d3: improve JSON viewer
+
 ## 1.0.133
 
 ### Patch Changes
