@@ -35,7 +35,7 @@ interface TableState<T, M> {
   fetchEntityList: () => Promise<void>;
 }
 
-export function useDataTable<T, M>(params: {
+export function useDataTable<T, M = undefined>(params: {
   fetchEntityList: (
     requestParams: TableDataRequestParams
   ) => Promise<ResponseBody<Array<T>>>;
