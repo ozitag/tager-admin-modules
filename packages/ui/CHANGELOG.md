@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.136
+
+### Patch Changes
+
+- 1ced7ba: fix typings
+
 ## 1.0.135
 
 ### Patch Changes
