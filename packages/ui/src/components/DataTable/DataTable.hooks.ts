@@ -20,8 +20,8 @@ interface TableDataRequestParams {
   sort?: string | null;
 }
 
-interface TableState<T> {
-  meta: Ref<PaginationMeta | undefined>;
+interface TableState<T, M> {
+  meta: Ref<(PaginationMeta & M) | undefined>;
   isLoading: ComputedRef<boolean>;
   rowData: Ref<Array<T>>;
   errorMessage: Ref<Nullable<string>>;
@@ -35,7 +35,7 @@ interface TableState<T> {
   fetchEntityList: () => Promise<void>;
 }
 
-export function useDataTable<T>(params: {
+export function useDataTable<T, M>(params: {
   fetchEntityList: (
     requestParams: TableDataRequestParams
   ) => Promise<ResponseBody<Array<T>>>;
@@ -43,7 +43,7 @@ export function useDataTable<T>(params: {
   resourceName?: string;
   pageSize?: number;
   defaultSort?: string;
-}): TableState<T> {
+}): TableState<T, M> {
   const searchQuery = useSearch();
   const sort = useSort(params.defaultSort || null);
 
@@ -54,7 +54,7 @@ export function useDataTable<T>(params: {
   const [
     fetchEntityList,
     { loading: isLoading, data: rowData, error: errorMessage, meta },
-  ] = useResource<Array<T>, PaginationMeta>({
+  ] = useResource<Array<T>, PaginationMeta & M>({
     fetchResource: () =>
       params.fetchEntityList({
         searchQuery: searchQuery.value,
