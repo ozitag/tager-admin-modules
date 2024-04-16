@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.135
+
+### Patch Changes
+
+- d18240f: add meta typings for useDataTable
+
 ## 1.0.134
 
 ### Patch Changes
