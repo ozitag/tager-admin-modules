@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.137
+
+### Patch Changes
+
+- 8409703: fix label padding in FileInput
+
 ## 1.0.136
 
 ### Patch Changes
