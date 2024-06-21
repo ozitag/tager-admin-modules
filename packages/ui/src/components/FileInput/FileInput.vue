@@ -916,6 +916,8 @@ export default defineComponent({
   label {
     margin-right: 20px;
     min-height: 35px;
+    padding-bottom: 5px;
+    margin-bottom: 0;
     display: flex;
     align-items: flex-end;
   }
