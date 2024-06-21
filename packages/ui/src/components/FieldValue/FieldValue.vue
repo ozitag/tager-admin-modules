@@ -355,6 +355,7 @@ export default defineComponent({
 
     img {
       object-fit: cover;
+      max-height: 100%;
     }
   }
 }
