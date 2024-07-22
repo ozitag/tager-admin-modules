@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.138
+
+### Patch Changes
+
+- 2b1f931: fix image height in FieldValue
+
 ## 1.0.137
 
 ### Patch Changes
