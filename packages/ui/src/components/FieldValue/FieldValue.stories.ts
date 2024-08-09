@@ -181,7 +181,7 @@ export const JsonString = () => ({
     };
   },
   template: `
-    <FieldValue label="JSON" type="json" :value="text"/>`,
+    <FieldValue label="JSON" type="json" y:value="text"/>`,
 });
 
 export const JsonObject = () => ({

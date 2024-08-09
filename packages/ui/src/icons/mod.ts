@@ -33,5 +33,6 @@ export { default as WebIcon } from "./WebIcon.vue";
 export { default as EyeIcon } from "./EyeIcon.vue";
 export { default as ZoomInIcon } from "./ZoomInIcon.vue";
 export { default as ZoomOutIcon } from "./ZoomOutIcon.vue";
+export { default as MoveTopIcon } from "./MoveTopIcon.vue";
 
 export * from "./file-extensions/mod";

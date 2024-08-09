@@ -15776,7 +15776,7 @@ __metadata:
     sass-loader: ^13.0.2
     storybook-vue3-router: ^2.3.1
     style-loader: ^3.3.1
-    typescript: "patch:typescript@4.8.2#.yarn/patches/typescript-npm-4.8.2-a4828fa7ad.patch"
+    typescript: 4.8.3
     vite: ^3.1.0
     vue: ^3.2.38
     vue-router: ^4.1.5
@@ -16304,33 +16304,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.8.2":
-  version: 4.8.2
-  resolution: "typescript@npm:4.8.2"
+"typescript@npm:4.8.3":
+  version: 4.8.3
+  resolution: "typescript@npm:4.8.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 7f5b81d0d558c9067f952c7af52ab7f19c2e70a916817929e4a5b256c93990bf3178eccb1ac8a850bc75df35f6781b6f4cb3370ce20d8b1ded92ed462348f628
+  checksum: 8286a5edcaf3d68e65c451aa1e7150ad1cf53ee0813c07ec35b7abdfdb10f355ecaa13c6a226a694ae7a67785fd7eeebf89f845da0b4f7e4a35561ddc459aba0
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.8.2#.yarn/patches/typescript-npm-4.8.2-a4828fa7ad.patch::locator=tager-admin-modules%40workspace%3A.":
-  version: 4.8.2
-  resolution: "typescript@patch:typescript@npm%3A4.8.2#.yarn/patches/typescript-npm-4.8.2-a4828fa7ad.patch::version=4.8.2&hash=28bf28&locator=tager-admin-modules%40workspace%3A."
+"typescript@patch:typescript@4.8.3#~builtin<compat/typescript>":
+  version: 4.8.3
+  resolution: "typescript@patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=f456af"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: a94a3d954f61f01395e23e6040b558ac8f610365f91178b3350b4b58dfd491b7c924dc2c6d6dfede1ee21918c5b1985041fd2d1fc277786a05e2988559783d7d
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@patch%3Atypescript@4.8.2%23.yarn/patches/typescript-npm-4.8.2-a4828fa7ad.patch#~builtin<compat/typescript>":
-  version: 4.8.2
-  resolution: "typescript@patch:typescript@patch%3Atypescript@npm%253A4.8.2%23.yarn/patches/typescript-npm-4.8.2-a4828fa7ad.patch%3A%3Aversion=4.8.2&hash=28bf28&locator=tager-admin-modules%2540workspace%253A.#~builtin<compat/typescript>::version=4.8.2&hash=f456af"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: a94a3d954f61f01395e23e6040b558ac8f610365f91178b3350b4b58dfd491b7c924dc2c6d6dfede1ee21918c5b1985041fd2d1fc277786a05e2988559783d7d
+  checksum: 0404a09c625df01934ef774b45ce1ca57ccae41cd625fcdbb82056715320d9329e70d9d75c2c732ec6ef947444ca978c189a332b71fa21f5c1437d5a83e24906
   languageName: node
   linkType: hard
 
