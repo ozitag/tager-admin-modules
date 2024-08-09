@@ -3,7 +3,7 @@ import { ref } from "vue";
 import { useToast } from "./use-toast";
 
 type ResourceId = string | number;
-type Direction = "up" | "down";
+type Direction = "up" | "down" | "up-top";
 
 export function useResourceMove(params: {
   moveResource: (
