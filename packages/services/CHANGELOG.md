@@ -1,5 +1,11 @@
 # @tager/admin-services
 
+## 1.1.18
+
+### Patch Changes
+
+- 6f49102: add "up-top" to handleResourceMove
+
 ## 1.1.17
 
 ### Patch Changes

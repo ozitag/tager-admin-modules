@@ -1,5 +1,12 @@
 ## 1.0.25
 
+## 1.0.140
+
+### Patch Changes
+
+- Updated dependencies [6f49102]
+  - @tager/admin-services@1.1.18
+
 ## 1.0.139
 
 ### Patch Changes
