@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.139
+
+### Patch Changes
+
+- 0325903: Add MoveToTop icon
+
 ## 1.0.138
 
 ### Patch Changes
