@@ -312,7 +312,7 @@ export default defineComponent({
       default: false,
     },
   },
-  emits: ["update:value"],
+  emits: ["update:value", "change"],
   setup(props: Props, context) {
     const i18n = useI18n();
     const fileGridRef: Ref<HTMLDivElement | null> = ref(null);
@@ -342,6 +342,7 @@ export default defineComponent({
     function emitChangeEvent(newFiles: Array<SingleFileInputValueType>) {
       const newValue = props.multiple ? newFiles : newFiles[0];
       context.emit("update:value", newValue ?? null);
+      context.emit("change", newValue ?? null);
     }
 
     useSortable({
