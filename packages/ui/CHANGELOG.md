@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.141
+
+### Patch Changes
+
+- 81336aa: add change event to FileInput
+
 ## 1.0.140
 
 ### Patch Changes
