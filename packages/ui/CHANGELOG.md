@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.142
+
+### Patch Changes
+
+- 3e15e18: add "nullable" flag for OptionsSwitcher
+
 ## 1.0.141
 
 ### Patch Changes
