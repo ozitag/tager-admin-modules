@@ -32,6 +32,10 @@ export default defineComponent({
       type: String,
       default: null,
     },
+    nullable: {
+      type: Boolean,
+      default: false,
+    },
     options: {
       type: Array as PropType<Array<OptionsSwitcherOption>>,
       default: () => [],
@@ -49,6 +53,15 @@ export default defineComponent({
     );
 
     const onChange = (newValue: string) => {
+      if (innerValue.value === newValue) {
+        if (props.nullable) {
+          innerValue.value = null;
+          emit("change", newValue);
+          emit("update:value", null);
+        }
+        return;
+      }
+
       innerValue.value = newValue;
       emit("change", newValue);
       emit("update:value", newValue);
@@ -68,7 +81,7 @@ export default defineComponent({
   overflow: hidden;
 
   span {
-    height: 40px;
+    height: 38px;
     font-size: 1rem;
     padding: 0 1rem;
     display: flex;

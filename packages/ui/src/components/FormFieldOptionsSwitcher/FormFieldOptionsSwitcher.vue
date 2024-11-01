@@ -7,7 +7,12 @@
     :no-error-padding="noErrorPadding"
     :description="description"
   >
-    <OptionsSwitcher :options="options" :value="value" v-bind="$attrs" />
+    <OptionsSwitcher
+      :options="options"
+      :nullable="nullable"
+      :value="value"
+      v-bind="$attrs"
+    />
   </FormFieldWrapper>
 </template>
 
@@ -43,6 +48,10 @@ export default defineComponent({
     value: {
       type: String,
       default: null,
+    },
+    nullable: {
+      type: Boolean,
+      default: false,
     },
     error: {
       type: String,
