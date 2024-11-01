@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.143
+
+### Patch Changes
+
+- aa8962d: small ui fixes
+
 ## 1.0.142
 
 ### Patch Changes
