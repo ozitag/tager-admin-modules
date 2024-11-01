@@ -83,7 +83,7 @@ export default defineComponent({
   span {
     height: 38px;
     font-size: 1rem;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
     display: flex;
     align-items: center;
     flex: 1 1 1px;
@@ -91,6 +91,9 @@ export default defineComponent({
     justify-content: center;
     border: 1px solid var(--input-border-color);
     transition: 0.3s background ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &:first-child {
       border-radius: var(--input-border-radius) 0 0 var(--input-border-radius);
