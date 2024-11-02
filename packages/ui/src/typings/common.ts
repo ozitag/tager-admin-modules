@@ -66,6 +66,7 @@ export type BadgeCellValue =
       color?: string;
       textColor?: string;
     };
+export type ListCellValue = Array<string | { url: string; label: string }>;
 
 export type ColumnType =
   | "string"
@@ -147,6 +148,7 @@ export interface ColumnDefinitionBoolean<RowData = RowDataDefaultType>
 export interface ColumnDefinitionList<RowData = RowDataDefaultType>
   extends ColumnDefinitionCommon<RowData> {
   type?: "list";
+  format?: (params: ColumnParamsArg<RowData>) => ListCellValue;
 }
 
 export interface ColumnDefinitionLink<RowData = RowDataDefaultType>

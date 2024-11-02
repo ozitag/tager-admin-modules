@@ -6,6 +6,7 @@ import type {
   ColumnDefinitionHtml,
   ColumnDefinitionImage,
   ColumnDefinitionJson,
+  ColumnDefinitionList,
   ColumnDefinitionName,
 } from "../../../typings/common";
 import BaseTable from "../BaseTable.vue";
@@ -182,6 +183,24 @@ const defaultColumnDefs = [
     // }),
   } as ColumnDefinitionLink<TestEntity>,*/
   {
+    id: 5,
+    name: "ListText",
+    field: "textListItems",
+    type: "list",
+  } as ColumnDefinitionList<TestEntity>,
+  {
+    id: 5,
+    name: "ListLink",
+    field: "linkListItems",
+    type: "list",
+  } as ColumnDefinitionList<TestEntity>,
+  {
+    id: 4,
+    name: "File cell",
+    field: "file",
+    type: "file",
+  } as ColumnDefinitionFile<TestEntity>,
+  {
     id: 6,
     name: "File cell",
     field: "file",
@@ -210,6 +229,8 @@ interface TestEntity {
   description: string;
   file: Nullable<FileType>;
   json: string | null | Record<string, any>;
+  textListItems?: string[];
+  linkListItems?: Array<{ url: string; label: string }>;
 }
 
 const defaultRowData: Array<TestEntity> = [
@@ -236,6 +257,12 @@ const defaultRowData: Array<TestEntity> = [
       url: "https://presetbox.dev.ozitag.com/uploads/zip/8k/3k/8k3kXkohkb.zip",
     },
     json: '{"amplitudeEvent":{"name":"AppOpenedWithNotification","params":[{"param":"type","value":"pre-release"},{"param":"id","value":"26667"}]},"action":{"screen":"game","id":24719}}',
+    textListItems: ["Item 1", "Item 2", "Item 3"],
+    linkListItems: [
+      { url: "", label: "Item 1" },
+      { url: "", label: "Item 2" },
+      { url: "", label: "Item 3" },
+    ],
   },
   {
     id: 2,

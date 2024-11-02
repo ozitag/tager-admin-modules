@@ -1,8 +1,11 @@
 <template>
   <td class="list-cell">
     <ul v-if="value">
-      <li v-for="item in value" :key="item">
-        {{ item }}
+      <li v-for="item in value" :key="String(item)">
+        <template v-if="typeof item === 'string'">
+          {{ item }}
+        </template>
+        <RouterLink v-else :to="String(item.url)">{{ item.label }}</RouterLink>
       </li>
     </ul>
   </td>
@@ -11,9 +14,11 @@
 <script lang="ts">
 import { computed, defineComponent, type PropType } from "vue";
 import { get } from "lodash-es";
+import { RouterLink } from "vue-router";
 
 import type {
   ColumnDefinitionList,
+  ListCellValue,
   RowDataDefaultType,
 } from "../../../typings/common";
 
@@ -25,6 +30,7 @@ interface Props {
 
 export default defineComponent({
   name: "CellKeyValue",
+  components: { RouterLink },
   props: {
     column: {
       type: Object as PropType<Props["column"]>,
@@ -40,7 +46,7 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const value = computed(() => {
+    const value = computed<ListCellValue>(() => {
       return get(props.row, props.column.field, null);
     });
 
