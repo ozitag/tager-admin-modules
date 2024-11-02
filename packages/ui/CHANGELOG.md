@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.145
+
+### Patch Changes
+
+- 992bb10: add Format to ListCell
+
 ## 1.0.144
 
 ### Patch Changes
