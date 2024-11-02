@@ -47,7 +47,15 @@ export default defineComponent({
   },
   setup(props) {
     const value = computed<ListCellValue>(() => {
-      return get(props.row, props.column.field, null);
+      return (
+        props.column.format
+          ? props.column.format({
+              row: props.row,
+              column: props.column,
+              rowIndex: props.rowIndex,
+            })
+          : get(props.row, props.column.field, null)
+      ) as ListCellValue;
     });
 
     return {
