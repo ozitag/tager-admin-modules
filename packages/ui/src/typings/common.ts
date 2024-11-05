@@ -166,7 +166,7 @@ export interface ColumnDefinitionRelations<RowData = RowDataDefaultType>
   extends ColumnDefinitionCommon<RowData> {
   type: "relations";
   format: (params: ColumnParamsArg<RowData>) => RelationsCellValue;
-  options: {
+  options?: {
     allowZeroClick?: boolean;
   };
 }
