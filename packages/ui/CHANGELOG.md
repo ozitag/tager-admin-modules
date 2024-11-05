@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.146
+
+### Patch Changes
+
+- a1593a4: add allowZeroClick option to relationsCell
+
 ## 1.0.145
 
 ### Patch Changes
