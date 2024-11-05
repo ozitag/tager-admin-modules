@@ -6,7 +6,7 @@
           variant="outline-secondary"
           :count="item.quantity"
           class="margin-right"
-          :disabled="item.quantity === 0"
+          :disabled="item.quantity === 0 && !allowZeroClick"
         >
           {{ item.label }}
         </CountButton>
@@ -54,8 +54,11 @@ export default defineComponent({
       rowIndex: props.rowIndex,
     });
 
+    const allowZeroClick = props.column.options?.allowZeroClick || false;
+
     return {
       value,
+      allowZeroClick,
     };
   },
 });
