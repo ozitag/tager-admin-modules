@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.147
+
+### Patch Changes
+
+- 088db2f: fix relations param "options"
+
 ## 1.0.146
 
 ### Patch Changes
