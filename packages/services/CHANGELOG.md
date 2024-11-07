@@ -1,5 +1,11 @@
 # @tager/admin-services
 
+## 1.1.19
+
+### Patch Changes
+
+- 87662f1: add MoveResource, MoveDirection types
+
 ## 1.1.18
 
 ### Patch Changes
