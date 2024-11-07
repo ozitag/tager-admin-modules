@@ -226,6 +226,7 @@ export default defineComponent({
 
     .tab-button {
       cursor: default;
+      font-weight: bold;
     }
   }
 
@@ -235,9 +236,10 @@ export default defineComponent({
 }
 
 .tab-button {
-  padding: 0.7rem 2rem;
+  padding: 0.7rem 1.2rem;
   color: inherit;
   font-weight: inherit;
   white-space: nowrap;
+  font-size: 0.85rem;
 }
 </style>
