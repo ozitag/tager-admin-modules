@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.149
+
+### Patch Changes
+
+- 72ef6dd: reduce size of page tabs
+
 ## 1.0.148
 
 ### Patch Changes
