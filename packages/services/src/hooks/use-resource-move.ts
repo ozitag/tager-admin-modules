@@ -3,23 +3,27 @@ import { ref } from "vue";
 import { useToast } from "./use-toast";
 
 type ResourceId = string | number;
-type Direction = "up" | "down" | "up-top";
+
+export type MoveDirection = "up" | "down" | "up-top";
+type MoveDirectionOld = "up" | "down";
+
+export type MoveResource = (
+  entityId: ResourceId,
+  direction: MoveDirection | MoveDirectionOld
+) => Promise<{ success: boolean }>;
 
 export function useResourceMove(params: {
-  moveResource: (
-    entityId: ResourceId,
-    direction: Direction
-  ) => Promise<{ success: boolean }>;
+  moveResource: MoveResource;
   resourceName?: string;
   onSuccess?: () => void;
 }): {
-  handleResourceMove: (entityId: ResourceId, direction: Direction) => void;
+  handleResourceMove: (entityId: ResourceId, direction: MoveDirection) => void;
   isMoving: (entityId: ResourceId) => boolean;
 } {
   const movingResourceIdList = ref<Array<ResourceId>>([]);
   const toast = useToast();
 
-  function handleResourceMove(entityId: ResourceId, direction: Direction) {
+  function handleResourceMove(entityId: ResourceId, direction: MoveDirection) {
     const resourceName = params.resourceName ?? "Resource";
 
     movingResourceIdList.value.push(entityId);

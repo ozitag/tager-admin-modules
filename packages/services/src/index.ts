@@ -24,7 +24,11 @@ export { request } from "./services/request";
 
 export * from "./hooks/use-resource";
 export { useResourceDelete } from "./hooks/use-resource-delete";
-export { useResourceMove } from "./hooks/use-resource-move";
+export {
+  useResourceMove,
+  type MoveResource,
+  type MoveDirection,
+} from "./hooks/use-resource-move";
 export { useResourceClone } from "./hooks/use-resource-clone";
 export { useI18n } from "./hooks/use-i18n";
 export { useToast } from "./hooks/use-toast";
