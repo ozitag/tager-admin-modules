@@ -28,6 +28,18 @@ export const Number = () =>
       '<FormField v-model:value="value" name="number" type="number" label="Number" />',
   });
 
+export const NumberZero = () =>
+  defineComponent({
+    components: { FormField },
+    data() {
+      return {
+        value: 0,
+      };
+    },
+    template:
+      '<FormField v-model:value="value" name="number" type="number" label="Number" />',
+  });
+
 export const NumberWithThousands = () =>
   defineComponent({
     components: { FormField },

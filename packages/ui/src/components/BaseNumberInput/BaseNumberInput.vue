@@ -51,6 +51,10 @@ export default defineComponent({
     const formattedNumber = computed<string>(() => {
       if (props.value === null || typeof props.value === "undefined") return "";
 
+      if (props.value === 0) {
+        return 0;
+      }
+
       const containsDot = String(props.value).includes(".");
       const [integer, fraction] = props.value
         ? String(props.value).split(".")
