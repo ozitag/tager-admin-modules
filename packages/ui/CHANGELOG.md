@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.150
+
+### Patch Changes
+
+- ed2b2a5: display zero when number input value is zero
+
 ## 1.0.149
 
 ### Patch Changes
