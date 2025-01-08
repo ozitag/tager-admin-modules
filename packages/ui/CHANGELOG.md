@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.151
+
+### Patch Changes
+
+- 845643a: display zero in zero value
+
 ## 1.0.150
 
 ### Patch Changes
