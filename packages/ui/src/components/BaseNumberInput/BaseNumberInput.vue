@@ -49,7 +49,7 @@ export default defineComponent({
     const isFloat = props.type !== "integer";
 
     const formattedNumber = computed<string>(() => {
-      if (!props.value) return "";
+      if (props.value === null || typeof props.value === "undefined") return "";
 
       const containsDot = String(props.value).includes(".");
       const [integer, fraction] = props.value
