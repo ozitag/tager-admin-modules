@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.153
+
+### Patch Changes
+
+- 02b630c: add colored flag to FormFieldOptions
+
 ## 1.0.152
 
 ### Patch Changes
