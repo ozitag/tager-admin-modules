@@ -10,11 +10,17 @@
     <OptionsSwitcherTrueFalse
       :value="value"
       :true-label="trueLabel"
-      :true-color="trueColor"
-      :true-text-color="trueTextColor"
+      :true-color="trueColor ? trueColor : colored ? 'var(--green)' : undefined"
+      :true-text-color="
+        trueTextColor ? trueTextColor : colored ? 'var(--white)' : undefined
+      "
       :false-label="falseLabel"
-      :false-color="falseColor"
-      :false-text-color="falseTextColor"
+      :false-color="
+        falseColor ? falseColor : colored ? 'var(--red)' : undefined
+      "
+      :false-text-color="
+        falseTextColor ? falseTextColor : colored ? 'var(--white)' : undefined
+      "
       v-bind="$attrs"
     />
   </FormFieldWrapper>
@@ -81,6 +87,10 @@ export default defineComponent({
     description: {
       type: String,
       default: "",
+    },
+    colored: {
+      type: Boolean,
+      default: false,
     },
   },
 });

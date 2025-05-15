@@ -75,9 +75,27 @@ export const TrueFalse = () => ({
     <FormFieldOptionsSwitcherTrueFalse
       v-model:value="value"
       label="Visible"
-      :false-color="red"
-      :false-text-color="white"
-      :true-color="green"
-      :true-text-color="white"
+    />`,
+});
+
+export const TrueFalseColored = () => ({
+  name: "DefaultFormFieldOptionsSwitcherTrueFalse",
+  components: { FormFieldOptionsSwitcherTrueFalse },
+  setup() {
+    const value = ref<boolean>();
+
+    watch(value, (value) => {
+      console.log("value:", value);
+    });
+
+    return {
+      value,
+    };
+  },
+  template: `
+    <FormFieldOptionsSwitcherTrueFalse
+      v-model:value="value"
+      label="Visible"
+      :colored="true"
     />`,
 });
