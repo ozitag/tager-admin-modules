@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.152
+
+### Patch Changes
+
+- 7548040: add colored flag to OptionsTrueFalseSwitcher
+
 ## 1.0.151
 
 ### Patch Changes
