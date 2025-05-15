@@ -3,6 +3,7 @@
     <span
       v-for="item in optionsFormatted"
       :key="item.value"
+      :title="item.label"
       :class="item.value === innerValue ? 'active' : ''"
       :style="
         item.value === innerValue
@@ -106,9 +107,7 @@ export default defineComponent({
   span {
     height: 38px;
     font-size: 1rem;
-    padding: 0 1.5rem;
-    display: flex;
-    align-items: center;
+    padding: 7px 1rem;
     flex: 1 1 1px;
     cursor: pointer;
     justify-content: center;
@@ -117,6 +116,8 @@ export default defineComponent({
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: center;
+    display: block;
 
     &:first-child {
       border-radius: var(--input-border-radius) 0 0 var(--input-border-radius);

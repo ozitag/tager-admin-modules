@@ -31,6 +31,34 @@ export const Default = () => ({
     />`,
 });
 
+export const DefaultSmall = () => ({
+  name: "DefaultFormFieldSmall",
+  components: { FormFieldOptionsSwitcher },
+  setup() {
+    const value = ref<string>("1");
+
+    watch(value, (value) => {
+      console.log("value:", value);
+    });
+
+    return {
+      value,
+    };
+  },
+  template: `
+    <div :style="{width: '350px'}">
+      <FormFieldOptionsSwitcher
+        v-model:value="value"
+        :options="[
+  {value: '1', label: 'Польский злотый, PLN'},
+  {value: '2', label: 'Евро'}
+]"
+        label="Visible"
+      />
+    </div>
+  `,
+});
+
 export const Nullable = () => ({
   name: "NullableFormFieldOptionsSwitcher",
   components: { FormFieldOptionsSwitcher },
