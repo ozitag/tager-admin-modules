@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.154
+
+### Patch Changes
+
+- 51a9644: improve OptionsSwitcher
+
 ## 1.0.153
 
 ### Patch Changes
