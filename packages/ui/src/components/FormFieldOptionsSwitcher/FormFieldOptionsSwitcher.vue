@@ -9,6 +9,7 @@
   >
     <OptionsSwitcher
       :options="options"
+      :colored="colored"
       :nullable="nullable"
       :value="value"
       v-bind="$attrs"
@@ -68,6 +69,10 @@ export default defineComponent({
     description: {
       type: String,
       default: "",
+    },
+    colored: {
+      type: Boolean,
+      default: false,
     },
   },
 });

@@ -1,7 +1,7 @@
 <template>
   <div class="options-switcher">
     <span
-      v-for="item in options"
+      v-for="item in optionsFormatted"
       :key="item.value"
       :class="item.value === innerValue ? 'active' : ''"
       :style="
@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import type { PropType } from "vue";
-import { defineComponent, ref, watch } from "vue";
+import { computed, defineComponent, ref, watch } from "vue";
 
 import type { OptionsSwitcherOption } from "./OptionsSwitcher.types";
 
@@ -33,6 +33,10 @@ export default defineComponent({
       default: null,
     },
     nullable: {
+      type: Boolean,
+      default: false,
+    },
+    colored: {
       type: Boolean,
       default: false,
     },
@@ -67,9 +71,28 @@ export default defineComponent({
       emit("update:value", newValue);
     };
 
+    const optionsFormatted = computed<Array<OptionsSwitcherOption>>(() => {
+      return props.options.map((option) => {
+        return {
+          ...option,
+
+          activeColor:
+            props.colored && !option.activeColor
+              ? "var(--green)"
+              : option.activeColor,
+
+          activeTextColor:
+            props.colored && !option.activeTextColor
+              ? "var(--white)"
+              : option.activeTextColor,
+        };
+      });
+    });
+
     return {
       innerValue,
       onChange,
+      optionsFormatted,
     };
   },
 });

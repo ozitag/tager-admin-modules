@@ -57,6 +57,32 @@ export const Nullable = () => ({
     />`,
 });
 
+export const NullableColored = () => ({
+  name: "NullableFormFieldOptionsSwitcherColored",
+  components: { FormFieldOptionsSwitcher },
+  setup() {
+    const value = ref<string>("1");
+
+    watch(value, (value) => {
+      console.log("value:", value);
+    });
+
+    return {
+      value,
+    };
+  },
+  template: `
+    <FormFieldOptionsSwitcher
+      v-model:value="value" :nullable="true" :colored="true"
+      :options="[
+  {value: '1', label: 'Option 1'},
+  {value: '2', label: 'Option 2'},
+  {value: '3', label: 'Option 3'},
+]"
+      label="Visible"
+    />`,
+});
+
 export const TrueFalse = () => ({
   name: "DefaultFormFieldOptionsSwitcherTrueFalse",
   components: { FormFieldOptionsSwitcherTrueFalse },
