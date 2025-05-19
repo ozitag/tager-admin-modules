@@ -35,6 +35,7 @@ export default defineComponent({
   },
   emits: ["update:value"],
   setup(props, context) {
+    console.log("BaseRichTextInput", props);
     function handleSourceChange(value: string) {
       context.emit("update:value", value);
     }

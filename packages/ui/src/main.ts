@@ -41,6 +41,7 @@ export { default as LoadableImage } from "./components/LoadableImage";
 export { default as Nl2Br } from "./components/Nl2Br";
 export { default as DropdownMenu } from "./components/DropdownMenu";
 export { default as BaseSelect } from "./components/BaseSelect";
+export { default as FormFieldLocalizedInput } from "./components/FormFieldLocalizedInput";
 export { default as FormFieldSelect } from "./components/FormFieldSelect";
 export { default as FormFieldSingleSelect } from "./components/FormFieldSingleSelect/FormFieldSingleSelect.vue";
 export * from "./components/TabList";
