@@ -1,1 +1,1 @@
-export { default as FormFieldLocalizedRichTextInput } from "./FormFieldLocalizedInput.vue";
+export { default as FormFieldLocalizedInput } from "./FormFieldLocalizedInput.vue";
