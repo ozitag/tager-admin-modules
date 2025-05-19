@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.155
+
+### Patch Changes
+
+- 0b406aa: add FormFieldLocalizedInput
+
 ## 1.0.154
 
 ### Patch Changes
