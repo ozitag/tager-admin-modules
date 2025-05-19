@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.156
+
+### Patch Changes
+
+- b0f3b9f: rename localized component
+
 ## 1.0.155
 
 ### Patch Changes
