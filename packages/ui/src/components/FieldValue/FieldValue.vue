@@ -23,6 +23,10 @@
           <FieldValueJson :data="value" />
         </div>
 
+        <div v-if="type === 'xml'">
+          <FieldValueXml :value="value" />
+        </div>
+
         <template v-if="type === 'link' && src">
           <router-link v-if="shouldUseRouter" :to="src">
             {{ src }}
@@ -149,6 +153,7 @@ import { BaseButton } from "../BaseButton";
 import BaseSpinner from "../BaseSpinner/BaseSpinner.vue";
 
 import FieldValueJson from "./сomponents/FieldValueJson.vue";
+import FieldValueXml from "./сomponents/FieldValueXml.vue";
 
 type FieldValueButtonType = {
   label: string;
@@ -162,7 +167,14 @@ type FieldValueButtonType = {
 
 export default defineComponent({
   name: "FieldValue",
-  components: { BaseSpinner, FieldValueJson, LoadableImage, Nl2Br, BaseButton },
+  components: {
+    FieldValueXml,
+    BaseSpinner,
+    FieldValueJson,
+    LoadableImage,
+    Nl2Br,
+    BaseButton,
+  },
   props: {
     label: {
       type: String,
@@ -176,6 +188,7 @@ export default defineComponent({
         | "image"
         | "list"
         | "json"
+        | "xml"
         | "gallery"
         | "date"
         | "datetime"
@@ -189,6 +202,7 @@ export default defineComponent({
           "image",
           "list",
           "json",
+          "xml",
           "gallery",
           "date",
           "datetime",

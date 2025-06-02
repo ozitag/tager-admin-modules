@@ -50,7 +50,8 @@
     "sortablejs": "^1.15.0",
     "tinycolor2": "^1.4.2",
     "vanilla-picker": "^2.12.1",
-    "vue3-json-viewer": "^2.2.2"
+    "vue3-json-viewer": "^2.2.2",
+    "vue3-xml-viewer": "^0.0.14"
   },
   "devDependencies": {
     "@tager/admin-tools": "workspace:*",

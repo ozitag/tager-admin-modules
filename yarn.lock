@@ -3571,6 +3571,7 @@ __metadata:
     vanilla-picker: ^2.12.1
     vite: "*"
     vue3-json-viewer: ^2.2.2
+    vue3-xml-viewer: ^0.0.14
   peerDependencies:
     vue: ^3.2.33
     vue-router: ^4.0.14
@@ -16937,6 +16938,16 @@ __metadata:
   peerDependencies:
     vue: ^3.2.0
   checksum: 5f744ce30a49ac287ae40a7655dafeb8e43b37fb8db003b8111f0fa12a9edd0de3ab77f83e5329ce1c915d8aa280acf5ee80bbf957335eb9310a8ca1f8d1d111
+  languageName: node
+  linkType: hard
+
+"vue3-xml-viewer@npm:^0.0.14":
+  version: 0.0.14
+  resolution: "vue3-xml-viewer@npm:0.0.14"
+  peerDependencies:
+    core-js: ^3.23.3
+    vue: ^3.2.33
+  checksum: 160cac2855788912cbeca357b01ad6551a3204e502a199deb8682b478e96e7093c74622e9e3a686d30eba382378c11c24350155a5eb9bd16dcf3b33e963e30b7
   languageName: node
   linkType: hard
 
