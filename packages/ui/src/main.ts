@@ -37,6 +37,7 @@ export { default as MultiSelect } from "./components/MultiSelect";
 export { default as FormFieldMultiSelect } from "./components/FormFieldMultiSelect";
 export { default as FormFieldUrlAliasInput } from "./components/FormFieldUrlAliasInput";
 export * from "./components/NavigationGrid";
+export { default as XmlViewer } from "./components/XmlViewer.vue";
 export { default as LoadableImage } from "./components/LoadableImage";
 export { default as Nl2Br } from "./components/Nl2Br";
 export { default as DropdownMenu } from "./components/DropdownMenu";
