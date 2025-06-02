@@ -43,6 +43,7 @@
     "@tager/admin-services": "workspace:*",
     "@tager/admin-wysiwyg": "^1.0.0",
     "autosize": "^5.0.1",
+    "highlight.js": "^11.11.1",
     "leaflet": "^1.8.0",
     "libphonenumber-js": "^1.10.28",
     "lodash-es": "*",
@@ -50,8 +51,7 @@
     "sortablejs": "^1.15.0",
     "tinycolor2": "^1.4.2",
     "vanilla-picker": "^2.12.1",
-    "vue3-json-viewer": "^2.2.2",
-    "vue3-xml-viewer": "^0.0.14"
+    "vue3-json-viewer": "^2.2.2"
   },
   "devDependencies": {
     "@tager/admin-tools": "workspace:*",

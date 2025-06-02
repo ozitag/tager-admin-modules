@@ -15,7 +15,7 @@ export const Text = () => ({
     };
   },
   template: `
-    <FieldValue label="Label" type="text" :value="text"/>`,
+    <FieldValue label="Label" type="text" :value="text" />`,
 });
 
 export const TextWithEdit = () => ({
@@ -43,9 +43,9 @@ export const TextWithEdit = () => ({
                 :with-edit="true" :edit-active="editMode" edit-label="Edit Item"
                 @edit="onEditClick">
       <template #edit>
-        Edit Form...<br/>
-        Edit Form...<br/>
-        Edit Form...<br/>
+        Edit Form...<br />
+        Edit Form...<br />
+        Edit Form...<br />
         <button @click="onCancelClick">Cancel</button>
       </template>
     </FieldValue>`,
@@ -76,9 +76,9 @@ export const TextWithEditHideValue = () => ({
                 :with-edit="true" :edit-active="editMode" edit-label="Edit Item" :hide-value-on-edit="true"
                 @edit="onEditClick">
       <template #edit>
-        Edit Form...<br/>
-        Edit Form...<br/>
-        Edit Form...<br/>
+        Edit Form...<br />
+        Edit Form...<br />
+        Edit Form...<br />
         <button @click="onCancelClick">Cancel</button>
       </template>
     </FieldValue>`,
@@ -120,11 +120,11 @@ export const TextWithEditActions = () => ({
                 :with-edit="true" :edit-active="editMode" edit-label="Edit Item"
                 :with-edit-actions="true" :edit-actions-loading="loading"
                 @edit="onEditClick" @cancel="onCancelClick" @save="onSaveClick">
-    <template #edit>
-      Edit Form...<br/>
-      Edit Form...<br/>
-      Edit Form...
-    </template>
+      <template #edit>
+        Edit Form...<br />
+        Edit Form...<br />
+        Edit Form...
+      </template>
     </FieldValue>`,
 });
 
@@ -139,21 +139,21 @@ export const TextMultiLine = () => ({
     };
   },
   template: `
-    <FieldValue label="Label" type="text" :value="text"/>`,
+    <FieldValue label="Label" type="text" :value="text" />`,
 });
 
 export const Date = () => ({
   name: "DateFieldValue",
   components: { FieldValue },
   template: `
-    <FieldValue label="Label" type="date" value="2022-12-21T23:20:35+00:00"/>`,
+    <FieldValue label="Label" type="date" value="2022-12-21T23:20:35+00:00" />`,
 });
 
 export const DateTime = () => ({
   name: "DateTimeFieldValue",
   components: { FieldValue },
   template: `
-    <FieldValue label="Label" type="datetime" value="2022-12-21T23:20:35+00:00"/>`,
+    <FieldValue label="Label" type="datetime" value="2022-12-21T23:20:35+00:00" />`,
 });
 
 export const Link = () => ({
@@ -169,11 +169,11 @@ export const Link = () => ({
     };
   },
   template: `
-    <FieldValue label="Label" type="link" :src="src" :value="text"/>`,
+    <FieldValue label="Label" type="link" :src="src" :value="text" />`,
 });
 
 export const JsonString = () => ({
-  name: "JsonString",
+  name: "JSON (String)",
   components: { FieldValue },
   setup() {
     return {
@@ -181,7 +181,7 @@ export const JsonString = () => ({
     };
   },
   template: `
-    <FieldValue label="JSON" type="json" y:value="text"/>`,
+    <FieldValue label="JSON" type="json" y:value="text" />`,
 });
 
 const XML_STRING = `<?xml version="1.0" encoding="UTF-8"?>
@@ -650,15 +650,15 @@ const XML_STRING = `<?xml version="1.0" encoding="UTF-8"?>
 `;
 
 export const XmlString = () => ({
-  name: "XmlString",
+  name: "XML",
   components: { FieldValue },
   setup() {
     return {
-      text: XML_STRING,
+      value: XML_STRING,
     };
   },
   template: `
-    <FieldValue label="XML" type="xml" :value="text"/>`,
+    <FieldValue label="XML" type="xml" :value="value" />`,
 });
 
 export const JsonObject = () => ({
@@ -849,14 +849,14 @@ export const JsonObject = () => ({
     };
   },
   template: `
-    <FieldValue label="JSON" type="json" :value="text"/>`,
+    <FieldValue label="JSON" type="json" :value="text" />`,
 });
 
 export const JsonNull = () => ({
   name: "JsonNull",
   components: { FieldValue },
   template: `
-    <FieldValue label="JSON" type="json" :value="null"/>`,
+    <FieldValue label="JSON" type="json" :value="null" />`,
 });
 
 export const VideoYouTube = () => ({
@@ -870,7 +870,7 @@ export const VideoYouTube = () => ({
     };
   },
   template: `
-    <FieldValue label="Label" type="video" :videoId="videoId"/>`,
+    <FieldValue label="Label" type="video" :videoId="videoId" />`,
 });
 export const VideoMP4 = () => ({
   name: "VideoFieldValue",
@@ -884,7 +884,7 @@ export const VideoMP4 = () => ({
     };
   },
   template: `
-    <FieldValue label="Label" type="video" :src="src"/>`,
+    <FieldValue label="Label" type="video" :src="src" />`,
 });
 
 export const Image = () => ({
@@ -899,7 +899,7 @@ export const Image = () => ({
     };
   },
   template: `
-    <FieldValue label="Label" type="image" :src="src"/>`,
+    <FieldValue label="Label" type="image" :src="src" />`,
 });
 
 export const Gallery = () => ({
@@ -914,7 +914,7 @@ export const Gallery = () => ({
     };
   },
   template: `
-    <FieldValue label="Label" type="gallery" :images="images"/>`,
+    <FieldValue label="Label" type="gallery" :images="images" />`,
 });
 
 export const List = () => ({
@@ -923,18 +923,19 @@ export const List = () => ({
   template: `
     <FieldValue label="Список продуктов на неделю" :with-edit="true" type="list" :value="[
       'Картофель', 'Морковь', 'Лук',  'Чеснок', 'Петрушка', 'Укроп'
-    ]"/>`,
+    ]" />`,
 });
 
 export const Custom = () => ({
   name: "CustomFieldValue",
   components: { FieldValue },
   template: `
-    <FieldValue label="Список продуктов на неделю" :loading="true" :with-edit="true" type="list" :edit-open-new-tab="true"
+    <FieldValue label="Список продуктов на неделю" :loading="true" :with-edit="true" type="list"
+                :edit-open-new-tab="true"
                 edit-link="/">
-    <template #value>
-      Value <a href="#">Link</a>, Text
-    </template>
+      <template #value>
+        Value <a href="#">Link</a>, Text
+      </template>
     </FieldValue>`,
 });
 
@@ -952,8 +953,8 @@ export const WithButtons = () => ({
         {label: 'Button 3 (New Tab)', variant: 'red', to: 'https://google.com', useRouter: false},
         {label: 'Button 4 (New Tab)', variant: 'green', to: 'https://google.com', useRouter: false},
     ]">
-    <template #value>
-      Value <a href="#">Link</a>, Text
-    </template>
+      <template #value>
+        Value <a href="#">Link</a>, Text
+      </template>
     </FieldValue>`,
 });

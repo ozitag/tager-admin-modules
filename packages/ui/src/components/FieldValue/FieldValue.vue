@@ -24,7 +24,7 @@
         </div>
 
         <div v-if="type === 'xml'">
-          <FieldValueXml :value="value" />
+          <XmlViewer :xml="value" />
         </div>
 
         <template v-if="type === 'link' && src">
@@ -151,9 +151,9 @@ import Nl2Br from "../../components/Nl2Br";
 import type { ButtonVariant } from "../BaseButton";
 import { BaseButton } from "../BaseButton";
 import BaseSpinner from "../BaseSpinner/BaseSpinner.vue";
+import XmlViewer from "../XmlViewer.vue";
 
 import FieldValueJson from "./components/FieldValueJson.vue";
-import FieldValueXml from "./components/FieldValueXml.vue";
 
 type FieldValueButtonType = {
   label: string;
@@ -168,7 +168,7 @@ type FieldValueButtonType = {
 export default defineComponent({
   name: "FieldValue",
   components: {
-    FieldValueXml,
+    XmlViewer,
     BaseSpinner,
     FieldValueJson,
     LoadableImage,
