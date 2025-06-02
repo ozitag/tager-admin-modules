@@ -152,8 +152,8 @@ import type { ButtonVariant } from "../BaseButton";
 import { BaseButton } from "../BaseButton";
 import BaseSpinner from "../BaseSpinner/BaseSpinner.vue";
 
-import FieldValueJson from "./сomponents/FieldValueJson.vue";
-import FieldValueXml from "./сomponents/FieldValueXml.vue";
+import FieldValueJson from "./components/FieldValueJson.vue";
+import FieldValueXml from "./components/FieldValueXml.vue";
 
 type FieldValueButtonType = {
   label: string;
