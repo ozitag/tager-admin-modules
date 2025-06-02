@@ -1,5 +1,11 @@
 ## 1.0.25
 
+## 1.0.158
+
+### Patch Changes
+
+- 5e31985: add xml viewer
+
 ## 1.0.157
 
 ### Patch Changes
