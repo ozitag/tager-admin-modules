@@ -1829,7 +1829,7 @@ __metadata:
     lodash-es: "*"
     msw: ^2.15.0
     msw-storybook-addon: ^3.0.3
-    pinia: ^2.0.21
+    pinia: ^4.1.0
     smoothscroll-polyfill: ^0.4.4
     sortablejs: ^1.15.0
     storybook: ^10.6.6
@@ -2705,7 +2705,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/devtools-api@npm:^6.1.4, @vue/devtools-api@npm:^6.2.1":
+"@vue/devtools-api@npm:^6.1.4":
   version: 6.2.1
   resolution: "@vue/devtools-api@npm:6.2.1"
   checksum: 34765af0be9b0cc7e3def73b2792b1514e3c348852c5a7503fe07d013f0e907af6c27c0a32c0637dd748caf37c075af8e53ca3220433e0bd34b6f3405f358272
@@ -7387,6 +7387,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nostics@npm:^1.2.0":
+  version: 1.3.0
+  resolution: "nostics@npm:1.3.0"
+  checksum: 6abd957ca8ccc8c3470103c9dd240950ca18d0938d4bfeae6da90a6f7659a08f0d36c8d9e179a8a6f36c9bdf93df4d6ff59ecebb45218ff7faa545164b0a4176
+  languageName: node
+  linkType: hard
+
 "npm-run-path@npm:^5.1.0":
   version: 5.1.0
   resolution: "npm-run-path@npm:5.1.0"
@@ -7980,22 +7987,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pinia@npm:^2.0.21":
-  version: 2.0.21
-  resolution: "pinia@npm:2.0.21"
+"pinia@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "pinia@npm:4.1.0"
   dependencies:
-    "@vue/devtools-api": ^6.2.1
-    vue-demi: "*"
+    nostics: ^1.2.0
   peerDependencies:
-    "@vue/composition-api": ^1.4.0
-    typescript: ">=4.4.4"
-    vue: ^2.6.14 || ^3.2.0
+    "@vue/devtools-api": ^8.2.1
+    typescript: ">=5.6.0"
+    vue: ^3.5.11
   peerDependenciesMeta:
-    "@vue/composition-api":
-      optional: true
+    "@vue/devtools-api":
+      optional: false
     typescript:
       optional: true
-  checksum: 7fbb83a8de300b8949b0c718f016ce318dcb6a733417e85c47c9f0cd5986fb0bfeeff3c92849051d2584097c4e08d4dcbe477e6fc1b925ba7341cdce64c8ff15
+  checksum: 99b9fc56eea28155779427f0ef4598d835dcd16152a0f08d8162f4a81c94e01308a3a61da811cd3d5673bf03e5548d1f7f36543f46b11fa4d31cbc0722871030
   languageName: node
   linkType: hard
 
@@ -9581,7 +9587,7 @@ __metadata:
     jsdom: ^31.0.0
     lint-staged: ^13.0.3
     lodash-es: ^4.17.21
-    pinia: ^2.0.21
+    pinia: ^4.1.0
     prettier: ^3.9.10
     sass: ^1.95.0
     typescript: 5.9.3
@@ -10366,22 +10372,6 @@ __metadata:
   version: 3.3.14
   resolution: "vue-component-type-helpers@npm:3.3.14"
   checksum: 045a5095eb745f4f977127097819ce8168ce116d914d475bba7451e4f8e3cf08d479f067e1828a07a0666a49abf4299a562368d384601c219c063da8d454dd77
-  languageName: node
-  linkType: hard
-
-"vue-demi@npm:*":
-  version: 0.13.8
-  resolution: "vue-demi@npm:0.13.8"
-  peerDependencies:
-    "@vue/composition-api": ^1.0.0-rc.1
-    vue: ^3.0.0-0 || ^2.6.0
-  peerDependenciesMeta:
-    "@vue/composition-api":
-      optional: true
-  bin:
-    vue-demi-fix: bin/vue-demi-fix.js
-    vue-demi-switch: bin/vue-demi-switch.js
-  checksum: 1fa8c4552109f6b046f6ec4097b5e5f43c95e10203a57cb62db8c0fc9f102cf25dfa5847dbcaf357aff315dbf08745a0aeb3032292acecdcb8f7ad311a628d39
   languageName: node
   linkType: hard
 
