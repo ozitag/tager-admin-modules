@@ -1,27 +1,59 @@
-# TSDX Bootstrap
+# @tager/admin-services
 
-This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
+The services layer behind [`@tager/admin-ui`](../ui): HTTP, i18n, toasts, the user
+store and the shared types both packages build on.
 
-## Local Development
+Part of the [tager-admin-modules](../../README.md) monorepo.
 
-Below is a list of commands you will probably find useful.
+## Install
 
-### `npm start` or `yarn start`
+```bash
+yarn add @tager/admin-services
+```
 
-Runs the project in development/watch mode. Your project will be rebuilt upon changes. TSDX has a special logger for you convenience. Error messages are pretty printed and formatted for compatibility VS Code's Problems tab.
+### Peer dependencies
 
-<img src="https://user-images.githubusercontent.com/4060187/52168303-574d3a00-26f6-11e9-9f3b-71dbec9ebfcb.gif" width="600" />
+`vue`, `vue-router` and `pinia` — the store and the hooks need all three.
 
-Your library will be rebuilt if you make edits.
+## What's inside
 
-### `npm run build` or `yarn build`
+**HTTP** — `request` (`get` / `post` / `put` / `delete` / `patch`) on top of
+`fetch`, with access-token handling and `RequestError` carrying the status, url
+and parsed body. `getMessageFromError` turns anything thrown into something
+displayable; `convertRequestErrorToMap` flattens a validation response into
+`field -> message`.
 
-Bundles the package to the `dist` folder.
-The package is optimized and bundled with Rollup into multiple formats (CommonJS, UMD, and ES Module).
+**Resource hooks** — `useResource`, `useResourceDelete`, `useResourceClone`,
+`useResourceMove` wrap a fetch into `{ data, meta, loading, error, status }`.
 
-<img src="https://user-images.githubusercontent.com/4060187/52168322-a98e5b00-26f6-11e9-8cf6-222d716b75ef.gif" width="600" />
+**i18n** — an `i18next` instance plus `i18nPlugin` and the `useI18n` hook.
+Packages register their own namespaces with `i18n.addTranslations`.
 
-### `npm test` or `yarn test`
+**Toasts** — `useToast` to raise one, `useToastList` to render them.
 
-Runs the test watcher (Jest) in an interactive mode.
-By default, runs tests related to files changed since the last commit.
+**Environment and config** — `initializeEnvironment`, `environment`, and
+`configStore` for the project's own config file.
+
+**Utilities** — type guards (`isString`, `isNumber`, `isNullish`, `isNotNullish`,
+`isNotFalsy`, `isFileObject`), url helpers (`isAbsoluteUrl`, `trimTrailingSlash`,
+`urlTranslit`), `createId`, `upload`.
+
+**Types** — `Nullable`, `Nullish`, `ResponseBody`, `QueryParams`, `FileType`,
+`FetchStatus` and friends.
+
+The full surface is the export list in [`src/index.ts`](./src/index.ts).
+
+## Development
+
+Everything is driven from the repository root:
+
+```bash
+yarn typecheck
+yarn lint
+yarn test
+yarn workspaces foreach run build:package
+```
+
+The package is bundled with Vite in library mode; declarations are emitted
+separately by `tsc`. Tests live next to the code as `*.test.ts` and run on
+Vitest.
