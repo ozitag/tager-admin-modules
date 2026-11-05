@@ -1,0 +1,80 @@
+version: 2
+
+updates:
+  # Yarn 3 workspaces: the root manifest covers every package in `packages/*`.
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    versioning-strategy: increase-if-necessary
+    labels:
+      - dependencies
+    # Without grouping this repository would get a separate PR per package.
+    # Majors stay ungrouped on purpose -- each one needs its own migration.
+    groups:
+      storybook:
+        patterns:
+          - "storybook"
+          - "@storybook/*"
+          - "eslint-plugin-storybook"
+          - "storybook-vue3-router"
+          - "msw"
+          - "msw-storybook-addon"
+        update-types:
+          - minor
+          - patch
+      vue:
+        patterns:
+          - "vue"
+          - "vue-router"
+          - "pinia"
+          - "@vitejs/plugin-vue"
+        update-types:
+          - minor
+          - patch
+      build-tooling:
+        patterns:
+          - "vite"
+          - "rollup"
+          - "@rollup/*"
+          - "sass"
+          - "typescript"
+        update-types:
+          - minor
+          - patch
+      linting:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "@typescript-eslint/*"
+          - "@vue/eslint-config-*"
+          - "prettier"
+        update-types:
+          - minor
+          - patch
+      types:
+        patterns:
+          - "@types/*"
+        update-types:
+          - minor
+          - patch
+      other-minor-patch:
+        patterns:
+          - "*"
+        update-types:
+          - minor
+          - patch
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
+    labels:
+      - dependencies
+      - github-actions
+    groups:
+      actions:
+        patterns:
+          - "*"

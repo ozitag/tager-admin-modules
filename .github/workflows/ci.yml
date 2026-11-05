@@ -1,0 +1,48 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    # Pushes to master are already validated by `publish.yml`.
+    branches-ignore:
+      - master
+
+# A new push supersedes whatever was running for the same ref.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+
+      - name: Install Dependencies
+        run: yarn install --immutable
+
+      - name: Type Check
+        run: yarn run typecheck
+
+      - name: Lint
+        run: yarn run lint
+
+      - name: Test
+        run: yarn run test
+
+      # Mirrors the publish workflow: proves both packages still build
+      # and that the declarations are actually emitted.
+      - name: Build Packages
+        run: |
+          yarn run clean
+          yarn workspaces foreach --verbose run build:package
+
+      - name: Build Storybook
+        run: yarn workspace @tager/admin-ui run build-storybook
