@@ -122,7 +122,15 @@ interface PaginationProps {
 }
 
 interface Props {
-  columnDefs: Array<ColumnDefinition>;
+  /**
+   * Таблица не зависит от формы строки, а ColumnDefinition контравариантен по
+   * RowData: format/type/class принимают ColumnParamsArg<RowData>. Поэтому
+   * ColumnDefinition<ConcreteRow> не присваивается ColumnDefinition<RowDataDefaultType>,
+   * и типизированные таблицы на стороне потребителя не проходили проверку.
+   * На границе пропа принимаем определения колонок для строки любой формы.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  columnDefs: Array<ColumnDefinition<any>>;
   rowData: Array<RowDataDefaultType>;
   rowCssClass: (row: RowDataDefaultType) => string;
   enumerable: boolean;

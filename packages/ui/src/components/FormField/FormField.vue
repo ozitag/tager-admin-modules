@@ -11,7 +11,7 @@
       v-if="type === 'textarea'"
       :id="name"
       :name="name"
-      :value="value"
+      :value="inputValue"
       :max-height-rows="maxHeightRows"
       v-bind="$attrs"
     />
@@ -19,7 +19,7 @@
       v-else-if="type === 'number'"
       :id="name"
       :name="name"
-      :value="value"
+      :value="inputValue"
       :thousands-separator="thousandsSeparator"
       v-bind="$attrs"
     />
@@ -28,14 +28,14 @@
       :id="name"
       :name="name"
       :type="type"
-      :value="value"
+      :value="inputValue"
       v-bind="$attrs"
     />
   </FormFieldWrapper>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent, type PropType } from "vue";
 
 import BaseInput from "../BaseInput";
 import BaseNumberInput from "../BaseNumberInput";
@@ -61,7 +61,7 @@ export default defineComponent({
       default: "",
     },
     value: {
-      type: String,
+      type: String as PropType<string | null>,
       default: "",
     },
     maxHeightRows: {
@@ -103,6 +103,12 @@ export default defineComponent({
       type: String,
       default: "",
     },
+  },
+  setup(props) {
+    /** Значение может прийти как null: вниз отдаём всегда строку. */
+    const inputValue = computed(() => props.value ?? "");
+
+    return { inputValue };
   },
 });
 </script>
