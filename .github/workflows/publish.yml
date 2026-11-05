@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - master
+  # Lets a release be retried without an empty commit -- useful when the
+  # versions are already bumped in master and only the publish step failed.
+  workflow_dispatch:
 jobs:
   release:
     runs-on: ubuntu-latest
