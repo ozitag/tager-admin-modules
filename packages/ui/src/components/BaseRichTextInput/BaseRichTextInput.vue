@@ -36,8 +36,13 @@ export default defineComponent({
   },
   emits: ["update:value"],
   setup(props, context) {
-    function handleSourceChange(value: string) {
-      context.emit("update:value", value);
+    // Обёртка 9 объявляет update:model-value как (...args: unknown[]),
+    // поэтому обработчик принимает её сигнатуру и сужает тип сам.
+    // Редактор всегда отдаёт строку.
+    function handleSourceChange(...args: unknown[]) {
+      const [value] = args;
+
+      context.emit("update:value", typeof value === "string" ? value : "");
     }
 
     return {
@@ -48,16 +53,19 @@ export default defineComponent({
         extraPlugins: [
           CustomUploadAdapterPluginFactory(props.getUploadAdapterOptions),
         ],
+        // decorators — это объект, ключ которого служит именем декоратора,
+        // а не массив. В прежнем виде настройка молча не применялась, и
+        // галочки «Open in a new tab» в диалоге ссылки не было.
         link: {
-          decorators: [
-            {
-              mode: "manual",
+          decorators: {
+            openInNewTab: {
+              mode: "manual" as const,
               label: "Open in a new tab",
               attributes: {
                 target: "_blank",
               },
             },
-          ],
+          },
         },
       },
     };

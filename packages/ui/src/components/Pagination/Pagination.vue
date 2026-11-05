@@ -67,7 +67,10 @@ import ChevronRightIcon from "../../icons/ChevronRightIcon.vue";
 import ComboBox from "../ComboBox";
 import type { OptionType } from "../../typings/common";
 
-interface Page {
+// Экспортируется, потому что попадает в публичный тип компонента:
+// генератор деклараций Vue 3.5 не может сослаться на неэкспортированное
+// имя из внешнего модуля (TS4023).
+export interface Page {
   value: string;
   number: number;
   type: "button" | "dots";

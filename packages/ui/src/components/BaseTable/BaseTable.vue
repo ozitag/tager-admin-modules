@@ -91,7 +91,9 @@ import type {
 import BaseTableCell from "./components/Cell.vue";
 import { useStickyTableHeader } from "./BaseTable.hooks";
 
-interface PaginationProps {
+// Экспортируется по той же причине, что и Page в Pagination.vue: иначе
+// декларация DataTable ссылается на имя, которое нельзя назвать (TS4023).
+export interface PaginationProps {
   pageNumber: number;
   pageSize: number;
   pageCount: number;
