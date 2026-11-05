@@ -1,4 +1,10 @@
 <template>
+  <!--
+    This cell type exists to render HTML, so the directive is the point.
+    The markup comes from the admin panel's own API, and the consuming
+    project is responsible for sanitising it before it reaches the table.
+  -->
+  <!-- eslint-disable-next-line vue/no-v-html -->
   <td v-html="value" />
 </template>
 

@@ -21,8 +21,11 @@
     "module": "./dist/index.mjs",
     "types": "./dist/main.d.ts",
     "exports": {
-      "./css": "./dist/style.css",
-      ".": "./dist/index.mjs"
+      ".": {
+        "types": "./dist/main.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "./css": "./dist/style.css"
     }
   },
   "files": [
@@ -31,17 +34,23 @@
   "scripts": {
     "build:js": "vite build",
     "build:package": "yarn build:js && yarn emit-declarations",
-    "emit-declarations": "tsc --project tsconfig.app.json --emitDeclarationOnly  --declarationMap false",
-    "storybook": "start-storybook --port 3000",
+    "emit-declarations": "rm -f ./tsconfig.emit.tsbuildinfo && vue-tsc --project tsconfig.emit.json --emitDeclarationOnly --declarationMap false",
+    "storybook": "storybook dev -p 3000",
     "tager:update": "yarn upgrade --latest --scope @tager",
     "prepack": "yarn patch-package",
-    "postpack": "yarn restore-package"
+    "postpack": "yarn restore-package",
+    "build-storybook": "storybook build"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-vue": "^4.0.1",
     "@floating-ui/dom": "^0.4.5",
     "@tager/admin-services": "workspace:*",
     "@tager/admin-wysiwyg": "^1.0.0",
+    "@types/leaflet": "^1.7.11",
+    "@types/sortablejs": "^1.13.0",
     "autosize": "^5.0.1",
     "highlight.js": "^11.11.1",
     "leaflet": "^1.8.0",
@@ -51,22 +60,33 @@
     "sortablejs": "^1.15.0",
     "tinycolor2": "^1.4.2",
     "vanilla-picker": "^2.12.1",
-    "vue3-json-viewer": "^2.2.2"
+    "vue3-json-viewer": "^2.4.1"
   },
   "devDependencies": {
+    "@storybook/addon-docs": "^10.6.6",
+    "@storybook/vue3-vite": "^10.6.6",
     "@tager/admin-tools": "workspace:*",
     "@tager/rollup-plugin-lodash": "workspace:*",
     "@types/autosize": "^4.0.1",
-    "@types/leaflet": "^1.7.11",
     "@types/smoothscroll-polyfill": "^0.3.1",
-    "@types/sortablejs": "^1.13.0",
-    "vite": "*"
+    "msw": "^2.15.0",
+    "msw-storybook-addon": "^3.0.3",
+    "pinia": "^2.0.21",
+    "storybook": "^10.6.6",
+    "storybook-vue3-router": "^7.0.0",
+    "typescript": "5.9.3",
+    "vite": "^7.3.7",
+    "vue": "^3.2.38",
+    "vue-router": "^4.1.5",
+    "vue-tsc": "^3.3.14"
   },
   "peerDependencies": {
     "vue": "^3.2.33",
     "vue-router": "^4.0.14"
   },
   "msw": {
-    "workerDirectory": ".storybook/public"
+    "workerDirectory": [
+      ".storybook/public"
+    ]
   }
 }

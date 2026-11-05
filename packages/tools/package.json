@@ -16,7 +16,7 @@
     "restore-package": "./cli/restore-package.js"
   },
   "engines": {
-    "node": ">=16"
+    "node": "^20.19.0 || >=22.12.0"
   },
   "dependencies": {
     "picocolors": "^1.0.0",

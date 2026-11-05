@@ -27,6 +27,17 @@ function getExternalDependencies() {
 
 export default defineConfig({
   build: {
+    /**
+     * Pinned explicitly: Vite's default target changed between majors
+     * (v3 "modules" ~Safari 13 -> v5+ "baseline-widely-available" ~Safari 16),
+     * which would silently move the published bundle's browser floor.
+     */
+    target: "es2020",
+    /**
+     * Published source maps: consumers debugging an admin panel otherwise
+     * land in minified output with nothing to map it back to.
+     */
+    sourcemap: true,
     lib: {
       entry: resolvePath("./src/index.ts"),
       formats: ["es"],

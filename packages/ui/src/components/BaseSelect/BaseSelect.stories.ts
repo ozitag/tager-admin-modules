@@ -1,3 +1,4 @@
+import type { StoryObj } from "@storybook/vue3-vite";
 import { defineComponent, ref } from "vue";
 
 import type { BaseOptionType } from "../../typings/common";
@@ -9,22 +10,24 @@ export default { title: "BaseSelect" };
 
 const OPTIONS = brandOptions;
 
-export const Default = () =>
-  defineComponent({
-    name: "DefaultBaseSelect",
-    components: { BaseSelect },
-    setup() {
-      const selected = ref<BaseOptionType | null>(null);
+export const Default: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "DefaultBaseSelect",
+      components: { BaseSelect },
+      setup() {
+        const selected = ref<BaseOptionType | null>(null);
 
-      return {
-        selected,
-        options: OPTIONS,
-      };
-    },
-    template: `
+        return {
+          selected,
+          options: OPTIONS,
+        };
+      },
+      template: `
       <BaseSelect
         v-model:value="selected"
         :options="options"
       />
     `,
-  });
+    }),
+};

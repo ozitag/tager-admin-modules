@@ -1,3 +1,4 @@
+import type { StoryObj } from "@storybook/vue3-vite";
 import { defineComponent, ref } from "vue";
 
 import type { ColorOptionType } from "../../typings/common";
@@ -21,34 +22,38 @@ const OPTIONS: Array<ColorOptionType> = [
   { value: 6, label: "черный", color: "#000000" },
 ];
 
-export const Default = () =>
-  defineComponent({
-    name: "DefaultColorSelect",
-    components: { ColorSelect },
-    setup() {
-      const options = ref<Array<ColorOptionType>>(OPTIONS);
-      const selected = ref<ColorOptionType | null>(null);
+export const Default: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "DefaultColorSelect",
+      components: { ColorSelect },
+      setup() {
+        const options = ref<Array<ColorOptionType>>(OPTIONS);
+        const selected = ref<ColorOptionType | null>(null);
 
-      return {
-        options,
-        selected,
-      };
-    },
-    template: `<ColorSelect v-model:value="selected" :options="options" />`,
-  });
+        return {
+          options,
+          selected,
+        };
+      },
+      template: `<ColorSelect v-model:value="selected" :options="options" />`,
+    }),
+};
 
-export const Multiple = () =>
-  defineComponent({
-    name: "DefaultColorSelect",
-    components: { ColorSelect },
-    setup() {
-      const options = ref<Array<ColorOptionType>>(OPTIONS);
-      const selected = ref<Array<ColorOptionType> | null>([]);
+export const Multiple: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "DefaultColorSelect",
+      components: { ColorSelect },
+      setup() {
+        const options = ref<Array<ColorOptionType>>(OPTIONS);
+        const selected = ref<Array<ColorOptionType> | null>([]);
 
-      return {
-        options,
-        selected,
-      };
-    },
-    template: `<ColorSelect v-model:value="selected" :options="options" :multiple="true" />`,
-  });
+        return {
+          options,
+          selected,
+        };
+      },
+      template: `<ColorSelect v-model:value="selected" :options="options" :multiple="true" />`,
+    }),
+};

@@ -1,3 +1,4 @@
+import type { StoryObj } from "@storybook/vue3-vite";
 import { ref } from "vue";
 
 import type { BaseOptionType } from "../../typings/common";
@@ -9,19 +10,20 @@ export default { title: "FormFieldComboBox" };
 
 const OPTIONS = brandOptions;
 
-export const Default = () => ({
-  name: "DefaultFormFieldComboBox",
-  components: { FormFieldComboBox },
-  setup() {
-    const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
-    const selected = ref<BaseOptionType | null>(null);
+export const Default: StoryObj = {
+  render: () => ({
+    name: "DefaultFormFieldComboBox",
+    components: { FormFieldComboBox },
+    setup() {
+      const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
+      const selected = ref<BaseOptionType | null>(null);
 
-    return {
-      options,
-      selected,
-    };
-  },
-  template: `
+      return {
+        options,
+        selected,
+      };
+    },
+    template: `
     <FormFieldComboBox 
         v-model:value="selected" 
         :options="options" 
@@ -32,4 +34,5 @@ export const Default = () => ({
         error="Required field"
     />
   `,
-});
+  }),
+};

@@ -1,4 +1,7 @@
-import type { ColumnDefinitionRelations } from "../../../typings/common";
+import type {
+  ColumnDefinitionRelations,
+  RowDataDefaultType,
+} from "../../../typings/common";
 import BaseTable from "../BaseTable.vue";
 
 interface TestEntity {
@@ -65,8 +68,8 @@ const story = () => ({
     return {
       columnDefs: defaultColumnDefs,
       rowData: data,
-      rowCssClass: (row: any) => {
-        return "row-id-" + row.id;
+      rowCssClass: (row: RowDataDefaultType) => {
+        return "row-id-" + String(row["id"]);
       },
     };
   },

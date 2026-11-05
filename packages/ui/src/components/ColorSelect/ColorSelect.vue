@@ -13,7 +13,9 @@
           ]"
           :style="{
             backgroundColor: option.color,
-            backgroundImage: option.imageUrl ? `url(${option.imageUrl})` : null,
+            backgroundImage: option.imageUrl
+              ? `url(${option.imageUrl})`
+              : undefined,
           }"
           :disabled="option.disabled"
           @click="handleOptionSelect(option)"
@@ -55,10 +57,6 @@ interface Props {
 export default defineComponent({
   name: "ColorSelect",
   components: { DoneIcon },
-  model: {
-    event: "change",
-    prop: "value",
-  },
   props: {
     value: {
       type: [Object, Array] as PropType<ValueType>,
@@ -113,7 +111,7 @@ export default defineComponent({
       emitChangeEvent(newSelectedOptions);
     }
 
-    function getCheckMarkIconColor(backgroundColor: string): string {
+    function getCheckMarkIconColor(backgroundColor = ""): string {
       return TinyColor.mostReadable(backgroundColor, [
         "white",
         "#333",

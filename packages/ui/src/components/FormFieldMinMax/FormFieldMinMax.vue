@@ -7,13 +7,14 @@
     :no-error-padding="noErrorPadding"
     :description="description"
   >
-    <BaseMinMax :value="value" v-bind="$attrs" />
+    <BaseMinMax :name="name" :value="value" v-bind="$attrs" />
   </FormFieldWrapper>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, type PropType } from "vue";
 
+import type { MinMaxValue } from "../BaseMinMax/typings";
 import BaseMinMax from "../BaseMinMax";
 import FormFieldWrapper from "../FormFieldWrapper.vue";
 
@@ -25,12 +26,20 @@ export default defineComponent({
   },
   inheritAttrs: false,
   props: {
+    /**
+     * Used as `label-for` on the wrapper; it was referenced in the template
+     * but never declared, so the label pointed at nothing.
+     */
+    name: {
+      type: String,
+      required: true,
+    },
     label: {
       type: String,
       default: null,
     },
     value: {
-      type: Object,
+      type: Object as PropType<MinMaxValue>,
       default: null,
     },
     error: {

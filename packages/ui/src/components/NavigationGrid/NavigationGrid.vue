@@ -6,7 +6,7 @@
       class="nav-card"
       :style="`width: ${getWidth(navItem)}`"
     >
-      <GridItemWrapper :url="navItem.url">
+      <GridItemWrapper :url="navItem.url ?? ''">
         <div
           :class="['top', { 'full-height': hasNameOnly(navItem) }]"
           data-ui-navigation-grid-item-top
@@ -14,7 +14,7 @@
           <span class="name">{{ navItem.name }}</span>
         </div>
         <div v-if="hasContent(navItem)" class="content">
-          <div v-if="Boolean(navItem.total)" class="total-block">
+          <div v-if="navItem.total" class="total-block">
             <spinner
               v-if="navItem.total.status === 'LOADING'"
               :size="40"
@@ -48,7 +48,7 @@
             :class="['link-list', { center: navItem.linkList.length === 1 }]"
           >
             <li v-for="(link, linkIndex) of navItem.linkList" :key="linkIndex">
-              <router-link :to="link.url">
+              <router-link :to="link.url ?? ''">
                 {{ link.text }}
               </router-link>
             </li>

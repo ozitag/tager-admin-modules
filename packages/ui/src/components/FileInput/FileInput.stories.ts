@@ -1,3 +1,4 @@
+import type { StoryObj } from "@storybook/vue3-vite";
 import { defineComponent, ref } from "vue";
 
 import { createId } from "@tager/admin-services";
@@ -51,47 +52,57 @@ const TEST_FILES: Array<SingleFileInputValueType> = [
   },
 ];
 
-export const Default = () =>
-  defineComponent({
-    components: { FileInput },
-    setup() {
-      const image = ref<SingleFileInputValueType | null>(TEST_FILES[2] ?? null);
+export const Default: StoryObj = {
+  render: () =>
+    defineComponent({
+      components: { FileInput },
+      setup() {
+        const image = ref<SingleFileInputValueType | null>(
+          TEST_FILES[2] ?? null
+        );
 
-      return {
-        image,
-      };
-    },
-    template: `
+        return {
+          image,
+        };
+      },
+      template: `
       <FileInput v-model:value="image" label="File" />
     `,
-  });
+    }),
+};
 
-export const Multiple = () =>
-  defineComponent({
-    components: { FileInput },
-    setup() {
-      const images = ref<Array<SingleFileInputValueType>>(TEST_FILES);
+export const Multiple: StoryObj = {
+  render: () =>
+    defineComponent({
+      components: { FileInput },
+      setup() {
+        const images = ref<Array<SingleFileInputValueType>>(TEST_FILES);
 
-      return {
-        images,
-      };
-    },
-    template: `
+        return {
+          images,
+        };
+      },
+      template: `
       <FileInput v-model:value="images" multiple with-captions />
     `,
-  });
+    }),
+};
 
-export const Simple = () =>
-  defineComponent({
-    components: { FileInput },
-    setup() {
-      const image = ref<SingleFileInputValueType | null>(TEST_FILES[2] ?? null);
+export const Simple: StoryObj = {
+  render: () =>
+    defineComponent({
+      components: { FileInput },
+      setup() {
+        const image = ref<SingleFileInputValueType | null>(
+          TEST_FILES[2] ?? null
+        );
 
-      return {
-        image,
-      };
-    },
-    template: `
+        return {
+          image,
+        };
+      },
+      template: `
       <div style='width: 300px;'><FileInput v-model:value="image" :url-upload-enabled='false' /></div>
     `,
-  });
+    }),
+};

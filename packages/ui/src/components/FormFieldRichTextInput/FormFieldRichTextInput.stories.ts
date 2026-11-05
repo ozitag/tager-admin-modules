@@ -1,30 +1,32 @@
+import type { StoryObj } from "@storybook/vue3-vite";
 import { defineComponent, ref, watch } from "vue";
 
 import FormFieldRichTextInput from "./FormFieldRichTextInput.vue";
 
 export default { title: "FormFieldRichTextInput" };
 
-export const Default = () =>
-  defineComponent({
-    name: "FormFieldRichTextInputDefault",
-    components: { FormFieldRichTextInput },
-    setup() {
-      const content = ref<string>("<h1>Hello</h1>");
+export const Default: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "FormFieldRichTextInputDefault",
+      components: { FormFieldRichTextInput },
+      setup() {
+        const content = ref<string>("<h1>Hello</h1>");
 
-      watch(content, (value) => {
-        console.log("Content:", value);
-      });
+        watch(content, (value) => {
+          console.log("Content:", value);
+        });
 
-      function getUploadAdapterPluginOptions() {
-        return { uploadScenario: "custom" };
-      }
+        function getUploadAdapterPluginOptions() {
+          return { uploadScenario: "custom" };
+        }
 
-      return {
-        content,
-        getUploadAdapterPluginOptions,
-      };
-    },
-    template: `
+        return {
+          content,
+          getUploadAdapterPluginOptions,
+        };
+      },
+      template: `
       <FormFieldRichTextInput
         v-model:value="content"
         name="content"
@@ -32,24 +34,26 @@ export const Default = () =>
         :get-upload-adapter-options="getUploadAdapterPluginOptions"
       />
     `,
-  });
+    }),
+};
 
-export const WithError = () =>
-  defineComponent({
-    name: "FormFieldRichTextInputWithError",
-    components: { FormFieldRichTextInput },
-    setup() {
-      const content = ref<string>("");
+export const WithError: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "FormFieldRichTextInputWithError",
+      components: { FormFieldRichTextInput },
+      setup() {
+        const content = ref<string>("");
 
-      watch(content, (value) => {
-        console.log("Content:", value);
-      });
+        watch(content, (value) => {
+          console.log("Content:", value);
+        });
 
-      return {
-        content,
-      };
-    },
-    template: `
+        return {
+          content,
+        };
+      },
+      template: `
       <FormFieldRichTextInput
         v-model:value="content"
         name="content"
@@ -57,24 +61,26 @@ export const WithError = () =>
         error="Required field"
       />
     `,
-  });
+    }),
+};
 
-export const Disabled = () =>
-  defineComponent({
-    name: "FormFieldRichTextInputDisabled",
-    components: { FormFieldRichTextInput },
-    setup() {
-      const content = ref<string>("");
+export const Disabled: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "FormFieldRichTextInputDisabled",
+      components: { FormFieldRichTextInput },
+      setup() {
+        const content = ref<string>("");
 
-      watch(content, (value) => {
-        console.log("Content:", value);
-      });
+        watch(content, (value) => {
+          console.log("Content:", value);
+        });
 
-      return {
-        content,
-      };
-    },
-    template: `
+        return {
+          content,
+        };
+      },
+      template: `
       <FormFieldRichTextInput
         v-model:value="content"
         name="content"
@@ -82,4 +88,5 @@ export const Disabled = () =>
         disabled
       />
     `,
-  });
+    }),
+};

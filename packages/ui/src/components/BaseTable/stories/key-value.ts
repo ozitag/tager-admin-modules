@@ -1,4 +1,7 @@
-import type { ColumnDefinitionKeyValue } from "../../../typings/common";
+import type {
+  ColumnDefinitionKeyValue,
+  RowDataDefaultType,
+} from "../../../typings/common";
 import BaseTable from "../BaseTable.vue";
 
 const defaultColumnDefs = [
@@ -31,9 +34,11 @@ const defaultColumnDefs = [
   } as ColumnDefinitionKeyValue<TestEntity>,
 ];
 
+type KeyValuePair = { key: string; value: string };
+
 interface TestEntity {
-  taxonomies: any;
-  stats: any;
+  taxonomies: Array<KeyValuePair>;
+  stats: Array<KeyValuePair>;
 }
 
 const defaultRowData: Array<TestEntity> = [
@@ -81,8 +86,8 @@ const story = () => ({
     return {
       columnDefs: defaultColumnDefs,
       rowData: defaultRowData,
-      rowCssClass: (row: any) => {
-        return "row-id-" + row.id;
+      rowCssClass: (row: RowDataDefaultType) => {
+        return "row-id-" + String(row["id"]);
       },
     };
   },

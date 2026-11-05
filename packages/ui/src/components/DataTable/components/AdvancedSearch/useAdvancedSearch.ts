@@ -1,6 +1,6 @@
 import type { Ref } from "vue";
 import { computed, watch } from "vue";
-import { isEqual, pick } from "lodash";
+import { isEqual, pick } from "lodash-es";
 import { useRoute, useRouter } from "vue-router";
 
 import type { FilterTagType } from "@tager/admin-ui";

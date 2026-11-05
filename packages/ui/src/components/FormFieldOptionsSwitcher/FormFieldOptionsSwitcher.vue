@@ -12,6 +12,7 @@
       :colored="colored"
       :nullable="nullable"
       :value="value"
+      :name="name"
       v-bind="$attrs"
     />
   </FormFieldWrapper>
@@ -38,6 +39,14 @@ export default defineComponent({
   },
   inheritAttrs: false,
   props: {
+    /**
+     * Used as `label-for` on the wrapper; it was referenced in the template
+     * but never declared, so the label pointed at nothing.
+     */
+    name: {
+      type: String,
+      required: true,
+    },
     label: {
       type: String,
       default: null,

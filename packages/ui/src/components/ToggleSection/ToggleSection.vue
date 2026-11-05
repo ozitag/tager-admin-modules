@@ -102,7 +102,9 @@ export default defineComponent({
     display: block;
     fill: currentColor;
     will-change: transform;
-    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 0.24s;
+    transition:
+      fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      transform 0.24s;
   }
 
   &.icon-expand-more {

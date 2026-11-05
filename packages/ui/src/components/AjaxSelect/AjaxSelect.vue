@@ -1,6 +1,6 @@
 <template>
   <ComboBox
-    :options="options"
+    :options="comboBoxOptions"
     :loading="loading"
     :filterable="false"
     :no-options-message="noOptionsMessage"
@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { get } from "lodash-es";
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 
 import { isNullish, request, type ResponseBody } from "@tager/admin-services";
 
@@ -68,9 +68,16 @@ export default defineComponent({
         },
       });
 
+    /**
+     * The resource hook yields `string | number` values; ComboBox's prop is
+     * `OptionType<string>`. Narrowed here so the public prop stays as it is.
+     */
+    const comboBoxOptions = computed(() => options.value as Array<OptionType>);
+
     return {
       loading,
       options,
+      comboBoxOptions,
       noOptionsMessage,
       handleSearchQueryChange,
     };

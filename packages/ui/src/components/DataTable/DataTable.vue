@@ -19,7 +19,7 @@
       :enumerable="enumerable"
       :pagination="computedPagination"
     >
-      <template v-for="(index, name) in $slots" #[name]="data">
+      <template v-for="(_index, name) in $slots" #[name]="data">
         <slot :name="name" v-bind="data"></slot>
       </template>
     </BaseTable>
@@ -33,7 +33,7 @@
         <SortComponent
           v-if="sort"
           :options="sort.options"
-          :value="sort.options.find((item) => item.value === sort.value)"
+          :value="sort.options.find((item) => item.value === sort?.value)"
           :disabled="loading"
           @change="handleSortChange"
         />

@@ -1,5 +1,11 @@
 <template>
-  <JsonViewer :value="formattedValue" boxed :expanded="true" expand-depth="2" />
+  <JsonViewer
+    v-if="formattedValue"
+    :value="formattedValue"
+    boxed
+    :expanded="true"
+    :expand-depth="2"
+  />
 </template>
 
 <script lang="ts">
@@ -19,7 +25,7 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const formattedValue = computed<Nullable<Record<any, any>>>(() => {
+    const formattedValue = computed<Nullable<Record<string, unknown>>>(() => {
       if (props.data) {
         if (typeof props.data === "string") {
           return JSON.parse(props.data);

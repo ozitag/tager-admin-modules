@@ -2,7 +2,14 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "composite": true,
-    "rootDir": "./src",
+    // Stories are bundled by Vite and import ESM-only Storybook 10 packages
+    // that expose types only through package.json "exports".
+    // The repo-wide classic "node" resolution cannot read those.
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    // `import.meta.env` in .storybook/preview.ts
+    "types": ["vite/client"],
+    "rootDir": "./",
     "outDir": "./dist",
     "declaration": true,
     "declarationDir": "./dist"
@@ -12,5 +19,12 @@
       "path": "./tsconfig.app.json"
     }
   ],
-  "include": ["src/**/*.stories.ts", "custom-types"]
+  "include": [
+    "src/**/*.stories.ts",
+    "src/**/stories/**/*.ts",
+    "src/msw/**/*.ts",
+    "src/constants/*.json",
+    ".storybook/**/*.ts",
+    "custom-types"
+  ]
 }

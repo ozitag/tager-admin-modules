@@ -1,3 +1,4 @@
+import type { StoryObj } from "@storybook/vue3-vite";
 import { ref, watch } from "vue";
 
 import FormFieldOptionsSwitcher from "./FormFieldOptionsSwitcher.vue";
@@ -5,21 +6,22 @@ import FormFieldOptionsSwitcherTrueFalse from "./FormFieldOptionsSwitcherTrueFal
 
 export default { title: "FormFieldOptionsSwitcher" };
 
-export const Default = () => ({
-  name: "DefaultFormFieldOptionsSwitcher",
-  components: { FormFieldOptionsSwitcher },
-  setup() {
-    const value = ref<string>("1");
+export const Default: StoryObj = {
+  render: () => ({
+    name: "DefaultFormFieldOptionsSwitcher",
+    components: { FormFieldOptionsSwitcher },
+    setup() {
+      const value = ref<string>("1");
 
-    watch(value, (value) => {
-      console.log("value:", value);
-    });
+      watch(value, (value) => {
+        console.log("value:", value);
+      });
 
-    return {
-      value,
-    };
-  },
-  template: `
+      return {
+        value,
+      };
+    },
+    template: `
     <FormFieldOptionsSwitcher
       v-model:value="value"
       :options="[
@@ -29,23 +31,25 @@ export const Default = () => ({
 ]"
       label="Visible"
     />`,
-});
+  }),
+};
 
-export const DefaultSmall = () => ({
-  name: "DefaultFormFieldSmall",
-  components: { FormFieldOptionsSwitcher },
-  setup() {
-    const value = ref<string>("1");
+export const DefaultSmall: StoryObj = {
+  render: () => ({
+    name: "DefaultFormFieldSmall",
+    components: { FormFieldOptionsSwitcher },
+    setup() {
+      const value = ref<string>("1");
 
-    watch(value, (value) => {
-      console.log("value:", value);
-    });
+      watch(value, (value) => {
+        console.log("value:", value);
+      });
 
-    return {
-      value,
-    };
-  },
-  template: `
+      return {
+        value,
+      };
+    },
+    template: `
     <div :style="{width: '350px'}">
       <FormFieldOptionsSwitcher
         v-model:value="value"
@@ -57,23 +61,25 @@ export const DefaultSmall = () => ({
       />
     </div>
   `,
-});
+  }),
+};
 
-export const Nullable = () => ({
-  name: "NullableFormFieldOptionsSwitcher",
-  components: { FormFieldOptionsSwitcher },
-  setup() {
-    const value = ref<string>("1");
+export const Nullable: StoryObj = {
+  render: () => ({
+    name: "NullableFormFieldOptionsSwitcher",
+    components: { FormFieldOptionsSwitcher },
+    setup() {
+      const value = ref<string>("1");
 
-    watch(value, (value) => {
-      console.log("value:", value);
-    });
+      watch(value, (value) => {
+        console.log("value:", value);
+      });
 
-    return {
-      value,
-    };
-  },
-  template: `
+      return {
+        value,
+      };
+    },
+    template: `
     <FormFieldOptionsSwitcher
       v-model:value="value" :nullable="true"
       :options="[
@@ -83,23 +89,25 @@ export const Nullable = () => ({
 ]"
       label="Visible"
     />`,
-});
+  }),
+};
 
-export const NullableColored = () => ({
-  name: "NullableFormFieldOptionsSwitcherColored",
-  components: { FormFieldOptionsSwitcher },
-  setup() {
-    const value = ref<string>("1");
+export const NullableColored: StoryObj = {
+  render: () => ({
+    name: "NullableFormFieldOptionsSwitcherColored",
+    components: { FormFieldOptionsSwitcher },
+    setup() {
+      const value = ref<string>("1");
 
-    watch(value, (value) => {
-      console.log("value:", value);
-    });
+      watch(value, (value) => {
+        console.log("value:", value);
+      });
 
-    return {
-      value,
-    };
-  },
-  template: `
+      return {
+        value,
+      };
+    },
+    template: `
     <FormFieldOptionsSwitcher
       v-model:value="value" :nullable="true" :colored="true"
       :options="[
@@ -109,47 +117,52 @@ export const NullableColored = () => ({
 ]"
       label="Visible"
     />`,
-});
+  }),
+};
 
-export const TrueFalse = () => ({
-  name: "DefaultFormFieldOptionsSwitcherTrueFalse",
-  components: { FormFieldOptionsSwitcherTrueFalse },
-  setup() {
-    const value = ref<boolean>();
+export const TrueFalse: StoryObj = {
+  render: () => ({
+    name: "DefaultFormFieldOptionsSwitcherTrueFalse",
+    components: { FormFieldOptionsSwitcherTrueFalse },
+    setup() {
+      const value = ref<boolean>();
 
-    watch(value, (value) => {
-      console.log("value:", value);
-    });
+      watch(value, (value) => {
+        console.log("value:", value);
+      });
 
-    return {
-      value,
-    };
-  },
-  template: `
+      return {
+        value,
+      };
+    },
+    template: `
     <FormFieldOptionsSwitcherTrueFalse
       v-model:value="value"
       label="Visible"
     />`,
-});
+  }),
+};
 
-export const TrueFalseColored = () => ({
-  name: "DefaultFormFieldOptionsSwitcherTrueFalse",
-  components: { FormFieldOptionsSwitcherTrueFalse },
-  setup() {
-    const value = ref<boolean>();
+export const TrueFalseColored: StoryObj = {
+  render: () => ({
+    name: "DefaultFormFieldOptionsSwitcherTrueFalse",
+    components: { FormFieldOptionsSwitcherTrueFalse },
+    setup() {
+      const value = ref<boolean>();
 
-    watch(value, (value) => {
-      console.log("value:", value);
-    });
+      watch(value, (value) => {
+        console.log("value:", value);
+      });
 
-    return {
-      value,
-    };
-  },
-  template: `
+      return {
+        value,
+      };
+    },
+    template: `
     <FormFieldOptionsSwitcherTrueFalse
       v-model:value="value"
       label="Visible"
       :colored="true"
     />`,
-});
+  }),
+};

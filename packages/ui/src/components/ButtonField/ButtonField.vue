@@ -101,7 +101,7 @@ export default defineComponent({
     }
 
     function handleChange<
-      FieldName extends keyof NonNullableButtonFieldValueType
+      FieldName extends keyof NonNullableButtonFieldValueType,
     >(
       fieldName: FieldName,
       fieldValue: NonNullableButtonFieldValueType[FieldName]

@@ -25,14 +25,17 @@
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "exports": {
-      ".": "./dist/index.js"
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
     }
   },
   "engines": {
-    "node": ">=16"
+    "node": "^20.19.0 || >=22.12.0"
   },
   "scripts": {
-    "emit-declarations": "tsc --project ./tsconfig.app.json --emitDeclarationOnly --declarationMap false",
+    "emit-declarations": "rm -f ./tsconfig.app.tsbuildinfo && tsc --project ./tsconfig.app.json --emitDeclarationOnly --declarationMap false",
     "build:js": "vite build",
     "build:package": "yarn build:js && yarn emit-declarations",
     "prepack": "yarn patch-package",
@@ -45,7 +48,8 @@
   },
   "devDependencies": {
     "@tager/admin-tools": "workspace:*",
-    "vite": "*"
+    "typescript": "5.9.3",
+    "vite": "^7.3.7"
   },
   "peerDependencies": {
     "pinia": "*",

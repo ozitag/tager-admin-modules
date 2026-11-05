@@ -1,25 +1,29 @@
-import type { Story } from "@storybook/vue3";
+import type { StoryObj } from "@storybook/vue3-vite";
 
 import SearchInput from "./SearchInput.vue";
 
 export default { title: "SearchInput" };
 
-export const Default = () => ({
-  components: { SearchInput },
-  template: `<SearchInput />`,
-});
+export const Default: StoryObj = {
+  render: () => ({
+    components: { SearchInput },
+    template: `<SearchInput />`,
+  }),
+};
 
-export const Playground: Story = (args) => ({
-  components: { SearchInput },
-  setup() {
-    return { args };
+export const Playground: StoryObj = {
+  render: (args) => ({
+    components: { SearchInput },
+    setup() {
+      return { args };
+    },
+    template: `<SearchInput v-bind="args" />`,
+  }),
+
+  args: {
+    value: "",
+    disabled: false,
+    loading: false,
+    placeholder: "Placeholder text...",
   },
-  template: `<SearchInput v-bind="args" />`,
-});
-
-Playground.args = {
-  value: "",
-  disabled: false,
-  loading: false,
-  placeholder: "Placeholder text...",
 };

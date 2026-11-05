@@ -1,0 +1,27 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    /*
+     * Declaration emit runs through vue-tsc, which type-checks `.vue`
+     * templates. Two repo-wide flags are relaxed here because they contradict
+     * Vue's own semantics rather than catching real defects:
+     *
+     *  - exactOptionalPropertyTypes: passing `undefined` to a prop that has a
+     *    `default` is valid Vue -- the default applies -- but the flag forbids
+     *    it unless every prop type spells `undefined` out.
+     *  - noUncheckedIndexedAccess: `v-model="values[key]"` cannot be narrowed.
+     *
+     * `.ts` sources keep both flags in full force: `yarn typecheck` runs plain
+     * `tsc`, which reads only `.ts`, against `tsconfig.app.json`.
+     */
+    "exactOptionalPropertyTypes": false,
+    "noUncheckedIndexedAccess": false,
+    "tsBuildInfoFile": "./tsconfig.emit.tsbuildinfo"
+  },
+  // `references` is not inherited through `extends`
+  "references": [
+    {
+      "path": "../services/tsconfig.json"
+    }
+  ]
+}

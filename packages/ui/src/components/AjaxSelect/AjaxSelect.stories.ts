@@ -1,3 +1,4 @@
+import type { StoryObj } from "@storybook/vue3-vite";
 import { defineComponent, ref } from "vue";
 
 import type { OptionType } from "../../typings/common";
@@ -8,19 +9,20 @@ export default { title: "AjaxSelect" };
 
 const url = "http://localhost:7001/api/admin/games/ajax-search";
 
-export const Default = () =>
-  defineComponent({
-    name: "DefaultAjaxSelect",
-    components: { AjaxSelect },
-    setup() {
-      const selected = ref<OptionType<number> | null>(null);
+export const Default: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "DefaultAjaxSelect",
+      components: { AjaxSelect },
+      setup() {
+        const selected = ref<OptionType<number> | null>(null);
 
-      return {
-        url,
-        selected,
-      };
-    },
-    template: `
+        return {
+          url,
+          selected,
+        };
+      },
+      template: `
       <AjaxSelect
           v-model:value="selected"
           :request-url="url"
@@ -28,4 +30,5 @@ export const Default = () =>
           label-field="label"
       />
     `,
-  });
+    }),
+};

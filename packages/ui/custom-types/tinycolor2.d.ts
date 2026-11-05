@@ -1,14 +1,6 @@
 declare module "tinycolor2" {
   type ColorInputWithoutInstance =
-    | string
-    | PRGB
-    | PRGBA
-    | RGB
-    | RGBA
-    | HSL
-    | HSLA
-    | HSV
-    | HSVA;
+    string | PRGB | PRGBA | RGB | RGBA | HSL | HSLA | HSV | HSVA;
   type ColorInput = ColorInputWithoutInstance | Instance;
 
   interface Alpha {

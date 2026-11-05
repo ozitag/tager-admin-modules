@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, type PropType } from "vue";
 
 export default defineComponent({
   name: "BaseBadge",
@@ -23,17 +23,22 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    /*
+     * These carry a default, so passing `undefined` is valid Vue: the default
+     * applies. `exactOptionalPropertyTypes` only allows that when the prop
+     * type spells `undefined` out, hence the explicit PropType.
+     */
     size: {
-      type: Number,
+      type: Number as PropType<number | undefined>,
       default: 11,
       required: false,
     },
     color: {
-      type: String,
+      type: String as PropType<string | undefined>,
       default: "var(--primary)",
     },
     textColor: {
-      type: String,
+      type: String as PropType<string | undefined>,
       default: "#fff",
     },
   },

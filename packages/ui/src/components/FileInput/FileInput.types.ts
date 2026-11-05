@@ -17,8 +17,7 @@ export const FileInputValueSchema = z.union([
 
 export type FileInputValueType = z.infer<typeof FileInputValueSchema>;
 
-export interface UploadingSingleFileInputValueType
-  extends SingleFileInputValueType {
+export interface UploadingSingleFileInputValueType extends SingleFileInputValueType {
   nativeFile: File;
   xhr: XMLHttpRequest;
   status: "UPLOADING" | "ERROR";

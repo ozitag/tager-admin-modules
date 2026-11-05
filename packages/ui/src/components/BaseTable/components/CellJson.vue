@@ -5,7 +5,7 @@
       :value="formattedValue"
       boxed
       :expanded="true"
-      expand-depth="2"
+      :expand-depth="2"
     />
   </td>
 </template>
@@ -57,7 +57,7 @@ export default defineComponent({
       ) as StringCellValue;
     });
 
-    const formattedValue = computed<null | Record<any, any>>(() => {
+    const formattedValue = computed<null | Record<string, unknown>>(() => {
       if (!value.value) return null;
 
       if (typeof value.value === "string") {

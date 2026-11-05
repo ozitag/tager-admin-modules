@@ -5,26 +5,26 @@
     <BaseSpinner v-if="loading" size="28" />
 
     <div v-else-if="!editActive || !hideValueOnEdit" class="field-value">
-      <template v-if="slots.value">
+      <template v-if="slots['value']">
         <slot name="value"></slot>
       </template>
       <template v-else>
-        <Nl2Br v-if="type === 'text' && value" :text="value" />
+        <Nl2Br v-if="type === 'text' && value" :text="value as string" />
 
         <div v-if="type === 'date' && value">
-          {{ formatDate(new Date(value)) }}
+          {{ formatDate(new Date(value as string)) }}
         </div>
 
         <div v-if="type === 'datetime' && value">
-          {{ formatDateTime(new Date(value)) }}
+          {{ formatDateTime(new Date(value as string)) }}
         </div>
 
         <div v-if="type === 'json'">
-          <FieldValueJson :data="value" />
+          <FieldValueJson :data="value as string" />
         </div>
 
         <div v-if="type === 'xml'">
-          <XmlViewer :xml="value" />
+          <XmlViewer :xml="value as string" />
         </div>
 
         <template v-if="type === 'link' && src">
@@ -82,15 +82,15 @@
     </div>
 
     <template v-if="editVisible">
-      <template v-if="!editActive || !slots.edit">
+      <template v-if="!editActive || !slots['edit']">
         <ul class="field-value__buttons">
           <li v-for="button in footerButtons" :key="button.label">
             <BaseButton
               v-if="button.to && button.useRouter"
               :href="button.to"
               :variant="button.variant"
-              :disabled="button.disabled"
-              :loading="button.loading"
+              :disabled="button.disabled ?? false"
+              :loading="button.loading ?? false"
             >
               {{ button.label }}
             </BaseButton>
@@ -99,16 +99,16 @@
               :href="button.to"
               target="_blank"
               :variant="button.variant"
-              :disabled="button.disabled"
-              :loading="button.loading"
+              :disabled="button.disabled ?? false"
+              :loading="button.loading ?? false"
             >
               {{ button.label }}
             </BaseButton>
             <BaseButton
               v-else-if="button.onClick"
               :variant="button.variant"
-              :disabled="button.disabled"
-              :loading="button.loading"
+              :disabled="button.disabled ?? false"
+              :loading="button.loading ?? false"
               @click="button.onClick"
             >
               {{ button.label }}
@@ -213,14 +213,15 @@ export default defineComponent({
       default: false,
     },
     value: {
-      type: [Number, String, Array],
+      type: [Number, String, Array, Object],
+      default: undefined,
     },
     shouldUseRouter: {
       type: Boolean,
       default: false,
     },
     images: {
-      type: Array,
+      type: Array as PropType<Array<string>>,
       default: () => [],
     },
     src: {

@@ -1,3 +1,4 @@
+import type { StoryObj } from "@storybook/vue3-vite";
 import { defineComponent, ref } from "vue";
 
 import { request, type ResponseBody } from "@tager/admin-services";
@@ -71,185 +72,196 @@ function getProductList(params?: {
   return request.get({ path: "/admin/products", params });
 }
 
-export const Default = () =>
-  defineComponent({
-    name: "DataTableDefault",
-    components: { DataTable, AdvancedSearch },
-    setup() {
-      const {
-        isLoading,
-        rowData,
-        errorMessage,
-        searchQuery,
-        handleChange,
-        pageSize,
-        pageNumber,
-        pageCount,
-        totalCount,
-      } = useDataTable({
-        fetchEntityList: (params) =>
-          getProductList({
-            query: params.searchQuery,
-            pageNumber: params.pageNumber,
-            pageSize: params.pageSize,
-          }),
-        initialValue: [],
-        resourceName: "Product list",
-        pageSize: 20,
-      });
+export const Default: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "DataTableDefault",
+      components: { DataTable, AdvancedSearch },
+      setup() {
+        const {
+          isLoading,
+          rowData,
+          errorMessage,
+          searchQuery,
+          handleChange,
+          pageSize,
+          pageNumber,
+          pageCount,
+          totalCount,
+        } = useDataTable({
+          fetchEntityList: (params) =>
+            getProductList({
+              query: params.searchQuery,
+              pageNumber: params.pageNumber,
+              pageSize: params.pageSize,
+            }),
+          initialValue: [],
+          resourceName: "Product list",
+          pageSize: 20,
+        });
 
-      const tags = ref<Array<FilterTagType>>([
-        {
-          value: "1",
-          label: "France",
-          name: "company",
-          title: "Производитель",
-        },
-        {
-          value: "1",
-          label: "United States of America",
-          name: "company",
-          title: "Производитель",
-        },
-        {
-          value: "1",
-          label: "United Kingdom",
-          name: "company",
-          title: "Производитель",
-        },
-        {
-          value: "1",
-          label: "Belarus",
-          name: "company",
-          title: "Производитель",
-        },
-        {
-          value: "1",
-          label: "Russia",
-          name: "company",
-          title: "Производитель",
-        },
-        { value: "1", label: "Spain", name: "company", title: "Производитель" },
-        {
-          value: "1",
-          label: "Austria",
-          name: "company",
-          title: "Производитель",
-        },
-        {
-          value: "1",
-          label: "Poland",
-          name: "company",
-          title: "Производитель",
-        },
-        {
-          value: "1",
-          label: "Germany",
-          name: "company",
-          title: "Производитель",
-        },
-        {
-          value: "1",
-          label: "France",
-          name: "company",
-          title: "Производитель",
-        },
-        {
-          value: "1",
-          label: "United States of America",
-          name: "company",
-          title: "Производитель",
-        },
-        {
-          value: "1",
-          label: "United Kingdom",
-          name: "company",
-          title: "Производитель",
-        },
-        {
-          value: "1",
-          label: "Belarus",
-          name: "company",
-          title: "Производитель",
-        },
-        {
-          value: "1",
-          label: "Russia",
-          name: "company",
-          title: "Производитель",
-        },
-        { value: "1", label: "Spain", name: "company", title: "Производитель" },
-        {
-          value: "1",
-          label: "Austria",
-          name: "company",
-          title: "Производитель",
-        },
-        {
-          value: "1",
-          label: "Poland",
-          name: "company",
-          title: "Производитель",
-        },
-        {
-          value: "1",
-          label: "Germany",
-          name: "company",
-          title: "Производитель",
-        },
-        {
-          value: "1",
-          label: "France",
-          name: "company",
-          title: "Производитель",
-        },
-        {
-          value: "1",
-          label: "United States of America",
-          name: "company",
-          title: "Производитель",
-        },
-        {
-          value: "1",
-          label: "United Kingdom",
-          name: "company",
-          title: "Производитель",
-        },
-        {
-          value: "1",
-          label: "Belarus",
-          name: "company",
-          title: "Производитель",
-        },
-      ]);
+        const tags = ref<Array<FilterTagType>>([
+          {
+            value: "1",
+            label: "France",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "United States of America",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "United Kingdom",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "Belarus",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "Russia",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "Spain",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "Austria",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "Poland",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "Germany",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "France",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "United States of America",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "United Kingdom",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "Belarus",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "Russia",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "Spain",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "Austria",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "Poland",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "Germany",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "France",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "United States of America",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "United Kingdom",
+            name: "company",
+            title: "Производитель",
+          },
+          {
+            value: "1",
+            label: "Belarus",
+            name: "company",
+            title: "Производитель",
+          },
+        ]);
 
-      const sortOptions = [
-        {
-          value: "price_asc",
-          label: "Price Asc",
-        },
-        {
-          value: "year_asc",
-          label: "Year Asc",
-        },
-      ];
+        const sortOptions = [
+          {
+            value: "price_asc",
+            label: "Price Asc",
+          },
+          {
+            value: "year_asc",
+            label: "Year Asc",
+          },
+        ];
 
-      return {
-        isLoading,
-        errorMessage,
-        rowData,
-        columnDefs: COLUMN_DEFS,
-        searchQuery,
-        handleChange,
-        pageSize,
-        pageNumber,
-        totalCount,
-        pageCount,
-        tags,
-        sortOptions,
-      };
-    },
-    template: `
+        return {
+          isLoading,
+          errorMessage,
+          rowData,
+          columnDefs: COLUMN_DEFS,
+          searchQuery,
+          handleChange,
+          pageSize,
+          pageNumber,
+          totalCount,
+          pageCount,
+          tags,
+          sortOptions,
+        };
+      },
+      template: `
       <div class="scrollContainer" style="overflow-Y: auto; padding: 1rem">
       <DataTable
         :column-defs="columnDefs"
@@ -287,4 +299,5 @@ export const Default = () =>
       </DataTable>
       </div>
     `,
-  });
+    }),
+};

@@ -59,7 +59,6 @@ type Props = {
 export default defineComponent({
   name: "DateTimeInput",
   components: { FormField, BaseButton, RemoveCircleIcon },
-  model: { prop: "value", event: "change" },
   props: {
     name: {
       type: String,

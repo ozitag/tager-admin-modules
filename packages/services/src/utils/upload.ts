@@ -7,7 +7,7 @@ import { getAccessToken, getApiUrl, getSearchString } from "./common";
 function parseResponse(response: string): ParsedResponseBody {
   try {
     return JSON.parse(response);
-  } catch (error) {
+  } catch {
     return response;
   }
 }
@@ -51,7 +51,7 @@ function upload<T>(options: {
         try {
           const responseBody = JSON.parse(request.response);
           resolve(responseBody);
-        } catch (error) {
+        } catch {
           resolve(request.response);
         }
       } else {

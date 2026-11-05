@@ -1,5 +1,5 @@
 import { defineComponent, ref } from "vue";
-import type { Story } from "@storybook/vue3";
+import type { StoryObj } from "@storybook/vue3-vite";
 
 import type { ResponseBody } from "@tager/admin-services";
 
@@ -13,98 +13,103 @@ export default { title: "ComboBox" };
 
 const OPTIONS = brandOptions;
 
-export const Default: Story = () =>
-  defineComponent({
-    name: "DefaultComboBox",
-    components: { ComboBox },
-    setup() {
-      const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
-      const selected = ref<BaseOptionType | null>(null);
+export const Default: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "DefaultComboBox",
+      components: { ComboBox },
+      setup() {
+        const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
+        const selected = ref<BaseOptionType | null>(null);
 
-      return {
-        options,
-        selected,
-      };
-    },
-    template: `
+        return {
+          options,
+          selected,
+        };
+      },
+      template: `
         <ComboBox v-model:value="selected" :options="options"  />
     `,
-  });
-
-export const Playground: Story = (args) =>
-  defineComponent({
-    name: "DefaultComboBox",
-    components: { ComboBox },
-    setup() {
-      const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
-      const selected = ref<BaseOptionType | null>(null);
-
-      return {
-        options,
-        selected,
-        args,
-      };
-    },
-    template: `
-        <ComboBox v-model:value="selected" :options="options" v-bind="args"  />
-    `,
-  });
-
-Playground.args = {
-  placeholder: "Choose your destiny...",
-  disabled: false,
-  clearable: false,
-  searchable: true,
-  noOptionsMessage: "",
-  notFoundMessage: "",
-  loading: false,
+    }),
 };
 
-export const Ajax = () =>
-  defineComponent({
-    name: "AjaxComboBox",
-    components: { ComboBox },
-    setup() {
-      const isLoading = ref<boolean>(false);
-      const options = ref<Array<BaseOptionType>>([]);
-      const selected = ref<BaseOptionType | null>(null);
+export const Playground: StoryObj = {
+  render: (args) =>
+    defineComponent({
+      name: "DefaultComboBox",
+      components: { ComboBox },
+      setup() {
+        const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
+        const selected = ref<BaseOptionType | null>(null);
 
-      function fetchBrands(value: string) {
-        isLoading.value = true;
+        return {
+          options,
+          selected,
+          args,
+        };
+      },
+      template: `
+          <ComboBox v-model:value="selected" :options="options" v-bind="args"  />
+      `,
+    }),
 
-        const url = `/admin/brands?query=${encodeURIComponent(value)}`;
+  args: {
+    placeholder: "Choose your destiny...",
+    disabled: false,
+    clearable: false,
+    searchable: true,
+    noOptionsMessage: "",
+    notFoundMessage: "",
+    loading: false,
+  },
+};
 
-        fetch(url)
-          .then<ResponseBody<Array<BrandType>>>((response) => response.json())
-          .then((body) => {
-            isLoading.value = false;
+export const Ajax: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "AjaxComboBox",
+      components: { ComboBox },
+      setup() {
+        const isLoading = ref<boolean>(false);
+        const options = ref<Array<BaseOptionType>>([]);
+        const selected = ref<BaseOptionType | null>(null);
 
-            options.value = body.data.map((brand) => ({
-              value: brand.id,
-              label: brand.name,
-            }));
-          })
-          .catch((error) => {
-            isLoading.value = false;
-            console.error(error);
-          });
-      }
+        function fetchBrands(value: string) {
+          isLoading.value = true;
 
-      function handleChange(_value: BaseOptionType) {
-        isLoading.value = false;
-        // selected.value = value;
-        options.value = [];
-      }
+          const url = `/admin/brands?query=${encodeURIComponent(value)}`;
 
-      return {
-        options,
-        selected,
-        isLoading,
-        fetchBrands,
-        handleChange,
-      };
-    },
-    template: `
+          fetch(url)
+            .then<ResponseBody<Array<BrandType>>>((response) => response.json())
+            .then((body) => {
+              isLoading.value = false;
+
+              options.value = body.data.map((brand) => ({
+                value: brand.id,
+                label: brand.name,
+              }));
+            })
+            .catch((error) => {
+              isLoading.value = false;
+              console.error(error);
+            });
+        }
+
+        function handleChange(_value: BaseOptionType) {
+          isLoading.value = false;
+          // selected.value = value;
+          options.value = [];
+        }
+
+        return {
+          options,
+          selected,
+          isLoading,
+          fetchBrands,
+          handleChange,
+        };
+      },
+      template: `
       <ComboBox
         v-model:value="selected"
         :options="options"
@@ -115,24 +120,26 @@ export const Ajax = () =>
         :filterable="false"
       />
   `,
-  });
+    }),
+};
 
-export const CommonSelect = () =>
-  defineComponent({
-    name: "DefaultComboBox",
-    components: { ComboBox },
-    setup() {
-      const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
-      const selected = ref<BaseOptionType | null>(
-        OPTIONS[OPTIONS.length - 10] ?? null
-      );
+export const CommonSelect: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "DefaultComboBox",
+      components: { ComboBox },
+      setup() {
+        const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
+        const selected = ref<BaseOptionType | null>(
+          OPTIONS[OPTIONS.length - 10] ?? null
+        );
 
-      return {
-        options,
-        selected,
-      };
-    },
-    template: `
+        return {
+          options,
+          selected,
+        };
+      },
+      template: `
       <ComboBox
         v-model:value="selected"
         :options="options"
@@ -141,22 +148,24 @@ export const CommonSelect = () =>
         :searchable="false"
       />
     `,
-  });
+    }),
+};
 
-export const TestPopupFlip: Story = () =>
-  defineComponent({
-    name: "DefaultComboBoxFlip",
-    components: { ComboBox },
-    setup() {
-      const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
-      const selected = ref<BaseOptionType | null>(null);
+export const TestPopupFlip: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "DefaultComboBoxFlip",
+      components: { ComboBox },
+      setup() {
+        const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
+        const selected = ref<BaseOptionType | null>(null);
 
-      return {
-        options,
-        selected,
-      };
-    },
-    template: `
+        return {
+          options,
+          selected,
+        };
+      },
+      template: `
       <div>
         <div style="display: flex; flex-direction: column; height: 600px; background-color: #eee; padding: 10px;">
           <p>Scroll bottom</p>
@@ -173,4 +182,5 @@ export const TestPopupFlip: Story = () =>
         </div>
       </div>
     `,
-  });
+    }),
+};

@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, type PropType, ref, type StyleValue } from "vue";
 
 import { FETCH_STATUSES } from "@tager/admin-services";
 
@@ -31,7 +31,7 @@ export default defineComponent({
   inheritAttrs: false,
   props: {
     loadingContainerStyle: {
-      type: [Object, String, Array],
+      type: [Object, String, Array] as PropType<StyleValue>,
       default: null,
     },
     alt: { type: String, required: false, default: null },

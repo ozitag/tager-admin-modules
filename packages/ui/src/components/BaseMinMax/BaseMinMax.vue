@@ -130,7 +130,9 @@ export default defineComponent({
     background-clip: padding-box;
     border: 1px solid var(--input-border-color);
     appearance: none;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition:
+      border-color 0.15s ease-in-out,
+      box-shadow 0.15s ease-in-out;
 
     &:last-child {
       border-radius: 0 var(--input-border-radius) var(--input-border-radius) 0;

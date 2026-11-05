@@ -11,7 +11,7 @@
   <button
     v-else
     :class="className"
-    :type="isLink ? undefined : type"
+    :type="buttonType"
     :disabled="isDisabled"
     data-ui-base-button
     @click="handleClick"
@@ -101,6 +101,11 @@ export default defineComponent({
       return props.href;
     });
 
+    const buttonType = computed<"button" | "submit" | "reset" | undefined>(
+      () =>
+        isLink.value ? undefined : (props.type as "button" | "submit" | "reset")
+    );
+
     const className = computed(() => [
       "button",
       props.variant,
@@ -131,6 +136,7 @@ export default defineComponent({
 
     return {
       isLink,
+      buttonType,
       isDisabled,
       resolvedHref,
       handleClick,
@@ -165,8 +171,11 @@ a {
   font-size: 1rem;
   line-height: 1.5;
   border-radius: var(--input-border-radius);
-  transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out,
-    border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  transition:
+    color 0.25s ease-in-out,
+    background-color 0.25s ease-in-out,
+    border-color 0.25s ease-in-out,
+    box-shadow 0.25s ease-in-out;
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;

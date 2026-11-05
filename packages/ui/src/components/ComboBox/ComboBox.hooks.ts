@@ -25,7 +25,7 @@ import type { OptionType } from "../../typings/common";
 
 export function useSelectOptions<
   EntityType,
-  Option extends OptionType<string | number>
+  Option extends OptionType<string | number>,
 >(params: {
   entityList: Ref<Array<EntityType>>;
   fetchEntityList: (params: { query: string }) => Promise<void>;
@@ -66,7 +66,7 @@ export function useSelectOptions<
 
 export function useSelectOptionsResource<
   EntityType,
-  Option extends OptionType<string | number>
+  Option extends OptionType<string | number>,
 >(params: {
   fetchEntityList: (requestParams: {
     query: string;

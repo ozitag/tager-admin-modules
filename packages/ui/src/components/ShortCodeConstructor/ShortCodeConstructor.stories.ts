@@ -1,3 +1,4 @@
+import type { StoryObj } from "@storybook/vue3-vite";
 import { defineComponent } from "vue";
 
 import type { ShortCodeItemType } from "../../typings/common";
@@ -31,12 +32,14 @@ const shortCodeConfigList: Array<ShortCodeItemType> = [
   },
 ];
 
-export const Default = () =>
-  defineComponent({
-    components: { ShortCodeConstructor },
-    setup() {
-      return { shortCodeConfigList };
-    },
-    template: `
+export const Default: StoryObj = {
+  render: () =>
+    defineComponent({
+      components: { ShortCodeConstructor },
+      setup() {
+        return { shortCodeConfigList };
+      },
+      template: `
       <ShortCodeConstructor :short-code-config-list="shortCodeConfigList" label="Shortcode field" />`,
-  });
+    }),
+};

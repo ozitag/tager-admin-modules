@@ -17,7 +17,7 @@ type State<Type extends BaseOptionValue = string> = AdvancedSearchFilterType<
 >;
 
 export function useAdvancedSearchSingleOptionFilter<
-  Type extends BaseOptionValue = string
+  Type extends BaseOptionValue = string,
 >(
   queryParam: string,
   title: string,

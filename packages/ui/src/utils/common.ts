@@ -176,8 +176,8 @@ export function getScrollableParent(element: HTMLElement | null): HTMLElement {
   return !element || element === document.body
     ? document.body
     : isScrollable(element)
-    ? element
-    : getScrollableParent(element.parentElement);
+      ? element
+      : getScrollableParent(element.parentElement);
 }
 
 export class LocalStorageService<T> {

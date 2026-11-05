@@ -12,3 +12,7 @@ ts-build
 
 .idea
 .DS_Store
+storybook-static
+coverage
+
+tsconfig.emit.tsbuildinfo

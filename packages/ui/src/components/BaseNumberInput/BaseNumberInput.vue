@@ -52,7 +52,7 @@ export default defineComponent({
       if (props.value === null || typeof props.value === "undefined") return "";
 
       if (props.value === 0) {
-        return 0;
+        return "0";
       }
 
       const containsDot = String(props.value).includes(".");

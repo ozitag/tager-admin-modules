@@ -1,4 +1,5 @@
 <template>
+  <!-- eslint-disable-next-line vue/no-v-html -- markup produced by highlight.js from the XML this component was given, not by a third party -->
   <pre><code class="hljs" v-html="highlightedXml"></code></pre>
 </template>
 
@@ -26,7 +27,7 @@ export default defineComponent({
           highlightedXml.value = hljs.highlight(newXml, {
             language: "xml",
           }).value;
-        } catch (e) {
+        } catch {
           highlightedXml.value = `<span style="color:red;">Invalid XML</span>`;
         }
       },

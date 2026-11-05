@@ -229,8 +229,8 @@ export default defineComponent({
       return props.value
         ? props.value.label
         : props.placeholder
-        ? props.placeholder
-        : `${i18n.t("ui:comboBox.select")}...`;
+          ? props.placeholder
+          : `${i18n.t("ui:comboBox.select")}...`;
     });
 
     const filteredOptions = computed<Array<OptionType>>(() => {
@@ -496,7 +496,9 @@ export default defineComponent({
   background-clip: padding-box;
   border: 1px solid var(--input-border-color);
   border-radius: var(--input-border-radius);
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 
   &:hover {
     background-color: #fff !important;
@@ -552,7 +554,9 @@ export default defineComponent({
   position: absolute;
   max-height: 300px;
   background-color: #fff;
-  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+  box-shadow:
+    0 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0 4px 5px 0 rgba(0, 0, 0, 0.14),
     0 1px 10px 0 rgba(0, 0, 0, 0.12);
   z-index: 1;
 

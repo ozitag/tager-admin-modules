@@ -1,6 +1,6 @@
 <template>
   <div class="json-viewer">
-    <JsonViewVue :value="value" boxed :expanded="true" expand-depth="2" />
+    <JsonViewVue :value="value" boxed :expanded="true" :expand-depth="2" />
     <div class="json-viewer__copy">
       <button
         v-if="!isCopied"
@@ -18,7 +18,7 @@
 import { JsonViewer as JsonViewVue } from "vue3-json-viewer";
 import { defineComponent } from "vue";
 
-import "vue3-json-viewer/dist/index.css";
+import "vue3-json-viewer/dist/vue3-json-viewer.css";
 import useCopyToClipboard from "../../hooks/useCopyToClipboard";
 
 export default defineComponent({
@@ -42,6 +42,8 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+@use "sass:color";
+
 .json-viewer {
   position: relative;
 
@@ -71,7 +73,7 @@ export default defineComponent({
       display: block;
 
       &:hover {
-        background: darken(#0d6efd, 5%);
+        background: color.adjust(#0d6efd, $lightness: -5%);
       }
     }
 

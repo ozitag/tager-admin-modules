@@ -1,3 +1,4 @@
+import type { StoryObj } from "@storybook/vue3-vite";
 import { ref, watch } from "vue";
 
 import { brandOptions } from "../../msw/fixtures/brand-options";
@@ -9,23 +10,24 @@ export default { title: "FormFieldSelect" };
 
 const OPTIONS = brandOptions;
 
-export const Default = () => ({
-  name: "DefaultFormFieldSelect",
-  components: { FormFieldSelect },
-  setup() {
-    const selected = ref<BaseOptionType | null>(null);
-    const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
+export const Default: StoryObj = {
+  render: () => ({
+    name: "DefaultFormFieldSelect",
+    components: { FormFieldSelect },
+    setup() {
+      const selected = ref<BaseOptionType | null>(null);
+      const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
 
-    watch(selected, (selected) => {
-      console.log("selected:", selected);
-    });
+      watch(selected, (selected) => {
+        console.log("selected:", selected);
+      });
 
-    return {
-      selected,
-      options,
-    };
-  },
-  template: `
+      return {
+        selected,
+        options,
+      };
+    },
+    template: `
     <FormFieldSelect
       v-model:value="selected"
       :options="options"
@@ -35,4 +37,5 @@ export const Default = () => ({
       no-options-message="No options"
     />
   `,
-});
+  }),
+};

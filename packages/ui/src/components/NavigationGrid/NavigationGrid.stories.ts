@@ -1,3 +1,5 @@
+import type { StoryObj } from "@storybook/vue3-vite";
+
 import { FETCH_STATUSES } from "@tager/admin-services";
 
 import NavigationGrid from "./NavigationGrid.vue";
@@ -65,16 +67,18 @@ const navItemList: Array<NavigationGridItem> = [
   },
 ];
 
-export const Default = () => ({
-  components: { NavigationGrid },
-  setup() {
-    return {
-      navItemList,
-    };
-  },
-  template: `
+export const Default: StoryObj = {
+  render: () => ({
+    components: { NavigationGrid },
+    setup() {
+      return {
+        navItemList,
+      };
+    },
+    template: `
       <div style="padding: 2rem; background-color: #f3f3f3">
         <NavigationGrid :nav-items="navItemList" />
       </div>
     `,
-});
+  }),
+};

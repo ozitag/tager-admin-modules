@@ -120,10 +120,16 @@ function logRequest(res: Response, options: RequestInit): Response {
   return res;
 }
 
+/**
+ * The return type stays `any` on purpose: `bindHttpMethod` casts this into the
+ * generic `HttpRequestFunction<T>`, and a concrete return type is not
+ * assignable to that generic signature.
+ */
 async function makeRequest(
   method: HttpMethod,
   { path, body, params, absoluteUrl, fetchOptions }: RequestOptions
-): Promise<any> {
+): // eslint-disable-next-line @typescript-eslint/no-explicit-any
+Promise<any> {
   const url = absoluteUrl || getRequestUrl(path, params);
   const options = configureOptions({ method, body, fetchOptions });
 

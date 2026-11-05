@@ -1,3 +1,4 @@
+import type { StoryObj } from "@storybook/vue3-vite";
 import { defineComponent, ref } from "vue";
 
 import { createId } from "@tager/admin-services";
@@ -31,59 +32,60 @@ interface ValuesState {
   openGraphImage: SingleFileInputValueType | null;
 }
 
-export const Default = () =>
-  defineComponent({
-    name: "DefaultSeoFieldGroup",
-    components: { SeoFieldGroup },
-    setup() {
-      const values = ref<ValuesState>({
-        pageTitle: "Contact Us - Aerovolga",
-        pageDescription:
-          "Please provide a meta description by editing the snippet below. If you don’t, Google will try to find a relevant part of your post to show in the search results.",
-        keywords: "keywords",
-        h1: "default H1",
-        openGraphImage: TEST_FILE,
-      });
+export const Default: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "DefaultSeoFieldGroup",
+      components: { SeoFieldGroup },
+      setup() {
+        const values = ref<ValuesState>({
+          pageTitle: "Contact Us - Aerovolga",
+          pageDescription:
+            "Please provide a meta description by editing the snippet below. If you don’t, Google will try to find a relevant part of your post to show in the search results.",
+          keywords: "keywords",
+          h1: "default H1",
+          openGraphImage: TEST_FILE,
+        });
 
-      function handleSearchEngineOptimization(_event: SeoChangeEvent) {
-        // values.value.pageTitle = event.title;
-        // values.value.pageDescription = event.description;
-        // values.value.openGraphImage = event.image;
-      }
+        function handleSearchEngineOptimization(_event: SeoChangeEvent) {
+          // values.value.pageTitle = event.title;
+          // values.value.pageDescription = event.description;
+          // values.value.openGraphImage = event.image;
+        }
 
-      // or
+        // or
 
-      function handleSEOTitle(value: string) {
-        values.value.pageTitle = value;
-      }
+        function handleSEOTitle(value: string) {
+          values.value.pageTitle = value;
+        }
 
-      function handleSEODescription(value: string) {
-        values.value.pageDescription = value;
-      }
+        function handleSEODescription(value: string) {
+          values.value.pageDescription = value;
+        }
 
-      function handleSEOH1(value: string) {
-        values.value.h1 = value;
-      }
+        function handleSEOH1(value: string) {
+          values.value.h1 = value;
+        }
 
-      function handleSEOKeywords(value: string) {
-        values.value.keywords = value;
-      }
+        function handleSEOKeywords(value: string) {
+          values.value.keywords = value;
+        }
 
-      function handleSEOImage(value: SingleFileInputValueType | null) {
-        values.value.openGraphImage = value;
-      }
+        function handleSEOImage(value: SingleFileInputValueType | null) {
+          values.value.openGraphImage = value;
+        }
 
-      return {
-        values,
-        handleSEOTitle,
-        handleSEODescription,
-        handleSEOKeywords,
-        handleSEOH1,
-        handleSEOImage,
-        handleSearchEngineOptimization,
-      };
-    },
-    template: `
+        return {
+          values,
+          handleSEOTitle,
+          handleSEODescription,
+          handleSEOKeywords,
+          handleSEOH1,
+          handleSEOImage,
+          handleSearchEngineOptimization,
+        };
+      },
+      template: `
           <SeoFieldGroup
               :title="values.pageTitle"
               @change:title="handleSEOTitle"
@@ -104,4 +106,5 @@ export const Default = () =>
               @change="handleSearchEngineOptimization"
           />
         `,
-  });
+    }),
+};

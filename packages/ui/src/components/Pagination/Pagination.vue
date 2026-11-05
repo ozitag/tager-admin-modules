@@ -30,10 +30,7 @@
           class="btn-page"
           type="button"
           tabindex="0"
-          :class="{
-            disabled: page.disabled,
-            selected: page.selected && !page.disabled,
-          }"
+          :class="{ selected: page.selected }"
           :disabled="disabled"
           @click="goToCommonPage(page)"
         >

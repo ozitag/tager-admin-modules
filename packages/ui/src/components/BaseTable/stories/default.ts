@@ -8,6 +8,7 @@ import type {
   ColumnDefinitionJson,
   ColumnDefinitionList,
   ColumnDefinitionName,
+  RowDataDefaultType,
 } from "../../../typings/common";
 import BaseTable from "../BaseTable.vue";
 
@@ -228,7 +229,7 @@ interface TestEntity {
   link: string;
   description: string;
   file: Nullable<FileType>;
-  json: string | null | Record<string, any>;
+  json: string | null | Record<string, unknown>;
   textListItems?: string[];
   linkListItems?: Array<{ url: string; label: string }>;
 }
@@ -327,8 +328,8 @@ const story = () => ({
     return {
       columnDefs: defaultColumnDefs,
       rowData: defaultRowData,
-      rowCssClass: (row: any) => {
-        return "row-id-" + row.id;
+      rowCssClass: (row: RowDataDefaultType) => {
+        return "row-id-" + String(row["id"]);
       },
     };
   },

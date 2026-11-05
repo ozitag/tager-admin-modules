@@ -28,7 +28,7 @@
           <ul ref="tagListRef" class="tag-list">
             <li
               v-for="option in selectedOptions"
-              :key="option.value"
+              :key="String(option.value)"
               class="tag-item"
             >
               <Tag
@@ -90,7 +90,7 @@
     >
       <li
         v-for="(option, index) in filteredOptions"
-        :key="option.value"
+        :key="String(option.value)"
         :class="[
           'option',
           {
@@ -105,7 +105,7 @@
             :id="`${name}[${index}]`"
             :checked="isCheckedOption(option)"
             :disabled="disabled"
-            @change="(checked, e) => toggleOption(option, e)"
+            @change="(_checked, e) => toggleOption(option, e)"
             @focus="handleOptionFocus(option)"
             @blur="handleOptionBlur(option)"
           />
@@ -203,11 +203,11 @@ export default defineComponent({
   setup(props: Props, context: SetupContext) {
     const i18n = useI18n();
     const searchQuery = ref<string>("");
-    const focusedOption = ref<OptionType | null>(null);
+    const focusedOption = ref<OptionType<BaseOptionValue> | null>(null);
     const inputRef: Ref<HTMLInputElement | null> = ref(null);
     const tagListRef: Ref<HTMLDivElement | null> = ref(null);
 
-    function emitUpdateEvent(newValue: Array<OptionType>) {
+    function emitUpdateEvent(newValue: Array<OptionType<BaseOptionValue>>) {
       context.emit("update:selected-options", newValue);
     }
 
@@ -217,19 +217,19 @@ export default defineComponent({
       onChange: emitUpdateEvent,
     });
 
-    function isCheckedOption(option: OptionType) {
+    function isCheckedOption(option: OptionType<BaseOptionValue>) {
       return props.selectedOptions.some(
         (selectedOption) => selectedOption.value === option.value
       );
     }
 
-    function isFocusedOption(option: OptionType) {
+    function isFocusedOption(option: OptionType<BaseOptionValue>) {
       return focusedOption.value
         ? focusedOption.value.value === option.value
         : false;
     }
 
-    function toggleOption(option: OptionType, e: Event) {
+    function toggleOption(option: OptionType<BaseOptionValue>, e: Event) {
       const isChecked = isCheckedOption(option);
 
       if (
@@ -253,7 +253,7 @@ export default defineComponent({
       emitUpdateEvent(newSelectedOptions);
     }
 
-    function handleOptionFocus(option: OptionType) {
+    function handleOptionFocus(option: OptionType<BaseOptionValue>) {
       if (
         props.maxSelectedCount &&
         props.selectedOptions.length >= props.maxSelectedCount
@@ -264,13 +264,13 @@ export default defineComponent({
       focusedOption.value = option;
     }
 
-    function handleOptionBlur(option: OptionType) {
+    function handleOptionBlur(option: OptionType<BaseOptionValue>) {
       if (isFocusedOption(option)) {
         focusedOption.value = null;
       }
     }
 
-    const filteredOptions = computed<Array<OptionType>>(() => {
+    const filteredOptions = computed<Array<OptionType<BaseOptionValue>>>(() => {
       if (props.searchable && searchQuery.value) {
         return props.options.filter((option) =>
           option.label.toLowerCase().includes(searchQuery.value.toLowerCase())
@@ -284,7 +284,7 @@ export default defineComponent({
       inputRef.value?.focus();
     }
 
-    function handleTagCloseClick(option: OptionType): void {
+    function handleTagCloseClick(option: OptionType<BaseOptionValue>): void {
       const newSelectedOptions = props.selectedOptions.filter(
         (selectedOption) => selectedOption.value !== option.value
       );
@@ -293,7 +293,7 @@ export default defineComponent({
     }
 
     function handleDragAndDropInput(
-      sortedSelectedOptions: Array<OptionType>
+      sortedSelectedOptions: Array<OptionType<BaseOptionValue>>
     ): void {
       emitUpdateEvent(sortedSelectedOptions);
     }

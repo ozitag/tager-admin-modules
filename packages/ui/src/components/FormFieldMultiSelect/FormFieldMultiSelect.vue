@@ -24,7 +24,7 @@ import type { BaseOptionValue, OptionType } from "../../typings/common";
 import MultiSelect from "../MultiSelect";
 import FormFieldWrapper from "../FormFieldWrapper.vue";
 
-function isValidSelectOption(option: OptionType) {
+function isValidSelectOption(option: OptionType<BaseOptionValue>) {
   return typeof option === "object" && "value" in option && "label" in option;
 }
 

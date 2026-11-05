@@ -21,22 +21,18 @@ export default defineComponent({
     title: {
       type: String,
       default: "box",
-      required: true,
     },
     width: {
       type: [Number, String],
       default: 24,
-      required: true,
     },
     height: {
       type: [Number, String],
       default: 24,
-      required: true,
     },
     viewBox: {
       type: String,
       default: "0 0 24 24",
-      required: true,
     },
   },
 });

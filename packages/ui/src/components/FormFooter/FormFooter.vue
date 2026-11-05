@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="bottom">
-      <slot v-if="slots.left" name="left"></slot>
+      <slot v-if="slots['left']" name="left"></slot>
       <BaseButton v-else class="btn-back" variant="secondary" @click="goBack">
         {{ computedBackLabel }}
       </BaseButton>
@@ -124,8 +124,8 @@ export default defineComponent({
           props.isCreation && isAnotherCreationEnabled.value
             ? "create_create-another"
             : props.isCreation
-            ? "create"
-            : "save",
+              ? "create"
+              : "save",
       };
 
       emitSubmitEvent(event);

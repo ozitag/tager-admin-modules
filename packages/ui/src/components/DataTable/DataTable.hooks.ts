@@ -1,9 +1,9 @@
 import { computed, type ComputedRef, onMounted, type Ref, watch } from "vue";
 
-import type { ResponseBody } from "@tager/admin-services";
 import {
   type Nullable,
   type PaginationMeta,
+  type ResponseBody,
   useResource,
 } from "@tager/admin-services";
 

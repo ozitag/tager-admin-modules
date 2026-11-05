@@ -85,12 +85,7 @@
       <div
         v-for="entry of savedFileList"
         :key="entry.id"
-        :class="[
-          'file-wrapper',
-          { single: !multiple },
-          { uploading: entry.status === 'UPLOADING' },
-          { error: entry.status === 'ERROR' },
-        ]"
+        :class="['file-wrapper', { single: !multiple }]"
         :title="getFileHtmlTitle(entry.file)"
         :data-draggable-id="entry.id"
       >
@@ -198,8 +193,14 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, type PropType, type Ref, ref } from "vue";
-import type { Component } from "vue";
+import {
+  type Component,
+  computed,
+  defineComponent,
+  type PropType,
+  type Ref,
+  ref,
+} from "vue";
 
 import {
   createId,
@@ -526,11 +527,19 @@ export default defineComponent({
       handleFiles(dataTransfer?.files ?? null);
     }
 
-    function clearFile(valueToClear: UploadingSingleFileInputValueType) {
-      if (valueToClear.status === "UPLOADING") {
-        valueToClear.xhr.abort();
+    /**
+     * Called for both lists: the `else` branch below already handles an
+     * already-saved file, which carries no upload status.
+     */
+    function clearFile(
+      valueToClear: SingleFileInputValueType | UploadingSingleFileInputValueType
+    ) {
+      const uploading = "status" in valueToClear ? valueToClear : undefined;
+
+      if (uploading?.status === "UPLOADING") {
+        uploading.xhr.abort();
       }
-      if (valueToClear.status === "ERROR") {
+      if (uploading?.status === "ERROR") {
         uploadingFileList.value = uploadingFileList.value.filter(
           (value) => value.id !== valueToClear.id
         );
@@ -653,7 +662,9 @@ export default defineComponent({
   padding: 5px 10px;
   border-radius: 3px;
   background-color: #fff;
-  transition: background-color 0.15s linear, box-shadow 0.15s linear;
+  transition:
+    background-color 0.15s linear,
+    box-shadow 0.15s linear;
   border: 1px solid rgba(0, 0, 0, 0.16);
 
   &:hover {
@@ -750,7 +761,8 @@ export default defineComponent({
       background-color: rgba(220, 53, 69, 0.2);
       color: var(--danger);
       border-color: rgba(220, 53, 69, 0.4);
-      box-shadow: 0 3px 2px -1px rgba(220, 53, 69, 0.2),
+      box-shadow:
+        0 3px 2px -1px rgba(220, 53, 69, 0.2),
         0px 1px 5px 0px rgba(220, 53, 69, 0.14),
         0px 1px 5px 0px rgba(220, 53, 69, 0.12);
     }
@@ -784,8 +796,10 @@ export default defineComponent({
 
     &:hover {
       transform: scale(1.1);
-      box-shadow: 0 3px 2px -1px rgba(0, 0, 0, 0.2),
-        0px 1px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+      box-shadow:
+        0 3px 2px -1px rgba(0, 0, 0, 0.2),
+        0px 1px 5px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 5px 0px rgba(0, 0, 0, 0.12);
     }
   }
 

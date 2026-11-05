@@ -1,3 +1,4 @@
+import type { StoryObj } from "@storybook/vue3-vite";
 import { defineComponent, ref, watch } from "vue";
 
 import { createId } from "@tager/admin-services";
@@ -51,116 +52,128 @@ const TEST_FILES: Array<SingleFileInputValueType> = [
   },
 ];
 
-export const Default = () =>
-  defineComponent({
-    name: "FormFieldFileInputDefault",
-    components: { FormFieldFileInput },
-    setup() {
-      const file = ref(TEST_FILES[0]);
+export const Default: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "FormFieldFileInputDefault",
+      components: { FormFieldFileInput },
+      setup() {
+        const file = ref(TEST_FILES[0]);
 
-      watch(file, () => {
-        console.log("File: ", file);
-      });
+        watch(file, () => {
+          console.log("File: ", file);
+        });
 
-      return {
-        file,
-      };
-    },
-    template:
-      '<FormFieldFileInput v-model:value="file" name="file" label="Content" error="Error message" description="Description" />',
-  });
+        return {
+          file,
+        };
+      },
+      template:
+        '<FormFieldFileInput v-model:value="file" name="file" label="Content" error="Error message" description="Description" />',
+    }),
+};
 
-export const WithCaption = () =>
-  defineComponent({
-    name: "FormFieldFileInputDefault",
-    components: { FormFieldFileInput },
-    setup() {
-      const file = ref(TEST_FILES[0]);
+export const WithCaption: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "FormFieldFileInputDefault",
+      components: { FormFieldFileInput },
+      setup() {
+        const file = ref(TEST_FILES[0]);
 
-      watch(file, () => {
-        console.log("File: ", file);
-      });
+        watch(file, () => {
+          console.log("File: ", file);
+        });
 
-      return {
-        file,
-      };
-    },
-    template:
-      '<FormFieldFileInput v-model:value="file" name="file" label="Content" with-captions error="Error message" />',
-  });
+        return {
+          file,
+        };
+      },
+      template:
+        '<FormFieldFileInput v-model:value="file" name="file" label="Content" with-captions error="Error message" />',
+    }),
+};
 
-export const Multiple = () =>
-  defineComponent({
-    name: "FormFieldFileInputDefault",
-    components: { FormFieldFileInput },
-    setup() {
-      const files = ref(TEST_FILES);
+export const Multiple: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "FormFieldFileInputDefault",
+      components: { FormFieldFileInput },
+      setup() {
+        const files = ref(TEST_FILES);
 
-      watch(files, () => {
-        console.log("Files: ", files);
-      });
+        watch(files, () => {
+          console.log("Files: ", files);
+        });
 
-      return {
-        files,
-      };
-    },
-    template:
-      '<FormFieldFileInput v-model:value="files" name="files" multiple label="Content" error="Error message" />',
-  });
+        return {
+          files,
+        };
+      },
+      template:
+        '<FormFieldFileInput v-model:value="files" name="files" multiple label="Content" error="Error message" />',
+    }),
+};
 
-export const MultipleWithCaptions = () =>
-  defineComponent({
-    name: "FormFieldFileInputDefault",
-    components: { FormFieldFileInput },
-    setup() {
-      const files = ref(TEST_FILES);
+export const MultipleWithCaptions: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "FormFieldFileInputDefault",
+      components: { FormFieldFileInput },
+      setup() {
+        const files = ref(TEST_FILES);
 
-      watch(files, () => {
-        console.log("Files: ", files);
-      });
+        watch(files, () => {
+          console.log("Files: ", files);
+        });
 
-      return {
-        files,
-      };
-    },
-    template:
-      '<FormFieldFileInput v-model:value="files" name="files" multiple label="Content" with-captions error="Error message" />',
-  });
+        return {
+          files,
+        };
+      },
+      template:
+        '<FormFieldFileInput v-model:value="files" name="files" multiple label="Content" with-captions error="Error message" />',
+    }),
+};
 
-export const WithError = () =>
-  defineComponent({
-    name: "FormFieldFileInputWithError",
-    components: { FormFieldFileInput },
-    setup() {
-      const file = ref(TEST_FILES[0]);
+export const WithError: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "FormFieldFileInputWithError",
+      components: { FormFieldFileInput },
+      setup() {
+        const file = ref(TEST_FILES[0]);
 
-      watch(file, () => {
-        console.log("File: ", file);
-      });
+        watch(file, () => {
+          console.log("File: ", file);
+        });
 
-      return {
-        file,
-      };
-    },
-    template:
-      '<FormFieldFileInput v-model:value="file" name="file" label="Content" error="Required field" />',
-  });
+        return {
+          file,
+        };
+      },
+      template:
+        '<FormFieldFileInput v-model:value="file" name="file" label="Content" error="Required field" />',
+    }),
+};
 
-export const Disabled = () =>
-  defineComponent({
-    name: "FormFieldFileInputDisabled",
-    components: { FormFieldFileInput },
-    setup() {
-      const file = ref(TEST_FILES[0]);
+export const Disabled: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "FormFieldFileInputDisabled",
+      components: { FormFieldFileInput },
+      setup() {
+        const file = ref(TEST_FILES[0]);
 
-      watch(file, () => {
-        console.log("File: ", file);
-      });
+        watch(file, () => {
+          console.log("File: ", file);
+        });
 
-      return {
-        file,
-      };
-    },
-    template:
-      '<FormFieldFileInput v-model:value="file" name="file" label="Content" disabled error="Error message" />',
-  });
+        return {
+          file,
+        };
+      },
+      template:
+        '<FormFieldFileInput v-model:value="file" name="file" label="Content" disabled error="Error message" />',
+    }),
+};

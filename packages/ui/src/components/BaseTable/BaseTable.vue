@@ -14,18 +14,7 @@
           <th
             v-for="column of enhancedColumnDefs"
             :key="column.id"
-            :style="
-              Object.assign(
-                column.width
-                  ? {
-                      width: column.width,
-                      minWidth: column.width,
-                    }
-                  : {},
-                column.type === 'boolean' ? { textAlign: 'center' } : {},
-                column.headStyle ? column.headStyle : {}
-              )
-            "
+            :style="getHeadCellStyle(column)"
             :data-table-head-cell="column.field"
           >
             {{ column.name }}
@@ -40,18 +29,7 @@
           <th
             v-for="column of enhancedColumnDefs"
             :key="column.id"
-            :style="
-              Object.assign(
-                column.width
-                  ? {
-                      width: column.width,
-                      minWidth: column.width,
-                    }
-                  : {},
-                column.type === 'boolean' ? { textAlign: 'center' } : {},
-                column.headStyle ? column.headStyle : {}
-              )
-            "
+            :style="getHeadCellStyle(column)"
             :data-table-head-cell="column.field"
           >
             {{ column.name }}
@@ -75,7 +53,7 @@
         <tr
           v-for="(row, index) of rowData"
           v-else
-          :key="row.id"
+          :key="String(row['id'])"
           :class="rowCssClass ? rowCssClass(row) : ''"
         >
           <BaseTableCell
@@ -99,7 +77,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, type PropType } from "vue";
+import { computed, defineComponent, type PropType, type StyleValue } from "vue";
 import { kebabCase } from "lodash-es";
 
 import { useI18n } from "@tager/admin-services";
@@ -107,7 +85,6 @@ import { useI18n } from "@tager/admin-services";
 import Spinner from "../BaseSpinner";
 import type {
   ColumnDefinition,
-  ColumnDefinitionCommon,
   RowDataDefaultType,
 } from "../../typings/common";
 
@@ -119,6 +96,7 @@ interface PaginationProps {
   pageSize: number;
   pageCount: number;
   usePageSize?: boolean;
+  totalCount?: number;
 }
 
 interface Props {
@@ -227,8 +205,12 @@ export default defineComponent({
       return i18n.t("ui:baseTable.itemsNotFound");
     });
 
-    const enhancedColumnDefs = computed(() => {
-      const indexColumnDef: ColumnDefinitionCommon = {
+    // Annotated so the index column and the incoming defs collapse into one
+    // type instead of a union the template cannot consume.
+    const enhancedColumnDefs = computed<
+      Array<ColumnDefinition<RowDataDefaultType>>
+    >(() => {
+      const indexColumnDef: ColumnDefinition<RowDataDefaultType> = {
         id: -1,
         name: "#",
         field: "",
@@ -255,12 +237,28 @@ export default defineComponent({
       return context.slots[slotName];
     }
 
+    /**
+     * Built here rather than inline in the template: `headStyle` is a loose
+     * `string | object[] | object`, which cannot be typed as a `StyleValue`
+     * inside a template expression.
+     */
+    function getHeadCellStyle(
+      column: ColumnDefinition<RowDataDefaultType>
+    ): StyleValue {
+      return Object.assign(
+        column.width ? { width: column.width, minWidth: column.width } : {},
+        column.type === "boolean" ? { textAlign: "center" } : {},
+        column.headStyle ? column.headStyle : {}
+      ) as StyleValue;
+    }
+
     return {
       tableRef,
       tableCloneRef,
       computedNotFoundMessage,
       enhancedColumnDefs,
       getCellSlot,
+      getHeadCellStyle,
     };
   },
 });
@@ -390,7 +388,9 @@ tbody:not(.table-row-no-hover) tr {
     position: relative;
     background-color: #fff;
     // custom top and bottom borders
-    box-shadow: inset 0px -1.5px 0px #e9ecef, inset 0px 1px 0px #e9ecef;
+    box-shadow:
+      inset 0px -1.5px 0px #e9ecef,
+      inset 0px 1px 0px #e9ecef;
   }
 }
 

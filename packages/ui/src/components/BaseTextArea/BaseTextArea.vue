@@ -116,7 +116,9 @@ textarea {
   background-clip: padding-box;
   border: 1px solid var(--input-border-color);
   border-radius: var(--input-border-radius);
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
   overflow: auto;
   resize: vertical;
 

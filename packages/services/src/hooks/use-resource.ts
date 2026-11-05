@@ -14,6 +14,12 @@ export type ResourceRef<Data, Meta = undefined> = {
   loading: ComputedRef<boolean>;
   errorMessage: Ref<Nullable<string>>;
 
+  /**
+   * Holds whatever was thrown, so `unknown` would be the accurate type.
+   * Exported hooks downstream re-declare it as `Ref<Nullable<string>>`,
+   * so narrowing it is a major-release change.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   error: Ref<any>;
   status: Ref<FetchStatus>;
 };
@@ -22,13 +28,13 @@ export type ResourceHookReturnType<Data, Meta, RequestParams> = [
   RequestParams extends undefined
     ? () => Promise<void>
     : (params: RequestParams) => Promise<void>,
-  ResourceRef<Data, Meta>
+  ResourceRef<Data, Meta>,
 ];
 
 export function useResource<
   Data,
   Meta = undefined,
-  RequestParams = undefined
+  RequestParams = undefined,
 >(params: {
   fetchResource: RequestParams extends undefined
     ? () => Promise<ResponseBody<Data, Meta>>
@@ -41,6 +47,7 @@ export function useResource<
   const meta = ref<Meta | undefined>(undefined) as Ref<Meta | undefined>;
   const status = ref<FetchStatus>(FETCH_STATUSES.IDLE);
   const errorMessage = ref<string | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const error = ref<any>(null);
   const toast = useToast();
 

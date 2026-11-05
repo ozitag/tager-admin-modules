@@ -1,6 +1,6 @@
 <template>
   <td class="image-cell">
-    <div v-if="Boolean(value)" class="cell-inner">
+    <div v-if="value" class="cell-inner">
       <div class="image-wrapper" :style="imageWrapperStyle">
         <LoadableImage
           :src="value"

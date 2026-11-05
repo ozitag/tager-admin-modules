@@ -140,7 +140,7 @@ export function isAbsoluteUrl(url: string | null): boolean {
   try {
     new URL(url);
     return true;
-  } catch (error) {
+  } catch {
     return false;
   }
 }
@@ -177,8 +177,8 @@ export function urlTranslit(phrase: string): string {
           code == 1025 || code == 1105
             ? 0
             : code > 1071
-            ? code - 1071
-            : code - 1039,
+              ? code - 1071
+              : code - 1039,
         t = [
           "yo",
           "a",

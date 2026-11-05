@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import type { Story } from "@storybook/vue3";
+import type { StoryObj } from "@storybook/vue3-vite";
 
 import IconStoryItem from "./IconStoryItem.vue";
 import AddCircleIcon from "./AddCircleIcon.vue";
@@ -115,17 +115,18 @@ const ICON_COMPONENTS = {
   ZoomOutIcon,
 };
 
-export const Default: Story = () =>
-  defineComponent({
-    components: {
-      IconStoryItem,
-      ...ICON_COMPONENTS,
-      ...FILE_ICON_COMPONENTS,
-    },
-    setup() {
-      return { ICON_COMPONENTS, FILE_ICON_COMPONENTS };
-    },
-    template: `
+export const Default: StoryObj = {
+  render: () =>
+    defineComponent({
+      components: {
+        IconStoryItem,
+        ...ICON_COMPONENTS,
+        ...FILE_ICON_COMPONENTS,
+      },
+      setup() {
+        return { ICON_COMPONENTS, FILE_ICON_COMPONENTS };
+      },
+      template: `
       <div style="display: flex; flex-wrap: wrap; justify-content: flex-start;margin-bottom: 30px;">
       
         <IconStoryItem v-for="[iconName, IconComponent] of Object.entries(ICON_COMPONENTS)" :title="iconName">
@@ -138,4 +139,5 @@ export const Default: Story = () =>
         </IconStoryItem>
       </div>
     `,
-  });
+    }),
+};

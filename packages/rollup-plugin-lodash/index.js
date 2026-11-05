@@ -34,6 +34,13 @@ export function optimizeLodashImports() {
         parse,
       });
 
+      // `transform` returns UNCHANGED for files without lodash imports.
+      // Wrapping that into `{ code: null }` makes Vite's plugin container
+      // call `code.includes(...)` on null, so pass the sentinel through.
+      if (transformedCode === UNCHANGED) {
+        return UNCHANGED;
+      }
+
       return { code: transformedCode };
     },
   };

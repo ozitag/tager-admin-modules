@@ -91,8 +91,8 @@ export default defineComponent({
         selectedOptions.length > 1
           ? selectedOptions[1]
           : selectedOptions.length === 1
-          ? selectedOptions[0]
-          : null;
+            ? selectedOptions[0]
+            : null;
 
       context.emit("update:value", newValue);
     }

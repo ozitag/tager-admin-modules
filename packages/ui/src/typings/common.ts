@@ -1,3 +1,4 @@
+import type { StyleValue } from "vue";
 import type { RouteLocationRaw } from "vue-router";
 
 import type { FileType, Nullable, Nullish } from "@tager/admin-services";
@@ -25,8 +26,9 @@ export interface BaseOptionType {
   disabled?: boolean;
 }
 
-export interface OptionType<V extends BaseOptionValue = string>
-  extends BaseOptionType {
+export interface OptionType<
+  V extends BaseOptionValue = string,
+> extends BaseOptionType {
   value: V;
 }
 
@@ -98,14 +100,16 @@ export interface ColumnDefinitionCommon<RowData = RowDataDefaultType> {
   name: string;
   field: string;
   type?: string | ((params: ColumnParamsArg<RowData>) => string);
+  // Consumer-supplied formatter; its return value is rendered as-is.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   format?: (params: ColumnParamsArg<RowData>) => any;
   class?: CssClass | ((params: ColumnParamsArg<RowData>) => CssClass);
   width?: string;
-  // eslint-disable-next-line @typescript-eslint/ban-types
   style?: string | object[] | object;
-  // eslint-disable-next-line @typescript-eslint/ban-types
   headStyle?: string | object[] | object;
   useCustomDataCell?: boolean;
+  // Free-form bag read back by the consuming project.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   options?: Record<string, any>;
 }
 
@@ -114,19 +118,21 @@ export interface ColumnDefinitionDynamic<RowData = RowDataDefaultType> {
   name: string;
   field: string;
   type: (params: ColumnParamsArg<RowData>) => string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   format?: (params: ColumnParamsArg<RowData>) => any;
   class?: CssClass | ((params: ColumnParamsArg<RowData>) => CssClass);
   width?: string;
-  // eslint-disable-next-line @typescript-eslint/ban-types
   style?: string | object[] | object;
-  // eslint-disable-next-line @typescript-eslint/ban-types
   headStyle?: string | object[] | object;
   useCustomDataCell?: boolean;
+  // Free-form bag read back by the consuming project.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   options?: Record<string, any>;
 }
 
-export interface ColumnDefinitionString<RowData = RowDataDefaultType>
-  extends ColumnDefinitionCommon<RowData> {
+export interface ColumnDefinitionString<
+  RowData = RowDataDefaultType,
+> extends ColumnDefinitionCommon<RowData> {
   type?: "string";
   noWrap?: boolean;
   formatter?: "phone";
@@ -136,8 +142,9 @@ export interface ColumnDefinitionString<RowData = RowDataDefaultType>
   };
 }
 
-export interface ColumnDefinitionBoolean<RowData = RowDataDefaultType>
-  extends ColumnDefinitionCommon<RowData> {
+export interface ColumnDefinitionBoolean<
+  RowData = RowDataDefaultType,
+> extends ColumnDefinitionCommon<RowData> {
   type?: "boolean";
   view?: "YES_NO" | "TICK";
   trueLabel?: string;
@@ -145,14 +152,16 @@ export interface ColumnDefinitionBoolean<RowData = RowDataDefaultType>
   value?: (params: ColumnParamsArg<RowData>) => BooleanCellValue;
 }
 
-export interface ColumnDefinitionList<RowData = RowDataDefaultType>
-  extends ColumnDefinitionCommon<RowData> {
+export interface ColumnDefinitionList<
+  RowData = RowDataDefaultType,
+> extends ColumnDefinitionCommon<RowData> {
   type?: "list";
   format?: (params: ColumnParamsArg<RowData>) => ListCellValue;
 }
 
-export interface ColumnDefinitionLink<RowData = RowDataDefaultType>
-  extends ColumnDefinitionCommon<RowData> {
+export interface ColumnDefinitionLink<
+  RowData = RowDataDefaultType,
+> extends ColumnDefinitionCommon<RowData> {
   type: "link";
   format?: (params: ColumnParamsArg<RowData>) => LinkCellValue;
   options?: {
@@ -162,8 +171,9 @@ export interface ColumnDefinitionLink<RowData = RowDataDefaultType>
   };
 }
 
-export interface ColumnDefinitionRelations<RowData = RowDataDefaultType>
-  extends ColumnDefinitionCommon<RowData> {
+export interface ColumnDefinitionRelations<
+  RowData = RowDataDefaultType,
+> extends ColumnDefinitionCommon<RowData> {
   type: "relations";
   format: (params: ColumnParamsArg<RowData>) => RelationsCellValue;
   options?: {
@@ -171,14 +181,16 @@ export interface ColumnDefinitionRelations<RowData = RowDataDefaultType>
   };
 }
 
-export interface ColumnDefinitionHtml<RowData = RowDataDefaultType>
-  extends ColumnDefinitionCommon<RowData> {
+export interface ColumnDefinitionHtml<
+  RowData = RowDataDefaultType,
+> extends ColumnDefinitionCommon<RowData> {
   type: "html";
   format?: (params: ColumnParamsArg<RowData>) => StringCellValue;
 }
 
-export interface ColumnDefinitionImage<RowData = RowDataDefaultType>
-  extends ColumnDefinitionCommon<RowData> {
+export interface ColumnDefinitionImage<
+  RowData = RowDataDefaultType,
+> extends ColumnDefinitionCommon<RowData> {
   type: "image";
   format?: (params: ColumnParamsArg<RowData>) => ImageCellValue;
   options?: {
@@ -186,14 +198,16 @@ export interface ColumnDefinitionImage<RowData = RowDataDefaultType>
   };
 }
 
-export interface ColumnDefinitionDate<RowData = RowDataDefaultType>
-  extends ColumnDefinitionCommon<RowData> {
+export interface ColumnDefinitionDate<
+  RowData = RowDataDefaultType,
+> extends ColumnDefinitionCommon<RowData> {
   type: "date";
   format?: (params: ColumnParamsArg<RowData>) => DateCellValue;
 }
 
-export interface ColumnDefinitionDateTime<RowData = RowDataDefaultType>
-  extends ColumnDefinitionCommon<RowData> {
+export interface ColumnDefinitionDateTime<
+  RowData = RowDataDefaultType,
+> extends ColumnDefinitionCommon<RowData> {
   type: "datetime";
   format?: (params: ColumnParamsArg<RowData>) => DateCellValue;
   options?: {
@@ -202,14 +216,16 @@ export interface ColumnDefinitionDateTime<RowData = RowDataDefaultType>
   };
 }
 
-export interface ColumnDefinitionColor<RowData = RowDataDefaultType>
-  extends ColumnDefinitionCommon<RowData> {
+export interface ColumnDefinitionColor<
+  RowData = RowDataDefaultType,
+> extends ColumnDefinitionCommon<RowData> {
   type: "color";
   format?: (params: ColumnParamsArg<RowData>) => ColorCellValue;
 }
 
-export interface ColumnDefinitionName<RowData = RowDataDefaultType>
-  extends ColumnDefinitionCommon<RowData> {
+export interface ColumnDefinitionName<
+  RowData = RowDataDefaultType,
+> extends ColumnDefinitionCommon<RowData> {
   type: "name";
   format?: (params: ColumnParamsArg<RowData>) => NameCellValue;
   options?: {
@@ -219,8 +235,9 @@ export interface ColumnDefinitionName<RowData = RowDataDefaultType>
   };
 }
 
-export interface ColumnDefinitionKeyValue<RowData = RowDataDefaultType>
-  extends ColumnDefinitionCommon<RowData> {
+export interface ColumnDefinitionKeyValue<
+  RowData = RowDataDefaultType,
+> extends ColumnDefinitionCommon<RowData> {
   type: "key-value";
   format?: (params: ColumnParamsArg<RowData>) => KeyValueCellValue;
   options?: {
@@ -228,8 +245,9 @@ export interface ColumnDefinitionKeyValue<RowData = RowDataDefaultType>
   };
 }
 
-export interface ColumnDefinitionFile<RowData = RowDataDefaultType>
-  extends ColumnDefinitionCommon<RowData> {
+export interface ColumnDefinitionFile<
+  RowData = RowDataDefaultType,
+> extends ColumnDefinitionCommon<RowData> {
   type: "file";
   format?: (params: ColumnParamsArg<RowData>) => FileCellValue;
   options?: {
@@ -237,14 +255,16 @@ export interface ColumnDefinitionFile<RowData = RowDataDefaultType>
   };
 }
 
-export interface ColumnDefinitionJson<RowData = RowDataDefaultType>
-  extends ColumnDefinitionCommon<RowData> {
+export interface ColumnDefinitionJson<
+  RowData = RowDataDefaultType,
+> extends ColumnDefinitionCommon<RowData> {
   type: "json";
   format?: (params: ColumnParamsArg<RowData>) => StringCellValue;
 }
 
-export interface ColumnDefinitionBadge<RowData = RowDataDefaultType>
-  extends ColumnDefinitionCommon<RowData> {
+export interface ColumnDefinitionBadge<
+  RowData = RowDataDefaultType,
+> extends ColumnDefinitionCommon<RowData> {
   type: "badge";
   size?: number;
   format?: (params: ColumnParamsArg<RowData>) => BadgeCellValue;
@@ -273,8 +293,8 @@ export type DropdownMenuItemType = {
   text?: string;
   url?: string;
   onClick?: (event: Event) => void;
-  style?: any;
-  class?: any;
+  style?: StyleValue;
+  class?: CssClass;
 };
 
 export type SingleFileInputValueType = {
@@ -308,8 +328,7 @@ export type EventListener<E extends Event = Event> = (event: E) => void;
 /**
  * Source: {@link https://github.com/microsoft/TypeScript/issues/27024#issuecomment-421529650}
  */
-export type Equals<X, Y> = (<T>() => T extends X ? 1 : 2) extends <
-  T
->() => T extends Y ? 1 : 2
-  ? true
-  : false;
+export type Equals<X, Y> =
+  (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y ? 1 : 2
+    ? true
+    : false;

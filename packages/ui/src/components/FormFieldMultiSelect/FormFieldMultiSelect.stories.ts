@@ -1,3 +1,4 @@
+import type { StoryObj } from "@storybook/vue3-vite";
 import { ref, watch } from "vue";
 
 import {
@@ -13,23 +14,24 @@ export default { title: "FormFieldMultiSelect" };
 const OPTIONS = brandOptions;
 const SELECTED_OPTIONS = selectedBrandOptions;
 
-export const Default = () => ({
-  name: "DefaultFormFieldMultiSelect",
-  components: { FormFieldMultiSelect },
-  setup() {
-    const selectedOptions = ref<Array<BaseOptionType>>([]);
-    const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
+export const Default: StoryObj = {
+  render: () => ({
+    name: "DefaultFormFieldMultiSelect",
+    components: { FormFieldMultiSelect },
+    setup() {
+      const selectedOptions = ref<Array<BaseOptionType>>([]);
+      const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
 
-    watch(selectedOptions, (selectedOptions) => {
-      console.log("selectedOptions:", selectedOptions);
-    });
+      watch(selectedOptions, (selectedOptions) => {
+        console.log("selectedOptions:", selectedOptions);
+      });
 
-    return {
-      selectedOptions,
-      options,
-    };
-  },
-  template: `
+      return {
+        selectedOptions,
+        options,
+      };
+    },
+    template: `
     <FormFieldMultiSelect
       v-model:selected-options="selectedOptions"
       :options="options"
@@ -39,25 +41,27 @@ export const Default = () => ({
       error="Please, select at least 4 countries"
     />
   `,
-});
+  }),
+};
 
-export const WithSearch = () => ({
-  name: "FormFieldMultiSelectWithSearch",
-  components: { FormFieldMultiSelect },
-  setup() {
-    const selectedOptions = ref<Array<BaseOptionType>>([]);
-    const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
+export const WithSearch: StoryObj = {
+  render: () => ({
+    name: "FormFieldMultiSelectWithSearch",
+    components: { FormFieldMultiSelect },
+    setup() {
+      const selectedOptions = ref<Array<BaseOptionType>>([]);
+      const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
 
-    watch(selectedOptions, (selectedOptions) => {
-      console.log("selectedOptions:", selectedOptions);
-    });
+      watch(selectedOptions, (selectedOptions) => {
+        console.log("selectedOptions:", selectedOptions);
+      });
 
-    return {
-      selectedOptions,
-      options,
-    };
-  },
-  template: `
+      return {
+        selectedOptions,
+        options,
+      };
+    },
+    template: `
     <FormFieldMultiSelect
       v-model:selected-options="selectedOptions"
       :options="options"
@@ -67,25 +71,27 @@ export const WithSearch = () => ({
       :searchable="true"
     />
   `,
-});
+  }),
+};
 
-export const WithSearchAndSelected = () => ({
-  name: "FormFieldMultiSelectWithSearchAndSelected",
-  components: { FormFieldMultiSelect },
-  setup() {
-    const selectedOptions = ref<Array<BaseOptionType>>(SELECTED_OPTIONS);
-    const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
+export const WithSearchAndSelected: StoryObj = {
+  render: () => ({
+    name: "FormFieldMultiSelectWithSearchAndSelected",
+    components: { FormFieldMultiSelect },
+    setup() {
+      const selectedOptions = ref<Array<BaseOptionType>>(SELECTED_OPTIONS);
+      const options = ref<ReadonlyArray<BaseOptionType>>(OPTIONS);
 
-    watch(selectedOptions, (selectedOptions) => {
-      console.log("selectedOptions:", selectedOptions);
-    });
+      watch(selectedOptions, (selectedOptions) => {
+        console.log("selectedOptions:", selectedOptions);
+      });
 
-    return {
-      selectedOptions,
-      options,
-    };
-  },
-  template: `
+      return {
+        selectedOptions,
+        options,
+      };
+    },
+    template: `
     <FormFieldMultiSelect 
       v-model:selected-options="selectedOptions"
       :options="options"
@@ -95,4 +101,5 @@ export const WithSearchAndSelected = () => ({
       :searchable="true"
     />
   `,
-});
+  }),
+};

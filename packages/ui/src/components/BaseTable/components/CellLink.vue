@@ -92,8 +92,8 @@ export default defineComponent({
       return isLinkObject(value)
         ? value
         : typeof value === "string" && value.trim()
-        ? { url: value, text: value }
-        : null;
+          ? { url: value, text: value }
+          : null;
     });
 
     const isAbsoluteLink = computed(() => {

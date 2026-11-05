@@ -2,6 +2,11 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "composite": true,
+    // vite.config.ts is ESM and imports ESM-only packages (@vitejs/plugin-vue v6,
+    // vite v7) that expose types only through package.json "exports".
+    // The repo-wide classic "node" resolution cannot read those.
+    "module": "node16",
+    "moduleResolution": "node16",
     "rootDir": "./",
     "outDir": "./dist",
     "declaration": true,

@@ -16,5 +16,10 @@
     }
   ],
   "include": ["src/**/*.ts", "src/**/*.vue", "custom-types"],
-  "exclude": ["src/**/*.stories.ts"]
+  "exclude": [
+    "src/**/*.stories.ts",
+    "src/**/stories/**",
+    "src/**/*.test.ts",
+    "src/msw/**"
+  ]
 }

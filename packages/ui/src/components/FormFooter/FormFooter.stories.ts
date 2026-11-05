@@ -1,3 +1,4 @@
+import type { StoryObj } from "@storybook/vue3-vite";
 import { defineComponent, ref } from "vue";
 
 import FormFooter from "./FormFooter.vue";
@@ -93,34 +94,42 @@ const PageFooterStorybook = defineComponent({
     `,
 });
 
-export const Create = () =>
-  defineComponent({
-    name: "FormFooterCreate",
-    components: { PageFooterStorybook },
-    template: `<PageFooterStorybook :is-creation="true" />`,
-  });
+export const Create: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "FormFooterCreate",
+      components: { PageFooterStorybook },
+      template: `<PageFooterStorybook :is-creation="true" />`,
+    }),
+};
 
-export const CreateAnother = () =>
-  defineComponent({
-    name: "FormFooterCreateAnother",
-    components: { PageFooterStorybook },
-    template: `<PageFooterStorybook :is-creation="true" :should-create-another="true" />`,
-  });
+export const CreateAnother: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "FormFooterCreateAnother",
+      components: { PageFooterStorybook },
+      template: `<PageFooterStorybook :is-creation="true" :should-create-another="true" />`,
+    }),
+};
 
-export const Edit = () =>
-  defineComponent({
-    name: "FormFooterEdit",
-    components: { PageFooterStorybook },
-    template: `<PageFooterStorybook :is-creation="false" />`,
-  });
+export const Edit: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "FormFooterEdit",
+      components: { PageFooterStorybook },
+      template: `<PageFooterStorybook :is-creation="false" />`,
+    }),
+};
 
-export const CustomLeft = () =>
-  defineComponent({
-    name: "FormFooterCustomLeft",
-    components: { PageFooterStorybook },
-    template: `<PageFooterStorybook :is-creation="false" :is-custom-left="true">
+export const CustomLeft: StoryObj = {
+  render: () =>
+    defineComponent({
+      name: "FormFooterCustomLeft",
+      components: { PageFooterStorybook },
+      template: `<PageFooterStorybook :is-creation="false" :is-custom-left="true">
       <template #left>
         Left..
       </template>
     </PageFooterStorybook>`,
-  });
+    }),
+};

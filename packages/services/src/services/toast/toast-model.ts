@@ -1,10 +1,5 @@
 export type ToastVariant =
-  | "success"
-  | "warning"
-  | "danger"
-  | "primary"
-  | "secondary"
-  | "info";
+  "success" | "warning" | "danger" | "primary" | "secondary" | "info";
 
 export interface ToastParams {
   variant: ToastVariant;

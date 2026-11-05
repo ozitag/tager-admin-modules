@@ -5,12 +5,12 @@ import { useToast } from "./use-toast";
 
 type ResourceId = string | number;
 
-export function useResourceClone(params: {
-  cloneResource: (entityId: ResourceId) => Promise<{ data: any }>;
+export function useResourceClone<Data = unknown>(params: {
+  cloneResource: (entityId: ResourceId) => Promise<{ data: Data }>;
   confirmMessage: string;
   successMessage: string;
   failureMessage: string;
-  onSuccessRedirectTo?: (data: any) => string;
+  onSuccessRedirectTo?: (data: Data) => string;
 }): {
   handleResourceClone: (entityId: ResourceId) => void;
   isCloning: (entityId: ResourceId) => boolean;

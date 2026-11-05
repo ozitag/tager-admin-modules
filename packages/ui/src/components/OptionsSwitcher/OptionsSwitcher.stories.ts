@@ -1,3 +1,4 @@
+import type { StoryObj } from "@storybook/vue3-vite";
 import { defineComponent, ref } from "vue";
 
 import BaseCheckbox from "../BaseCheckbox";
@@ -10,10 +11,11 @@ export default {
   title: "OptionsSwitcher",
 };
 
-export const Default = () =>
-  defineComponent({
-    components: { OptionsSwitcher },
-    template: `
+export const Default: StoryObj = {
+  render: () =>
+    defineComponent({
+      components: { OptionsSwitcher },
+      template: `
       <div :style="{width: '500px'}">
       <OptionsSwitcher :options="[
   {value: '1', label: 'Option 1'},
@@ -22,12 +24,14 @@ export const Default = () =>
 ]"/>
       </div>
     `,
-  });
+    }),
+};
 
-export const WithColors = () =>
-  defineComponent({
-    components: { OptionsSwitcher },
-    template: `
+export const WithColors: StoryObj = {
+  render: () =>
+    defineComponent({
+      components: { OptionsSwitcher },
+      template: `
       <div :style="{width: '500px'}">
       <OptionsSwitcher :options="[
   {value: '1', label: 'Option 1', activeColor: 'green', activeTextColor: 'black'},
@@ -35,12 +39,14 @@ export const WithColors = () =>
 ]"/>
       </div>
     `,
-  });
+    }),
+};
 
-export const WithValue = () =>
-  defineComponent({
-    components: { OptionsSwitcher },
-    template: `
+export const WithValue: StoryObj = {
+  render: () =>
+    defineComponent({
+      components: { OptionsSwitcher },
+      template: `
       <div :style="{width: '500px'}">
       <OptionsSwitcher :options="[
   {value: '1', label: 'Option 1'},
@@ -49,76 +55,92 @@ export const WithValue = () =>
         ]" value="2"/>
       </div>
     `,
-  });
+    }),
+};
 
-export const YesNo = () =>
-  defineComponent({
-    components: { OptionsSwitcherYesNo },
-    template: `
+export const YesNo: StoryObj = {
+  render: () =>
+    defineComponent({
+      components: { OptionsSwitcherYesNo },
+      template: `
       <div :style="{width: '300px'}">
       <OptionsSwitcherYesNo/>
       </div>
     `,
-  });
+    }),
+};
 
-export const YesNoColor = () =>
-  defineComponent({
-    components: { OptionsSwitcherYesNo },
-    template: `
+export const YesNoColor: StoryObj = {
+  render: () =>
+    defineComponent({
+      components: { OptionsSwitcherYesNo },
+      template: `
       <div :style="{width: '300px'}">
       <OptionsSwitcherYesNo false-color="red" false-text-color="#fff" true-color="green" true-text-color="#fff"/>
       </div>
     `,
-  });
+    }),
+};
 
-export const YesNoWithValue = () =>
-  defineComponent({
-    components: { OptionsSwitcherYesNo },
-    template: `
+export const YesNoWithValue: StoryObj = {
+  render: () =>
+    defineComponent({
+      components: { OptionsSwitcherYesNo },
+      template: `
       <div :style="{width: '300px'}">
       <OptionsSwitcherYesNo :value="true"/>
       </div>
     `,
-  });
+    }),
+};
 
-export const YesNoWithValueAndEvent = () =>
-  defineComponent({
-    components: { OptionsSwitcherYesNo },
-    setup: () => {
-      const value = ref<boolean>(false);
+/*
+ * The two stories below name their component explicitly. A bare `StoryObj`
+ * makes TypeScript infer `render`'s return against a very wide union, which
+ * tips over the complexity limit (TS2590) in this file.
+ */
+export const YesNoWithValueAndEvent: StoryObj<typeof OptionsSwitcherYesNo> = {
+  render: () =>
+    defineComponent({
+      components: { OptionsSwitcherYesNo },
+      setup: () => {
+        const value = ref<boolean>(false);
 
-      const onChange = (newValue: boolean) => {
-        console.log("newValue", newValue);
-        value.value = newValue;
-      };
+        const onChange = (newValue: boolean) => {
+          console.log("newValue", newValue);
+          value.value = newValue;
+        };
 
-      return {
-        value,
-        onChange,
-      };
-    },
-    template: `
+        return {
+          value,
+          onChange,
+        };
+      },
+      template: `
       <div :style="{width: '300px'}">
       <OptionsSwitcherYesNo :value="value" @change="onChange"/>
       </div>
     `,
-  });
+    }),
+};
 
-export const YesNoVModel = () =>
-  defineComponent({
-    components: { OptionsSwitcherYesNo, BaseCheckbox },
-    setup: () => {
-      const value = ref<boolean>(false);
+export const YesNoVModel: StoryObj<typeof OptionsSwitcherYesNo> = {
+  render: () =>
+    defineComponent({
+      components: { OptionsSwitcherYesNo, BaseCheckbox },
+      setup: () => {
+        const value = ref<boolean>(false);
 
-      return {
-        value,
-      };
-    },
-    template: `
+        return {
+          value,
+        };
+      },
+      template: `
       <div :style="{width: '300px'}">
       <OptionsSwitcherYesNo v-model:value="value"/>
       <br/>
       <BaseCheckbox v-model:checked="value"/>
       </div>
     `,
-  });
+    }),
+};
