@@ -12,17 +12,18 @@
 
 <script lang="ts">
 import { defineComponent, type PropType } from "vue";
-import { component as CKEditor } from "@ckeditor/ckeditor5-vue";
+import { Ckeditor } from "@ckeditor/ckeditor5-vue";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import CustomCKEditor from "@tager/admin-wysiwyg";
+// @tager/admin-wysiwyg 2.x написан на TypeScript и отдаёт типы, поэтому
+// подавление ошибки над этим импортом больше не нужно.
+import TagerEditor from "@tager/admin-wysiwyg";
+import "@tager/admin-wysiwyg/css";
 
 import { CustomUploadAdapterPluginFactory } from "./RichTextEditor.helpers";
 
 export default defineComponent({
   name: "BaseRichTextInput",
-  components: { ckeditor: CKEditor },
+  components: { ckeditor: Ckeditor },
   props: {
     getUploadAdapterOptions: {
       type: Function as PropType<() => { uploadScenario: string }>,
@@ -42,7 +43,7 @@ export default defineComponent({
     return {
       handleSourceChange,
       // ckeditor related data
-      editor: CustomCKEditor,
+      editor: TagerEditor,
       editorConfig: {
         extraPlugins: [
           CustomUploadAdapterPluginFactory(props.getUploadAdapterOptions),
