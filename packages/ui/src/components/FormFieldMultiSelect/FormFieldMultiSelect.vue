@@ -20,7 +20,7 @@
 <script lang="ts">
 import { computed, defineComponent, type PropType } from "vue";
 
-import type { OptionType } from "../../typings/common";
+import type { BaseOptionValue, OptionType } from "../../typings/common";
 import MultiSelect from "../MultiSelect";
 import FormFieldWrapper from "../FormFieldWrapper.vue";
 
@@ -32,8 +32,8 @@ interface Props {
   name: string;
   label: string;
   error: string;
-  options: Array<OptionType>;
-  selectedOptions: Array<OptionType>;
+  options: Array<OptionType<BaseOptionValue>>;
+  selectedOptions: Array<OptionType<BaseOptionValue>>;
   maxSelectedCount: number;
 }
 
@@ -58,16 +58,16 @@ export default defineComponent({
       default: "",
     },
     options: {
-      type: Array as PropType<Array<OptionType>>,
+      type: Array as PropType<Array<OptionType<BaseOptionValue>>>,
       default: () => [],
-      validator(options: Array<OptionType>) {
+      validator(options: Array<OptionType<BaseOptionValue>>) {
         return options.every(isValidSelectOption);
       },
     },
     selectedOptions: {
-      type: Array as PropType<Array<OptionType>>,
+      type: Array as PropType<Array<OptionType<BaseOptionValue>>>,
       default: () => [],
-      validator(options: Array<OptionType>) {
+      validator(options: Array<OptionType<BaseOptionValue>>) {
         return options.every(isValidSelectOption);
       },
     },

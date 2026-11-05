@@ -46,7 +46,7 @@ export default defineComponent({
       default: true,
     },
     value: {
-      type: [Array, Object] as PropType<FileInputValueType>,
+      type: [Array, Object] as PropType<FileInputValueType | null>,
       default: null,
     },
     error: {
