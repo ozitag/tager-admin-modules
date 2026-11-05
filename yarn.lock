@@ -352,10 +352,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ckeditor/ckeditor5-vue@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "@ckeditor/ckeditor5-vue@npm:4.0.1"
-  checksum: 3ffe540ac948606d08fde1316ea12b2bc5d5a65e0e80fc009e71378b88f94d07f39e3b75af0abd9e01d23e5b80df42325c19d33f519a91345148e59840a99994
+"@ckeditor/ckeditor5-integrations-common@npm:^3.2.0":
+  version: 3.2.1
+  resolution: "@ckeditor/ckeditor5-integrations-common@npm:3.2.1"
+  peerDependencies:
+    ckeditor5: ">=42.0.0 || ^0.0.0-nightly"
+  checksum: 3f99f66506b198d3dfa711d7dfbc58986af7fad2cee13459e2ce53a515e154b48c83a3c2456fa097b858ec62343efa02bbc91adfb4eaf1bbe0f8fcf3a172ade3
+  languageName: node
+  linkType: hard
+
+"@ckeditor/ckeditor5-vue@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "@ckeditor/ckeditor5-vue@npm:9.0.0"
+  dependencies:
+    "@ckeditor/ckeditor5-integrations-common": ^3.2.0
+    lodash-es: ^4.18.1
+  peerDependencies:
+    ckeditor5: ">=49.0.0 || ^0.0.0-nightly || ^0.0.0-internal"
+    vue: ^3.4.0
+  checksum: b2bb5b6ea95eceb3eeb3efa0e501a2c490614a38f461557e0b7b52ed486f85a9a1cfc96485e4ec48c4761bac2c08c04e2d48336c187033fcdef1f527600b0f49
   languageName: node
   linkType: hard
 
@@ -1810,7 +1825,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@tager/admin-ui@workspace:packages/ui"
   dependencies:
-    "@ckeditor/ckeditor5-vue": ^4.0.1
+    "@ckeditor/ckeditor5-vue": ^9.0.0
     "@floating-ui/dom": ^0.4.5
     "@storybook/addon-docs": ^10.6.6
     "@storybook/vue3-vite": ^10.6.6
@@ -6759,6 +6774,13 @@ __metadata:
   version: 4.17.21
   resolution: "lodash-es@npm:4.17.21"
   checksum: 05cbffad6e2adbb331a4e16fbd826e7faee403a1a04873b82b42c0f22090f280839f85b95393f487c1303c8a3d2a010048bf06151a6cbe03eee4d388fb0a12d2
+  languageName: node
+  linkType: hard
+
+"lodash-es@npm:^4.18.1":
+  version: 4.18.1
+  resolution: "lodash-es@npm:4.18.1"
+  checksum: 578993943cfa779e784aeed96766484ec6ab15cd855e52c79631de6371ac49fadd6dd9f4719f8d1223ab2bcb0dfbece484f548191dd34d3dd8b39e1af712a343
   languageName: node
   linkType: hard
 
