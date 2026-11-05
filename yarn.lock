@@ -1781,7 +1781,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@tager/admin-services@workspace:packages/services"
   dependencies:
-    "@tager/admin-tools": "workspace:*"
     i18next: ^21.9.1
     nanoid: ^4.0.0
     typescript: 5.9.3
@@ -1794,7 +1793,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@tager/admin-tools@workspace:*, @tager/admin-tools@workspace:packages/tools":
+"@tager/admin-tools@workspace:packages/tools":
   version: 0.0.0-use.local
   resolution: "@tager/admin-tools@workspace:packages/tools"
   dependencies:
@@ -1815,7 +1814,6 @@ __metadata:
     "@storybook/addon-docs": ^10.6.6
     "@storybook/vue3-vite": ^10.6.6
     "@tager/admin-services": "workspace:*"
-    "@tager/admin-tools": "workspace:*"
     "@tager/admin-wysiwyg": ^1.0.0
     "@tager/rollup-plugin-lodash": "workspace:*"
     "@types/autosize": ^4.0.1

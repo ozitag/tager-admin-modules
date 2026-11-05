@@ -37,8 +37,6 @@
     "emit-declarations": "rm -f ./tsconfig.emit.tsbuildinfo && vue-tsc --project tsconfig.emit.json --emitDeclarationOnly --declarationMap false",
     "storybook": "storybook dev -p 3000",
     "tager:update": "yarn upgrade --latest --scope @tager",
-    "prepack": "yarn patch-package",
-    "postpack": "yarn restore-package",
     "build-storybook": "storybook build"
   },
   "engines": {
@@ -65,7 +63,6 @@
   "devDependencies": {
     "@storybook/addon-docs": "^10.6.6",
     "@storybook/vue3-vite": "^10.6.6",
-    "@tager/admin-tools": "workspace:*",
     "@tager/rollup-plugin-lodash": "workspace:*",
     "@types/autosize": "^4.0.1",
     "@types/smoothscroll-polyfill": "^0.3.1",

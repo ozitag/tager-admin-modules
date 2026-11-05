@@ -37,9 +37,7 @@
   "scripts": {
     "emit-declarations": "rm -f ./tsconfig.app.tsbuildinfo && tsc --project ./tsconfig.app.json --emitDeclarationOnly --declarationMap false",
     "build:js": "vite build",
-    "build:package": "yarn build:js && yarn emit-declarations",
-    "prepack": "yarn patch-package",
-    "postpack": "yarn restore-package"
+    "build:package": "yarn build:js && yarn emit-declarations"
   },
   "dependencies": {
     "i18next": "^21.9.1",
@@ -47,7 +45,6 @@
     "zod": "^3.18.0"
   },
   "devDependencies": {
-    "@tager/admin-tools": "workspace:*",
     "typescript": "5.9.3",
     "vite": "^7.3.7"
   },

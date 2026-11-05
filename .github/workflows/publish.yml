@@ -44,7 +44,16 @@ jobs:
           yarn changeset status
           yarn changeset version
           . "./scripts/commit-ci-changes.sh"
-          yarn changeset publish
+          # Published with yarn, not `changeset publish`: the latter shells out
+          # to npm, which sends the manifest it read before `prepack` ran and
+          # does not understand the `workspace:` protocol at all. That is how
+          # admin-ui 2.0.2 reached the registry declaring
+          # `"@tager/admin-services": "workspace:*"`, which no consumer can
+          # resolve. Yarn expands workspace ranges and applies publishConfig
+          # itself, so no package.json rewriting is needed.
+          yarn workspaces foreach --no-private --topological npm publish --tolerate-republish --access public
+          yarn changeset tag
           git push --follow-tags
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # Yarn Berry reads its own config, not the .npmrc setup-node writes.
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
