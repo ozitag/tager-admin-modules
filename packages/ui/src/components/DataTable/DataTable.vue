@@ -75,7 +75,10 @@ import useResizeObserver from "../../hooks/useResizeObserver";
 import type { TableChangeEvent } from "./DataTable.types";
 import SortComponent from "./components/Sort/Sort.vue";
 
-interface PaginationProps {
+// Экспортируются, потому что попадают в публичный тип компонента:
+// генератор деклараций Vue 3.5 не может сослаться на неэкспортированное
+// имя из внешнего модуля (TS4023).
+export interface PaginationProps {
   pageNumber: number;
   pageSize: number;
   pageCount: number;
@@ -83,7 +86,7 @@ interface PaginationProps {
   usePageSize?: boolean;
 }
 
-interface SortProps {
+export interface SortProps {
   options: Array<OptionType>;
   value: string;
 }
