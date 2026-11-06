@@ -84,6 +84,12 @@ export interface PaginationProps {
   pageCount: number;
   totalCount?: number;
   usePageSize?: boolean;
+  /**
+   * Объект pagination целиком уходит в <Pagination> через v-bind, а там
+   * disabled — обычный проп. То есть поле работало всегда, просто не было
+   * объявлено в типе, и у потребителей тайпчек падал на known properties.
+   */
+  disabled?: boolean;
 }
 
 export interface SortProps {
