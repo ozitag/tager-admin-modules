@@ -120,6 +120,7 @@ import {
   type SetupContext,
 } from "vue";
 
+import type { Nullable } from "@tager/admin-services";
 import { useI18n } from "@tager/admin-services";
 
 import type { SeoChangeEvent } from "../../typings/common";
@@ -261,7 +262,7 @@ export default defineComponent({
       default: "openGraphImage",
     },
     imageScenario: {
-      type: String,
+      type: String as PropType<Nullable<string>>,
       default: null,
     },
     imageErrorMessage: {
