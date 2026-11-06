@@ -2,7 +2,7 @@
   <div class="options-switcher">
     <span
       v-for="item in optionsFormatted"
-      :key="item.value"
+      :key="item.value ?? '__null__'"
       :title="item.label"
       :class="item.value === innerValue ? 'active' : ''"
       :style="
@@ -59,7 +59,9 @@ export default defineComponent({
       }
     );
 
-    const onChange = (newValue: string) => {
+    // Значение варианта nullable: вариант «не выбрано» задаётся как
+    // { value: null }, и клик по нему должен доходить сюда как есть.
+    const onChange = (newValue: Nullable<string>) => {
       if (innerValue.value === newValue) {
         if (props.nullable) {
           innerValue.value = null;

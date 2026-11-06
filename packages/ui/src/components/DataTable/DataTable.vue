@@ -94,7 +94,11 @@ export interface PaginationProps {
 
 export interface SortProps {
   options: Array<OptionType>;
-  value: string;
+  /**
+   * Nullable, потому что useDataTable() из этого же пакета отдаёт
+   * sort: Ref<Nullable<string>> — «сортировка не выбрана» это null.
+   */
+  value: Nullable<string>;
 }
 
 interface Props {
