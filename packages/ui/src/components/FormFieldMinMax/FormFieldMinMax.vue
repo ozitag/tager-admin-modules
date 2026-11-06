@@ -1,9 +1,9 @@
 <template>
   <FormFieldWrapper
     :class="containerClass"
-    :label="label"
+    :label="label ?? ''"
     :label-for="name"
-    :error="error"
+    :error="error ?? ''"
     :no-error-padding="noErrorPadding"
     :description="description"
   >
@@ -13,6 +13,8 @@
 
 <script lang="ts">
 import { defineComponent, type PropType } from "vue";
+
+import type { Nullable } from "@tager/admin-services";
 
 import type { MinMaxValue } from "../BaseMinMax/typings";
 import BaseMinMax from "../BaseMinMax";
@@ -35,7 +37,7 @@ export default defineComponent({
       required: true,
     },
     label: {
-      type: String,
+      type: String as PropType<Nullable<string>>,
       default: null,
     },
     value: {
@@ -43,7 +45,7 @@ export default defineComponent({
       default: null,
     },
     error: {
-      type: String,
+      type: String as PropType<Nullable<string>>,
       default: null,
     },
     containerClass: {

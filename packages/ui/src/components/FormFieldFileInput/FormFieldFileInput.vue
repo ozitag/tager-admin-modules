@@ -21,6 +21,8 @@
 <script lang="ts">
 import { defineComponent, type PropType } from "vue";
 
+import type { Nullable } from "@tager/admin-services";
+
 import FileInput from "../FileInput";
 import type { FileInputValueType } from "../FileInput/FileInput.types";
 import FormFieldWrapper from "../FormFieldWrapper.vue";
@@ -54,7 +56,7 @@ export default defineComponent({
       default: "",
     },
     scenario: {
-      type: String,
+      type: String as PropType<Nullable<string>>,
       default: null,
     },
     containerClass: {

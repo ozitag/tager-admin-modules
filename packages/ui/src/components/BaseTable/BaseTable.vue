@@ -80,6 +80,7 @@
 import { computed, defineComponent, type PropType, type StyleValue } from "vue";
 import { kebabCase } from "lodash-es";
 
+import type { Nullable } from "@tager/admin-services";
 import { useI18n } from "@tager/admin-services";
 
 import Spinner from "../BaseSpinner";
@@ -118,7 +119,7 @@ interface Props {
   useStickyHeader: boolean;
   indexColumnDef: ColumnDefinition;
   notFoundMessage: string;
-  errorMessage: string;
+  errorMessage: Nullable<string>;
   pagination: PaginationProps;
 }
 
@@ -185,7 +186,7 @@ export default defineComponent({
      * Error message, which is displayed if table data request was failed.
      */
     errorMessage: {
-      type: String,
+      type: String as PropType<Nullable<string>>,
       default: "",
     },
     rowNoHover: {

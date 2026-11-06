@@ -2,7 +2,7 @@
   <FormFieldWrapper
     :label-for="name"
     :label="label"
-    :error="error"
+    :error="error ?? ''"
     :no-error-padding="noErrorPadding"
     :description="description"
   >
@@ -11,7 +11,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, type PropType } from "vue";
+
+import type { Nullable } from "@tager/admin-services";
 
 import FormFieldWrapper from "../FormFieldWrapper.vue";
 import ColorPicker from "../ColorPicker";
@@ -37,7 +39,7 @@ export default defineComponent({
       default: "",
     },
     error: {
-      type: String,
+      type: String as PropType<Nullable<string>>,
       default: null,
     },
     noErrorPadding: {

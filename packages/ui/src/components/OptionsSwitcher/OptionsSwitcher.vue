@@ -24,13 +24,15 @@
 import type { PropType } from "vue";
 import { computed, defineComponent, ref, watch } from "vue";
 
+import type { Nullable } from "@tager/admin-services";
+
 import type { OptionsSwitcherOption } from "./OptionsSwitcher.types";
 
 export default defineComponent({
   name: "OptionsSwitcher",
   props: {
     value: {
-      type: String,
+      type: String as PropType<Nullable<string>>,
       default: null,
     },
     nullable: {

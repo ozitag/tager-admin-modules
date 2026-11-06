@@ -291,7 +291,7 @@ export default defineComponent({
       default: "",
     },
     maxFileCount: {
-      type: Number,
+      type: Number as PropType<Nullable<number>>,
       default: null,
     },
     urlUploadEnabled: {
@@ -305,7 +305,7 @@ export default defineComponent({
       default: "",
     },
     scenario: {
-      type: String,
+      type: String as PropType<Nullable<string>>,
       default: null,
     },
     disabled: {

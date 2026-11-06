@@ -7,8 +7,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from "vue";
+import { defineComponent, ref, watch, type PropType } from "vue";
 
+import type { Nullable } from "@tager/admin-services";
 import { useI18n } from "@tager/admin-services";
 
 import OptionsSwitcher from "./OptionsSwitcher.vue";
@@ -18,7 +19,7 @@ export default defineComponent({
   components: { OptionsSwitcher },
   props: {
     value: {
-      type: Boolean,
+      type: Boolean as PropType<Nullable<boolean>>,
       default: null,
     },
     trueLabel: {

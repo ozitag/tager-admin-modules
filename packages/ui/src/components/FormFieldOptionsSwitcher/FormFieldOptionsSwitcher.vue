@@ -1,9 +1,9 @@
 <template>
   <FormFieldWrapper
     :class="containerClass"
-    :label="label"
+    :label="label ?? ''"
     :label-for="name"
-    :error="error"
+    :error="error ?? ''"
     :no-error-padding="noErrorPadding"
     :description="description"
   >
@@ -21,6 +21,8 @@
 <script lang="ts">
 import type { PropType } from "vue";
 import { defineComponent } from "vue";
+
+import type { Nullable } from "@tager/admin-services";
 
 import type { OptionType } from "../../typings/common";
 import OptionsSwitcher from "../OptionsSwitcher/OptionsSwitcher.vue";
@@ -48,7 +50,7 @@ export default defineComponent({
       required: true,
     },
     label: {
-      type: String,
+      type: String as PropType<Nullable<string>>,
       default: null,
     },
     options: {
@@ -56,7 +58,7 @@ export default defineComponent({
       default: () => [],
     },
     value: {
-      type: String,
+      type: String as PropType<Nullable<string>>,
       default: null,
     },
     nullable: {
@@ -64,7 +66,7 @@ export default defineComponent({
       default: false,
     },
     error: {
-      type: String,
+      type: String as PropType<Nullable<string>>,
       default: null,
     },
     containerClass: {

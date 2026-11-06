@@ -225,7 +225,7 @@ export default defineComponent({
       default: () => [],
     },
     src: {
-      type: String,
+      type: String as PropType<Nullable<string>>,
       default: null,
     },
     alt: {

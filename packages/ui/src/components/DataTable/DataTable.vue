@@ -149,7 +149,7 @@ export default defineComponent({
       default: false,
     },
     errorMessage: {
-      type: String,
+      type: String as PropType<Nullable<string>>,
       default: null,
     },
     searchQuery: {

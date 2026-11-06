@@ -49,7 +49,7 @@ export default defineComponent({
   },
   props: {
     label: {
-      type: String,
+      type: String as PropType<Nullable<string>>,
       default: null,
     },
     filter: {
