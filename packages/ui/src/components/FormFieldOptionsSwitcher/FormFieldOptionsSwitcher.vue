@@ -24,14 +24,12 @@ import { defineComponent } from "vue";
 
 import type { Nullable } from "@tager/admin-services";
 
-import type { OptionType } from "../../typings/common";
 import OptionsSwitcher from "../OptionsSwitcher/OptionsSwitcher.vue";
+// Тип берётся из OptionsSwitcher, а не объявляется заново: здесь лежала
+// его копия, не знавшая, что значение варианта стало nullable, из-за чего
+// экспортируемый OptionsSwitcherOption перестал подходить этому же пропу.
+import type { OptionsSwitcherOption } from "../OptionsSwitcher/OptionsSwitcher.types";
 import FormFieldWrapper from "../FormFieldWrapper.vue";
-
-type OptionsSwitcherOption = OptionType & {
-  activeColor?: string;
-  activeTextColor?: string;
-};
 
 export default defineComponent({
   name: "FormFieldOptionsSwitcher",
