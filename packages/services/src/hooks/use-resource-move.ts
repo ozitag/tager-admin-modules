@@ -5,25 +5,35 @@ import { useToast } from "./use-toast";
 type ResourceId = string | number;
 
 export type MoveDirection = "up" | "down" | "up-top";
-type MoveDirectionOld = "up" | "down";
 
-export type MoveResource = (
+/**
+ * Реализация переноса.
+ *
+ * Параметризован набором направлений: параметры функций контравариантны,
+ * поэтому без этого реализация вида (id, direction: "up" | "down") не
+ * присваивалась типу, обещающему принимать и "up-top". Проектам, у которых
+ * бэкенд не умеет "up-top", больше не нужно расширять сигнатуру ради типов —
+ * параметр выводится из самой реализации.
+ */
+export type MoveResource<D extends MoveDirection = MoveDirection> = (
   entityId: ResourceId,
-  direction: MoveDirection | MoveDirectionOld
+  direction: D
 ) => Promise<{ success: boolean }>;
 
-export function useResourceMove(params: {
-  moveResource: MoveResource;
+export function useResourceMove<
+  D extends MoveDirection = MoveDirection,
+>(params: {
+  moveResource: MoveResource<D>;
   resourceName?: string;
   onSuccess?: () => void;
 }): {
-  handleResourceMove: (entityId: ResourceId, direction: MoveDirection) => void;
+  handleResourceMove: (entityId: ResourceId, direction: D) => void;
   isMoving: (entityId: ResourceId) => boolean;
 } {
   const movingResourceIdList = ref<Array<ResourceId>>([]);
   const toast = useToast();
 
-  function handleResourceMove(entityId: ResourceId, direction: MoveDirection) {
+  function handleResourceMove(entityId: ResourceId, direction: D) {
     const resourceName = params.resourceName ?? "Resource";
 
     movingResourceIdList.value.push(entityId);
