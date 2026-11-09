@@ -44,7 +44,7 @@
     "jsdom": "^31.0.0",
     "lint-staged": "^13.0.3",
     "lodash-es": "^4.17.21",
-    "pinia": "^2.0.21",
+    "pinia": "^4.1.0",
     "prettier": "^3.9.10",
     "sass": "^1.95.0",
     "typescript": "5.9.3",
