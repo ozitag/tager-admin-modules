@@ -76,6 +76,21 @@ Releases go through [changesets](https://github.com/changesets/changesets).
 **Without a changeset nothing is published** — the workflow still succeeds, it
 just has no version to release.
 
+### Patch only
+
+**Every release is a `patch`.** Answer `yarn changeset` with `patch` whatever
+the change is — a new component, a renamed prop, a dependency bump: the third
+number goes up and the first two stay where they are.
+
+Consumers track these packages with a caret and update them without reading a
+changelog, so `minor` and `major` buy nothing and cost something: a bumped
+middle number leaves every `^2.0.x` consumer a release behind until someone
+edits their `package.json` by hand.
+
+`yarn run check-changesets` enforces this. It runs on commit through
+lint-staged, in CI and again before publishing, and fails with the offending
+file if a changeset asks for anything but a patch.
+
 Pull requests are validated separately by `.github/workflows/ci.yml`.
 
 ## Repository layout

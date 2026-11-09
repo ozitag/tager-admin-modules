@@ -14,7 +14,8 @@
     "postinstall": "husky install",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "check-changesets": "node scripts/check-changesets.mjs"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
@@ -59,6 +60,9 @@
     "*.{ts,vue}": [
       "eslint --fix",
       "prettier --write"
+    ],
+    ".changeset/*.md": [
+      "node scripts/check-changesets.mjs"
     ]
   }
 }
