@@ -2999,9 +2999,9 @@ __metadata:
   linkType: hard
 
 "@types/smoothscroll-polyfill@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "@types/smoothscroll-polyfill@npm:0.3.1"
-  checksum: 871a5b556c3be746882ac58b0f936a66a716f4e9b5bd18aaf72fe60aaad42e6ce09e2c639c455ab7655637839bc3a3d923994dd68463c905bd1ecbd1961d8ec1
+  version: 0.3.4
+  resolution: "@types/smoothscroll-polyfill@npm:0.3.4"
+  checksum: 08d2d0c2ca918648d298229213a88459889744d66dce75645845d58b714eaab5d89571289911055f5c1821d4041343c4db0ab024d291a1c982c60a6cd8ffb0c9
   languageName: node
   linkType: hard
 
