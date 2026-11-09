@@ -127,6 +127,10 @@ const EN = {
     No: "No",
   },
 
+  modal: {
+    close: "Close",
+  },
+
   fieldValue: {
     edit: "Edit",
     save: "Save",

@@ -129,6 +129,10 @@ const RU: typeof EN = {
     No: "Нет",
   },
 
+  modal: {
+    close: "Закрыть",
+  },
+
   fieldValue: {
     edit: "Изменить",
     save: "Сохранить",

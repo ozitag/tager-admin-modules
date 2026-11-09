@@ -92,6 +92,8 @@ export {
 } from "./components/BaseMinMax";
 export { default as FormFieldMinMax } from "./components/FormFieldMinMax";
 
+export { default as Modal } from "./components/Modal";
+
 export { default as ToastList } from "./components/Toast/ToastList.vue";
 
 export * from "./utils/common";
