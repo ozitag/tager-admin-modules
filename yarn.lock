@@ -2884,20 +2884,20 @@ __metadata:
   linkType: hard
 
 "@types/leaflet@npm:^1.7.11":
-  version: 1.7.11
-  resolution: "@types/leaflet@npm:1.7.11"
+  version: 1.9.22
+  resolution: "@types/leaflet@npm:1.9.22"
   dependencies:
     "@types/geojson": "*"
-  checksum: 6613dbc91f174545ed39183a8564a344152f1884f02ab4dbc002b6bd4816d8525b5247e62217694763daf727ca5e589f40144dc809edb7194064e6bdc2f4369a
+  checksum: fb3b54f7c8ea2e3ca84d41c6ad06e418ec87a15c30c820f33e60cf91eadb3950392a794c870e5a01daa66dccda05a0d97067ba303299b1e479f579329e652d6a
   languageName: node
   linkType: hard
 
 "@types/lodash-es@npm:^4.17.6":
-  version: 4.17.6
-  resolution: "@types/lodash-es@npm:4.17.6"
+  version: 4.17.12
+  resolution: "@types/lodash-es@npm:4.17.12"
   dependencies:
     "@types/lodash": "*"
-  checksum: 9bd239dd525086e278821949ce12fbdd4f100a060fed9323fc7ad5661113e1641f28a7ebab617230ed3474680d8f4de705c1928b48252bb684be6ec9eed715db
+  checksum: 990a99e2243bebe9505cb5ad19fbc172beb4a8e00f9075c99fc06c46c2801ffdb40bc2867271cf580d5f48994fc9fb076ec92cd60a20e621603bf22114e5b077
   languageName: node
   linkType: hard
 
@@ -3006,9 +3006,9 @@ __metadata:
   linkType: hard
 
 "@types/sortablejs@npm:^1.13.0":
-  version: 1.13.0
-  resolution: "@types/sortablejs@npm:1.13.0"
-  checksum: b28f2d6d75ae2fed8bbfd6dd991edad259cce8b03729d397c92545f3170eaedf586bb6a5e5b6a729e92b903976e739b8d598f2347ecf2cbd3da41a7754b960ee
+  version: 1.15.9
+  resolution: "@types/sortablejs@npm:1.15.9"
+  checksum: 3aa0533a8833f7f7beefa3fa83a64a557527efa4376917b70163b9b2e761a6d6dda99417cbdb864fc4c63849ec252b0b68ef956cbd1f83c92ee1e056f4d20d1f
   languageName: node
   linkType: hard
 
@@ -3335,8 +3335,8 @@ __metadata:
   linkType: hard
 
 "@vitest/coverage-v8@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "@vitest/coverage-v8@npm:5.1.0"
+  version: 5.1.1
+  resolution: "@vitest/coverage-v8@npm:5.1.1"
   dependencies:
     "@bcoe/v8-coverage": ^1.0.2
     "@vitest/istanbul-lib-coverage": ^2.1.0
@@ -3347,12 +3347,12 @@ __metadata:
     std-env: ^4.3.0
     tinyrainbow: ^3.2.0
   peerDependencies:
-    "@vitest/browser": 5.1.0
-    vitest: 5.1.0
+    "@vitest/browser": 5.1.1
+    vitest: 5.1.1
   peerDependenciesMeta:
     "@vitest/browser":
       optional: true
-  checksum: bac49151fb76e782e6b02a30b0c0a6b9c42b6c0caf7cc3c81665f8a5899f5a7216266889f5819b24429f4d3b7d8ffe729383a43f84777ab124b6e19211421544
+  checksum: 2a420979fccdab37ba08fb5d8b035afa52fe2c0fc765b09942377b25ed832bc94fa0c3d48fded117d41c25c116f317b8e2f52ad1aa0ed92addb0b88f54c3874f
   languageName: node
   linkType: hard
 
@@ -3385,14 +3385,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/mocker@npm:5.1.0":
-  version: 5.1.0
-  resolution: "@vitest/mocker@npm:5.1.0"
+"@vitest/mocker@npm:5.1.1":
+  version: 5.1.1
+  resolution: "@vitest/mocker@npm:5.1.1"
   dependencies:
     "@jridgewell/trace-mapping": 0.3.31
-    "@vitest/spy": 5.1.0
+    "@vitest/spy": 5.1.1
     estree-walker: ^3.0.3
-    magic-string: ^1.4.3
+    magic-string: ^1.4.5
   peerDependencies:
     msw: ^2.4.9 || ^3.0.0
     vite: ^6.0.0 || ^7.0.0 || ^8.0.0
@@ -3401,7 +3401,7 @@ __metadata:
       optional: true
     vite:
       optional: true
-  checksum: 8a0b97668db11e48e8b15ea95ce026deaaeebd672983fdf94d1ed9eec46150cfa04d9db6390d3b8bf0d35940b82659e3d72a6755ba785ae71f2d95709275e2f6
+  checksum: daf3ad73265a70455c9fdeeec664a88fab25aabf550bf9be6002ca84fa23526232c8a790c0db38b9babbe3815093b3b96f1fd4778bd02d26ed69d4b9d12bd7dd
   languageName: node
   linkType: hard
 
@@ -3423,10 +3423,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/spy@npm:5.1.0":
-  version: 5.1.0
-  resolution: "@vitest/spy@npm:5.1.0"
-  checksum: 2274f86f53be3ace1ff7ad491a6756554cc8411c991169b04c1e2bdbd90ca96e8992d39d738d50a47e10c2d2d81ddf71b74d671c5bbe8d4d00ee314c3cf31bea
+"@vitest/spy@npm:5.1.1":
+  version: 5.1.1
+  resolution: "@vitest/spy@npm:5.1.1"
+  checksum: 332e0b14d0978dfcf35164f2b437172ddea450b1207ad0270dff6abacf9d734af46f96d8cd2958b328bef9f4415b61060576763fb17a40f302f29c3b6e7f5959
   languageName: node
   linkType: hard
 
@@ -3711,8 +3711,8 @@ __metadata:
   linkType: hard
 
 "@vue/test-utils@npm:^2.5.1":
-  version: 2.5.1
-  resolution: "@vue/test-utils@npm:2.5.1"
+  version: 2.6.0
+  resolution: "@vue/test-utils@npm:2.6.0"
   dependencies:
     js-beautify: ^2.0.0
     vue-component-type-helpers: ^3.0.0
@@ -3723,7 +3723,7 @@ __metadata:
   peerDependenciesMeta:
     "@vue/server-renderer":
       optional: true
-  checksum: 4ca54118830524427fa8c25e7899fb7e5670aeafa83f43440b6c771980016b3f2ba0f13b5f8615aaed53d84a1b2ad529cc3b29791e0000e59c595f355a1fe711
+  checksum: 0e55a0caf3d2a0bc85114fd6eb3ed0691592c7888ba142a67c26363833f24df120cb6174351b898aebe2769a6452cd6c000b8a0dc75343d865b37c418273b21c
   languageName: node
   linkType: hard
 
@@ -3758,9 +3758,11 @@ __metadata:
   linkType: hard
 
 "acorn-walk@npm:^8.2.0":
-  version: 8.2.0
-  resolution: "acorn-walk@npm:8.2.0"
-  checksum: 1715e76c01dd7b2d4ca472f9c58968516a4899378a63ad5b6c2d668bba8da21a71976c14ec5f5b75f887b6317c4ae0b897ab141c831d741dc76024d8745f1ad1
+  version: 8.3.5
+  resolution: "acorn-walk@npm:8.3.5"
+  dependencies:
+    acorn: ^8.11.0
+  checksum: ea8b55206c8913ce1d71a62dc10215ad919e3caf64053de72038e0be25dd8ef1454ffdcb6f25ed3b5325204f7ae18131e7fbbdfd7554f9538985a570188c60a8
   languageName: node
   linkType: hard
 
@@ -3773,7 +3775,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:^8.15.0, acorn@npm:^8.16.0":
+"acorn@npm:^8.11.0, acorn@npm:^8.15.0, acorn@npm:^8.16.0":
   version: 8.19.0
   resolution: "acorn@npm:8.19.0"
   bin:
@@ -4791,9 +4793,9 @@ __metadata:
   linkType: hard
 
 "core-js@npm:^3.25.0":
-  version: 3.25.0
-  resolution: "core-js@npm:3.25.0"
-  checksum: 5a72740bf5babaf2e6203da4c0e831a0b97c3fe6f21b4c1aa8601d3a927660a22128dd8f0e86ce84778c4e5372ab0fc03c7944afa7e215c7fb13b2c79d5d5504
+  version: 3.51.0
+  resolution: "core-js@npm:3.51.0"
+  checksum: b90b7241f09b6f011b798c1b9dd5d9b6d2b3a9e70f1e2772f02ae8864ca5efcb32ec877f822b3e5aba07b551043774a91897c6c33782a769bb694a467c3bdfca
   languageName: node
   linkType: hard
 
@@ -6946,9 +6948,9 @@ __metadata:
   linkType: hard
 
 "highlight.js@npm:^11.11.1":
-  version: 11.11.1
-  resolution: "highlight.js@npm:11.11.1"
-  checksum: 841ddd329a92be123a61ef4051698f824c3575deef588fbb810bd638f1575ddc96b7bdd925b97c05a29276bb119dfcb8e5bcb0acb31c86249371bf046e131d72
+  version: 11.12.0
+  resolution: "highlight.js@npm:11.12.0"
+  checksum: ee53ad7a20f78e2904d809caf01b6f6c52a5cc99acf36d29788ce65d22ae4a7f59d4c8c275a5c52bf6ef65096a6a43b44b68101c730b8561a75e3eb39de5cc56
   languageName: node
   linkType: hard
 
@@ -7781,8 +7783,8 @@ __metadata:
   linkType: hard
 
 "jsdom@npm:^31.0.0":
-  version: 31.0.0
-  resolution: "jsdom@npm:31.0.0"
+  version: 31.0.1
+  resolution: "jsdom@npm:31.0.1"
   dependencies:
     "@exodus/bytes": ^1.16.0
     bcp-47: ^2.1.2
@@ -7807,7 +7809,7 @@ __metadata:
   peerDependenciesMeta:
     "@napi-rs/canvas":
       optional: true
-  checksum: c296f4f56aee70de46740376411f1bf79b8fa95dbf9bb7fbd1be970d08672877cf67e454b41bd586773fbedfab402649401ad11bc82bd99f3fddb94cf78a308e
+  checksum: cc561110a949fbedd78b16f480a2fcf1ef9913e30620dd52c41b62d907f1dbfc6d62d78201c578cec43a42a70838ba743fac3cb284c9ac98161ce9d6970168a1
   languageName: node
   linkType: hard
 
@@ -7916,9 +7918,9 @@ __metadata:
   linkType: hard
 
 "leaflet@npm:^1.8.0":
-  version: 1.8.0
-  resolution: "leaflet@npm:1.8.0"
-  checksum: 4a27895d4253844f2f13f94cbc52a2030b10833cdf553085d931b834745236a8d2a38844a01eb968cc109eb43268bfadb97aad85b51deffb17b6ccd106542e00
+  version: 1.9.4
+  resolution: "leaflet@npm:1.9.4"
+  checksum: bfc79f17a247b37b92d84b3c78702501603392d6589fde606de4a825d11f1609d90225388834f2e0709dac327e52dcd4b4b9cc9fd3d590060c5b1e53b84fa6c6
   languageName: node
   linkType: hard
 
@@ -7933,9 +7935,9 @@ __metadata:
   linkType: hard
 
 "libphonenumber-js@npm:^1.10.28":
-  version: 1.10.28
-  resolution: "libphonenumber-js@npm:1.10.28"
-  checksum: 3a3aac653265751822b495d30c1196a072c52612fb2b7cf0efe38b0ad25a48df2a0bf2220fb7066af1a1734b9cd9ba78ddaf758da5194422bbb57c4c592c381a
+  version: 1.13.17
+  resolution: "libphonenumber-js@npm:1.13.17"
+  checksum: cfc3f2a4cb876c3255e6bd1fdb924e93a893f4e91a5cfaa3ea3ff1613cdefa30b01ca7aa7f084cb2a7a59ff134c2c03a314e851efa3740be2094535340d45244
   languageName: node
   linkType: hard
 
@@ -8027,14 +8029,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash-es@npm:*, lodash-es@npm:^4.17.21":
-  version: 4.17.21
-  resolution: "lodash-es@npm:4.17.21"
-  checksum: 05cbffad6e2adbb331a4e16fbd826e7faee403a1a04873b82b42c0f22090f280839f85b95393f487c1303c8a3d2a010048bf06151a6cbe03eee4d388fb0a12d2
-  languageName: node
-  linkType: hard
-
-"lodash-es@npm:^4.18.1":
+"lodash-es@npm:*, lodash-es@npm:^4.17.21, lodash-es@npm:^4.18.1":
   version: 4.18.1
   resolution: "lodash-es@npm:4.18.1"
   checksum: 578993943cfa779e784aeed96766484ec6ab15cd855e52c79631de6371ac49fadd6dd9f4719f8d1223ab2bcb0dfbece484f548191dd34d3dd8b39e1af712a343
@@ -8155,7 +8150,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^1.1.0, magic-string@npm:^1.4.3":
+"magic-string@npm:^1.1.0, magic-string@npm:^1.4.5":
   version: 1.4.5
   resolution: "magic-string@npm:1.4.5"
   dependencies:
@@ -9754,17 +9749,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picocolors@npm:1.1.1, picocolors@npm:^1.1.1":
+"picocolors@npm:1.1.1, picocolors@npm:^1.0.0, picocolors@npm:^1.1.1":
   version: 1.1.1
   resolution: "picocolors@npm:1.1.1"
   checksum: e1cf46bf84886c79055fdfa9dcb3e4711ad259949e3565154b004b260cd356c5d54b31a1437ce9782624bf766272fe6b0154f5f0c744fb7af5d454d2b60db045
-  languageName: node
-  linkType: hard
-
-"picocolors@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "picocolors@npm:1.0.0"
-  checksum: a2e8092dd86c8396bdba9f2b5481032848525b3dc295ce9b57896f931e63fc16f79805144321f72976383fc249584672a75cc18d6777c6b757603f372f745981
   languageName: node
   linkType: hard
 
@@ -11060,9 +11048,9 @@ __metadata:
   linkType: hard
 
 "sortablejs@npm:^1.15.0":
-  version: 1.15.0
-  resolution: "sortablejs@npm:1.15.0"
-  checksum: bb82223a663484640d317cad510ac987f26b7a443631040407224de1be069afcc6c39048b6d8527f10f269e33595e8128d7de2fac23517c8260470f77f932d55
+  version: 1.15.7
+  resolution: "sortablejs@npm:1.15.7"
+  checksum: dd16bd8b3e65cb47d90a529e946381d33919891dbb555cdd80816624d5973565fc56b1ee73e001f896705b8aba44859c627e2aa90cfc1de277d88b250ecd789a
   languageName: node
   linkType: hard
 
@@ -11590,17 +11578,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tinybench@npm:^6.2.2":
-  version: 6.2.3
-  resolution: "tinybench@npm:6.2.3"
-  checksum: a4a133fd69632cb59c7285c79f6d4157a1434fed049981e72e896dd331696cdb1d8f0056bb6725577c9538f55dc2072373c89a7e470b36d926b6139177b91235
+"tinybench@npm:^6.2.3":
+  version: 6.2.4
+  resolution: "tinybench@npm:6.2.4"
+  checksum: fde6d931829c76055f1dcd134b9cef29f3e4d7db054439b5114553c73d3cf2d181c53338c1a711f4f001a3060a60f47c6816d44d504b1d6a0cb673743501864b
   languageName: node
   linkType: hard
 
 "tinycolor2@npm:^1.4.2":
-  version: 1.4.2
-  resolution: "tinycolor2@npm:1.4.2"
-  checksum: 57ed262e08815a4ab0ed933edafdbc6555a17081781766149813b44a080ecbe58b3ee281e81c0e75b42e4d41679f138cfa98eabf043f829e0683c04adb12c031
+  version: 1.6.0
+  resolution: "tinycolor2@npm:1.6.0"
+  checksum: 6df4d07fceeedc0a878d7bac47e2cd47c1ceeb1078340a9eb8a295bc0651e17c750f73d47b3028d829f30b85c15e0572c0fd4142083e4c21a30a597e47f47230
   languageName: node
   linkType: hard
 
@@ -12216,11 +12204,11 @@ __metadata:
   linkType: hard
 
 "vanilla-picker@npm:^2.12.1":
-  version: 2.12.1
-  resolution: "vanilla-picker@npm:2.12.1"
+  version: 2.12.3
+  resolution: "vanilla-picker@npm:2.12.3"
   dependencies:
     "@sphinxxxx/color-conversion": ^2.2.2
-  checksum: 92cedd11869a7b9b2e1c1476f07c64d942bd3de625063618ff4a3758fc51371c3b9ef7e175f22634b702416df5a5a02e7ab62395ab9b159b36be44c3c43895fc
+  checksum: 2ca51d29a7a12f76c9af0ddee1b5d971366d0e9be9913f14bada91bd4828b86de7e7a44b0b032bd53faac20e52d6c31d2ec6b642c40fac5bf629c5c37ab9b913
   languageName: node
   linkType: hard
 
@@ -12300,19 +12288,19 @@ __metadata:
   linkType: hard
 
 "vitest@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "vitest@npm:5.1.0"
+  version: 5.1.1
+  resolution: "vitest@npm:5.1.1"
   dependencies:
     "@types/chai": ^5.2.2
-    "@vitest/mocker": 5.1.0
+    "@vitest/mocker": 5.1.1
     chai: ^6.3.0
     es-module-lexer: ^2.3.2
     expect-type: ^1.4.0
-    magic-string: ^1.4.3
+    magic-string: ^1.4.5
     obug: ^3.0.0
     picomatch: ^4.0.7
     std-env: ^4.3.0
-    tinybench: ^6.2.2
+    tinybench: ^6.2.3
     tinyexec: ^1.3.1
     tinyglobby: ^0.2.17
     why-is-node-running: 3.2.1
@@ -12320,12 +12308,12 @@ __metadata:
     "@edge-runtime/vm": "*"
     "@opentelemetry/api": ^1.9.0
     "@types/node": ^22.0.0 || >=24.0.0
-    "@vitest/browser-playwright": 5.1.0
-    "@vitest/browser-preview": 5.1.0
+    "@vitest/browser-playwright": 5.1.1
+    "@vitest/browser-preview": 5.1.1
     "@vitest/browser-webdriverio": ^5.0.0-beta.5 || >=5.0.0
-    "@vitest/coverage-istanbul": 5.1.0
-    "@vitest/coverage-v8": 5.1.0
-    "@vitest/ui": 5.1.0
+    "@vitest/coverage-istanbul": 5.1.1
+    "@vitest/coverage-v8": 5.1.1
+    "@vitest/ui": 5.1.1
     happy-dom: "*"
     jsdom: "*"
     vite: ^6.4.0 || ^7.0.0 || ^8.0.0
@@ -12356,7 +12344,7 @@ __metadata:
       optional: false
   bin:
     vitest: ./vitest.mjs
-  checksum: 3b1519d94d75c8ec5d72fba2d69365d196d3966640aa64e38c5979a35b62f3a6d3206e70341824d59d798e50bfc92304f27efce550edb7312352e5805c5b58aa
+  checksum: f9c205c7c3bf614520df3762e86764e5044d1ff88ff30326d23efdec404dce08da6cad1e439e9481d12be1d4bc1a82fa8065afa57b6ca03c09b266a54d075426
   languageName: node
   linkType: hard
 
@@ -12467,8 +12455,8 @@ __metadata:
   linkType: hard
 
 "vue-eslint-parser@npm:^10.2.0, vue-eslint-parser@npm:^10.4.0":
-  version: 10.4.1
-  resolution: "vue-eslint-parser@npm:10.4.1"
+  version: 10.4.2
+  resolution: "vue-eslint-parser@npm:10.4.2"
   dependencies:
     debug: ^4.4.0
     eslint-scope: ^8.2.0 || ^9.0.0
@@ -12478,7 +12466,7 @@ __metadata:
     semver: ^7.6.3
   peerDependencies:
     eslint: ^8.57.0 || ^9.0.0 || ^10.0.0
-  checksum: 67a8a45f6bae4b138a0e31dd5d161ef9d93176462d6a60786c2f2a9d0434179ebd0a97e632ff1ac8dad7c20cbd98a408d3480c7472c288e511e48f30a0d8f62d
+  checksum: 4de7b8d7541c06de3c63f0127421b1d8a990ff8f8fe99f48df86e25def31ce7a94dd280d985e5b8a5e8916b8f34c7e8079fabcb4b07117d12e9cc23f514e7697
   languageName: node
   linkType: hard
 
